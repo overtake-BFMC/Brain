@@ -85,11 +85,11 @@ class processTrafficCommunication(WorkerProcess):
         TrafficComTh = threadTrafficCommunication(
             self.shared_memory, self.queuesList, self.deviceID, self.frequency, self.filename
         )
-        # TrafficComIntTh = threadTrafficCOmInternal(
-        #     self.shared_memory, self.queuesList, self.debugging
-        # )
+        TrafficComIntTh = threadTrafficCOmInternal(
+            self.shared_memory, self.queuesList, self.debugging
+        )
         self.threads.append(TrafficComTh)
-        #self.threads.append(TrafficComIntTh)
+        self.threads.append(TrafficComIntTh)
 
 
 # =================================== EXAMPLE =========================================

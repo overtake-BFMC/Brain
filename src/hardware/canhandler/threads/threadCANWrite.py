@@ -16,7 +16,8 @@ from src.utils.messages.allMessages import (
     FillHeadlights,
     SetHeadlight,
     ToggleHeadlight,
-    ToggleFullHeadlights
+    ToggleFullHeadlights,
+    ToggleSideHeadlights
 )
 from src.utils.messages.messageHandlerSubscriber import messageHandlerSubscriber
 from src.utils.messages.messageHandlerSender import messageHandlerSender
@@ -163,22 +164,31 @@ class threadCANWrite(ThreadWithStop):
 
                     toggleHeadlightRecv = self.toggleHeadlightSubscriber.receive()
                     if toggleHeadlightRecv is not None:
-                        self.ToggleSpecificHeadlight(int(toggleHeadlightRecv))
+                        self.toggleSpecificHeadlight(int(toggleHeadlightRecv))
 
-                    ToggleFullHeadlights = self.toggleFullHeadlightsSubscriber.receive()
-                    if ToggleFullHeadlights is not None:
-                        self.ToggleFullHeadlights(int(ToggleFullHeadlights))
+                    toggleFullHeadlightsRecv = self.toggleFullHeadlightsSubscriber.receive()
+                    if toggleFullHeadlightsRecv is not None:
+                        self.toggleFullHeadlights(int(toggleFullHeadlightsRecv))
+
+                    toggleSideHeadlightsRecv = self.toggleSideHeadlightsSubscriber.receive()
+                    if toggleSideHeadlightsRecv is not None:
+                        self.toggleSideHeadlights(int(toggleSideHeadlightsRecv))
                         
             except Exception as e:
                 pass
 
-    def ToggleFullHeadlights(self, state):
+    def toggleSideHeadlights(self, state):
+        self.headlightState[bool(state)] * self.LEDNum
+        command = struct.pack("<BBBB", int(255), int(255), int(255), int(45 if state else 0))
+        self.sendToCAN(0x142, command)
+
+    def toggleFullHeadlights(self, state):
         self.headlightState[bool(state)] * self.LEDNum
         command = struct.pack("<BBBB", int(255), int(255), int(255), int(45 if state else 0))
         self.sendToCAN(0x140, command)
         
 
-    def ToggleSpecificHeadlight(self, LEDPos):
+    def toggleSpecificHeadlight(self, LEDPos):
         if(LEDPos < 1 and LEDPos > 24):
             return
         self.headlightState[LEDPos-1] = not self.headlightState[LEDPos-1]
@@ -242,3 +252,4 @@ class threadCANWrite(ThreadWithStop):
         self.setHeadlightSubscriber = messageHandlerSubscriber(self.queuesList, SetHeadlight, "lastOnly", True)
         self.toggleHeadlightSubscriber = messageHandlerSubscriber(self.queuesList, ToggleHeadlight, "lastOnly", True)
         self.toggleFullHeadlightsSubscriber = messageHandlerSubscriber(self.queuesList, ToggleFullHeadlights, "lastOnly", True)
+        self.toggleSideHeadlightsSubscriber = messageHandlerSubscriber(self.queuesList, ToggleSideHeadlights, "lastOnly", True)

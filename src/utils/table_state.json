@@ -98,6 +98,20 @@
         "hasChanged": false
     },
     {
+        "channel": "ToggleSideHeadlights",
+        "value": "False",
+        "initialValue": "True",
+        "interval": 0,
+        "type": "dropdown",
+        "values": [
+            "True",
+            "False"
+        ],
+        "command": "ToggleSideHeadlights",
+        "checked": false,
+        "hasChanged": false
+    },
+    {
         "channel": "SetLaneKP",
         "value": 1,
         "initialValue": 1,

@@ -103,11 +103,9 @@ class threadLaneDetection(ThreadWithStop):
 
         self.ppData, self.maps = pre.loadPPData(dir_path + "/../utils/data")  
 
-        # self.pid = PID.PIDController( Kp = 0.15, Ki = 0.05, Kd = 0.09 ) #40cms
-
-        self.Kp = 0.20 # trenutly
-        self.Ki = 0.03
-        self.Kd = 0.09
+        self.Kp = 0.17 # trenutly
+        self.Ki = 0.01
+        self.Kd = 0.08
 
         self.initialSpeed = 20
         self.pid = PID.PIDController( self.Kp, self.Ki, self.Kd )
@@ -255,6 +253,8 @@ class threadLaneDetection(ThreadWithStop):
         if boolDetections[2]: #crosswalk-sign
             self.aproachingSign = True
             self.aproachingSignID = 4
+            #Check if it is already in intersection, it cannot aproach again
+            self.vehicleState.setStateSignal(stateSignalType.APROACHING_INTERSECTION, True)
             #trafficComunicationID = 4 
             print("crosswalk detected")
             isDetected = True
@@ -306,6 +306,8 @@ class threadLaneDetection(ThreadWithStop):
             self.vehicleState.setStateSignal(stateSignalType.APROACHING_INTERSECTION, True)
             
         if boolDetections[12][1] and boolDetections[13]: #stop-sign and stop line
+
+            self.vehicleState.setStateSignal(stateSignalType.APROACHING_INTERSECTION, True)
             #trafficComunicationID = 1 
             
             if not timer[0][0] and not timer[1][0]:
@@ -455,7 +457,7 @@ class threadLaneDetection(ThreadWithStop):
             signX = x + np.cos(yaw) + self.distanceR
             signY = y + np.sin(yaw) + self.distanceR
             #poslati na tcsystem
-            self.trafficCommInternalSender.send({"dataType": "historyData", "vals": [signX, signY, self.aproachingSignID]})
+            self.trafficCommInternalSender.send({"dataType": "historyData", "vals": [self.aproachingSignID, signX/1000, signY/1000]})
             self.aproachingSignID = None
             self.aproachingSign = False
             self.atSign = True
@@ -468,7 +470,7 @@ class threadLaneDetection(ThreadWithStop):
             obsticleX = x + np.cos(yaw) + self.distanceF
             obsitcleY = y + np.sin(yaw) + self.distanceF
 
-            self.trafficCommInternalSender.send({"dataType": "historyData", "vals": [obsticleX, obsitcleY, self.aproachingObsticleID]})
+            self.trafficCommInternalSender.send({"dataType": "historyData", "vals": [self.aproachingObsticleID, obsticleX/1000, obsitcleY/1000]})
             self.aproachingObsticleID = None
             self.aproachingObsticle = False
             self.detectedObsticle = True
@@ -480,22 +482,24 @@ class threadLaneDetection(ThreadWithStop):
         if not isDetected and \
             not self.isOnHighway and \
             not self.redLightFlag and \
-            not self.vehicleState.getStateSignal(stateSignalType.IN_INTERSECION) and \
+            not self.vehicleState.getStateSignal(stateSignalType.IN_INTERSECTION) and \
             not self.vehicleState.getStateSignal(stateSignalType.APROACHING_ROADBLOCK) and \
             not self.vehicleState.getStateSignal(stateSignalType.ROADBLOCK_MANEUVER):
                 desiredSpeed = 25
                 self.vehicleState.setSpeed(desiredSpeed) #25
             #desiredSpeed = 20
+            
         else:
             self.vehicleState.setSpeed(desiredSpeed)
             
-        self.trafficCommInternalSender.send({"dataType": "deviceSpeed", "vals": [desiredSpeed]})
+        #self.trafficCommInternalSender.send({"dataType": "deviceSpeed", "vals": [desiredSpeed]})
 
     def run(self):
         PIDStepValue = 0.01
+        margins = 30
 
         counter = 0
-        counter_max = 5
+        counter_max = 4
         prev_lane_center = 960 // 2
 
         filtered_boxes = np.array([])
@@ -577,7 +581,13 @@ class threadLaneDetection(ThreadWithStop):
 
                 # LANEFOL.perspectiveWarp( frame_lines )
 
-                frame_lines, original_frame = self.LANEFOL.sliding_window_search( thresh, frame_lines )
+
+                if self.isOnHighway: 
+                    margins = 30
+                else:
+                    margins = 30
+                
+                frame_lines, original_frame = self.LANEFOL.sliding_window_search( thresh, frame_lines, margins )
 
                 lane_center = self.LANEFOL.lane_center
 
@@ -641,6 +651,8 @@ class threadLaneDetection(ThreadWithStop):
                 with self.LaneVideolock:
                     np.copyto(self.frameLaneBuffer, frame_lines)
                     #np.copyto(self.frameLaneBuffer, detection_frame)
+
+            time.sleep(0.005)
 
 
     def stop(self):

@@ -30,9 +30,9 @@ class threadCamera(ThreadWithStop):
         self.logger = logger
         self.debugging = debugging
         #self.logger = configLogger(LoggerConfigs.WORKER, __name__, self.loggingQueue)
-        self.frame_rate = 20
+        self.frame_rate = 28
         self.recording = False
-        self.send_fps = 20
+        self.send_fps = 28
         self.frame_interval = 1.0 / self.send_fps
         self.last_sent_time = time.time()
         self.video_writer = ""
@@ -115,7 +115,7 @@ class threadCamera(ThreadWithStop):
     def run(self):
         """This function will run while the running flag is True. It captures the image from camera and makes the required modifications and sends the data to process gateway."""
         
-        send = True
+        #send = True
         frame_counter = 0  # Counter for frames
         recordingInitialized = False
         while self._running:
@@ -149,27 +149,27 @@ class threadCamera(ThreadWithStop):
             except Exception as e:
                 print(e)
 
-            if send:
-                ret, frame = self.camera.read()
-                if ret:
-                    self.latest_frame = frame
+            #if send:
+            ret, frame = self.camera.read()
+            if ret:
+                self.latest_frame = frame
 
-                    #_, encoded_frame = cv2.imencode(".jpg", frame, [cv2.IMWRITE_JPEG_QUALITY, 50])
-                    #decoded_frame = cv2.imdecode(encoded_frame, cv2.IMREAD_COLOR)
+                #_, encoded_frame = cv2.imencode(".jpg", frame, [cv2.IMWRITE_JPEG_QUALITY, 50])
+                #decoded_frame = cv2.imdecode(encoded_frame, cv2.IMREAD_COLOR)
 
-                    current_time = time.time()
-                    if current_time - self.last_sent_time >= self.frame_interval:
-                        if self.recording:
-                            #self.video_writer.write(decoded_frame)
-                            self.video_writer.write(frame)
-                        self.last_sent_time = current_time
-                        #self.mainVideoSender.send(decoded_frame)
-                        with self.lock:
-                            #np.copyto(self.frameBuffer, decoded_frame)
-                            np.copyto(self.frameBuffer, frame)
-                            #self.frameBuffer[:] = frame
-
-        send = not send
+                current_time = time.time()
+                if current_time - self.last_sent_time >= self.frame_interval:
+                    if self.recording:
+                        #self.video_writer.write(decoded_frame)
+                        self.video_writer.write(frame)
+                    self.last_sent_time = current_time
+                    #self.mainVideoSender.send(decoded_frame)
+                    with self.lock:
+                        #np.copyto(self.frameBuffer, decoded_frame)
+                        np.copyto(self.frameBuffer, frame)
+                        #self.frameBuffer[:] = frame
+            time.sleep(0.001)
+        #send = not send
 
     # =============================== START ===============================================
     def start(self):
@@ -213,6 +213,6 @@ class threadCamera(ThreadWithStop):
 
         self.camera = cv2.VideoCapture(gst_pipeline, cv2.CAP_GSTREAMER)
         cv2.setUseOptimized(True)
-        cv2.setNumThreads(2)  # Limit OpenCV to 2 threads
+        cv2.setNumThreads(3)  # Limit OpenCV to 2 threads
         if not self.camera.isOpened():
             raise Exception("Could not open video device.")

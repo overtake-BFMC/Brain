@@ -325,6 +325,12 @@ class SetLaneKI(Enum):
     msgID = 40
     msgType = "int"
 
+class ToggleSideHeadlights(Enum):
+    Queue = "General"
+    Owner = "Dashboard"
+    msgID = 41
+    msgType = "str"
+
 ################################# From WebRTC(Video Stream) ##################################
 class WebRTCAnswer(Enum):
     Queue = "General"

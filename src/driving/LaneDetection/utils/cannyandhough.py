@@ -92,12 +92,12 @@ class LaneFollowing:
         return frame, lines, edges, hls_result, thresh
         
 
-    def sliding_window_search( self, thresh_frame, original_frame ):
+    def sliding_window_search( self, thresh_frame, original_frame, highwayMargin ):
 
         mask = np.zeros_like( thresh_frame )
         #test
-        outer_vertices = np.array([[(0, 540), (150, 350), (810, 350), (960, 540)]])    
-        # outer_vertices = np.array([[(0, 540), (150, 400), (810, 400), (960, 540)]])    trnutly
+        # outer_vertices = np.array([[(0, 540), (150, 350), (810, 350), (960, 540)]])   #radilo  
+        outer_vertices = np.array([[(0, 540), (150, 400), (810, 400), (960, 540)]])    #trnutly
         # outer_vertices = np.array([[(0, 540), (0, 400), (960, 400), (960, 540)]])  
         cv2.fillPoly(mask, outer_vertices, 255)
 
@@ -119,7 +119,7 @@ class LaneFollowing:
         rightx_base = np.argmax( histogram[midpoint:] ) + midpoint
 
         window_num = 15
-        margin = 50
+        margin = highwayMargin
         minpix = 100
 
         window_height = int( thresh_frame.shape[0] // window_num )

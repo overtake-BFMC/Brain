@@ -64,6 +64,7 @@ class sharedMem:
 
     # Method to insert data into shared memory
     def insert(self, msg, values):
+        #print(f"Inserting SHMEM, msg:{msg}, values:{values}")
         with self.lock:  # Acquire the lock
             self.shared_memory[self.lastMem]["Command"] = msg  # Set the command string
             if len(values) > 0:

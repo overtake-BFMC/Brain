@@ -98,7 +98,7 @@ isOnBFMCTrack = False
 Camera = True
 Semaphores = False
 TrafficCommunication = False
-LocSYSID = 8
+LocSYSID = 5
 SerialHandler = False
 
 # ------ New component flags starts here ------#

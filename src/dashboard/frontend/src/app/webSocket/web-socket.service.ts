@@ -41,7 +41,7 @@ export class WebSocketService {
     'cpu_channel',
     'disk_channel',
     'webCamera',
-    'Location',
+    //'Location',
     'Cars',
     'Semaphores',
     'after connect',

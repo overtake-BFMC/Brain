@@ -46,5 +46,6 @@ class periodicTask(task.LoopingCall):
         Perform the periodic check and send data to the server.
         """
         tosend = self.shrd_mem.get()
+        #print(f"ToSEND DATA: {tosend}")
         for mem in tosend:
             self.tcp_factory.send_data_to_server(mem)

@@ -71,8 +71,10 @@ class tcpClient(protocol.ClientFactory):
         return conn
 
     def send_data_to_server(self, message):
-        self.connection.send_data(message)
-
+        try:
+            self.connection.send_data(message)
+        except Exception as e:
+            print(f"CONNECTION PROBLEM, Retrying Send...")
 
 # One class is generated for each new connection
 class SingleConnection(protocol.Protocol):
@@ -94,7 +96,7 @@ class SingleConnection(protocol.Protocol):
         if da["type"] == "location":
             da["id"] = self.factory.locsysID
             self.factory.sendLocation.send(da)
-            print(f"{da}")
+            #print(f"{da}")
         else:
             print(
                 "got message from trafficcommunication server: ",

@@ -110,6 +110,8 @@ class threadPathFollowing(ThreadWithStop):
 
         self.KFLocalization = kalmanFilterLocalization(dt = self.timeStep)
 
+
+
         while self._running:
 
             trackChoice = self.selectTrackSubscriber.receive()    
@@ -119,18 +121,20 @@ class threadPathFollowing(ThreadWithStop):
                 if self.chosenTrack == 0:
                     #ROUNDABOUT RUN desno skretanje
 
-                    self.WhitelinePosition = (1622.1, 952.7)
+                    self.WhitelinePosition = (1646.8, 401.1)
 
-                    speed = 15
-                    self.lookAheadDistance = speed * self.lookAheadValue
-                    yaw = 90
+                    speed = 25
+                    # self.lookAheadDistance = speed * self.lookAheadValue
+                    yaw = 180
 
                     if self.waypoints:
                         self.waypoints.clear() 
 
-                    self.waypoints.extend(range(315, 318))
-                    self.waypoints.extend(range(332, 333))
-                    self.waypoints.extend(range(368, 370))
+                    self.waypoints.extend(range(9000, 9002))
+                    self.waypoints.extend(range(54, 55))
+                    self.waypoints.extend(range(2001, 2002))
+                    self.waypoints.extend(range(55, 56))
+                    self.waypoints.extend(range(305, 310))
 
                     if len(self.path):
                         self.path = np.array([])
@@ -144,22 +148,49 @@ class threadPathFollowing(ThreadWithStop):
                 elif self.chosenTrack == 1:
                     #HIGHWAY RUN
 
+                    self.WhitelinePosition = []
+                    # self.WhitelinePosition.append((475.6, 756.3, np.deg2rad(270)))
+                    #TUNNEL EXIT
+                    # self.WhitelinePosition.append((309.4, 688.6, np.deg2rad(180)))
+                    # self.WhitelinePosition.append((93.9, 688.6, np.deg2rad(180)))
+                    #TUNNEL ENTRY
+                    self.WhitelinePosition.append((34.5, 1080.6, np.deg2rad(270)))
+                    self.WhitelinePosition.append((93.2, 921.1, np.deg2rad(0)))
+                    #TUNNEL PASS
+                    #self.WhitelinePosition.append((71.9, 909.9, np.deg2rad(90)))
                     speed = 25
-                    self.lookAheadDistance = speed * self.lookAheadValue
-                    # yaw = 90
-
-                    #old map
-                    yaw = 0
-
+                    # self.lookAheadDistance = speed * self.lookAheadValue
+                    #TUNNEL EXIT
+                    #yaw = 275
+                    #TUNNEL ENTRY
+                    yaw = 270
+                    #TUNEL PASS
+                    #yaw = 90
                     if self.waypoints:
                         self.waypoints.clear() 
 
-                    # self.waypoints.extend(range(10, 26))
-
-                    #old map
-                    self.waypoints.extend(range(296, 302))
-                    self.waypoints.extend(range(303, 307))
-                    self.waypoints.extend(range(231, 233))
+                    #TUNNEL EXIT
+                    # self.waypoints.extend(range(175, 178))
+                    # self.waypoints.extend(range(8, 9))
+                    # self.waypoints.extend(range(2002, 2006))
+                    # self.waypoints.extend(range(1, 2))
+                    # self.waypoints.extend(range(150, 151))
+                    # self.waypoints.extend(range(18, 19))
+                    # self.waypoints.extend(range(13, 14))
+                    # self.waypoints.extend(range(148, 149))
+                    # self.waypoints.extend(range(91, 93))
+                    # self.waypoints.extend(range(178, 179))
+                    #TUNNEL ENTRY
+                    self.waypoints.extend(range(442, 444))
+                    self.waypoints.extend(range(84, 85))
+                    self.waypoints.extend(range(10001, 10002))
+                    self.waypoints.extend(range(81, 82))
+                    self.waypoints.extend(range(165, 169))
+                    #TUNNEL PASS
+                    # self.waypoints.extend(range(178, 181))
+                    # self.waypoints.extend(range(80, 81))
+                    # self.waypoints.extend(range(83, 84))
+                    # self.waypoints.extend(range(406, 408))
 
                     if len(self.path):
                         self.path = np.array([])
@@ -174,8 +205,8 @@ class threadPathFollowing(ThreadWithStop):
 
                     self.WhitelinePosition = (288.0, 599.6)
                     
-                    speed = 15
-                    self.lookAheadDistance = speed * self.lookAheadValue
+                    speed = 25
+                    # self.lookAheadDistance = speed * self.lookAheadValue
 
                     yaw = 90
 
@@ -187,6 +218,7 @@ class threadPathFollowing(ThreadWithStop):
                     self.waypoints.extend(range(2000, 2001))
                     self.waypoints.extend(range(17, 18))
                     self.waypoints.extend(range(149, 150))
+                    self.waypoints.extend(range(2, 3))
 
 
                     if len(self.path):
@@ -201,8 +233,8 @@ class threadPathFollowing(ThreadWithStop):
 
                     self.WhitelinePosition = (288.0, 599.6)
 
-                    speed = 15
-                    self.lookAheadDistance = speed * self.lookAheadValue
+                    speed = 25
+                    # self.lookAheadDistance = speed * self.lookAheadValue
 
                     yaw = 90
 
@@ -213,6 +245,7 @@ class threadPathFollowing(ThreadWithStop):
                     self.waypoints.extend(range(16, 7))
                     self.waypoints.extend(range(13, 14))
                     self.waypoints.extend(range(148, 149))
+                    self.waypoints.extend(range(91, 92))
 
 
                     if len(self.path):
@@ -406,13 +439,6 @@ class threadPathFollowing(ThreadWithStop):
         )
 
         self.vehicle.setPosition(vehicleX, vehicleY, vehicleYaw)
-
-    
-    # def findLookAheadPoint(self, lastPathPointId):
-    #     if lastPathPointId >= self.pathLength:
-    #         return (None, None)
-            
-    #     return self.path[lastPathPointId]
     
     def findLookAheadPoint(self, lastPathPointId):
 
@@ -448,63 +474,8 @@ class threadPathFollowing(ThreadWithStop):
         
         dot_product = dx * forward_x + dy * forward_y
         
-        distance = np.hypot(dx, dy)
         return dot_product < 0
     
-    def isBehind(self, currX, currY,  waypoint_x, waypoint_y):
-        dx = waypoint_x - currX
-        dy = waypoint_y - currY
-        
-        forward_x = np.cos(self.vehicle.getYaw())
-        forward_y = np.sin(self.vehicle.getYaw())
-        
-        dot_product = dx * forward_x + dy * forward_y
-        distance = np.hypot(dx, dy)
-
-        return distance < 30 or dot_product < 0
-    
-    def roadblockManeuver(self, nextNodeId, distanceFromRoadblock, distanceToTarget, distanceToNode = 25.0):
-        vehicleX, vehicleY, vehicleYaw = self.vehicle.getPosition()
-
-        nextNodeX, nextNodeY = self.path[nextNodeId]
-
-        heading = vehicleYaw
-
-        left_dx = np.sin(heading)
-        left_dy = -np.cos(heading)
-
-        node1_x = nextNodeX + 20.0 * left_dx
-        node1_y = nextNodeY + 20.0 * left_dy
-
-        forward_dx = np.cos(heading)
-        forward_dy = np.sin(heading)
-
-        node1_x += distanceFromRoadblock * forward_dx
-        node1_y += distanceFromRoadblock * forward_dy
-
-        node2_x = node1_x + distanceFromRoadblock * forward_dx
-        node2_y = node1_y + distanceFromRoadblock * forward_dy
-
-
-        while len(self.path) <= nextNodeId + 1:
-            self.path.append((0.0, 0.0))
-
-        self.path[nextNodeId] = (node1_x, node1_y)
-        self.path[nextNodeId + 1] = (node2_x, node2_y)
-
-        new_path = self.path[:nextNodeId + 2]
-        remaining_path = self.path[nextNodeId + 2:]
-
-        index = 0
-        for (x, y) in remaining_path:
-            if self.isBehind(node2_x, node2_y,  x, y):
-                index += 1
-            else:
-                break
-
-        self.path = new_path + remaining_path[index:]
-        self.pathLength = len(self.path)
-
     def computeSteer(self, target_x, target_y):
 
         vehicleX, vehicleY, vehicleYaw = self.vehicle.getPosition()
@@ -534,15 +505,11 @@ class threadPathFollowing(ThreadWithStop):
 
         self.whiteLineSubscriber.subscribe()
         self.vehicle.resetStateFlags()
-        # self.startLaneDetectionSender.send("true")
-
-        isTurning = False
+        self.startLaneDetectionSender.send("true")
 
         refSpeed = 25.0
         minDt = 0.03
         maxDt = 0.08
-
-        manueverNodeId = -1
 
         vehicleX, vehicleY, vehicleYaw = self.vehicle.getPosition()
         vehicleSpeed, vehicleSteeringAngle, vehicleWheelbase = self.vehicle.getSpeedSteerWheelbase()
@@ -551,15 +518,23 @@ class threadPathFollowing(ThreadWithStop):
 
         lastTime = time.time()        
         lastPathPointId = 1
+        whitelineCounter = 0
 
-        self.vehicle.setStateSignal(stateSignalType.APROACHING_INTERSECTION, True)
+        DataSenderCounter = 0
 
-        # self.speedMotorSender.send(str(np.clip(vehicleSpeed*10, -500, 500)))
-
-
-        flagZeroAngle = False
         targetX, targetY = self.findLookAheadPoint(lastPathPointId)
         while targetX and targetY: 
+
+            DataSenderCounter += 1
+
+            if DataSenderCounter >= 12:
+                DataSenderCounter = 0
+
+                ###DATA SENDIING
+                self.trafficCommInternalSender.send({"dataType": "devicePos", "vals": [vehicleX/1000, vehicleY/1000]})
+                self.trafficCommInternalSender.send({"dataType": "deviceRot", "vals": [np.rad2deg(vehicleYaw)]})
+                self.trafficCommInternalSender.send({"dataType": "deviceSpeed", "vals": [vehicleSpeed]})
+
 
             self.resetLookAheadDistance()
 
@@ -573,18 +548,15 @@ class threadPathFollowing(ThreadWithStop):
             elapsedTime = nowTime - lastTime
 
             lastTime = nowTime
+           
 
             while lastPathPointId < self.pathLength and self.hasPassedWaypoint(self.path[lastPathPointId][0], self.path[lastPathPointId][1]):
                 lastPathPointId += 1
 
-            # g1, g2, g3 = self.vehicle.getPosition()
-
-            # {g1} {g2} {np.rad2deg(g3)}  
-            print(f"{np.rad2deg(vehicleSteeringAngle)}")
-
-            distanceToTarget = self.calculateDistanceToTarget(targetX, targetY)
             vehicleSteeringAngle = self.computeSteer(targetX, targetY)
             self.vehicle.setSteeringAngle(vehicleSteeringAngle)
+
+            tmpSteer = np.abs(round(np.rad2deg(vehicleSteeringAngle)) * 10)
 
             if np.abs(np.rad2deg(vehicleSteeringAngle)) >= 5:
                 self.setTimeStep(0.03)
@@ -594,51 +566,35 @@ class threadPathFollowing(ThreadWithStop):
                  vehicleSteeringAngle = 0
 
             steeringAngleSend = round(np.rad2deg(vehicleSteeringAngle)) * 10
-
+            print(f"{steeringAngleSend}")
 
             self.kinematicBicycleModel(elapsedTime)
             vehicleX, vehicleY, vehicleYaw = self.vehicle.getPosition()
 
-            # self.KFLocalization.prediction([vehicleX, vehicleY, vehicleYaw], vehicleSpeed, vehicleSteeringAngle, vehicleWheelbase )
-            ###DATA SENDIING
-            self.trafficCommInternalSender.send({"dataType": "devicePos", "vals": [vehicleX, vehicleY]})
-            self.trafficCommInternalSender.send({"dataType": "deviceRot", "vals": [vehicleYaw]})
-
             whiteLine = self.whiteLineSubscriber.receive()
             if whiteLine is not None and whiteLine and self.vehicle.getStateSignal(stateSignalType.APROACHING_INTERSECTION):
-                self.vehicle.setStateSignal(stateSignalType.IN_INTERSECION, True)
+
+                tmpSteer = 90
+                self.vehicle.setStateSignal(stateSignalType.IN_INTERSECTION, True)
                 self.vehicle.setStateSignal(stateSignalType.APROACHING_INTERSECTION, False)
-                flagZeroAngle = False
-            
-
-            if self.vehicle.getStateSignal(stateSignalType.IN_INTERSECION):
                 self.startLaneDetectionSender.send("false")
-                self.steerMotorSender.send(str(-steeringAngleSend))
 
-                if np.abs(steeringAngleSend) < 70 and not flagZeroAngle:
-                    self.startLaneDetectionSender.send("true")
-                    self.vehicle.setStateSignal(stateSignalType.IN_INTERSECION, False)
-                    flagZeroAngle = True
-    
+                x, y, yaw = self.WhitelinePosition[whitelineCounter]
+                self.vehicle.setPosition(x, y, yaw)
+                # g1, g2, g3 = self.vehicle.getPosition()
+                # print(f"{np.rad2deg(g3)}")
+
+                whitelineCounter += 1
             
 
+            if self.vehicle.getStateSignal(stateSignalType.IN_INTERSECTION):
+                self.steerMotorSender.send(str(-steeringAngleSend))
+                
+                if tmpSteer < 90:
+                    self.startLaneDetectionSender.send("true")
+                    self.vehicle.setStateSignal(stateSignalType.IN_INTERSECTION, False)
 
-                # x, y = self.WhitelinePosition
-                # self.vehicle.setPosition(x, y, vehicleYaw)
-
-
-            # if self.vehicle.getStateSignal(stateSignalType.ROADBLOCK_MANEUVER):
-
-
-            #     manueverNodeId = lastPathPointId + 1
-            #     distanceFromRoadBlock = self.vehicle.getFrontDistanceSensorValue() 
-
-            #     # self.setBaseLookAheadDistance()
-            #     self.roadblockManeuver(manueverNodeId, distanceFromRoadBlock, distanceToTarget, 100)
-            #     self.vehicle.setStateSignal(stateSignalType.ROADBLOCK_MANEUVER, False)
-
-            #     self.vehicle.setSpeed(20)
-            #     self.speedMotorSender.send(str(200))
+                    
                     
 
             targetX, targetY = self.findLookAheadPoint(lastPathPointId)
@@ -659,7 +615,6 @@ class threadPathFollowing(ThreadWithStop):
             
 
         g1, g2, g3 = self.vehicle.getPosition()
-        
         print(f"{g1} {g2} {np.rad2deg(g3)}  {np.rad2deg(vehicleSteeringAngle)}")
         
         self.steerMotorSender.send(str(0))

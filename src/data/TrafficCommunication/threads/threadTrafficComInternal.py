@@ -29,7 +29,8 @@ class threadTrafficCOmInternal(ThreadWithStop):
         while self._running:
             trafficRecv = self.trafficComInternalSubscriber.receive()
             if trafficRecv is not None:
-                self.sharedMemory.insert(trafficRecv[0], trafficRecv[1:3])
+                print(f"trafficSend: {trafficRecv}")
+                self.sharedMemory.insert(trafficRecv["dataType"], trafficRecv["vals"])
 
             time.sleep(0.05)
 

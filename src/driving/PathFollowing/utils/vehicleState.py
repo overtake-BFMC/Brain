@@ -2,7 +2,7 @@ from enum import Enum
 
 class stateSignalType(Enum):
         APROACHING_INTERSECTION = 0
-        IN_INTERSECION = 1
+        IN_INTERSECTION = 1
         INTERSECTION_LEFT = 2
         INTERSECTION_RIGHT = 3
         APROACHING_ROADBLOCK = 4

@@ -54,6 +54,7 @@ class threadTrafficCommunication(ThreadWithStop):
         super(threadTrafficCommunication, self).__init__()
         self.listenPort = 9000
         self.queue = queueslist
+        self.shrd_mem = shrd_mem
 
         self.tcp_factory = tcpClient(self.serverLost, deviceID, frequency, self.queue) # Handles the connection with the server
 
@@ -64,7 +65,7 @@ class threadTrafficCommunication(ThreadWithStop):
         self.reactor = reactor
         self.reactor.listenUDP(self.listenPort, self.udp_factory)
 
-        self.subscribe()
+        #self.subscribe()
 
     # =================================== CONNECTION =======================================
     def serverLost(self):
@@ -87,18 +88,20 @@ class threadTrafficCommunication(ThreadWithStop):
     def run(self):
         self.reactor.run(installSignalHandlers=False)
 
-        trafficRecv = self.trafficComInternalSubscriber.receive()
-        if trafficRecv is not None:
-            self.sharedMemory.insert(trafficRecv["dataType"], trafficRecv["vals"])
-            #In form of:
-            #["dataType": "devicePos", "vals": [val1, val2, val3]]
-            #devicePos, [v_x, v_y]
-            #deviceRot, [v_yaw]
-            #deviceSpeed, [v_spd]
-            #historyData, [o_x, o_y, o_id]
+        # while self._running:
+        #     trafficRecv = self.trafficComInternalSubscriber.receive()
+        #     if trafficRecv is not None:
+        #         print(f"trafficRecv: {trafficRecv}")
+        #         self.shrd_mem.insert(trafficRecv["dataType"], trafficRecv["vals"])
+        #     #In form of:
+        #     #["dataType": "devicePos", "vals": [val1, val2, val3]]
+        #     #devicePos, [v_x, v_y]
+        #     #deviceRot, [v_yaw]
+        #     #deviceSpeed, [v_spd]
+        #     #historyData, [o_x, o_y, o_id]
 
-            #check this sleep
-            time.sleep(0.05)
+        #     #check this sleep
+        #     time.sleep(0.05)
 
     # ====================================== STOP ==========================================
     def stop(self):
