@@ -198,7 +198,8 @@ class processDashboard(WorkerProcess):
     def sendContinuousMessages(self):
         """Send messages continuously to the frontend."""
         counter = 0
-        socketSleep = 0.1
+        #socketSleep = 0.1
+        socketSleep = 1 / 30
         sendTime = 1
 
         while self.running:

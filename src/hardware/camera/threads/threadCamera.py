@@ -130,8 +130,9 @@ class threadCamera(ThreadWithStop):
                     mainEncodedImageData = base64.b64encode(mainEncodedImg).decode("utf-8")
                     serialEncodedImageData = base64.b64encode(serialEncodedImg).decode("utf-8")
 
-                    self.mainCameraSender.send(mainEncodedImageData)
-                    self.serialCameraSender.send(serialEncodedImageData)
+                    #self.mainCameraSender.send(mainEncodedImageData)
+                    if (frame_counter % 5) == 0:
+                        self.serialCameraSender.send(serialEncodedImageData)
 
             send = not send
 
