@@ -1,0 +1,931 @@
+[94m1394[0m:  [32mdv1394src[0m: [0mFirewire (1394) DV video source[0m
+[94m1394[0m:  [32mhdv1394src[0m: [0mFirewire (1394) HDV video source[0m
+[94ma52dec[0m:  [32ma52dec[0m: [0mATSC A/52 audio decoder[0m
+[94maasink[0m:  [32maasink[0m: [0mASCII art video sink[0m
+[94maasink[0m:  [32maatv[0m: [0maaTV effect[0m
+[94maccurip[0m:  [32maccurip[0m: [0mAccurateRip(TM) CRC element[0m
+[94madder[0m:  [32madder[0m: [0mAdder[0m
+[94madpcmdec[0m:  [32madpcmdec[0m: [0mADPCM decoder[0m
+[94madpcmenc[0m:  [32madpcmenc[0m: [0mADPCM encoder[0m
+[94maes[0m:  [32maesdec[0m: [0maesdec[0m
+[94maes[0m:  [32maesenc[0m: [0maesenc[0m
+[94maiff[0m:  [32maiffmux[0m: [0mAIFF audio muxer[0m
+[94maiff[0m:  [32maiffparse[0m: [0mAIFF audio demuxer[0m
+[94malaw[0m:  [32malawdec[0m: [0mA Law audio decoder[0m
+[94malaw[0m:  [32malawenc[0m: [0mA Law audio encoder[0m
+[94malpha[0m:  [32malpha[0m: [0mAlpha filter[0m
+[94malphacolor[0m:  [32malphacolor[0m: [0mAlpha color filter[0m
+[94malsa[0m:  [32malsadeviceprovider[0m ([0mGstDeviceProviderFactory[0m)
+[94malsa[0m:  [32malsamidisrc[0m: [0mAlsaMidi Source[0m
+[94malsa[0m:  [32malsasink[0m: [0mAudio sink (ALSA)[0m
+[94malsa[0m:  [32malsasrc[0m: [0mAudio source (ALSA)[0m
+[94mamrnb[0m:  [32mamrnbdec[0m: [0mAMR-NB audio decoder[0m
+[94mamrnb[0m:  [32mamrnbenc[0m: [0mAMR-NB audio encoder[0m
+[94mamrwbdec[0m:  [32mamrwbdec[0m: [0mAMR-WB audio decoder[0m
+[94maom[0m:  [32mav1dec[0m: [0mAV1 Decoder[0m
+[94maom[0m:  [32mav1enc[0m: [0mAV1 Encoder[0m
+[94mapetag[0m:  [32mapedemux[0m: [0mAPE tag demuxer[0m
+[94mapp[0m:  [32mappsink[0m: [0mAppSink[0m
+[94mapp[0m:  [32mappsrc[0m: [0mAppSrc[0m
+[94masf[0m:  [32masfdemux[0m: [0mASF Demuxer[0m
+[94masf[0m:  [32mrtpasfdepay[0m: [0mRTP ASF packet depayloader[0m
+[94masf[0m:  [32mrtspwms[0m: [0mWMS RTSP Extension[0m
+[94masfmux[0m:  [32masfmux[0m: [0mASF muxer[0m
+[94masfmux[0m:  [32masfparse[0m: [0mASF parser[0m
+[94masfmux[0m:  [32mrtpasfpay[0m: [0mRTP ASF payloader[0m
+[94massrender[0m:  [32massrender[0m: [0mASS/SSA Render[0m
+[94maudiobuffersplit[0m:  [32maudiobuffersplit[0m: [0mAudio Buffer Split[0m
+[94maudioconvert[0m:  [32maudioconvert[0m: [0mAudio converter[0m
+[94maudiofx[0m:  [32maudioamplify[0m: [0mAudio amplifier[0m
+[94maudiofx[0m:  [32maudiochebband[0m: [0mBand pass & band reject filter[0m
+[94maudiofx[0m:  [32maudiocheblimit[0m: [0mLow pass & high pass filter[0m
+[94maudiofx[0m:  [32maudiodynamic[0m: [0mDynamic range controller[0m
+[94maudiofx[0m:  [32maudioecho[0m: [0mAudio echo[0m
+[94maudiofx[0m:  [32maudiofirfilter[0m: [0mAudio FIR filter[0m
+[94maudiofx[0m:  [32maudioiirfilter[0m: [0mAudio IIR filter[0m
+[94maudiofx[0m:  [32maudioinvert[0m: [0mAudio inversion[0m
+[94maudiofx[0m:  [32maudiokaraoke[0m: [0mAudioKaraoke[0m
+[94maudiofx[0m:  [32maudiopanorama[0m: [0mStereo positioning[0m
+[94maudiofx[0m:  [32maudiowsincband[0m: [0mBand pass & band reject filter[0m
+[94maudiofx[0m:  [32maudiowsinclimit[0m: [0mLow pass & high pass filter[0m
+[94maudiofx[0m:  [32mscaletempo[0m: [0mScaletempo[0m
+[94maudiofx[0m:  [32mstereo[0m: [0mStereo effect[0m
+[94maudiofxbad[0m:  [32maudiochannelmix[0m: [0mSimple stereo audio mixer[0m
+[94maudiolatency[0m:  [32maudiolatency[0m: [0mAudioLatency[0m
+[94maudiomixer[0m:  [32maudiointerleave[0m: [0mAudioInterleave[0m
+[94maudiomixer[0m:  [32maudiomixer[0m: [0mAudioMixer[0m
+[94maudiomixer[0m:  [32mliveadder[0m: [0mAudioMixer[0m
+[94maudiomixmatrix[0m:  [32maudiomixmatrix[0m: [0mMatrix audio mix[0m
+[94maudioparsers[0m:  [32maacparse[0m: [0mAAC audio stream parser[0m
+[94maudioparsers[0m:  [32mac3parse[0m: [0mAC3 audio stream parser[0m
+[94maudioparsers[0m:  [32mamrparse[0m: [0mAMR audio stream parser[0m
+[94maudioparsers[0m:  [32mdcaparse[0m: [0mDTS Coherent Acoustics audio stream parser[0m
+[94maudioparsers[0m:  [32mflacparse[0m: [0mFLAC audio parser[0m
+[94maudioparsers[0m:  [32mmpegaudioparse[0m: [0mMPEG1 Audio Parser[0m
+[94maudioparsers[0m:  [32msbcparse[0m: [0mSBC audio parser[0m
+[94maudioparsers[0m:  [32mwavpackparse[0m: [0mWavpack audio stream parser[0m
+[94maudiorate[0m:  [32maudiorate[0m: [0mAudio rate adjuster[0m
+[94maudioresample[0m:  [32maudioresample[0m: [0mAudio resampler[0m
+[94maudiotestsrc[0m:  [32maudiotestsrc[0m: [0mAudio test source[0m
+[94maudiovisualizers[0m:  [32mspacescope[0m: [0mStereo visualizer[0m
+[94maudiovisualizers[0m:  [32mspectrascope[0m: [0mFrequency spectrum scope[0m
+[94maudiovisualizers[0m:  [32msynaescope[0m: [0mSynaescope[0m
+[94maudiovisualizers[0m:  [32mwavescope[0m: [0mWaveform oscilloscope[0m
+[94mauparse[0m:  [32mauparse[0m: [0mAU audio demuxer[0m
+[94mautoconvert[0m:  [32mautoconvert[0m: [0mSelect converter based on caps[0m
+[94mautoconvert[0m:  [32mautovideoconvert[0m: [0mSelect color space converter based on caps[0m
+[94mautodetect[0m:  [32mautoaudiosink[0m: [0mAuto audio sink[0m
+[94mautodetect[0m:  [32mautoaudiosrc[0m: [0mAuto audio source[0m
+[94mautodetect[0m:  [32mautovideosink[0m: [0mAuto video sink[0m
+[94mautodetect[0m:  [32mautovideosrc[0m: [0mAuto video source[0m
+[94mavi[0m:  [32mavidemux[0m: [0mAvi demuxer[0m
+[94mavi[0m:  [32mavimux[0m: [0mAvi muxer[0m
+[94mavi[0m:  [32mavisubtitle[0m: [0mAvi subtitle parser[0m
+[94mbayer[0m:  [32mbayer2rgb[0m: [0mBayer to RGB decoder for cameras[0m
+[94mbayer[0m:  [32mrgb2bayer[0m: [0mRGB to Bayer converter[0m
+[94mbluez[0m:  [32ma2dpsink[0m: [0mBluetooth A2DP sink[0m
+[94mbluez[0m:  [32mavdtpsink[0m: [0mBluetooth AVDTP sink[0m
+[94mbluez[0m:  [32mavdtpsrc[0m: [0mBluetooth AVDTP Source[0m
+[94mbs2b[0m:  [32mbs2b[0m: [0mCrossfeed effect[0m
+[94mbz2[0m:  [32mbz2dec[0m: [0mBZ2 decoder[0m
+[94mbz2[0m:  [32mbz2enc[0m: [0mBZ2 encoder[0m
+[94mcacasink[0m:  [32mcacasink[0m: [0mA colored ASCII art video sink[0m
+[94mcacasink[0m:  [32mcacatv[0m: [0mCacaTV effect[0m
+[94mcairo[0m:  [32mcairooverlay[0m: [0mCairo overlay[0m
+[94mcamerabin[0m:  [32mcamerabin[0m: [0mCamera Bin[0m
+[94mcamerabin[0m:  [32mviewfinderbin[0m: [0mViewfinder Bin[0m
+[94mcamerabin[0m:  [32mwrappercamerabinsrc[0m: [0mWrapper camera src element for camerabin2[0m
+[94mcdio[0m:  [32mcdiocddasrc[0m: [0mCD audio source (CDDA)[0m
+[94mcdparanoia[0m:  [32mcdparanoiasrc[0m: [0mCD Audio (cdda) Source, Paranoia IV[0m
+[94mchromaprint[0m:  [32mchromaprint[0m: [0mChromaprint fingerprinting element[0m
+[94mclosedcaption[0m:  [32mcc708overlay[0m: [0mClosed Caption overlay[0m
+[94mclosedcaption[0m:  [32mcccombiner[0m: [0mClosed Caption Combiner[0m
+[94mclosedcaption[0m:  [32mccconverter[0m: [0mClosed Caption Converter[0m
+[94mclosedcaption[0m:  [32mccextractor[0m: [0mClosed Caption Extractor[0m
+[94mclosedcaption[0m:  [32mline21decoder[0m: [0mLine 21 CC Decoder[0m
+[94mclosedcaption[0m:  [32mline21encoder[0m: [0mLine 21 CC Encoder[0m
+[94mcluttergst3[0m:  [32mclutterautovideosink[0m: [0mGeneric bin[0m
+[94mcodecalpha[0m:  [32malphacombine[0m: [0mAlpha Combiner[0m
+[94mcodecalpha[0m:  [32mcodecalphademux[0m: [0mCODEC Alpha Demuxer[0m
+[94mcodecalpha[0m:  [32mvp8alphadecodebin[0m: [0mVP8 Alpha Decoder[0m
+[94mcodecalpha[0m:  [32mvp9alphadecodebin[0m: [0mVP9 Alpha Decoder[0m
+[94mcoloreffects[0m:  [32mchromahold[0m: [0mChroma hold filter[0m
+[94mcoloreffects[0m:  [32mcoloreffects[0m: [0mColor Look-up Table filter[0m
+[94mcolormanagement[0m:  [32mlcms[0m: [0mLCMS2 ICC correction[0m
+[94mcompositor[0m:  [32mcompositor[0m: [0mCompositor[0m
+[94mcoreelements[0m:  [32mcapsfilter[0m: [0mCapsFilter[0m
+[94mcoreelements[0m:  [32mclocksync[0m: [0mClockSync[0m
+[94mcoreelements[0m:  [32mconcat[0m: [0mConcat[0m
+[94mcoreelements[0m:  [32mdataurisrc[0m: [0mdata: URI source element[0m
+[94mcoreelements[0m:  [32mdownloadbuffer[0m: [0mDownloadBuffer[0m
+[94mcoreelements[0m:  [32mfakesink[0m: [0mFake Sink[0m
+[94mcoreelements[0m:  [32mfakesrc[0m: [0mFake Source[0m
+[94mcoreelements[0m:  [32mfdsink[0m: [0mFiledescriptor Sink[0m
+[94mcoreelements[0m:  [32mfdsrc[0m: [0mFiledescriptor Source[0m
+[94mcoreelements[0m:  [32mfilesink[0m: [0mFile Sink[0m
+[94mcoreelements[0m:  [32mfilesrc[0m: [0mFile Source[0m
+[94mcoreelements[0m:  [32mfunnel[0m: [0mFunnel pipe fitting[0m
+[94mcoreelements[0m:  [32midentity[0m: [0mIdentity[0m
+[94mcoreelements[0m:  [32minput-selector[0m: [0mInput selector[0m
+[94mcoreelements[0m:  [32mmultiqueue[0m: [0mMultiQueue[0m
+[94mcoreelements[0m:  [32moutput-selector[0m: [0mOutput selector[0m
+[94mcoreelements[0m:  [32mqueue[0m: [0mQueue[0m
+[94mcoreelements[0m:  [32mqueue2[0m: [0mQueue 2[0m
+[94mcoreelements[0m:  [32mstreamiddemux[0m: [0mStreamid Demux[0m
+[94mcoreelements[0m:  [32mtee[0m: [0mTee pipe fitting[0m
+[94mcoreelements[0m:  [32mtypefind[0m: [0mTypeFind[0m
+[94mcoreelements[0m:  [32mvalve[0m: [0mValve element[0m
+[94mcoretracers[0m:  [32mfactories[0m ([0mGstTracerFactory[0m)
+[94mcoretracers[0m:  [32mlatency[0m ([0mGstTracerFactory[0m)
+[94mcoretracers[0m:  [32mleaks[0m ([0mGstTracerFactory[0m)
+[94mcoretracers[0m:  [32mlog[0m ([0mGstTracerFactory[0m)
+[94mcoretracers[0m:  [32mrusage[0m ([0mGstTracerFactory[0m)
+[94mcoretracers[0m:  [32mstats[0m ([0mGstTracerFactory[0m)
+[94mcurl[0m:  [32mcurlfilesink[0m: [0mCurl file sink[0m
+[94mcurl[0m:  [32mcurlftpsink[0m: [0mCurl ftp sink[0m
+[94mcurl[0m:  [32mcurlhttpsink[0m: [0mCurl http sink[0m
+[94mcurl[0m:  [32mcurlhttpsrc[0m: [0mHTTP Client Source using libcURL[0m
+[94mcurl[0m:  [32mcurlsftpsink[0m: [0mCurl sftp sink[0m
+[94mcurl[0m:  [32mcurlsmtpsink[0m: [0mCurl smtp sink[0m
+[94mcutter[0m:  [32mcutter[0m: [0mAudio cutter[0m
+[94mdash[0m:  [32mdashdemux[0m: [0mDASH Demuxer[0m
+[94mdash[0m:  [32mdashsink[0m: [0mDASH Sink[0m
+[94mdc1394[0m:  [32mdc1394src[0m: [0m1394 IIDC Video Source[0m
+[94mde265[0m:  [32mlibde265dec[0m: [0mHEVC/H.265 decoder[0m
+[94mdebug[0m:  [32mbreakmydata[0m: [0mBreak my data[0m
+[94mdebug[0m:  [32mcapssetter[0m: [0mCapsSetter[0m
+[94mdebug[0m:  [32mcpureport[0m: [0mCPU report[0m
+[94mdebug[0m:  [32mnavseek[0m: [0mSeek based on left-right arrows[0m
+[94mdebug[0m:  [32mprogressreport[0m: [0mProgress report[0m
+[94mdebug[0m:  [32mpushfilesrc[0m: [0mPush File Source[0m
+[94mdebug[0m:  [32mrndbuffersize[0m: [0mRandom buffer size[0m
+[94mdebug[0m:  [32mtaginject[0m: [0mTagInject[0m
+[94mdebug[0m:  [32mtestsink[0m: [0mTest plugin[0m
+[94mdebugutilsbad[0m:  [32mchecksumsink[0m: [0mChecksum sink[0m
+[94mdebugutilsbad[0m:  [32mchopmydata[0m: [0mChop my data[0m
+[94mdebugutilsbad[0m:  [32mclockselect[0m: [0mClock select[0m
+[94mdebugutilsbad[0m:  [32mcompare[0m: [0mCompare buffers[0m
+[94mdebugutilsbad[0m:  [32mdebugspy[0m: [0mDebugSpy[0m
+[94mdebugutilsbad[0m:  [32merrorignore[0m: [0mConvert some GstFlowReturn types into others[0m
+[94mdebugutilsbad[0m:  [32mfakeaudiosink[0m: [0mFake Audio Sink[0m
+[94mdebugutilsbad[0m:  [32mfakevideosink[0m: [0mFake Video Sink[0m
+[94mdebugutilsbad[0m:  [32mfpsdisplaysink[0m: [0mMeasure and show framerate on videosink[0m
+[94mdebugutilsbad[0m:  [32mtestsrcbin[0m: [0mGeneric bin[0m
+[94mdebugutilsbad[0m:  [32mvideocodectestsink[0m: [0mVideo CODEC Test Sink[0m
+[94mdebugutilsbad[0m:  [32mwatchdog[0m: [0mWatchdog[0m
+[94mdecklink[0m:  [32mdecklinkaudiosink[0m: [0mDecklink Audio Sink[0m
+[94mdecklink[0m:  [32mdecklinkaudiosrc[0m: [0mDecklink Audio Source[0m
+[94mdecklink[0m:  [32mdecklinkdeviceprovider[0m ([0mGstDeviceProviderFactory[0m)
+[94mdecklink[0m:  [32mdecklinkvideosink[0m: [0mDecklink Video Sink[0m
+[94mdecklink[0m:  [32mdecklinkvideosrc[0m: [0mDecklink Video Source[0m
+[94mdeinterlace[0m:  [32mdeinterlace[0m: [0mDeinterlacer[0m
+[94mdtls[0m:  [32mdtlsdec[0m: [0mDTLS Decoder[0m
+[94mdtls[0m:  [32mdtlsenc[0m: [0mDTLS Encoder[0m
+[94mdtls[0m:  [32mdtlssrtpdec[0m: [0mDTLS-SRTP Decoder[0m
+[94mdtls[0m:  [32mdtlssrtpdemux[0m: [0mDTLS SRTP Demultiplexer[0m
+[94mdtls[0m:  [32mdtlssrtpenc[0m: [0mDTLS-SRTP Encoder[0m
+[94mdtmf[0m:  [32mdtmfsrc[0m: [0mDTMF tone generator[0m
+[94mdtmf[0m:  [32mrtpdtmfdepay[0m: [0mRTP DTMF packet depayloader[0m
+[94mdtmf[0m:  [32mrtpdtmfsrc[0m: [0mRTP DTMF packet generator[0m
+[94mdtsdec[0m:  [32mdtsdec[0m: [0mDTS audio decoder[0m
+[94mdv[0m:  [32mdvdec[0m: [0mDV video decoder[0m
+[94mdv[0m:  [32mdvdemux[0m: [0mDV system stream demuxer[0m
+[94mdvb[0m:  [32mdvbbasebin[0m: [0mDVB bin[0m
+[94mdvb[0m:  [32mdvbsrc[0m: [0mDVB Source[0m
+[94mdvbsubenc[0m:  [32mdvbsubenc[0m: [0mDVB subtitle encoder[0m
+[94mdvbsuboverlay[0m:  [32mdvbsuboverlay[0m: [0mDVB Subtitles Overlay[0m
+[94mdvdlpcmdec[0m:  [32mdvdlpcmdec[0m: [0mDVD LPCM Audio decoder[0m
+[94mdvdread[0m:  [32mdvdreadsrc[0m: [0mDVD Source[0m
+[94mdvdspu[0m:  [32mdvdspu[0m: [0mSub-picture Overlay[0m
+[94mdvdsub[0m:  [32mdvdsubdec[0m: [0mDVD subtitle decoder[0m
+[94mdvdsub[0m:  [32mdvdsubparse[0m: [0mDVD subtitle parser[0m
+[94meffectv[0m:  [32magingtv[0m: [0mAgingTV effect[0m
+[94meffectv[0m:  [32mdicetv[0m: [0mDiceTV effect[0m
+[94meffectv[0m:  [32medgetv[0m: [0mEdgeTV effect[0m
+[94meffectv[0m:  [32moptv[0m: [0mOpTV effect[0m
+[94meffectv[0m:  [32mquarktv[0m: [0mQuarkTV effect[0m
+[94meffectv[0m:  [32mradioactv[0m: [0mRadioacTV effect[0m
+[94meffectv[0m:  [32mrevtv[0m: [0mRevTV effect[0m
+[94meffectv[0m:  [32mrippletv[0m: [0mRippleTV effect[0m
+[94meffectv[0m:  [32mshagadelictv[0m: [0mShagadelicTV[0m
+[94meffectv[0m:  [32mstreaktv[0m: [0mStreakTV effect[0m
+[94meffectv[0m:  [32mvertigotv[0m: [0mVertigoTV effect[0m
+[94meffectv[0m:  [32mwarptv[0m: [0mWarpTV effect[0m
+[94mencoding[0m:  [32mencodebin[0m: [0mEncoder Bin[0m
+[94mencoding[0m:  [32mencodebin2[0m: [0mEncoder Bin[0m
+[94mequalizer[0m:  [32mequalizer-10bands[0m: [0m10 Band Equalizer[0m
+[94mequalizer[0m:  [32mequalizer-3bands[0m: [0m3 Band Equalizer[0m
+[94mequalizer[0m:  [32mequalizer-nbands[0m: [0mN Band Equalizer[0m
+[94mespeak[0m:  [32mespeak[0m: [0meSpeak as a sound source[0m
+[94mfaad[0m:  [32mfaad[0m: [0mAAC audio decoder[0m
+[94mfaceoverlay[0m:  [32mfaceoverlay[0m: [0mfaceoverlay[0m
+[94mfbdevsink[0m:  [32mfbdevsink[0m: [0mfbdev video sink[0m
+[94mfdkaac[0m:  [32mfdkaacdec[0m: [0mFDK AAC audio decoder[0m
+[94mfdkaac[0m:  [32mfdkaacenc[0m: [0mFDK AAC audio encoder[0m
+[94mfestival[0m:  [32mfestival[0m: [0mFestival Text-to-Speech synthesizer[0m
+[94mfieldanalysis[0m:  [32mfieldanalysis[0m: [0mVideo field analysis[0m
+[94mflac[0m:  [32mflacdec[0m: [0mFLAC audio decoder[0m
+[94mflac[0m:  [32mflacenc[0m: [0mFLAC audio encoder[0m
+[94mflac[0m:  [32mflactag[0m: [0mFLAC tagger[0m
+[94mflite[0m:  [32mflitetestsrc[0m: [0mFlite speech test source[0m
+[94mfluidsynthmidi[0m:  [32mfluiddec[0m: [0mFluidsynth[0m
+[94mflv[0m:  [32mflvdemux[0m: [0mFLV Demuxer[0m
+[94mflv[0m:  [32mflvmux[0m: [0mFLV muxer[0m
+[94mflxdec[0m:  [32mflxdec[0m: [0mFLX video decoder[0m
+[94mfreeverb[0m:  [32mfreeverb[0m: [0mReverberation/room effect[0m
+[94mgaudieffects[0m:  [32mburn[0m: [0mBurn[0m
+[94mgaudieffects[0m:  [32mchromium[0m: [0mChromium[0m
+[94mgaudieffects[0m:  [32mdilate[0m: [0mDilate[0m
+[94mgaudieffects[0m:  [32mdodge[0m: [0mDodge[0m
+[94mgaudieffects[0m:  [32mexclusion[0m: [0mExclusion[0m
+[94mgaudieffects[0m:  [32mgaussianblur[0m: [0mGstGaussianBlur[0m
+[94mgaudieffects[0m:  [32msolarize[0m: [0mSolarize[0m
+[94mgdkpixbuf[0m:  [32mgdkpixbufdec[0m: [0mGdkPixbuf image decoder[0m
+[94mgdkpixbuf[0m:  [32mgdkpixbufoverlay[0m: [0mGdkPixbuf Overlay[0m
+[94mgdkpixbuf[0m:  [32mgdkpixbufsink[0m: [0mGdkPixbuf sink[0m
+[94mgdp[0m:  [32mgdpdepay[0m: [0mGDP Depayloader[0m
+[94mgdp[0m:  [32mgdppay[0m: [0mGDP Payloader[0m
+[94mgeometrictransform[0m:  [32mbulge[0m: [0mbulge[0m
+[94mgeometrictransform[0m:  [32mcircle[0m: [0mcircle[0m
+[94mgeometrictransform[0m:  [32mdiffuse[0m: [0mdiffuse[0m
+[94mgeometrictransform[0m:  [32mfisheye[0m: [0mfisheye[0m
+[94mgeometrictransform[0m:  [32mkaleidoscope[0m: [0mkaleidoscope[0m
+[94mgeometrictransform[0m:  [32mmarble[0m: [0mmarble[0m
+[94mgeometrictransform[0m:  [32mmirror[0m: [0mmirror[0m
+[94mgeometrictransform[0m:  [32mperspective[0m: [0mperspective[0m
+[94mgeometrictransform[0m:  [32mpinch[0m: [0mpinch[0m
+[94mgeometrictransform[0m:  [32mrotate[0m: [0mrotate[0m
+[94mgeometrictransform[0m:  [32msphere[0m: [0msphere[0m
+[94mgeometrictransform[0m:  [32msquare[0m: [0msquare[0m
+[94mgeometrictransform[0m:  [32mstretch[0m: [0mstretch[0m
+[94mgeometrictransform[0m:  [32mtunnel[0m: [0mtunnel[0m
+[94mgeometrictransform[0m:  [32mtwirl[0m: [0mtwirl[0m
+[94mgeometrictransform[0m:  [32mwaterripple[0m: [0mwaterripple[0m
+[94mgio[0m:  [32mgiosink[0m: [0mGIO sink[0m
+[94mgio[0m:  [32mgiosrc[0m: [0mGIO source[0m
+[94mgio[0m:  [32mgiostreamsink[0m: [0mGIO stream sink[0m
+[94mgio[0m:  [32mgiostreamsrc[0m: [0mGIO stream source[0m
+[94mgme[0m:  [32mgmedec[0m: [0mGaming console music file decoder[0m
+[94mgoom[0m:  [32mgoom[0m: [0mGOOM: what a GOOM![0m
+[94mgoom2k1[0m:  [32mgoom2k1[0m: [0mGOOM: what a GOOM! 2k1 edition[0m
+[94mgsm[0m:  [32mgsmdec[0m: [0mGSM audio decoder[0m
+[94mgsm[0m:  [32mgsmenc[0m: [0mGSM audio encoder[0m
+[94mgtk[0m:  [32mgtkglsink[0m: [0mGtk GL Video Sink[0m
+[94mgtk[0m:  [32mgtksink[0m: [0mGtk Video Sink[0m
+[94mhls[0m:  [32mhlsdemux[0m: [0mHLS Demuxer[0m
+[94mhls[0m:  [32mhlssink[0m: [0mHTTP Live Streaming sink[0m
+[94mhls[0m:  [32mhlssink2[0m: [0mHTTP Live Streaming sink[0m
+[94micydemux[0m:  [32micydemux[0m: [0mICY tag demuxer[0m
+[94mid3demux[0m:  [32mid3demux[0m: [0mID3 tag demuxer[0m
+[94mid3tag[0m:  [32mid3mux[0m: [0mID3 v1 and v2 Muxer[0m
+[94mimagefreeze[0m:  [32mimagefreeze[0m: [0mStill frame stream generator[0m
+[94minter[0m:  [32minteraudiosink[0m: [0mInternal audio sink[0m
+[94minter[0m:  [32minteraudiosrc[0m: [0mInternal audio source[0m
+[94minter[0m:  [32mintersubsink[0m: [0mInternal subtitle sink[0m
+[94minter[0m:  [32mintersubsrc[0m: [0mInternal subtitle source[0m
+[94minter[0m:  [32mintervideosink[0m: [0mInternal video sink[0m
+[94minter[0m:  [32mintervideosrc[0m: [0mInternal video source[0m
+[94minterlace[0m:  [32minterlace[0m: [0mInterlace filter[0m
+[94minterleave[0m:  [32mdeinterleave[0m: [0mAudio deinterleaver[0m
+[94minterleave[0m:  [32minterleave[0m: [0mAudio interleaver[0m
+[94mipcpipeline[0m:  [32mipcpipelinesink[0m: [0mInter-process Pipeline Sink[0m
+[94mipcpipeline[0m:  [32mipcpipelinesrc[0m: [0mInter-process Pipeline Source[0m
+[94mipcpipeline[0m:  [32mipcslavepipeline[0m: [0mInter-process slave pipeline[0m
+[94misomp4[0m:  [32m3gppmux[0m: [0m3GPP Muxer[0m
+[94misomp4[0m:  [32mismlmux[0m: [0mISML Muxer[0m
+[94misomp4[0m:  [32mmj2mux[0m: [0mMJ2 Muxer[0m
+[94misomp4[0m:  [32mmp4mux[0m: [0mMP4 Muxer[0m
+[94misomp4[0m:  [32mqtdemux[0m: [0mQuickTime demuxer[0m
+[94misomp4[0m:  [32mqtmoovrecover[0m: [0mQT Moov Recover[0m
+[94misomp4[0m:  [32mqtmux[0m: [0mQuickTime Muxer[0m
+[94misomp4[0m:  [32mrtpxqtdepay[0m: [0mRTP packet depayloader[0m
+[94mivfparse[0m:  [32mivfparse[0m: [0mIVF parser[0m
+[94mivtc[0m:  [32mcombdetect[0m: [0mComb Detect[0m
+[94mivtc[0m:  [32mivtc[0m: [0mInverse Telecine[0m
+[94mjack[0m:  [32mjackaudiosink[0m: [0mAudio Sink (Jack)[0m
+[94mjack[0m:  [32mjackaudiosrc[0m: [0mAudio Source (Jack)[0m
+[94mjp2kdecimator[0m:  [32mjp2kdecimator[0m: [0mJPEG2000 decimator[0m
+[94mjpeg[0m:  [32mjpegdec[0m: [0mJPEG image decoder[0m
+[94mjpeg[0m:  [32mjpegenc[0m: [0mJPEG image encoder[0m
+[94mjpegformat[0m:  [32mjifmux[0m: [0mJPEG stream muxer[0m
+[94mjpegformat[0m:  [32mjpegparse[0m: [0mJPEG stream parser[0m
+[94mkate[0m:  [32mkatedec[0m: [0mKate stream text decoder[0m
+[94mkate[0m:  [32mkateenc[0m: [0mKate stream encoder[0m
+[94mkate[0m:  [32mkateparse[0m: [0mKate stream parser[0m
+[94mkate[0m:  [32mkatetag[0m: [0mKate stream tagger[0m
+[94mkms[0m:  [32mkmssink[0m: [0mKMS video sink[0m
+[94mlame[0m:  [32mlamemp3enc[0m: [0mL.A.M.E. mp3 encoder[0m
+[94mldac[0m:  [32mldacenc[0m: [0mBluetooth LDAC audio encoder[0m
+[94mlegacyrawparse[0m:  [32maudioparse[0m: [0mAudio Parse[0m
+[94mlegacyrawparse[0m:  [32mvideoparse[0m: [0mVideo Parse[0m
+[94mlevel[0m:  [32mlevel[0m: [0mLevel[0m
+[94mmatroska[0m:  [32mmatroskademux[0m: [0mMatroska demuxer[0m
+[94mmatroska[0m:  [32mmatroskamux[0m: [0mMatroska muxer[0m
+[94mmatroska[0m:  [32mmatroskaparse[0m: [0mMatroska parser[0m
+[94mmatroska[0m:  [32mwebmmux[0m: [0mWebM muxer[0m
+[94mmidi[0m:  [32mmidiparse[0m: [0mMidiParse[0m
+[94mmodplug[0m:  [32mmodplug[0m: [0mModPlug[0m
+[94mmonoscope[0m:  [32mmonoscope[0m: [0mMonoscope[0m
+[94mmpeg2dec[0m:  [32mmpeg2dec[0m: [0mmpeg1 and mpeg2 video decoder[0m
+[94mmpeg2enc[0m:  [32mmpeg2enc[0m: [0mmpeg2enc video encoder[0m
+[94mmpegpsdemux[0m:  [32mmpegpsdemux[0m: [0mMPEG Program Stream Demuxer[0m
+[94mmpegpsmux[0m:  [32mmpegpsmux[0m: [0mMPEG Program Stream Muxer[0m
+[94mmpegtsdemux[0m:  [32mtsdemux[0m: [0mMPEG transport stream demuxer[0m
+[94mmpegtsdemux[0m:  [32mtsparse[0m: [0mMPEG transport stream parser[0m
+[94mmpegtsmux[0m:  [32matscmux[0m: [0mATSC Transport Stream Muxer[0m
+[94mmpegtsmux[0m:  [32mmpegtsmux[0m: [0mMPEG Transport Stream Muxer[0m
+[94mmpg123[0m:  [32mmpg123audiodec[0m: [0mmpg123 mp3 decoder[0m
+[94mmplex[0m:  [32mmplex[0m: [0mmplex video multiplexer[0m
+[94mmulaw[0m:  [32mmulawdec[0m: [0mMu Law audio decoder[0m
+[94mmulaw[0m:  [32mmulawenc[0m: [0mMu Law audio encoder[0m
+[94mmultifile[0m:  [32mimagesequencesrc[0m: [0mImage Sequence Source[0m
+[94mmultifile[0m:  [32mmultifilesink[0m: [0mMulti-File Sink[0m
+[94mmultifile[0m:  [32mmultifilesrc[0m: [0mMulti-File Source[0m
+[94mmultifile[0m:  [32msplitfilesrc[0m: [0mSplit-File Source[0m
+[94mmultifile[0m:  [32msplitmuxsink[0m: [0mSplit Muxing Bin[0m
+[94mmultifile[0m:  [32msplitmuxsrc[0m: [0mSplit File Demuxing Bin[0m
+[94mmultipart[0m:  [32mmultipartdemux[0m: [0mMultipart demuxer[0m
+[94mmultipart[0m:  [32mmultipartmux[0m: [0mMultipart muxer[0m
+[94mmusepack[0m:  [32mmusepackdec[0m: [0mMusepack decoder[0m
+[94mmxf[0m:  [32mmxfdemux[0m: [0mMXF Demuxer[0m
+[94mmxf[0m:  [32mmxfmux[0m: [0mMXF muxer[0m
+[94mnavigationtest[0m:  [32mnavigationtest[0m: [0mVideo navigation test[0m
+[94mnetsim[0m:  [32mnetsim[0m: [0mNetwork Simulator[0m
+[94mnice[0m:  [32mnicesink[0m: [0mICE sink[0m
+[94mnice[0m:  [32mnicesrc[0m: [0mICE source[0m
+[94mnrtp[0m:  [32mrtpsink[0m: [0mrtpsrc[0m
+[94mnrtp[0m:  [32mrtpsrc[0m: [0mrtpsrc[0m
+[94mnvarguscamerasrc[0m:  [32mnvarguscamerasrc[0m: [0mNvArgusCameraSrc[0m
+[94mnvcompositor[0m:  [32mnvcompositor[0m: [0mNvCompositor[0m
+[94mnvdrmvideosink[0m:  [32mnvdrmvideosink[0m: [0mNvidia Drm Video Sink[0m
+[94mnveglglessink[0m:  [32mnveglglessink[0m: [0mEGL/GLES vout Sink[0m
+[94mnveglstreamsrc[0m:  [32mnveglstreamsrc[0m: [0mnVidia EGL Stream[0m
+[94mnvegltransform[0m:  [32mnvegltransform[0m: [0mNvEGLTransform[0m
+[94mnvipcpipeline[0m:  [32mnvipcpipelinesink[0m: [0mInter-process Pipeline Sink[0m
+[94mnvipcpipeline[0m:  [32mnvipcpipelinesrc[0m: [0mInter-process Pipeline Source[0m
+[94mnvipcpipeline[0m:  [32mnvipcslavepipeline[0m: [0mInter-process slave pipeline[0m
+[94mnvivafilter[0m:  [32mnvivafilter[0m: [0mNvIVAFilter Plugin[0m
+[94mnvjpeg[0m:  [32mnvjpegdec[0m: [0mJPEG image decoder[0m
+[94mnvjpeg[0m:  [32mnvjpegenc[0m: [0mJPEG image encoder[0m
+[94mnvtee[0m:  [32mnvtee[0m: [0mNvTee[0m
+[94mnvunixfd[0m:  [32mnvunixfdsink[0m: [0mUnix file descriptor sink[0m
+[94mnvunixfd[0m:  [32mnvunixfdsrc[0m: [0mUnix file descriptor source[0m
+[94mnvv4l2camerasrc[0m:  [32mnvv4l2camerasrc[0m: [0mNvV4l2CameraSrc[0m
+[94mnvvidconv[0m:  [32mnvvidconv[0m: [0mNvVidConv Plugin[0m
+[94mnvvideo4linux2[0m:  [32mnvv4l2decoder[0m: [0mNVIDIA v4l2 video decoder[0m
+[94mnvvideosink[0m:  [32mnvvideosink[0m: [0mnVidia Video Sink[0m
+[94mnvvideosinks[0m:  [32mnv3dsink[0m: [0mNvidia 3D sink[0m
+[94mogg[0m:  [32moggaviparse[0m: [0mOgg AVI parser[0m
+[94mogg[0m:  [32moggdemux[0m: [0mOgg demuxer[0m
+[94mogg[0m:  [32moggmux[0m: [0mOgg muxer[0m
+[94mogg[0m:  [32moggparse[0m: [0mOgg parser[0m
+[94mogg[0m:  [32mogmaudioparse[0m: [0mOGM audio stream parser[0m
+[94mogg[0m:  [32mogmtextparse[0m: [0mOGM text stream parser[0m
+[94mogg[0m:  [32mogmvideoparse[0m: [0mOGM video stream parser[0m
+[94mopenal[0m:  [32mopenalsink[0m: [0mOpenAL Audio Sink[0m
+[94mopenal[0m:  [32mopenalsrc[0m: [0mOpenAL Audio Source[0m
+[94mopenaptx[0m:  [32mopenaptxdec[0m: [0mBluetooth aptX/aptX-HD audio decoder using libopenaptx[0m
+[94mopenaptx[0m:  [32mopenaptxenc[0m: [0mBluetooth aptX/aptX-HD audio encoder using libopenaptx[0m
+[94mopenexr[0m:  [32mopenexrdec[0m: [0mOpenEXR decoder[0m
+[94mopengl[0m:  [32mglalpha[0m: [0mOpenGL Alpha Filter[0m
+[94mopengl[0m:  [32mglcolorbalance[0m: [0mVideo balance[0m
+[94mopengl[0m:  [32mglcolorconvert[0m: [0mOpenGL color converter[0m
+[94mopengl[0m:  [32mglcolorscale[0m: [0mOpenGL color scale[0m
+[94mopengl[0m:  [32mgldeinterlace[0m: [0mOpenGL deinterlacing filter[0m
+[94mopengl[0m:  [32mgldifferencematte[0m: [0mGstreamer OpenGL DifferenceMatte[0m
+[94mopengl[0m:  [32mgldownload[0m: [0mOpenGL downloader[0m
+[94mopengl[0m:  [32mgleffects[0m: [0mGstreamer OpenGL Effects[0m
+[94mopengl[0m:  [32mgleffects_blur[0m: [0mBlur with 9x9 separable convolution Effect[0m
+[94mopengl[0m:  [32mgleffects_bulge[0m: [0mBulge Effect[0m
+[94mopengl[0m:  [32mgleffects_fisheye[0m: [0mFishEye Effect[0m
+[94mopengl[0m:  [32mgleffects_glow[0m: [0mGlow Lighting Effect[0m
+[94mopengl[0m:  [32mgleffects_heat[0m: [0mHeat Signature Effect[0m
+[94mopengl[0m:  [32mgleffects_identity[0m: [0mDo nothing Effect[0m
+[94mopengl[0m:  [32mgleffects_laplacian[0m: [0mLaplacian Convolution Demo Effect[0m
+[94mopengl[0m:  [32mgleffects_lumaxpro[0m: [0mLuma Cross Processing Effect[0m
+[94mopengl[0m:  [32mgleffects_mirror[0m: [0mMirror Effect[0m
+[94mopengl[0m:  [32mgleffects_sepia[0m: [0mSepia Toning Effect[0m
+[94mopengl[0m:  [32mgleffects_sin[0m: [0mAll Grey but Red Effect[0m
+[94mopengl[0m:  [32mgleffects_sobel[0m: [0mSobel edge detection Effect[0m
+[94mopengl[0m:  [32mgleffects_square[0m: [0mSquare Effect[0m
+[94mopengl[0m:  [32mgleffects_squeeze[0m: [0mSqueeze Effect[0m
+[94mopengl[0m:  [32mgleffects_stretch[0m: [0mStretch Effect[0m
+[94mopengl[0m:  [32mgleffects_tunnel[0m: [0mLight Tunnel Effect[0m
+[94mopengl[0m:  [32mgleffects_twirl[0m: [0mTwirl Effect[0m
+[94mopengl[0m:  [32mgleffects_xpro[0m: [0mCross Processing Effect[0m
+[94mopengl[0m:  [32mgleffects_xray[0m: [0mGlowing negative effect[0m
+[94mopengl[0m:  [32mglfilterapp[0m: [0mOpenGL application filter[0m
+[94mopengl[0m:  [32mglfilterbin[0m: [0mGL Filter Bin[0m
+[94mopengl[0m:  [32mglfiltercube[0m: [0mOpenGL cube filter[0m
+[94mopengl[0m:  [32mglfilterglass[0m: [0mOpenGL glass filter[0m
+[94mopengl[0m:  [32mglimagesink[0m: [0mGL Sink Bin[0m
+[94mopengl[0m:  [32mglimagesinkelement[0m: [0mOpenGL video sink[0m
+[94mopengl[0m:  [32mglmixerbin[0m: [0mOpenGL video_mixer empty bin[0m
+[94mopengl[0m:  [32mglmosaic[0m: [0mOpenGL mosaic[0m
+[94mopengl[0m:  [32mgloverlay[0m: [0mGstreamer OpenGL Overlay[0m
+[94mopengl[0m:  [32mgloverlaycompositor[0m: [0mOpenGL overlaying filter[0m
+[94mopengl[0m:  [32mglshader[0m: [0mOpenGL fragment shader filter[0m
+[94mopengl[0m:  [32mglsinkbin[0m: [0mGL Sink Bin[0m
+[94mopengl[0m:  [32mglsrcbin[0m: [0mGL Src Bin[0m
+[94mopengl[0m:  [32mglstereomix[0m: [0mOpenGL stereo video combiner[0m
+[94mopengl[0m:  [32mglstereosplit[0m: [0mGLStereoSplit[0m
+[94mopengl[0m:  [32mgltestsrc[0m: [0mVideo test source[0m
+[94mopengl[0m:  [32mgltransformation[0m: [0mOpenGL transformation filter[0m
+[94mopengl[0m:  [32mglupload[0m: [0mOpenGL uploader[0m
+[94mopengl[0m:  [32mglvideoflip[0m: [0mOpenGL video flip filter[0m
+[94mopengl[0m:  [32mglvideomixer[0m: [0mOpenGL video_mixer bin[0m
+[94mopengl[0m:  [32mglvideomixerelement[0m: [0mOpenGL video_mixer[0m
+[94mopengl[0m:  [32mglviewconvert[0m: [0mOpenGL Multiview/3D conversion filter[0m
+[94mopenh264[0m:  [32mopenh264dec[0m: [0mOpenH264 video decoder[0m
+[94mopenh264[0m:  [32mopenh264enc[0m: [0mOpenH264 video encoder[0m
+[94mopenjpeg[0m:  [32mopenjpegdec[0m: [0mOpenJPEG JPEG2000 decoder[0m
+[94mopenjpeg[0m:  [32mopenjpegenc[0m: [0mOpenJPEG JPEG2000 encoder[0m
+[94mopenmpt[0m:  [32mopenmptdec[0m: [0mOpenMPT-based module music decoder[0m
+[94mopenni2[0m:  [32mopenni2src[0m: [0mOpenni2 client source[0m
+[94mopus[0m:  [32mopusdec[0m: [0mOpus audio decoder[0m
+[94mopus[0m:  [32mopusenc[0m: [0mOpus audio encoder[0m
+[94mopusparse[0m:  [32mopusparse[0m: [0mOpus audio parser[0m
+[94moss4[0m:  [32moss4sink[0m: [0mOSS v4 Audio Sink[0m
+[94moss4[0m:  [32moss4src[0m: [0mOSS v4 Audio Source[0m
+[94mossaudio[0m:  [32mosssink[0m: [0mAudio Sink (OSS)[0m
+[94mossaudio[0m:  [32mosssrc[0m: [0mAudio Source (OSS)[0m
+[94moverlaycomposition[0m:  [32moverlaycomposition[0m: [0mOverlay Composition[0m
+[94mpango[0m:  [32mclockoverlay[0m: [0mClock overlay[0m
+[94mpango[0m:  [32mtextoverlay[0m: [0mText overlay[0m
+[94mpango[0m:  [32mtextrender[0m: [0mText renderer[0m
+[94mpango[0m:  [32mtimeoverlay[0m: [0mTime overlay[0m
+[94mpbtypes[0m:  [32mGstVideoMultiviewFlagsSet[0m ([0mGstDynamicTypeFactory[0m)
+[94mpcapparse[0m:  [32mirtspparse[0m: [0mIRTSPParse[0m
+[94mpcapparse[0m:  [32mpcapparse[0m: [0mPCapParse[0m
+[94mpeadapter[0m:  [32mpeadapter[0m: [0mPeadapter element[0m
+[94mpeautogain[0m:  [32mpeautogain[0m: [0mPulseEffects ebur128 level meter[0m
+[94mpeconvolver[0m:  [32mpeconvolver[0m: [0mPulseEffects Convolver[0m
+[94mpecrystalizer[0m:  [32mpecrystalizer[0m: [0mPulseEffects Crystalizer[0m
+[94mpipewire[0m:  [32mpipewiredeviceprovider[0m ([0mGstDeviceProviderFactory[0m)
+[94mpipewire[0m:  [32mpipewiresink[0m: [0mPipeWire sink[0m
+[94mpipewire[0m:  [32mpipewiresrc[0m: [0mPipeWire source[0m
+[94mplayback[0m:  [32mdecodebin[0m: [0mDecoder Bin[0m
+[94mplayback[0m:  [32mdecodebin3[0m: [0mDecoder Bin 3[0m
+[94mplayback[0m:  [32mparsebin[0m: [0mParse Bin[0m
+[94mplayback[0m:  [32mplaybin[0m: [0mPlayer Bin 2[0m
+[94mplayback[0m:  [32mplaybin3[0m: [0mPlayer Bin 3[0m
+[94mplayback[0m:  [32mplaysink[0m: [0mPlayer Sink[0m
+[94mplayback[0m:  [32mstreamsynchronizer[0m: [0mStream Synchronizer[0m
+[94mplayback[0m:  [32msubtitleoverlay[0m: [0mSubtitle Overlay[0m
+[94mplayback[0m:  [32muridecodebin[0m: [0mURI Decoder[0m
+[94mplayback[0m:  [32muridecodebin3[0m: [0mURI Decoder[0m
+[94mplayback[0m:  [32murisourcebin[0m: [0mURI reader[0m
+[94mpng[0m:  [32mpngdec[0m: [0mPNG image decoder[0m
+[94mpng[0m:  [32mpngenc[0m: [0mPNG image encoder[0m
+[94mpnm[0m:  [32mpnmdec[0m: [0mPNM image decoder[0m
+[94mpnm[0m:  [32mpnmenc[0m: [0mPNM image encoder[0m
+[94mpocketsphinx[0m:  [32mpocketsphinx[0m: [0mPocketSphinx[0m
+[94mproxy[0m:  [32mproxysink[0m: [0mProxy Sink[0m
+[94mproxy[0m:  [32mproxysrc[0m: [0mProxy source[0m
+[94mpulseaudio[0m:  [32mpulsedeviceprovider[0m ([0mGstDeviceProviderFactory[0m)
+[94mpulseaudio[0m:  [32mpulsesink[0m: [0mPulseAudio Audio Sink[0m
+[94mpulseaudio[0m:  [32mpulsesrc[0m: [0mPulseAudio Audio Source[0m
+[94mqmlgl[0m:  [32mqmlgloverlay[0m: [0mQt Video Overlay[0m
+[94mqmlgl[0m:  [32mqmlglsink[0m: [0mQt Video Sink[0m
+[94mqmlgl[0m:  [32mqmlglsrc[0m: [0mQt Video Source[0m
+[94mqroverlay[0m:  [32mdebugqroverlay[0m: [0mqroverlay[0m
+[94mqroverlay[0m:  [32mqroverlay[0m: [0mqroverlay[0m
+[94mrawparse[0m:  [32mrawaudioparse[0m: [0mrawaudioparse[0m
+[94mrawparse[0m:  [32mrawvideoparse[0m: [0mrawvideoparse[0m
+[94mrawparse[0m:  [32munalignedaudioparse[0m: [0munalignedaudioparse[0m
+[94mrawparse[0m:  [32munalignedvideoparse[0m: [0munalignedvideoparse[0m
+[94mrealmedia[0m:  [32mpnmsrc[0m: [0mPNM packet receiver[0m
+[94mrealmedia[0m:  [32mrademux[0m: [0mRealAudio Demuxer[0m
+[94mrealmedia[0m:  [32mrdtdepay[0m: [0mRDT packet parser[0m
+[94mrealmedia[0m:  [32mrdtmanager[0m: [0mRTP Decoder[0m
+[94mrealmedia[0m:  [32mrmdemux[0m: [0mRealMedia Demuxer[0m
+[94mrealmedia[0m:  [32mrtspreal[0m: [0mRealMedia RTSP Extension[0m
+[94mremovesilence[0m:  [32mremovesilence[0m: [0mRemoveSilence[0m
+[94mreplaygain[0m:  [32mrganalysis[0m: [0mReplayGain analysis[0m
+[94mreplaygain[0m:  [32mrglimiter[0m: [0mReplayGain limiter[0m
+[94mreplaygain[0m:  [32mrgvolume[0m: [0mReplayGain volume[0m
+[94mresindvd[0m:  [32mrsndvdbin[0m: [0mrsndvdbin[0m
+[94mrfbsrc[0m:  [32mrfbsrc[0m: [0mRfb source[0m
+[94mrist[0m:  [32mristrtpdeext[0m: [0mRIST RTP Extension remover[0m
+[94mrist[0m:  [32mristrtpext[0m: [0mRIST RTP Extension adder[0m
+[94mrist[0m:  [32mristrtxreceive[0m: [0mRIST Retransmission receiver[0m
+[94mrist[0m:  [32mristrtxsend[0m: [0mRIST Retransmission Sender[0m
+[94mrist[0m:  [32mristsink[0m: [0mRIST Sink[0m
+[94mrist[0m:  [32mristsrc[0m: [0mRIST Source[0m
+[94mrist[0m:  [32mroundrobin[0m: [0mRound Robin[0m
+[94mrsvg[0m:  [32mrsvgdec[0m: [0mSVG image decoder[0m
+[94mrsvg[0m:  [32mrsvgoverlay[0m: [0mRSVG overlay[0m
+[94mrtmp[0m:  [32mrtmpsink[0m: [0mRTMP output sink[0m
+[94mrtmp[0m:  [32mrtmpsrc[0m: [0mRTMP Source[0m
+[94mrtmp2[0m:  [32mrtmp2sink[0m: [0mRTMP sink element[0m
+[94mrtmp2[0m:  [32mrtmp2src[0m: [0mRTMP source element[0m
+[94mrtp[0m:  [32masteriskh263[0m: [0mRTP Asterisk H263 depayloader[0m
+[94mrtp[0m:  [32mrtpL16depay[0m: [0mRTP audio depayloader[0m
+[94mrtp[0m:  [32mrtpL16pay[0m: [0mRTP audio payloader[0m
+[94mrtp[0m:  [32mrtpL24depay[0m: [0mRTP audio depayloader[0m
+[94mrtp[0m:  [32mrtpL24pay[0m: [0mRTP audio payloader[0m
+[94mrtp[0m:  [32mrtpL8depay[0m: [0mRTP audio depayloader[0m
+[94mrtp[0m:  [32mrtpL8pay[0m: [0mRTP audio payloader[0m
+[94mrtp[0m:  [32mrtpac3depay[0m: [0mRTP AC3 depayloader[0m
+[94mrtp[0m:  [32mrtpac3pay[0m: [0mRTP AC3 audio payloader[0m
+[94mrtp[0m:  [32mrtpamrdepay[0m: [0mRTP AMR depayloader[0m
+[94mrtp[0m:  [32mrtpamrpay[0m: [0mRTP AMR payloader[0m
+[94mrtp[0m:  [32mrtpbvdepay[0m: [0mRTP BroadcomVoice depayloader[0m
+[94mrtp[0m:  [32mrtpbvpay[0m: [0mRTP BV Payloader[0m
+[94mrtp[0m:  [32mrtpceltdepay[0m: [0mRTP CELT depayloader[0m
+[94mrtp[0m:  [32mrtpceltpay[0m: [0mRTP CELT payloader[0m
+[94mrtp[0m:  [32mrtpdvdepay[0m: [0mRTP DV Depayloader[0m
+[94mrtp[0m:  [32mrtpdvpay[0m: [0mRTP DV Payloader[0m
+[94mrtp[0m:  [32mrtpg722depay[0m: [0mRTP audio depayloader[0m
+[94mrtp[0m:  [32mrtpg722pay[0m: [0mRTP audio payloader[0m
+[94mrtp[0m:  [32mrtpg723depay[0m: [0mRTP G.723 depayloader[0m
+[94mrtp[0m:  [32mrtpg723pay[0m: [0mRTP G.723 payloader[0m
+[94mrtp[0m:  [32mrtpg726depay[0m: [0mRTP G.726 depayloader[0m
+[94mrtp[0m:  [32mrtpg726pay[0m: [0mRTP G.726 payloader[0m
+[94mrtp[0m:  [32mrtpg729depay[0m: [0mRTP G.729 depayloader[0m
+[94mrtp[0m:  [32mrtpg729pay[0m: [0mRTP G.729 payloader[0m
+[94mrtp[0m:  [32mrtpgsmdepay[0m: [0mRTP GSM depayloader[0m
+[94mrtp[0m:  [32mrtpgsmpay[0m: [0mRTP GSM payloader[0m
+[94mrtp[0m:  [32mrtpgstdepay[0m: [0mGStreamer depayloader[0m
+[94mrtp[0m:  [32mrtpgstpay[0m: [0mRTP GStreamer payloader[0m
+[94mrtp[0m:  [32mrtph261depay[0m: [0mRTP H261 depayloader[0m
+[94mrtp[0m:  [32mrtph261pay[0m: [0mRTP H261 packet payloader[0m
+[94mrtp[0m:  [32mrtph263depay[0m: [0mRTP H263 depayloader[0m
+[94mrtp[0m:  [32mrtph263pay[0m: [0mRTP H263 packet payloader[0m
+[94mrtp[0m:  [32mrtph263pdepay[0m: [0mRTP H263 depayloader[0m
+[94mrtp[0m:  [32mrtph263ppay[0m: [0mRTP H263 payloader[0m
+[94mrtp[0m:  [32mrtph264depay[0m: [0mRTP H264 depayloader[0m
+[94mrtp[0m:  [32mrtph264pay[0m: [0mRTP H264 payloader[0m
+[94mrtp[0m:  [32mrtph265depay[0m: [0mRTP H265 depayloader[0m
+[94mrtp[0m:  [32mrtph265pay[0m: [0mRTP H265 payloader[0m
+[94mrtp[0m:  [32mrtphdrextcolorspace[0m: [0mColor Space[0m
+[94mrtp[0m:  [32mrtpilbcdepay[0m: [0mRTP iLBC depayloader[0m
+[94mrtp[0m:  [32mrtpilbcpay[0m: [0mRTP iLBC Payloader[0m
+[94mrtp[0m:  [32mrtpisacdepay[0m: [0mRTP iSAC depayloader[0m
+[94mrtp[0m:  [32mrtpisacpay[0m: [0mRTP iSAC payloader[0m
+[94mrtp[0m:  [32mrtpj2kdepay[0m: [0mRTP JPEG 2000 depayloader[0m
+[94mrtp[0m:  [32mrtpj2kpay[0m: [0mRTP JPEG 2000 payloader[0m
+[94mrtp[0m:  [32mrtpjpegdepay[0m: [0mRTP JPEG depayloader[0m
+[94mrtp[0m:  [32mrtpjpegpay[0m: [0mRTP JPEG payloader[0m
+[94mrtp[0m:  [32mrtpklvdepay[0m: [0mRTP KLV Depayloader[0m
+[94mrtp[0m:  [32mrtpklvpay[0m: [0mRTP KLV Payloader[0m
+[94mrtp[0m:  [32mrtpldacpay[0m: [0mRTP packet payloader[0m
+[94mrtp[0m:  [32mrtpmp1sdepay[0m: [0mRTP MPEG1 System Stream depayloader[0m
+[94mrtp[0m:  [32mrtpmp2tdepay[0m: [0mRTP MPEG Transport Stream depayloader[0m
+[94mrtp[0m:  [32mrtpmp2tpay[0m: [0mRTP MPEG2 Transport Stream payloader[0m
+[94mrtp[0m:  [32mrtpmp4adepay[0m: [0mRTP MPEG4 audio depayloader[0m
+[94mrtp[0m:  [32mrtpmp4apay[0m: [0mRTP MPEG4 audio payloader[0m
+[94mrtp[0m:  [32mrtpmp4gdepay[0m: [0mRTP MPEG4 ES depayloader[0m
+[94mrtp[0m:  [32mrtpmp4gpay[0m: [0mRTP MPEG4 ES payloader[0m
+[94mrtp[0m:  [32mrtpmp4vdepay[0m: [0mRTP MPEG4 video depayloader[0m
+[94mrtp[0m:  [32mrtpmp4vpay[0m: [0mRTP MPEG4 Video payloader[0m
+[94mrtp[0m:  [32mrtpmpadepay[0m: [0mRTP MPEG audio depayloader[0m
+[94mrtp[0m:  [32mrtpmpapay[0m: [0mRTP MPEG audio payloader[0m
+[94mrtp[0m:  [32mrtpmparobustdepay[0m: [0mRTP MPEG audio depayloader[0m
+[94mrtp[0m:  [32mrtpmpvdepay[0m: [0mRTP MPEG video depayloader[0m
+[94mrtp[0m:  [32mrtpmpvpay[0m: [0mRTP MPEG2 ES video payloader[0m
+[94mrtp[0m:  [32mrtpopusdepay[0m: [0mRTP Opus packet depayloader[0m
+[94mrtp[0m:  [32mrtpopuspay[0m: [0mRTP Opus payloader[0m
+[94mrtp[0m:  [32mrtppcmadepay[0m: [0mRTP PCMA depayloader[0m
+[94mrtp[0m:  [32mrtppcmapay[0m: [0mRTP PCMA payloader[0m
+[94mrtp[0m:  [32mrtppcmudepay[0m: [0mRTP PCMU depayloader[0m
+[94mrtp[0m:  [32mrtppcmupay[0m: [0mRTP PCMU payloader[0m
+[94mrtp[0m:  [32mrtpqcelpdepay[0m: [0mRTP QCELP depayloader[0m
+[94mrtp[0m:  [32mrtpqdm2depay[0m: [0mRTP QDM2 depayloader[0m
+[94mrtp[0m:  [32mrtpreddec[0m: [0mRedundant Audio Data (RED) Decoder[0m
+[94mrtp[0m:  [32mrtpredenc[0m: [0mRedundant Audio Data (RED) Encoder[0m
+[94mrtp[0m:  [32mrtpsbcdepay[0m: [0mRTP SBC audio depayloader[0m
+[94mrtp[0m:  [32mrtpsbcpay[0m: [0mRTP packet payloader[0m
+[94mrtp[0m:  [32mrtpsirendepay[0m: [0mRTP Siren packet depayloader[0m
+[94mrtp[0m:  [32mrtpsirenpay[0m: [0mRTP Payloader for Siren Audio[0m
+[94mrtp[0m:  [32mrtpspeexdepay[0m: [0mRTP Speex depayloader[0m
+[94mrtp[0m:  [32mrtpspeexpay[0m: [0mRTP Speex payloader[0m
+[94mrtp[0m:  [32mrtpstorage[0m: [0mRTP storage[0m
+[94mrtp[0m:  [32mrtpstreamdepay[0m: [0mRTP Stream Depayloading[0m
+[94mrtp[0m:  [32mrtpstreampay[0m: [0mRTP Stream Payloading[0m
+[94mrtp[0m:  [32mrtpsv3vdepay[0m: [0mRTP SVQ3 depayloader[0m
+[94mrtp[0m:  [32mrtptheoradepay[0m: [0mRTP Theora depayloader[0m
+[94mrtp[0m:  [32mrtptheorapay[0m: [0mRTP Theora payloader[0m
+[94mrtp[0m:  [32mrtpulpfecdec[0m: [0mRTP FEC Decoder[0m
+[94mrtp[0m:  [32mrtpulpfecenc[0m: [0mRTP FEC Encoder[0m
+[94mrtp[0m:  [32mrtpvorbisdepay[0m: [0mRTP Vorbis depayloader[0m
+[94mrtp[0m:  [32mrtpvorbispay[0m: [0mRTP Vorbis payloader[0m
+[94mrtp[0m:  [32mrtpvp8depay[0m: [0mRTP VP8 depayloader[0m
+[94mrtp[0m:  [32mrtpvp8pay[0m: [0mRTP VP8 payloader[0m
+[94mrtp[0m:  [32mrtpvp9depay[0m: [0mRTP VP9 depayloader[0m
+[94mrtp[0m:  [32mrtpvp9pay[0m: [0mRTP VP9 payloader[0m
+[94mrtp[0m:  [32mrtpvrawdepay[0m: [0mRTP Raw Video depayloader[0m
+[94mrtp[0m:  [32mrtpvrawpay[0m: [0mRTP Raw Video payloader[0m
+[94mrtpmanager[0m:  [32mrtpbin[0m: [0mRTP Bin[0m
+[94mrtpmanager[0m:  [32mrtpdtmfmux[0m: [0mRTP muxer[0m
+[94mrtpmanager[0m:  [32mrtpfunnel[0m: [0mRTP funnel[0m
+[94mrtpmanager[0m:  [32mrtphdrextclientaudiolevel[0m: [0mClient-to-Mixer Audio Level Indication (RFC6464) RTP Header Extension[0m
+[94mrtpmanager[0m:  [32mrtphdrexttwcc[0m: [0mTransport Wide Congestion Control[0m
+[94mrtpmanager[0m:  [32mrtpjitterbuffer[0m: [0mRTP packet jitter-buffer[0m
+[94mrtpmanager[0m:  [32mrtpmux[0m: [0mRTP muxer[0m
+[94mrtpmanager[0m:  [32mrtpptdemux[0m: [0mRTP Demux[0m
+[94mrtpmanager[0m:  [32mrtprtxqueue[0m: [0mRTP Retransmission Queue[0m
+[94mrtpmanager[0m:  [32mrtprtxreceive[0m: [0mRTP Retransmission receiver[0m
+[94mrtpmanager[0m:  [32mrtprtxsend[0m: [0mRTP Retransmission Sender[0m
+[94mrtpmanager[0m:  [32mrtpsession[0m: [0mRTP Session[0m
+[94mrtpmanager[0m:  [32mrtpssrcdemux[0m: [0mRTP SSRC Demux[0m
+[94mrtpmanager[0m:  [32mrtpst2022-1-fecdec[0m: [0mSMPTE 2022-1 FEC decoder[0m
+[94mrtpmanager[0m:  [32mrtpst2022-1-fecenc[0m: [0mSMPTE 2022-1 FEC encoder[0m
+[94mrtponvif[0m:  [32mrtponvifparse[0m: [0mONVIF NTP timestamps RTP extension[0m
+[94mrtponvif[0m:  [32mrtponviftimestamp[0m: [0mONVIF NTP timestamps RTP extension[0m
+[94mrtsp[0m:  [32mrtpdec[0m: [0mRTP Decoder[0m
+[94mrtsp[0m:  [32mrtspsrc[0m: [0mRTSP packet receiver[0m
+[94mrtspclientsink[0m:  [32mrtspclientsink[0m: [0mRTSP RECORD client[0m
+[94msbc[0m:  [32msbcdec[0m: [0mBluetooth SBC audio decoder[0m
+[94msbc[0m:  [32msbcenc[0m: [0mBluetooth SBC audio encoder[0m
+[94msctp[0m:  [32msctpdec[0m: [0mSCTP Decoder[0m
+[94msctp[0m:  [32msctpenc[0m: [0mSCTP Encoder[0m
+[94msdpelem[0m:  [32msdpdemux[0m: [0mSDP session setup[0m
+[94msdpelem[0m:  [32msdpsrc[0m: [0mSDP Source[0m
+[94msegmentclip[0m:  [32maudiosegmentclip[0m: [0mAudio buffer segment clipper[0m
+[94msegmentclip[0m:  [32mvideosegmentclip[0m: [0mVideo buffer segment clipper[0m
+[94mshapewipe[0m:  [32mshapewipe[0m: [0mShape Wipe transition filter[0m
+[94mshm[0m:  [32mshmsink[0m: [0mShared Memory Sink[0m
+[94mshm[0m:  [32mshmsrc[0m: [0mShared Memory Source[0m
+[94mshout2[0m:  [32mshout2send[0m: [0mIcecast network sink[0m
+[94msid[0m:  [32msiddec[0m: [0mSid decoder[0m
+[94msiren[0m:  [32msirendec[0m: [0mSiren Decoder element[0m
+[94msiren[0m:  [32msirenenc[0m: [0mSiren Encoder element[0m
+[94msmooth[0m:  [32msmooth[0m: [0mSmooth effect[0m
+[94msmoothstreaming[0m:  [32mmssdemux[0m: [0mSmooth Streaming demuxer[0m
+[94msmpte[0m:  [32msmpte[0m: [0mSMPTE transitions[0m
+[94msmpte[0m:  [32msmptealpha[0m: [0mSMPTE transitions[0m
+[94msndfile[0m:  [32msfdec[0m: [0mSndfile decoder[0m
+[94msoundtouch[0m:  [32mbpmdetect[0m: [0mBPM Detector[0m
+[94msoundtouch[0m:  [32mpitch[0m: [0mPitch controller[0m
+[94msoup[0m:  [32msouphttpclientsink[0m: [0mHTTP client sink[0m
+[94msoup[0m:  [32msouphttpsrc[0m: [0mHTTP client source[0m
+[94mspandsp[0m:  [32mdtmfdetect[0m: [0mDTMF detector element[0m
+[94mspandsp[0m:  [32mspanplc[0m: [0mSpanDSP PLC[0m
+[94mspandsp[0m:  [32mtonegeneratesrc[0m: [0mTelephony Tone  Generator source[0m
+[94mspectrum[0m:  [32mspectrum[0m: [0mSpectrum analyzer[0m
+[94mspeed[0m:  [32mspeed[0m: [0mSpeed[0m
+[94mspeex[0m:  [32mspeexdec[0m: [0mSpeex audio decoder[0m
+[94mspeex[0m:  [32mspeexenc[0m: [0mSpeex audio encoder[0m
+[94msrt[0m:  [32msrtclientsink[0m: [0mSRT sink[0m
+[94msrt[0m:  [32msrtclientsrc[0m: [0mSRT source[0m
+[94msrt[0m:  [32msrtserversink[0m: [0mSRT sink[0m
+[94msrt[0m:  [32msrtserversrc[0m: [0mSRT source[0m
+[94msrt[0m:  [32msrtsink[0m: [0mSRT sink[0m
+[94msrt[0m:  [32msrtsrc[0m: [0mSRT source[0m
+[94msrtp[0m:  [32msrtpdec[0m: [0mSRTP decoder[0m
+[94msrtp[0m:  [32msrtpenc[0m: [0mSRTP encoder[0m
+[94mstaticelements[0m:  [32mbin[0m: [0mGeneric bin[0m
+[94mstaticelements[0m:  [32mpipeline[0m: [0mPipeline object[0m
+[94msubenc[0m:  [32msrtenc[0m: [0mSrt encoder[0m
+[94msubenc[0m:  [32mwebvttenc[0m: [0mWebVTT encoder[0m
+[94msubparse[0m:  [32mssaparse[0m: [0mSSA Subtitle Parser[0m
+[94msubparse[0m:  [32msubparse[0m: [0mSubtitle parser[0m
+[94msubparse[0m: [32msubparse_typefind[0m: [0msrt[0m, [0msub[0m, [0mmpsub[0m, [0mmdvd[0m, [0msmi[0m, [0mtxt[0m, [0mdks[0m, [0mvtt[0m
+[94mswitchbin[0m:  [32mswitchbin[0m: [0mswitchbin[0m
+[94mtaglib[0m:  [32mapev2mux[0m: [0mTagLib-based APEv2 Muxer[0m
+[94mtaglib[0m:  [32mid3v2mux[0m: [0mTagLib-based ID3v2 Muxer[0m
+[94mtcp[0m:  [32mmultifdsink[0m: [0mMulti filedescriptor sink[0m
+[94mtcp[0m:  [32mmultisocketsink[0m: [0mMulti socket sink[0m
+[94mtcp[0m:  [32msocketsrc[0m: [0msocket source[0m
+[94mtcp[0m:  [32mtcpclientsink[0m: [0mTCP client sink[0m
+[94mtcp[0m:  [32mtcpclientsrc[0m: [0mTCP client source[0m
+[94mtcp[0m:  [32mtcpserversink[0m: [0mTCP server sink[0m
+[94mtcp[0m:  [32mtcpserversrc[0m: [0mTCP server source[0m
+[94mteletext[0m:  [32mteletextdec[0m: [0mTeletext decoder[0m
+[94mtheora[0m:  [32mtheoradec[0m: [0mTheora video decoder[0m
+[94mtheora[0m:  [32mtheoraenc[0m: [0mTheora video encoder[0m
+[94mtheora[0m:  [32mtheoraparse[0m: [0mTheora video parser[0m
+[94mtimecode[0m:  [32mavwait[0m: [0mTimecode Wait[0m
+[94mtimecode[0m:  [32mtimecodestamper[0m: [0mTimecode stamper[0m
+[94mtranscode[0m:  [32mtranscodebin[0m: [0mTranscode Bin[0m
+[94mtranscode[0m:  [32muritranscodebin[0m: [0mURITranscode Bin[0m
+[94mttmlsubs[0m:  [32mttmlparse[0m: [0mTTML subtitle parser[0m
+[94mttmlsubs[0m:  [32mttmlrender[0m: [0mTTML subtitle renderer[0m
+[94mtwolame[0m:  [32mtwolamemp2enc[0m: [0mTwoLAME mp2 encoder[0m
+[94mtypefindfunctions[0m: [32mapplication/dash+xml[0m: [0mmpd[0m, [0mMPD[0m
+[94mtypefindfunctions[0m: [32mapplication/itc[0m: [0mitc[0m
+[94mtypefindfunctions[0m: [32mapplication/msword[0m: [0mdoc[0m
+[94mtypefindfunctions[0m: [32mapplication/mxf[0m: [0mmxf[0m
+[94mtypefindfunctions[0m: [32mapplication/octet-stream[0m: [0mno extensions[0m
+[94mtypefindfunctions[0m: [32mapplication/ogg[0m: [0mogg[0m, [0moga[0m, [0mogv[0m, [0mogm[0m, [0mogx[0m, [0mspx[0m, [0manx[0m, [0maxa[0m, [0maxv[0m
+[94mtypefindfunctions[0m: [32mapplication/pdf[0m: [0mpdf[0m
+[94mtypefindfunctions[0m: [32mapplication/postscript[0m: [0mps[0m
+[94mtypefindfunctions[0m: [32mapplication/sdp[0m: [0msdp[0m
+[94mtypefindfunctions[0m: [32mapplication/smil[0m: [0msmil[0m
+[94mtypefindfunctions[0m: [32mapplication/ttml+xml[0m: [0mttml+xml[0m
+[94mtypefindfunctions[0m: [32mapplication/vnd.apple-fcp+xml[0m: [0mfcpxml[0m
+[94mtypefindfunctions[0m: [32mapplication/vnd.apple-xmeml+xml[0m: [0mxmeml[0m
+[94mtypefindfunctions[0m: [32mapplication/vnd.ms-sstr+xml[0m: [0mno extensions[0m
+[94mtypefindfunctions[0m: [32mapplication/vnd.pixar.opentimelineio+json[0m: [0motio[0m
+[94mtypefindfunctions[0m: [32mapplication/vnd.rn-realmedia[0m: [0mra[0m, [0mram[0m, [0mrm[0m, [0mrmvb[0m
+[94mtypefindfunctions[0m: [32mapplication/x-3gp[0m: [0m3gp[0m
+[94mtypefindfunctions[0m: [32mapplication/x-ape[0m: [0mape[0m
+[94mtypefindfunctions[0m: [32mapplication/x-apetag[0m: [0mmp3[0m, [0mape[0m, [0mmpc[0m, [0mwv[0m
+[94mtypefindfunctions[0m: [32mapplication/x-ar[0m: [0ma[0m
+[94mtypefindfunctions[0m: [32mapplication/x-bzip[0m: [0mbz2[0m
+[94mtypefindfunctions[0m: [32mapplication/x-compress[0m: [0mZ[0m
+[94mtypefindfunctions[0m: [32mapplication/x-executable[0m: [0mno extensions[0m
+[94mtypefindfunctions[0m: [32mapplication/x-gzip[0m: [0mgz[0m
+[94mtypefindfunctions[0m: [32mapplication/x-hls[0m: [0mm3u8[0m
+[94mtypefindfunctions[0m: [32mapplication/x-id3v1[0m: [0mmp3[0m, [0mmp2[0m, [0mmp1[0m, [0mmpga[0m, [0mogg[0m, [0mflac[0m, [0mtta[0m
+[94mtypefindfunctions[0m: [32mapplication/x-id3v2[0m: [0mmp3[0m, [0mmp2[0m, [0mmp1[0m, [0mmpga[0m, [0mogg[0m, [0mflac[0m, [0mtta[0m
+[94mtypefindfunctions[0m: [32mapplication/x-mcc[0m: [0mmcc[0m
+[94mtypefindfunctions[0m: [32mapplication/x-mmsh[0m: [0mno extensions[0m
+[94mtypefindfunctions[0m: [32mapplication/x-ms-dos-executable[0m: [0mdll[0m, [0mexe[0m, [0mocx[0m, [0msys[0m, [0mscr[0m, [0mmsstyles[0m, [0mcpl[0m
+[94mtypefindfunctions[0m: [32mapplication/x-ogg-skeleton[0m: [0mno extensions[0m
+[94mtypefindfunctions[0m: [32mapplication/x-ogm-audio[0m: [0mno extensions[0m
+[94mtypefindfunctions[0m: [32mapplication/x-ogm-text[0m: [0mno extensions[0m
+[94mtypefindfunctions[0m: [32mapplication/x-ogm-video[0m: [0mno extensions[0m
+[94mtypefindfunctions[0m: [32mapplication/x-pn-realaudio[0m: [0mra[0m, [0mram[0m, [0mrm[0m, [0mrmvb[0m
+[94mtypefindfunctions[0m: [32mapplication/x-rar[0m: [0mrar[0m
+[94mtypefindfunctions[0m: [32mapplication/x-scc[0m: [0mscc[0m
+[94mtypefindfunctions[0m: [32mapplication/x-shockwave-flash[0m: [0mswf[0m, [0mswfl[0m
+[94mtypefindfunctions[0m: [32mapplication/x-ssa[0m: [0mssa[0m, [0mass[0m
+[94mtypefindfunctions[0m: [32mapplication/x-subtitle-vtt[0m: [0mvtt[0m
+[94mtypefindfunctions[0m: [32mapplication/x-tar[0m: [0mtar[0m
+[94mtypefindfunctions[0m: [32mapplication/x-yuv4mpeg[0m: [0mno extensions[0m
+[94mtypefindfunctions[0m: [32mapplication/xges[0m: [0mxges[0m
+[94mtypefindfunctions[0m: [32mapplication/xml[0m: [0mxml[0m
+[94mtypefindfunctions[0m: [32mapplication/zip[0m: [0mzip[0m
+[94mtypefindfunctions[0m: [32maudio/aac[0m: [0maac[0m, [0madts[0m, [0madif[0m, [0mloas[0m
+[94mtypefindfunctions[0m: [32maudio/audible[0m: [0maa[0m, [0maax[0m
+[94mtypefindfunctions[0m: [32maudio/iLBC-sh[0m: [0milbc[0m
+[94mtypefindfunctions[0m: [32maudio/midi[0m: [0mmid[0m, [0mmidi[0m
+[94mtypefindfunctions[0m: [32maudio/mobile-xmf[0m: [0mmxmf[0m
+[94mtypefindfunctions[0m: [32maudio/mpeg[0m: [0mmp3[0m, [0mmp2[0m, [0mmp1[0m, [0mmpga[0m
+[94mtypefindfunctions[0m: [32maudio/qcelp[0m: [0mqcp[0m
+[94mtypefindfunctions[0m: [32maudio/riff-midi[0m: [0mmid[0m, [0mmidi[0m
+[94mtypefindfunctions[0m: [32maudio/x-ac3[0m: [0mac3[0m, [0meac3[0m
+[94mtypefindfunctions[0m: [32maudio/x-aiff[0m: [0maiff[0m, [0maif[0m, [0maifc[0m
+[94mtypefindfunctions[0m: [32maudio/x-amr-nb-sh[0m: [0mamr[0m
+[94mtypefindfunctions[0m: [32maudio/x-amr-wb-sh[0m: [0mamr[0m
+[94mtypefindfunctions[0m: [32maudio/x-au[0m: [0mau[0m, [0msnd[0m
+[94mtypefindfunctions[0m: [32maudio/x-ay[0m: [0may[0m
+[94mtypefindfunctions[0m: [32maudio/x-caf[0m: [0mcaf[0m
+[94mtypefindfunctions[0m: [32maudio/x-celt[0m: [0mno extensions[0m
+[94mtypefindfunctions[0m: [32maudio/x-dts[0m: [0mdts[0m
+[94mtypefindfunctions[0m: [32maudio/x-flac[0m: [0mflac[0m
+[94mtypefindfunctions[0m: [32maudio/x-gbs[0m: [0mgbs[0m
+[94mtypefindfunctions[0m: [32maudio/x-gsm[0m: [0mgsm[0m
+[94mtypefindfunctions[0m: [32maudio/x-gym[0m: [0mgym[0m
+[94mtypefindfunctions[0m: [32maudio/x-imelody[0m: [0mimy[0m, [0mime[0m, [0mimelody[0m
+[94mtypefindfunctions[0m: [32maudio/x-ircam[0m: [0msf[0m
+[94mtypefindfunctions[0m: [32maudio/x-kss[0m: [0mkss[0m
+[94mtypefindfunctions[0m: [32maudio/x-m4a[0m: [0mm4a[0m
+[94mtypefindfunctions[0m: [32maudio/x-mod[0m: [0m669[0m, [0mamf[0m, [0mams[0m, [0mdbm[0m, [0mdigi[0m, [0mdmf[0m, [0mdsm[0m, [0mgdm[0m, [0mfar[0m, [0mimf[0m, [0mit[0m, [0mj2b[0m, [0mmdl[0m, [0mmed[0m, [0mmod[0m, [0mmt2[0m, [0mmtm[0m, [0mokt[0m, [0mpsm[0m, [0mptm[0m, [0msam[0m, [0ms3m[0m, [0mstm[0m, [0mstx[0m, [0mult[0m, [0mumx[0m, [0mxm[0m
+[94mtypefindfunctions[0m: [32maudio/x-musepack[0m: [0mmpc[0m, [0mmpp[0m, [0mmp+[0m
+[94mtypefindfunctions[0m: [32maudio/x-nist[0m: [0mnist[0m
+[94mtypefindfunctions[0m: [32maudio/x-nsf[0m: [0mnsf[0m
+[94mtypefindfunctions[0m: [32maudio/x-paris[0m: [0mpaf[0m
+[94mtypefindfunctions[0m: [32maudio/x-rf64[0m: [0mrf64[0m
+[94mtypefindfunctions[0m: [32maudio/x-sap[0m: [0msap[0m
+[94mtypefindfunctions[0m: [32maudio/x-sbc[0m: [0msbc[0m
+[94mtypefindfunctions[0m: [32maudio/x-sds[0m: [0msds[0m
+[94mtypefindfunctions[0m: [32maudio/x-shorten[0m: [0mshn[0m
+[94mtypefindfunctions[0m: [32maudio/x-sid[0m: [0msid[0m
+[94mtypefindfunctions[0m: [32maudio/x-spc[0m: [0mspc[0m
+[94mtypefindfunctions[0m: [32maudio/x-speex[0m: [0mno extensions[0m
+[94mtypefindfunctions[0m: [32maudio/x-svx[0m: [0miff[0m, [0msvx[0m
+[94mtypefindfunctions[0m: [32maudio/x-tap-dmp[0m: [0mdmp[0m
+[94mtypefindfunctions[0m: [32maudio/x-tap-tap[0m: [0mtap[0m
+[94mtypefindfunctions[0m: [32maudio/x-ttafile[0m: [0mtta[0m
+[94mtypefindfunctions[0m: [32maudio/x-vgm[0m: [0mvgm[0m
+[94mtypefindfunctions[0m: [32maudio/x-voc[0m: [0mvoc[0m
+[94mtypefindfunctions[0m: [32maudio/x-vorbis[0m: [0mno extensions[0m
+[94mtypefindfunctions[0m: [32maudio/x-w64[0m: [0mw64[0m
+[94mtypefindfunctions[0m: [32maudio/x-wav[0m: [0mwav[0m
+[94mtypefindfunctions[0m: [32maudio/x-wavpack[0m: [0mwv[0m, [0mwvp[0m
+[94mtypefindfunctions[0m: [32maudio/x-wavpack-correction[0m: [0mwvc[0m
+[94mtypefindfunctions[0m: [32maudio/x-xi[0m: [0mxi[0m
+[94mtypefindfunctions[0m: [32mimage/bmp[0m: [0mbmp[0m
+[94mtypefindfunctions[0m: [32mimage/gif[0m: [0mgif[0m
+[94mtypefindfunctions[0m: [32mimage/jp2[0m: [0mjp2[0m
+[94mtypefindfunctions[0m: [32mimage/jpeg[0m: [0mjpg[0m, [0mjpe[0m, [0mjpeg[0m
+[94mtypefindfunctions[0m: [32mimage/png[0m: [0mpng[0m
+[94mtypefindfunctions[0m: [32mimage/svg+xml[0m: [0msvg[0m
+[94mtypefindfunctions[0m: [32mimage/tiff[0m: [0mtif[0m, [0mtiff[0m
+[94mtypefindfunctions[0m: [32mimage/vnd.adobe.photoshop[0m: [0mpsd[0m
+[94mtypefindfunctions[0m: [32mimage/vnd.wap.wbmp[0m: [0mno extensions[0m
+[94mtypefindfunctions[0m: [32mimage/webp[0m: [0mwebp[0m
+[94mtypefindfunctions[0m: [32mimage/x-degas[0m: [0mno extensions[0m
+[94mtypefindfunctions[0m: [32mimage/x-exr[0m: [0mexr[0m
+[94mtypefindfunctions[0m: [32mimage/x-icon[0m: [0mno extensions[0m
+[94mtypefindfunctions[0m: [32mimage/x-jng[0m: [0mjng[0m
+[94mtypefindfunctions[0m: [32mimage/x-jpc[0m: [0mjpc[0m, [0mj2k[0m
+[94mtypefindfunctions[0m: [32mimage/x-portable-pixmap[0m: [0mpnm[0m, [0mppm[0m, [0mpgm[0m, [0mpbm[0m
+[94mtypefindfunctions[0m: [32mimage/x-quicktime[0m: [0mqif[0m, [0mqtif[0m, [0mqti[0m
+[94mtypefindfunctions[0m: [32mimage/x-sun-raster[0m: [0mras[0m
+[94mtypefindfunctions[0m: [32mimage/x-xcf[0m: [0mxcf[0m
+[94mtypefindfunctions[0m: [32mimage/x-xpixmap[0m: [0mxpm[0m
+[94mtypefindfunctions[0m: [32mmultipart/x-mixed-replace[0m: [0mno extensions[0m
+[94mtypefindfunctions[0m: [32msubtitle/x-kate[0m: [0mno extensions[0m
+[94mtypefindfunctions[0m: [32mtext/html[0m: [0mhtm[0m, [0mhtml[0m
+[94mtypefindfunctions[0m: [32mtext/plain[0m: [0mtxt[0m
+[94mtypefindfunctions[0m: [32mtext/uri-list[0m: [0mram[0m
+[94mtypefindfunctions[0m: [32mtext/utf-16[0m: [0mtxt[0m
+[94mtypefindfunctions[0m: [32mtext/utf-32[0m: [0mtxt[0m
+[94mtypefindfunctions[0m: [32mtext/x-cmml[0m: [0mno extensions[0m
+[94mtypefindfunctions[0m: [32mvideo/mj2[0m: [0mmj2[0m
+[94mtypefindfunctions[0m: [32mvideo/mpeg-elementary[0m: [0mmpv[0m, [0mmpeg[0m, [0mmpg[0m
+[94mtypefindfunctions[0m: [32mvideo/mpeg-sys[0m: [0mmpe[0m, [0mmpeg[0m, [0mmpg[0m
+[94mtypefindfunctions[0m: [32mvideo/mpeg4[0m: [0mm4v[0m
+[94mtypefindfunctions[0m: [32mvideo/mpegts[0m: [0mts[0m, [0mmts[0m
+[94mtypefindfunctions[0m: [32mvideo/quicktime[0m: [0mmov[0m, [0mmp4[0m
+[94mtypefindfunctions[0m: [32mvideo/vivo[0m: [0mviv[0m
+[94mtypefindfunctions[0m: [32mvideo/x-cdxa[0m: [0mdat[0m
+[94mtypefindfunctions[0m: [32mvideo/x-dirac[0m: [0mno extensions[0m
+[94mtypefindfunctions[0m: [32mvideo/x-dv[0m: [0mdv[0m, [0mdif[0m
+[94mtypefindfunctions[0m: [32mvideo/x-fli[0m: [0mflc[0m, [0mfli[0m
+[94mtypefindfunctions[0m: [32mvideo/x-flv[0m: [0mflv[0m
+[94mtypefindfunctions[0m: [32mvideo/x-h263[0m: [0mh263[0m, [0m263[0m
+[94mtypefindfunctions[0m: [32mvideo/x-h264[0m: [0mh264[0m, [0mx264[0m, [0m264[0m
+[94mtypefindfunctions[0m: [32mvideo/x-h265[0m: [0mh265[0m, [0mx265[0m, [0m265[0m
+[94mtypefindfunctions[0m: [32mvideo/x-ivf[0m: [0mivf[0m
+[94mtypefindfunctions[0m: [32mvideo/x-matroska[0m: [0mmkv[0m, [0mmka[0m, [0mmk3d[0m, [0mwebm[0m
+[94mtypefindfunctions[0m: [32mvideo/x-mng[0m: [0mmng[0m
+[94mtypefindfunctions[0m: [32mvideo/x-ms-asf[0m: [0masf[0m, [0mwm[0m, [0mwma[0m, [0mwmv[0m
+[94mtypefindfunctions[0m: [32mvideo/x-msvideo[0m: [0mavi[0m
+[94mtypefindfunctions[0m: [32mvideo/x-mve[0m: [0mmve[0m
+[94mtypefindfunctions[0m: [32mvideo/x-nuv[0m: [0mnuv[0m
+[94mtypefindfunctions[0m: [32mvideo/x-pva[0m: [0mpva[0m
+[94mtypefindfunctions[0m: [32mvideo/x-theora[0m: [0mno extensions[0m
+[94mtypefindfunctions[0m: [32mvideo/x-vcd[0m: [0mdat[0m
+[94mudp[0m:  [32mdynudpsink[0m: [0mUDP packet sender[0m
+[94mudp[0m:  [32mmultiudpsink[0m: [0mUDP packet sender[0m
+[94mudp[0m:  [32mudpsink[0m: [0mUDP packet sender[0m
+[94mudp[0m:  [32mudpsrc[0m: [0mUDP packet receiver[0m
+[94muvch264[0m:  [32muvch264deviceprovider[0m ([0mGstDeviceProviderFactory[0m)
+[94muvch264[0m:  [32muvch264mjpgdemux[0m: [0mUVC H264 MJPG Demuxer[0m
+[94muvch264[0m:  [32muvch264src[0m: [0mUVC H264 Source[0m
+[94mvideo4linux2[0m:  [32mv4l2deviceprovider[0m ([0mGstDeviceProviderFactory[0m)
+[94mvideo4linux2[0m:  [32mv4l2radio[0m: [0mRadio (video4linux2) Tuner[0m
+[94mvideo4linux2[0m:  [32mv4l2sink[0m: [0mVideo (video4linux2) Sink[0m
+[94mvideo4linux2[0m:  [32mv4l2src[0m: [0mVideo (video4linux2) Source[0m
+[94mvideobox[0m:  [32mvideobox[0m: [0mVideo box filter[0m
+[94mvideoconvert[0m:  [32mvideoconvert[0m: [0mColorspace converter[0m
+[94mvideocrop[0m:  [32maspectratiocrop[0m: [0maspectratiocrop[0m
+[94mvideocrop[0m:  [32mvideocrop[0m: [0mCrop[0m
+[94mvideofilter[0m:  [32mgamma[0m: [0mVideo gamma correction[0m
+[94mvideofilter[0m:  [32mvideobalance[0m: [0mVideo balance[0m
+[94mvideofilter[0m:  [32mvideoflip[0m: [0mVideo flipper[0m
+[94mvideofilter[0m:  [32mvideomedian[0m: [0mMedian effect[0m
+[94mvideofiltersbad[0m:  [32mscenechange[0m: [0mScene change detector[0m
+[94mvideofiltersbad[0m:  [32mvideodiff[0m: [0mVideo Diff[0m
+[94mvideofiltersbad[0m:  [32mzebrastripe[0m: [0mZebra stripe overlay[0m
+[94mvideoframe_audiolevel[0m:  [32mvideoframe-audiolevel[0m: [0mVideo-frame audio level[0m
+[94mvideomixer[0m:  [32mvideomixer[0m: [0mVideo mixer 2[0m
+[94mvideoparsersbad[0m:  [32mav1parse[0m: [0mAV1 parser[0m
+[94mvideoparsersbad[0m:  [32mdiracparse[0m: [0mDirac parser[0m
+[94mvideoparsersbad[0m:  [32mh263parse[0m: [0mH.263 parser[0m
+[94mvideoparsersbad[0m:  [32mh264parse[0m: [0mH.264 parser[0m
+[94mvideoparsersbad[0m:  [32mh265parse[0m: [0mH.265 parser[0m
+[94mvideoparsersbad[0m:  [32mjpeg2000parse[0m: [0mJPEG 2000 parser[0m
+[94mvideoparsersbad[0m:  [32mmpeg4videoparse[0m: [0mMPEG 4 video elementary stream parser[0m
+[94mvideoparsersbad[0m:  [32mmpegvideoparse[0m: [0mMPEG video elementary stream parser[0m
+[94mvideoparsersbad[0m:  [32mpngparse[0m: [0mPNG parser[0m
+[94mvideoparsersbad[0m:  [32mvc1parse[0m: [0mVC1 parser[0m
+[94mvideoparsersbad[0m:  [32mvp9parse[0m: [0mVP9 parser[0m
+[94mvideorate[0m:  [32mvideorate[0m: [0mVideo rate adjuster[0m
+[94mvideoscale[0m:  [32mvideoscale[0m: [0mVideo scaler[0m
+[94mvideosignal[0m:  [32msimplevideomark[0m: [0mVideo marker[0m
+[94mvideosignal[0m:  [32msimplevideomarkdetect[0m: [0mVideo detecter[0m
+[94mvideosignal[0m:  [32mvideoanalyse[0m: [0mVideo analyser[0m
+[94mvideotestsrc[0m:  [32mvideotestsrc[0m: [0mVideo test source[0m
+[94mvmnc[0m:  [32mvmncdec[0m: [0mVMnc video decoder[0m
+[94mvoaacenc[0m:  [32mvoaacenc[0m: [0mAAC audio encoder[0m
+[94mvoamrwbenc[0m:  [32mvoamrwbenc[0m: [0mAMR-WB audio encoder[0m
+[94mvolume[0m:  [32mvolume[0m: [0mVolume[0m
+[94mvorbis[0m:  [32mvorbisdec[0m: [0mVorbis audio decoder[0m
+[94mvorbis[0m:  [32mvorbisenc[0m: [0mVorbis audio encoder[0m
+[94mvorbis[0m:  [32mvorbisparse[0m: [0mVorbisParse[0m
+[94mvorbis[0m:  [32mvorbistag[0m: [0mVorbisTag[0m
+[94mvpx[0m:  [32mvp8dec[0m: [0mOn2 VP8 Decoder[0m
+[94mvpx[0m:  [32mvp8enc[0m: [0mOn2 VP8 Encoder[0m
+[94mvpx[0m:  [32mvp9dec[0m: [0mOn2 VP9 Decoder[0m
+[94mvpx[0m:  [32mvp9enc[0m: [0mOn2 VP9 Encoder[0m
+[94mwavenc[0m:  [32mwavenc[0m: [0mWAV audio muxer[0m
+[94mwavpack[0m:  [32mwavpackdec[0m: [0mWavpack audio decoder[0m
+[94mwavpack[0m:  [32mwavpackenc[0m: [0mWavpack audio encoder[0m
+[94mwavparse[0m:  [32mwavparse[0m: [0mWAV audio demuxer[0m
+[94mwaylandsink[0m:  [32mwaylandsink[0m: [0mwayland video sink[0m
+[94mwebp[0m:  [32mwebpdec[0m: [0mWebP image decoder[0m
+[94mwebp[0m:  [32mwebpenc[0m: [0mWEBP image encoder[0m
+[94mwebrtc[0m:  [32mwebrtcbin[0m: [0mWebRTC Bin[0m
+[94mwebrtcdsp[0m:  [32mwebrtcdsp[0m: [0mVoice Processor (AGC, AEC, filters, etc.)[0m
+[94mwebrtcdsp[0m:  [32mwebrtcechoprobe[0m: [0mAcoustic Echo Canceller probe[0m
+[94mwildmidi[0m:  [32mwildmididec[0m: [0mWildMidi-based MIDI music decoder[0m
+[94mwpe[0m:  [32mwpesrc[0m: [0mWPE source[0m
+[94mwpe[0m:  [32mwpevideosrc[0m: [0mWPE source[0m
+[94mx264[0m:  [32mx264enc[0m: [0mx264 H.264 Encoder[0m
+[94mx265[0m:  [32mx265enc[0m: [0mx265enc[0m
+[94mximagesink[0m:  [32mximagesink[0m: [0mVideo sink[0m
+[94mximagesrc[0m:  [32mximagesrc[0m: [0mXimage video source[0m
+[94mxingmux[0m:  [32mxingmux[0m: [0mMP3 Xing muxer[0m
+[94mxvimagesink[0m:  [32mxvimagesink[0m: [0mVideo sink[0m
+[94my4mdec[0m:  [32my4mdec[0m: [0mYUV4MPEG demuxer/decoder[0m
+[94my4menc[0m:  [32my4menc[0m: [0mYUV4MPEG video encoder[0m
+[94mzbar[0m:  [32mzbar[0m: [0mBarcode detector[0m
+[94mzxing[0m:  [32mzxing[0m: [0mBarcode detector[0m
+
+[94mTotal count[0m: [0m293 plugins (3 blacklist entries not shown)[0m, [0m929 features[0m

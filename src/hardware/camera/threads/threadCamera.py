@@ -1,37 +1,8 @@
-# Copyright (c) 2019, Bosch Engineering Center Cluj and BFMC organizers
-# All rights reserved.
-
-# Redistribution and use in source and binary forms, with or without
-# modification, are permitted provided that the following conditions are met:
-
-# 1. Redistributions of source code must retain the above copyright notice, this
-#    list of conditions and the following disclaimer.
-
-# 2. Redistributions in binary form must reproduce the above copyright notice,
-#    this list of conditions and the following disclaimer in the documentation
-#    and/or other materials provided with the distribution.
-
-# 3. Neither the name of the copyright holder nor the names of its
-#    contributors may be used to endorse or promote products derived from
-#    this software without specific prior written permission.
-
-# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-# AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-# DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
-# FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
-# DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
-# SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
-# CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
-# OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-# OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE
-
 import cv2
 import threading
 import base64
-import picamera2
 import time
-
+from datetime import datetime
 from src.utils.messages.allMessages import (
     mainCamera,
     serialCamera,
@@ -46,12 +17,7 @@ from src.templates.threadwithstop import ThreadWithStop
 
 
 class threadCamera(ThreadWithStop):
-    """Thread which will handle camera functionalities.\n
-    Args:
-        queuesList (dictionar of multiprocessing.queues.Queue): Dictionar of queues where the ID is the type of messages.
-        logger (logging object): Made for debugging.
-        debugger (bool): A flag for debugging.
-    """
+    """Thread which will handle camera functionalities."""
 
     # ================================ INIT ===============================================
     def __init__(self, queuesList, logger, debugger):
@@ -59,7 +25,7 @@ class threadCamera(ThreadWithStop):
         self.queuesList = queuesList
         self.logger = logger
         self.debugger = debugger
-        self.frame_rate = 5
+        self.frame_rate = 30
         self.recording = False
 
         self.video_writer = ""
@@ -74,18 +40,16 @@ class threadCamera(ThreadWithStop):
         self.Configs()
 
     def subscribe(self):
-        """Subscribe function. In this function we make all the required subscribe to process gateway"""
-
+        """Subscribe function. In this function we make all the required subscribe to process gateway."""
         self.recordSubscriber = messageHandlerSubscriber(self.queuesList, Record, "lastOnly", True)
         self.brightnessSubscriber = messageHandlerSubscriber(self.queuesList, Brightness, "lastOnly", True)
         self.contrastSubscriber = messageHandlerSubscriber(self.queuesList, Contrast, "lastOnly", True)
 
     def Queue_Sending(self):
         """Callback function for recording flag."""
-
         self.recordingSender.send(self.recording)
         threading.Timer(1, self.Queue_Sending).start()
-        
+
     # =============================== STOP ================================================
     def stop(self):
         if self.recording:
@@ -95,74 +59,79 @@ class threadCamera(ThreadWithStop):
     # =============================== CONFIG ==============================================
     def Configs(self):
         """Callback function for receiving configs on the pipe."""
-
         if self.brightnessSubscriber.isDataInPipe():
             message = self.brightnessSubscriber.receive()
             if self.debugger:
                 self.logger.info(str(message))
-            self.camera.set_controls(
-                {
-                    "AeEnable": False,
-                    "AwbEnable": False,
-                    "Brightness": max(0.0, min(1.0, float(message))),
-                }
-            )
+            self.camera.set(cv2.CAP_PROP_BRIGHTNESS, max(0.0, min(1.0, float(message))))
+
         if self.contrastSubscriber.isDataInPipe():
-            message = self.contrastSubscriber.receive() # de modificat marti uc camera noua 
+            message = self.contrastSubscriber.receive()
             if self.debugger:
                 self.logger.info(str(message))
-            self.camera.set_controls(
-                {
-                    "AeEnable": False,
-                    "AwbEnable": False,
-                    "Contrast": max(0.0, min(32.0, float(message))),
-                }
-            )
+            self.camera.set(cv2.CAP_PROP_CONTRAST, max(0.0, min(32.0, float(message))))
+
         threading.Timer(1, self.Configs).start()
 
     # ================================ RUN ================================================
     def run(self):
-        """This function will run while the running flag is True. It captures the image from camera and make the required modifies and then it send the data to process gateway."""
-
+        """This function will run while the running flag is True. It captures the image from camera and makes the required modifications and sends the data to process gateway."""
         send = True
+        frame_counter = 0  # Counter for frames
+        recordingInitialized = False
         while self._running:
             try:
                 recordRecv = self.recordSubscriber.receive()
-                if recordRecv is not None: 
-                    self.recording = bool(recordRecv)
-                    if recordRecv == False:
-                        self.video_writer.release()
-                    else:
-                        fourcc = cv2.VideoWriter_fourcc(
-                            *"XVID"
-                        )  # You can choose different codecs, e.g., 'MJPG', 'XVID', 'H264', etc.
-                        self.video_writer = cv2.VideoWriter(
-                            "output_video" + str(time.time()) + ".avi",
-                            fourcc,
-                            self.frame_rate,
-                            (2048, 1080),
-                        )
+                if recordRecv is not None:
 
+                    if recordRecv == 'false':
+                        self.recording = False
+                    else:
+                        self.recording = True
+
+                    if self.recording:
+                        if not recordingInitialized:
+
+                            fourcc = cv2.VideoWriter_fourcc(*"H264")
+                            self.video_writer = cv2.VideoWriter(
+                                "output_video" + str(time.time()) + ".avi",
+                                fourcc,
+                                self.frame_rate,
+                                (960, 540),
+                            )
+                            recordingInitialized = True
+                    else:
+                        if recordingInitialized:
+                            self.video_writer.release()
+                            self.video_writer = ""
+                            recordingInitialized = False
+
+                        
             except Exception as e:
                 print(e)
 
             if send:
-                mainRequest = self.camera.capture_array("main")
-                serialRequest = self.camera.capture_array("lores")  # Will capture an array that can be used by OpenCV library
+                ret, frame = self.camera.read()
+                if ret:
+                    #cv2.imshow('Frame',frame)
+                    #cv2.waitKey(1)
+                    frame_counter += 1  # Increment frame counter
+                    current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")  # Get current time
+                    #print(f"Processing frame: {frame_counter} at {current_time}")  # Print counter and time to terminal
+                                        
+                    serialRequest = cv2.resize(frame, (960, 540))  # Lo-res capture
 
-                if self.recording == True:
-                    self.video_writer.write(mainRequest)
+                    if self.recording:
+                        self.video_writer.write(frame)
 
-                serialRequest = cv2.cvtColor(serialRequest, cv2.COLOR_YUV2BGR_I420)
+                    _, mainEncodedImg = cv2.imencode(".jpg", frame)
+                    _, serialEncodedImg = cv2.imencode(".jpg", serialRequest)
 
-                _, mainEncodedImg = cv2.imencode(".jpg", mainRequest)                   
-                _, serialEncodedImg = cv2.imencode(".jpg", serialRequest)
+                    mainEncodedImageData = base64.b64encode(mainEncodedImg).decode("utf-8")
+                    serialEncodedImageData = base64.b64encode(serialEncodedImg).decode("utf-8")
 
-                mainEncodedImageData = base64.b64encode(mainEncodedImg).decode("utf-8")
-                serialEncodedImageData = base64.b64encode(serialEncodedImg).decode("utf-8")
-
-                self.mainCameraSender.send(mainEncodedImageData)
-                self.serialCameraSender.send(serialEncodedImageData)
+                    self.mainCameraSender.send(mainEncodedImageData)
+                    self.serialCameraSender.send(serialEncodedImageData)
 
             send = not send
 
@@ -171,16 +140,42 @@ class threadCamera(ThreadWithStop):
         super(threadCamera, self).start()
 
     # ================================ INIT CAMERA ========================================
-    def _init_camera(self):
-        """This function will initialize the camera object. It will make this camera object have two chanels "lore" and "main"."""
+    def gstreamer_pipeline(
+        self,
+        sensor_id=0,
+        capture_width=1920,
+        capture_height=1080,
+        display_width=960,
+        display_height=540,
+        framerate=30,
+        flip_method=0,
+    ):
 
-        self.camera = picamera2.Picamera2()
-        config = self.camera.create_preview_configuration(
-            buffer_count=1,
-            queue=False,
-            main={"format": "RGB888", "size": (2048, 1080)},
-            lores={"size": (512, 270)},
-            encode="lores",
+        return (
+            "nvarguscamerasrc sensor-id=%d ! "
+            "video/x-raw(memory:NVMM), width=(int)%d, height=(int)%d, framerate=(fraction)%d/1 ! "
+            "nvvidconv flip-method=%d ! "
+            "video/x-raw, width=(int)%d, height=(int)%d, format=(string)BGRx ! "
+            "videoconvert ! "
+            "video/x-raw, format=(string)BGR ! appsink"
+            % (
+                sensor_id,
+                capture_width,
+                capture_height,
+                framerate,
+                flip_method,
+                display_width,
+                display_height,
+            )
         )
-        self.camera.configure(config)
-        self.camera.start()
+
+    def _init_camera(self):
+        """This function will initialize the camera object with GStreamer pipeline."""
+        #self.show_camera()
+        # Use GStreamer for CSI camera on Jetson
+        gst_pipeline = self.gstreamer_pipeline(flip_method=0, framerate=30)
+
+        self.camera = cv2.VideoCapture(gst_pipeline, cv2.CAP_GSTREAMER)
+
+        if not self.camera.isOpened():
+            raise Exception("Could not open video device.")

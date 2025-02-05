@@ -48,7 +48,7 @@ sys.path.append(".")
 from multiprocessing import Queue, Event
 import logging
 
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(filename='main.log', level=logging.INFO)
 
 # ===================================== PROCESS IMPORTS ==================================
 

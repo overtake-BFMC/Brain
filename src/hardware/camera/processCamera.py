@@ -24,62 +24,64 @@
 # SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 # CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 # OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-# OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE
+# OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-if __name__ == "__main__":
-    import sys
-    sys.path.insert(0, "../../..")
-
+import sys
+from multiprocessing import Queue, Event
+import time
+import logging
+import cv2
+import base64
+import numpy as np
 from src.templates.workerprocess import WorkerProcess
 from src.hardware.camera.threads.threadCamera import threadCamera
 
-from multiprocessing import Pipe
-
-
 class processCamera(WorkerProcess):
-    """This process handle camera.\n
+    """
+    This process handles the camera.
+
     Args:
-            queueList (dictionar of multiprocessing.queues.Queue): Dictionar of queues where the ID is the type of messages.
-            logging (logging object): Made for debugging.
-            debugging (bool, optional): A flag for debugging. Defaults to False.
+        queueList (dict of multiprocessing.queues.Queue): Dictionary of queues where the ID is the type of messages.
+        logging (logging.Logger): Logger object for debugging.
+        debugging (bool, optional): A flag for debugging. Defaults to False.
     """
 
-    # ====================================== INIT ==========================================
     def __init__(self, queueList, logging, debugging=False):
         self.queuesList = queueList
         self.logging = logging
         self.debugging = debugging
         super(processCamera, self).__init__(self.queuesList)
 
-    # ===================================== RUN ==========================================
     def run(self):
-        """Apply the initializing methods and start the threads."""
-        super(processCamera, self).run()
+        """
+        Apply the initializing methods and start the threads.
+        """
+        self.logging.info("Starting processCamera...")
+        try:
+            super(processCamera, self).run()
+        except Exception as e:
+            self.logging.error(f"Error in processCamera run: {e}", exc_info=True)
 
-    # ===================================== INIT TH ======================================
     def _init_threads(self):
-        """Create the Camera Publisher thread and add to the list of threads."""
-        camTh = threadCamera(
-         self.queuesList, self.logging, self.debugging
-        )
-        self.threads.append(camTh)
+        """
+        Create the Camera Publisher thread and add it to the list of threads.
+        """
+        try:
+            camTh = threadCamera(self.queuesList, self.logging, self.debugging)
+            self.threads.append(camTh)
+            self.logging.info("Camera thread initialized successfully.")
+        except Exception as e:
+            self.logging.error(f"Error initializing camera thread: {e}", exc_info=True)
 
-
-# =================================== EXAMPLE =========================================
-#             ++    THIS WILL RUN ONLY IF YOU RUN THE CODE FROM HERE  ++
-#                  in terminal:    python3 processCamera.py
 if __name__ == "__main__":
-    from multiprocessing import Queue, Event
-    import time
-    import logging
-    import cv2
-    import base64
-    import numpy as np
+    # Setup logging
+    logging.basicConfig(level=logging.DEBUG, format="%(asctime)s - %(levelname)s - %(message)s")
+    logger = logging.getLogger()
 
-    allProcesses = list()
-
+    # Debugging flag
     debugg = True
 
+    # Queue setup
     queueList = {
         "Critical": Queue(),
         "Warning": Queue(),
@@ -87,23 +89,44 @@ if __name__ == "__main__":
         "Config": Queue(),
     }
 
-    logger = logging.getLogger()
-
+    # Initialize processCamera
     process = processCamera(queueList, logger, debugg)
-
     process.daemon = True
-    process.start()
 
-    time.sleep(4)
-    if debugg:
-        logger.warning("getting")
-    img = {"msgValue": 1}
-    while type(img["msgValue"]) != type(":text"):
-        img = queueList["General"].get()
-    image_data = base64.b64decode(img["msgValue"])
-    img = np.frombuffer(image_data, dtype=np.uint8)
-    image = cv2.imdecode(img, cv2.IMREAD_COLOR)
-    if debugg:
-        logger.warning("got")
-    cv2.imwrite("test.jpg", image)
-    process.stop()
+    try:
+        process.start()
+        logger.info("processCamera started.")
+
+        # Simulate some processing
+        time.sleep(4)
+
+        if debugg:
+            logger.warning("Attempting to retrieve image...")
+
+        img = {"msgValue": 1}
+        while not isinstance(img["msgValue"], str):
+            try:
+                img = queueList["General"].get(timeout=5)  # Avoid indefinite blocking
+            except Exception as e:
+                logger.error(f"Error retrieving image from queue: {e}")
+                break
+
+        if "msgValue" in img:
+            try:
+                image_data = base64.b64decode(img["msgValue"])
+                img_array = np.frombuffer(image_data, dtype=np.uint8)
+                image = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+                cv2.imwrite("test.jpg", image)
+                logger.info("Image saved as test.jpg.")
+            except Exception as e:
+                logger.error(f"Error decoding or saving image: {e}", exc_info=True)
+        else:
+            logger.warning("No valid image data received.")
+
+    except KeyboardInterrupt:
+        logger.info("Process interrupted by user.")
+
+    finally:
+        process.stop()
+        logger.info("processCamera stopped.")
+
