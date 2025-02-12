@@ -42,6 +42,10 @@ from src.utils.messages.allMessages import Semaphores
 from src.dashboard.threads.threadStartFrontend import ThreadStartFrontend  
 import src.utils.messages.allMessages as allMessages
 
+from aiortc import RTCPeerConnection, RTCIceCandidate, RTCConfiguration, RTCIceServer
+from aiortc import RTCSessionDescription
+import asyncio
+#from src.dashboard.threads.threadStartWebRTC import threadStartWebRTC
 
 class processDashboard(WorkerProcess):
     """This process handles the dashboard interactions, updating the UI based on the system's state.
@@ -74,18 +78,23 @@ class processDashboard(WorkerProcess):
         self.socketio = SocketIO(self.app, cors_allowed_origins="*", async_mode='eventlet')
         CORS(self.app, supports_credentials=True)
 
+        self.pcs = set()
+
         self.getNamesAndVals()
         self.messagesAndVals.pop("mainCamera", None)
         self.messagesAndVals.pop("Semaphores", None)
+        self.messagesAndVals.pop("MainVideo", None)
         self.subscribe()
 
         # define WebSocket event handlers
         self.socketio.on_event('message', self.handleMessage)
         self.socketio.on_event('save', self.handleSaveTableState)
         self.socketio.on_event('load', self.handleLoadTableState)
+        self.socketio.on_event('offer', self.handle_rtc_offer)
+        self.socketio.on_event('ice_candidate', self.handleIceCandidate)
 
         # start hardware monitoring and continuous message sending
-        self.sendContinuousHardwareData()
+        #self.sendContinuousHardwareData()
         eventlet.spawn(self.sendContinuousMessages)
         super(processDashboard, self).__init__(self.queueList)
         
@@ -198,8 +207,8 @@ class processDashboard(WorkerProcess):
     def sendContinuousMessages(self):
         """Send messages continuously to the frontend."""
         counter = 0
-        #socketSleep = 0.1
-        socketSleep = 1 / 30
+        socketSleep = 0.01
+        #socketSleep = 1 / 30
         sendTime = 1
 
         while self.running:
@@ -209,7 +218,7 @@ class processDashboard(WorkerProcess):
                     self.socketio.emit(msg, {"value": resp})
                     if self.debugging:
                         self.logger.info(f"{msg}: {resp}")
-
+            
             if counter >= sendTime:
                 self.socketio.emit('memory_channel', {'data': self.memoryUsage})
                 self.socketio.emit('cpu_channel', {'data': {'usage': self.cpuCoreUsage, 'temp': self.cpuTemperature}})
@@ -219,9 +228,29 @@ class processDashboard(WorkerProcess):
 
             eventlet.sleep(socketSleep)
 
+    def handle_rtc_offer(self, data):
+        sdp = data["sdp"]
+        type=data["type"]
+        dataName = 'WebRTCOffer'
+        dataDict = {}
+        dataDict["Name"] = 'WebRTCOffer'
+        dataDict["Value"] = sdp
+        self.sendMessageToBackend(dataName, dataDict)
+
+    def handleIceCandidate(self, data):
+        #print("Received ICE candidate from client:", data)
+        dataName = 'ICECandidate'
+        dataDict = {}
+        dataDict["Name"] = 'ICECandidate'
+        dataDict["Value"] = data
+        self.sendMessageToBackend(dataName, dataDict)
+        #eventlet.spawn(lambda: asyncio.run(self._handleIceCandidateAsync(data)))
+
     # ===================================== INIT TH ======================================
     def _init_threads(self):
         """Initialize the Dashboard thread."""
         dashboardThreadFrontend = ThreadStartFrontend(self.logger)
+        #dashboardThreadWebRTC = threadStartWebRTC(self.queueList, self.logger , debugger= False)
         self.threads.append(dashboardThreadFrontend)
+        #self.threads.append(dashboardThreadWebRTC)
 

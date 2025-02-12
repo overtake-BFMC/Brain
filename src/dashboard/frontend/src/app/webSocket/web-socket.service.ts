@@ -55,12 +55,13 @@ export class WebSocketService {
     'Recording',
     'CurrentSpeed',
     'CurrentSteer',
-    'EnableButton'
+    'EnableButton',
+    'MainVideo'
   ]);
   
  constructor() {
     this.webSocket = new Socket({
-    url: "http://192.168.0.102:5005",
+    url: "http://192.168.66.155:5005",
     options: {},
     });
 
@@ -75,6 +76,14 @@ export class WebSocketService {
   // Method to start connection/handshake with the server
   sendMessageToFlask(message: any) {
     this.webSocket.emit('message', message);
+  }
+
+  sendOfferToFlask(message: any) {
+    this.webSocket.emit('offer', message);
+  }
+
+  sendIceCandidateToFlask(message: any) {
+    this.webSocket.emit('ice_candidate', message)
   }
 
   SaveTable(message: any) {
@@ -118,6 +127,11 @@ export class WebSocketService {
   // Method to receive image updates
   receiveCamera(): Observable<any> {
     return this.webSocket.fromEvent('serialCamera');
+  }
+
+  // Method to receive image updates
+  receiveVideo(): Observable<any> {
+    return this.webSocket.fromEvent('MainVideo');
   }
 
   // Method to receive location updates

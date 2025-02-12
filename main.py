@@ -60,7 +60,8 @@ from src.data.Semaphores.Semaphores import processSemaphores
 from src.data.TrafficCommunication.processTrafficCommunication import processTrafficCommunication
 from src.utils.ipManager.IpReplacement import IPManager
 # ------ New component imports starts here ------#
-
+from src.dashboard.webRTC.processWebRTC import processWebRTC
+from src.dashboard.StreamRTC.processStreamRTC import processStreamRTC
 # ------ New component imports ends here ------#
 # ======================================== SETTING UP ====================================
 allProcesses = list()
@@ -70,6 +71,7 @@ queueList = {
     "Warning": Queue(),
     "General": Queue(),
     "Config": Queue(),
+    "Video" : Queue(),
 }
 logging = logging.getLogger()
 
@@ -78,16 +80,17 @@ Dashboard = True
 Camera = True
 Semaphores = False
 TrafficCommunication = False
-SerialHandler = True
+SerialHandler = False
 
 # ------ New component flags starts here ------#
- 
+webRTC = True
+streamRTC = False
 # ------ New component flags ends here ------#
 
 # ===================================== SETUP PROCESSES ==================================
 
 # Initializing gateway
-processGateway = processGateway(queueList, logging)
+processGateway = processGateway(queueList, logging, debugging = False)
 processGateway.start()
 
 # Ip replacement
@@ -100,6 +103,14 @@ IpChanger.replace_ip_in_file()
 if Dashboard:
     processDashboard = processDashboard( queueList, logging, debugging = False)
     allProcesses.append(processDashboard)
+
+if webRTC:
+    processWebRTC = processWebRTC(queueList, logging, debugging= False)
+    allProcesses.append(processWebRTC)
+
+if streamRTC:
+    processStreamRTC = processStreamRTC(queueList, logging, debugging= False)
+    allProcesses.append(processStreamRTC)
 
 # Initializing camera
 if Camera:
@@ -122,7 +133,7 @@ if SerialHandler:
     allProcesses.append(processSerialHandler)
 
 # ------ New component runs starts here ------#
- 
+
 # ------ New component runs ends here ------#
 
 # ===================================== START PROCESSES ==================================

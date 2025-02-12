@@ -59,6 +59,12 @@ class LaneKeeping(Enum):
     msgID = 5
     msgType = "int"
 
+class MainVideo(Enum):
+    Queue = "General"
+    Owner = "threadCamera"
+    msgID = 6
+    msgType = "ndarray"
+
 ################################# processCarsAndSemaphores ##################################
 class Cars(Enum):
     Queue = "General"
@@ -174,6 +180,24 @@ class SliderChannelExample(Enum):
     Owner = "Dashboard"
     msgID = 17
     msgType = "str"
+
+class WebRTCOffer(Enum):
+    Queue = "General"
+    Owner = "Dashboard"
+    msgID = 18
+    msgType = "str"
+
+class ICECandidate(Enum):
+    Queue = "General"
+    Owner = "Dashboard"
+    msgID = 19
+    msgType = "dict"
+
+class WebRTCAnswer(Enum):
+    Queue = "General"
+    Owner = "threadWebRTC"
+    msgID = 1
+    msgType = "dict"
 
 ################################# From Nucleo ##################################
 class BatteryLvl(Enum):

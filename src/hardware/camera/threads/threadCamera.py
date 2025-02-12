@@ -10,11 +10,11 @@ from src.utils.messages.allMessages import (
     Record,
     Brightness,
     Contrast,
+    MainVideo,
 )
 from src.utils.messages.messageHandlerSender import messageHandlerSender
 from src.utils.messages.messageHandlerSubscriber import messageHandlerSubscriber
 from src.templates.threadwithstop import ThreadWithStop
-
 
 class threadCamera(ThreadWithStop):
     """Thread which will handle camera functionalities."""
@@ -30,9 +30,13 @@ class threadCamera(ThreadWithStop):
 
         self.video_writer = ""
 
+        #frame storing for multiple access
+        self.latest_frame = None
+
         self.recordingSender = messageHandlerSender(self.queuesList, Recording)
         self.mainCameraSender = messageHandlerSender(self.queuesList, mainCamera)
         self.serialCameraSender = messageHandlerSender(self.queuesList, serialCamera)
+        self.mainVideoSender = messageHandlerSender(self.queuesList, MainVideo)
 
         self.subscribe()
         self._init_camera()
@@ -115,26 +119,28 @@ class threadCamera(ThreadWithStop):
                 if ret:
                     #cv2.imshow('Frame',frame)
                     #cv2.waitKey(1)
-                    frame_counter += 1  # Increment frame counter
-                    current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")  # Get current time
+                    self.latest_frame = frame
+                    #frame_counter += 1  # Increment frame counter
+                    #current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")  # Get current time
                     #print(f"Processing frame: {frame_counter} at {current_time}")  # Print counter and time to terminal
                                         
-                    serialRequest = cv2.resize(frame, (960, 540))  # Lo-res capture
+                    #serialRequest = cv2.resize(frame, (960, 540))  # Lo-res capture
 
                     if self.recording:
                         self.video_writer.write(frame)
 
-                    _, mainEncodedImg = cv2.imencode(".jpg", frame)
-                    _, serialEncodedImg = cv2.imencode(".jpg", serialRequest)
+                    #_, mainEncodedImg = cv2.imencode(".jpg", frame)
+                    #_, serialEncodedImg = cv2.imencode(".jpg", serialRequest)
 
-                    mainEncodedImageData = base64.b64encode(mainEncodedImg).decode("utf-8")
-                    serialEncodedImageData = base64.b64encode(serialEncodedImg).decode("utf-8")
+                    #mainEncodedImageData = base64.b64encode(mainEncodedImg).decode("utf-8")
+                    #serialEncodedImageData = base64.b64encode(serialEncodedImg).decode("utf-8")
 
                     #self.mainCameraSender.send(mainEncodedImageData)
-                    if (frame_counter % 5) == 0:
-                        self.serialCameraSender.send(serialEncodedImageData)
+                    #if (frame_counter % 5) == 0:
+                    #    self.serialCameraSender.send(serialEncodedImageData)
+                    self.mainVideoSender.send(frame)
 
-            send = not send
+        send = not send
 
     # =============================== START ===============================================
     def start(self):
