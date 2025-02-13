@@ -123,11 +123,15 @@ class threadGateway(ThreadWithStop):
         """This function will take the messages in priority order form the queues.\n
         the prioirty is: Critical > Warning > General
         """
-        
         while self._running:
             message = None
+            video = None
             # We are using "elif" because we are processing one message at a time.
             # We work with the queues in the priority order( We start from the high priority to low priority)
+            if not self.queuesList["Video"].empty():
+                video = self.queuesList["Video"].get()
+            if video is not None:
+                self.send(video)
 
             if not self.queuesList["Critical"].empty():
                 message = self.queuesList["Critical"].get()

@@ -1282,3 +1282,1591 @@ INFO:pc:PeerConnection(1e77c97f-f16c-45fa-8f7a-1a1ed1281a86) Connection state is
 INFO:pc:PeerConnection(1e77c97f-f16c-45fa-8f7a-1a1ed1281a86) Connection state is closed
 INFO:root:Starting processCamera...
 INFO:root:Camera thread initialized successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:pc:PeerConnection(dd660d3e-645f-4ff5-a4ec-743aa8c93dfa) Created for 127.0.0.1
+INFO:pc:PeerConnection(dd660d3e-645f-4ff5-a4ec-743aa8c93dfa) Track video received
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 58312) -> ('10.5.0.2', 56830)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 58148) -> ('10.5.0.2', 56830)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 58312) -> ('172.29.144.1', 56831)) State.FROZEN -> State.WAITING
+INFO:pc:PeerConnection(dd660d3e-645f-4ff5-a4ec-743aa8c93dfa) Connection state is connecting
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 58312) -> ('10.5.0.2', 56830)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 58148) -> ('10.5.0.2', 56830)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 58312) -> ('172.29.144.1', 56831)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 58148) -> ('172.29.144.1', 56831)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 58312) -> ('192.168.132.1', 56832)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 58148) -> ('192.168.132.1', 56832)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 58312) -> ('169.254.6.190', 56833)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 58148) -> ('169.254.6.190', 56833)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 58312) -> ('192.168.75.1', 56834)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 58148) -> ('192.168.75.1', 56834)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 58312) -> ('192.168.66.188', 56835)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 58148) -> ('192.168.66.188', 56835)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 58312) -> ('192.168.66.188', 56835)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:pc:PeerConnection(dd660d3e-645f-4ff5-a4ec-743aa8c93dfa) Connection state is connected
+INFO:pc:PeerConnection(dd660d3e-645f-4ff5-a4ec-743aa8c93dfa) Connection state is closed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:pc:PeerConnection(f2307154-a961-4d62-bcd7-71f423c4f195) Created for 127.0.0.1
+INFO:pc:PeerConnection(f2307154-a961-4d62-bcd7-71f423c4f195) Track video received
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 40626) -> ('10.5.0.2', 50437)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 36911) -> ('10.5.0.2', 50437)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 40626) -> ('172.29.144.1', 50438)) State.FROZEN -> State.WAITING
+INFO:pc:PeerConnection(f2307154-a961-4d62-bcd7-71f423c4f195) Connection state is connecting
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 40626) -> ('10.5.0.2', 50437)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 36911) -> ('10.5.0.2', 50437)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 40626) -> ('172.29.144.1', 50438)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 36911) -> ('172.29.144.1', 50438)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 40626) -> ('192.168.132.1', 50439)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 36911) -> ('192.168.132.1', 50439)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 40626) -> ('169.254.6.190', 50440)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 36911) -> ('169.254.6.190', 50440)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 40626) -> ('192.168.75.1', 50441)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 36911) -> ('192.168.75.1', 50441)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 40626) -> ('192.168.66.188', 50442)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 36911) -> ('192.168.66.188', 50442)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 40626) -> ('192.168.66.188', 50442)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:pc:PeerConnection(f2307154-a961-4d62-bcd7-71f423c4f195) Connection state is connected
+INFO:pc:PeerConnection(f2307154-a961-4d62-bcd7-71f423c4f195) Connection state is closed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:pc:PeerConnection(f879a433-187c-4c1a-a12a-34a8074ffd70) Created for 127.0.0.1
+INFO:pc:PeerConnection(f879a433-187c-4c1a-a12a-34a8074ffd70) Track video received
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 34501) -> ('10.5.0.2', 55061)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 46959) -> ('10.5.0.2', 55061)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 34501) -> ('172.29.144.1', 55062)) State.FROZEN -> State.WAITING
+INFO:pc:PeerConnection(f879a433-187c-4c1a-a12a-34a8074ffd70) Connection state is connecting
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 34501) -> ('10.5.0.2', 55061)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 46959) -> ('10.5.0.2', 55061)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 34501) -> ('172.29.144.1', 55062)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 46959) -> ('172.29.144.1', 55062)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 34501) -> ('192.168.132.1', 55063)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 46959) -> ('192.168.132.1', 55063)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 34501) -> ('169.254.6.190', 55064)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 46959) -> ('169.254.6.190', 55064)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 34501) -> ('192.168.75.1', 55065)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 46959) -> ('192.168.75.1', 55065)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 34501) -> ('192.168.66.188', 55066)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 46959) -> ('192.168.66.188', 55066)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 34501) -> ('192.168.66.188', 55066)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:pc:PeerConnection(f879a433-187c-4c1a-a12a-34a8074ffd70) Connection state is connected
+INFO:pc:PeerConnection(f879a433-187c-4c1a-a12a-34a8074ffd70) Connection state is closed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:pc:PeerConnection(daba01eb-df5a-44f3-9e08-b36a744f17a0) Created for 127.0.0.1
+INFO:pc:PeerConnection(daba01eb-df5a-44f3-9e08-b36a744f17a0) Track video received
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 41538) -> ('10.5.0.2', 59993)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 35919) -> ('10.5.0.2', 59993)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 41538) -> ('172.29.144.1', 59994)) State.FROZEN -> State.WAITING
+INFO:pc:PeerConnection(daba01eb-df5a-44f3-9e08-b36a744f17a0) Connection state is connecting
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 41538) -> ('10.5.0.2', 59993)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 35919) -> ('10.5.0.2', 59993)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 41538) -> ('172.29.144.1', 59994)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 35919) -> ('172.29.144.1', 59994)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 41538) -> ('192.168.132.1', 59995)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 35919) -> ('192.168.132.1', 59995)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 41538) -> ('169.254.6.190', 59996)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 35919) -> ('169.254.6.190', 59996)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 41538) -> ('192.168.75.1', 59997)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 35919) -> ('192.168.75.1', 59997)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 41538) -> ('192.168.66.188', 59998)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 35919) -> ('192.168.66.188', 59998)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 41538) -> ('192.168.66.188', 59998)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:pc:PeerConnection(daba01eb-df5a-44f3-9e08-b36a744f17a0) Connection state is connected
+INFO:pc:PeerConnection(daba01eb-df5a-44f3-9e08-b36a744f17a0) Connection state is closed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:pc:PeerConnection(e14657b9-01eb-45bc-b798-b87fe9469d01) Created for 127.0.0.1
+INFO:pc:PeerConnection(e14657b9-01eb-45bc-b798-b87fe9469d01) Track video received
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 60142) -> ('10.5.0.2', 52295)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 44067) -> ('10.5.0.2', 52295)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 60142) -> ('172.29.144.1', 52296)) State.FROZEN -> State.WAITING
+INFO:pc:PeerConnection(e14657b9-01eb-45bc-b798-b87fe9469d01) Connection state is connecting
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 60142) -> ('10.5.0.2', 52295)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 44067) -> ('10.5.0.2', 52295)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 60142) -> ('172.29.144.1', 52296)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 44067) -> ('172.29.144.1', 52296)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 60142) -> ('192.168.132.1', 52297)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 44067) -> ('192.168.132.1', 52297)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 60142) -> ('169.254.6.190', 52298)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 44067) -> ('169.254.6.190', 52298)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 60142) -> ('192.168.75.1', 52299)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 44067) -> ('192.168.75.1', 52299)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 60142) -> ('192.168.66.188', 52300)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 44067) -> ('192.168.66.188', 52300)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 60142) -> ('192.168.66.188', 52300)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:pc:PeerConnection(e14657b9-01eb-45bc-b798-b87fe9469d01) Connection state is connected
+INFO:pc:PeerConnection(e14657b9-01eb-45bc-b798-b87fe9469d01) Connection state is closed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:pc:PeerConnection(0605c72a-80fc-45be-aac5-11d4370a2841) Created for 127.0.0.1
+INFO:pc:PeerConnection(0605c72a-80fc-45be-aac5-11d4370a2841) Track video received
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 53029) -> ('10.5.0.2', 58152)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 52260) -> ('10.5.0.2', 58152)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 53029) -> ('172.29.144.1', 58153)) State.FROZEN -> State.WAITING
+INFO:pc:PeerConnection(0605c72a-80fc-45be-aac5-11d4370a2841) Connection state is connecting
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 53029) -> ('10.5.0.2', 58152)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 52260) -> ('10.5.0.2', 58152)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 53029) -> ('172.29.144.1', 58153)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 52260) -> ('172.29.144.1', 58153)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 53029) -> ('192.168.132.1', 58154)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 52260) -> ('192.168.132.1', 58154)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 53029) -> ('192.168.75.1', 58155)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 52260) -> ('192.168.75.1', 58155)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 53029) -> ('192.168.66.188', 58156)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 52260) -> ('192.168.66.188', 58156)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 53029) -> ('192.168.66.188', 58156)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:pc:PeerConnection(0605c72a-80fc-45be-aac5-11d4370a2841) Connection state is connected
+INFO:pc:PeerConnection(0605c72a-80fc-45be-aac5-11d4370a2841) Connection state is closed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:pc:PeerConnection(707116c2-3da3-4e39-b6df-0f4da2be4ed6) Created for 127.0.0.1
+INFO:pc:PeerConnection(707116c2-3da3-4e39-b6df-0f4da2be4ed6) Track video received
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 38107) -> ('10.5.0.2', 50061)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 33062) -> ('10.5.0.2', 50061)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 38107) -> ('172.29.144.1', 50062)) State.FROZEN -> State.WAITING
+INFO:pc:PeerConnection(707116c2-3da3-4e39-b6df-0f4da2be4ed6) Connection state is connecting
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 38107) -> ('10.5.0.2', 50061)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 33062) -> ('10.5.0.2', 50061)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 38107) -> ('172.29.144.1', 50062)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 33062) -> ('172.29.144.1', 50062)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 38107) -> ('192.168.132.1', 50063)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 33062) -> ('192.168.132.1', 50063)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 38107) -> ('169.254.6.190', 50064)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 33062) -> ('169.254.6.190', 50064)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 38107) -> ('192.168.75.1', 50065)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 33062) -> ('192.168.75.1', 50065)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 38107) -> ('192.168.66.188', 50066)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 33062) -> ('192.168.66.188', 50066)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 38107) -> ('192.168.66.188', 50066)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:pc:PeerConnection(707116c2-3da3-4e39-b6df-0f4da2be4ed6) Connection state is connected
+INFO:pc:PeerConnection(707116c2-3da3-4e39-b6df-0f4da2be4ed6) Connection state is closed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:pc:PeerConnection(86169c0d-f20f-4979-bec2-2e64ecc64cb3) Created for 127.0.0.1
+INFO:pc:PeerConnection(86169c0d-f20f-4979-bec2-2e64ecc64cb3) Track video received
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 57423) -> ('10.5.0.2', 51764)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 35681) -> ('10.5.0.2', 51764)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 57423) -> ('172.29.144.1', 51765)) State.FROZEN -> State.WAITING
+INFO:pc:PeerConnection(86169c0d-f20f-4979-bec2-2e64ecc64cb3) Connection state is connecting
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 57423) -> ('10.5.0.2', 51764)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 35681) -> ('10.5.0.2', 51764)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 57423) -> ('172.29.144.1', 51765)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 35681) -> ('172.29.144.1', 51765)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 57423) -> ('192.168.132.1', 51766)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 35681) -> ('192.168.132.1', 51766)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 57423) -> ('169.254.6.190', 51767)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 35681) -> ('169.254.6.190', 51767)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 57423) -> ('192.168.75.1', 51768)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 35681) -> ('192.168.75.1', 51768)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 57423) -> ('192.168.66.188', 51769)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 35681) -> ('192.168.66.188', 51769)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 57423) -> ('192.168.66.188', 51769)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:pc:PeerConnection(86169c0d-f20f-4979-bec2-2e64ecc64cb3) Connection state is connected
+INFO:pc:PeerConnection(86169c0d-f20f-4979-bec2-2e64ecc64cb3) Connection state is closed
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend && npm start' died with <Signals.SIGINT: 2>.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:pc:PeerConnection(3f6ac9d0-3598-4c9f-a60b-7b53ed65b205) Created for 127.0.0.1
+INFO:aioice.ice:Connection(0) Remote candidate "b04fd22c-6d76-47ef-9a83-1b7a2fb78b87.local" resolved to 192.168.66.188
+INFO:pc:PeerConnection(3f6ac9d0-3598-4c9f-a60b-7b53ed65b205) Track video received
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 58859) -> ('192.168.66.188', 53898)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 46324) -> ('192.168.66.188', 53898)) State.FROZEN -> State.WAITING
+INFO:pc:PeerConnection(3f6ac9d0-3598-4c9f-a60b-7b53ed65b205) Connection state is connecting
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 58859) -> ('192.168.66.188', 53898)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 46324) -> ('192.168.66.188', 53898)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 58859) -> ('192.168.66.188', 53898)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:pc:PeerConnection(3f6ac9d0-3598-4c9f-a60b-7b53ed65b205) Connection state is connected
+INFO:pc:PeerConnection(3f6ac9d0-3598-4c9f-a60b-7b53ed65b205) Connection state is closed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:pc:PeerConnection(96195079-6338-4555-835d-fabdc05b8a54) Created for 127.0.0.1
+INFO:pc:PeerConnection(96195079-6338-4555-835d-fabdc05b8a54) Track video received
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 48414) -> ('10.5.0.2', 51453)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 58267) -> ('10.5.0.2', 51453)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 48414) -> ('172.29.144.1', 51454)) State.FROZEN -> State.WAITING
+INFO:pc:PeerConnection(96195079-6338-4555-835d-fabdc05b8a54) Connection state is connecting
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 48414) -> ('10.5.0.2', 51453)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 58267) -> ('10.5.0.2', 51453)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 48414) -> ('172.29.144.1', 51454)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 58267) -> ('172.29.144.1', 51454)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 48414) -> ('192.168.132.1', 51455)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 58267) -> ('192.168.132.1', 51455)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 48414) -> ('192.168.75.1', 51456)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 58267) -> ('192.168.75.1', 51456)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 48414) -> ('192.168.66.188', 51457)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 58267) -> ('192.168.66.188', 51457)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 48414) -> ('192.168.66.188', 51457)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:pc:PeerConnection(96195079-6338-4555-835d-fabdc05b8a54) Connection state is connected
+INFO:pc:PeerConnection(96195079-6338-4555-835d-fabdc05b8a54) Connection state is closed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:pc:PeerConnection(08106773-b10e-40ea-80e6-7d02404884f1) Created for 127.0.0.1
+INFO:pc:PeerConnection(08106773-b10e-40ea-80e6-7d02404884f1) Track video received
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 48485) -> ('10.5.0.2', 49674)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 37571) -> ('10.5.0.2', 49674)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 48485) -> ('172.29.144.1', 49675)) State.FROZEN -> State.WAITING
+INFO:pc:PeerConnection(08106773-b10e-40ea-80e6-7d02404884f1) Connection state is connecting
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 48485) -> ('10.5.0.2', 49674)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 37571) -> ('10.5.0.2', 49674)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 48485) -> ('172.29.144.1', 49675)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 37571) -> ('172.29.144.1', 49675)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 48485) -> ('192.168.132.1', 49676)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 37571) -> ('192.168.132.1', 49676)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 48485) -> ('169.254.6.190', 49677)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 37571) -> ('169.254.6.190', 49677)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 48485) -> ('192.168.75.1', 49678)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 37571) -> ('192.168.75.1', 49678)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 48485) -> ('192.168.66.188', 49679)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 37571) -> ('192.168.66.188', 49679)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 48485) -> ('192.168.66.188', 49679)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:pc:PeerConnection(08106773-b10e-40ea-80e6-7d02404884f1) Connection state is connected
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend && npm start' died with <Signals.SIGINT: 2>.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:pc:PeerConnection(f413dc91-f09f-4496-97e9-5822af247b19) Created for 127.0.0.1
+INFO:pc:PeerConnection(f413dc91-f09f-4496-97e9-5822af247b19) Track video received
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 48799) -> ('10.5.0.2', 59822)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 54523) -> ('10.5.0.2', 59822)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 48799) -> ('172.29.144.1', 59823)) State.FROZEN -> State.WAITING
+INFO:pc:PeerConnection(f413dc91-f09f-4496-97e9-5822af247b19) Connection state is connecting
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 48799) -> ('10.5.0.2', 59822)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 54523) -> ('10.5.0.2', 59822)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 48799) -> ('172.29.144.1', 59823)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 54523) -> ('172.29.144.1', 59823)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 48799) -> ('192.168.132.1', 59824)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 54523) -> ('192.168.132.1', 59824)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 48799) -> ('169.254.6.190', 59825)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 54523) -> ('169.254.6.190', 59825)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 48799) -> ('192.168.75.1', 59826)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 54523) -> ('192.168.75.1', 59826)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 48799) -> ('192.168.66.188', 59827)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 54523) -> ('192.168.66.188', 59827)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 48799) -> ('192.168.66.188', 59827)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:pc:PeerConnection(f413dc91-f09f-4496-97e9-5822af247b19) Connection state is connected
+INFO:pc:PeerConnection(f413dc91-f09f-4496-97e9-5822af247b19) Connection state is closed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:pc:PeerConnection(3e62f3c2-5b74-478f-85c9-5cd6a8c12076) Created for 127.0.0.1
+INFO:pc:PeerConnection(3e62f3c2-5b74-478f-85c9-5cd6a8c12076) Track video received
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 39641) -> ('10.5.0.2', 59335)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 51812) -> ('10.5.0.2', 59335)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 39641) -> ('172.29.144.1', 59336)) State.FROZEN -> State.WAITING
+INFO:pc:PeerConnection(3e62f3c2-5b74-478f-85c9-5cd6a8c12076) Connection state is connecting
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 39641) -> ('10.5.0.2', 59335)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 51812) -> ('10.5.0.2', 59335)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 39641) -> ('172.29.144.1', 59336)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 51812) -> ('172.29.144.1', 59336)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 39641) -> ('192.168.132.1', 59337)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 51812) -> ('192.168.132.1', 59337)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 39641) -> ('169.254.6.190', 59338)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 51812) -> ('169.254.6.190', 59338)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 39641) -> ('192.168.75.1', 59339)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 51812) -> ('192.168.75.1', 59339)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 39641) -> ('192.168.66.188', 59340)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 51812) -> ('192.168.66.188', 59340)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 39641) -> ('192.168.66.188', 59340)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:pc:PeerConnection(3e62f3c2-5b74-478f-85c9-5cd6a8c12076) Connection state is connected
+INFO:pc:PeerConnection(3e62f3c2-5b74-478f-85c9-5cd6a8c12076) Connection state is closed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:pc:PeerConnection(87c43422-e618-4e86-86d8-35dfd413b4ab) Created for 127.0.0.1
+INFO:pc:PeerConnection(87c43422-e618-4e86-86d8-35dfd413b4ab) Track video received
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 51765) -> ('10.5.0.2', 59718)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 53509) -> ('10.5.0.2', 59718)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 51765) -> ('172.29.144.1', 59719)) State.FROZEN -> State.WAITING
+INFO:pc:PeerConnection(87c43422-e618-4e86-86d8-35dfd413b4ab) Connection state is connecting
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 51765) -> ('10.5.0.2', 59718)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 53509) -> ('10.5.0.2', 59718)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 51765) -> ('172.29.144.1', 59719)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 53509) -> ('172.29.144.1', 59719)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 51765) -> ('192.168.132.1', 59720)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 53509) -> ('192.168.132.1', 59720)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 51765) -> ('169.254.6.190', 59721)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 53509) -> ('169.254.6.190', 59721)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 51765) -> ('192.168.75.1', 59722)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 53509) -> ('192.168.75.1', 59722)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 51765) -> ('192.168.66.188', 59723)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 53509) -> ('192.168.66.188', 59723)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 51765) -> ('192.168.66.188', 59723)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:pc:PeerConnection(87c43422-e618-4e86-86d8-35dfd413b4ab) Connection state is connected
+INFO:pc:PeerConnection(87c43422-e618-4e86-86d8-35dfd413b4ab) Connection state is closed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:pc:PeerConnection(e7c04ed6-bea9-4473-a278-ea22e11c5a81) Created for 127.0.0.1
+INFO:pc:PeerConnection(e7c04ed6-bea9-4473-a278-ea22e11c5a81) Track video received
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 33011) -> ('10.5.0.2', 50514)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 42558) -> ('10.5.0.2', 50514)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 33011) -> ('172.29.144.1', 50515)) State.FROZEN -> State.WAITING
+INFO:pc:PeerConnection(e7c04ed6-bea9-4473-a278-ea22e11c5a81) Connection state is connecting
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 33011) -> ('10.5.0.2', 50514)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 42558) -> ('10.5.0.2', 50514)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 33011) -> ('172.29.144.1', 50515)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 42558) -> ('172.29.144.1', 50515)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 33011) -> ('192.168.132.1', 50516)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 42558) -> ('192.168.132.1', 50516)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 33011) -> ('169.254.6.190', 50517)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 42558) -> ('169.254.6.190', 50517)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 33011) -> ('192.168.75.1', 50518)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 42558) -> ('192.168.75.1', 50518)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 33011) -> ('192.168.66.188', 50519)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 42558) -> ('192.168.66.188', 50519)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 33011) -> ('192.168.66.188', 50519)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:pc:PeerConnection(e7c04ed6-bea9-4473-a278-ea22e11c5a81) Connection state is connected
+INFO:pc:PeerConnection(e7c04ed6-bea9-4473-a278-ea22e11c5a81) Connection state is closed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:pc:PeerConnection(e14be60f-7cfd-4932-b4e5-de084fab6afc) Created for 127.0.0.1
+INFO:pc:PeerConnection(e14be60f-7cfd-4932-b4e5-de084fab6afc) Track video received
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 39966) -> ('10.5.0.2', 63512)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 39114) -> ('10.5.0.2', 63512)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 39966) -> ('172.29.144.1', 63513)) State.FROZEN -> State.WAITING
+INFO:pc:PeerConnection(e14be60f-7cfd-4932-b4e5-de084fab6afc) Connection state is connecting
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 39966) -> ('10.5.0.2', 63512)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 39114) -> ('10.5.0.2', 63512)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 39966) -> ('172.29.144.1', 63513)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 39114) -> ('172.29.144.1', 63513)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 39966) -> ('192.168.132.1', 63514)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 39114) -> ('192.168.132.1', 63514)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 39966) -> ('169.254.6.190', 63515)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 39114) -> ('169.254.6.190', 63515)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 39966) -> ('192.168.75.1', 63516)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 39114) -> ('192.168.75.1', 63516)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 39966) -> ('192.168.66.188', 63517)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 39114) -> ('192.168.66.188', 63517)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 39966) -> ('192.168.66.188', 63517)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:pc:PeerConnection(e14be60f-7cfd-4932-b4e5-de084fab6afc) Connection state is connected
+WARNING:aiortc.rtcrtpsender:RTCRtpsender(video) Traceback (most recent call last):
+  File "/home/jetson/Documents/brain-env/lib/python3.10/site-packages/aiortc/rtcrtpsender.py", line 359, in _run_rtp
+    enc_frame = await self._next_encoded_frame(codec)
+  File "/home/jetson/Documents/brain-env/lib/python3.10/site-packages/aiortc/rtcrtpsender.py", line 286, in _next_encoded_frame
+    data = await self.__track.recv()
+  File "/home/jetson/Documents/Brain/src/dashboard/webRTC/threads/trackStream.py", line 50, in recv
+    blank_frame.time_base = Fraction(1 / 30)
+  File "av/frame.pyx", line 124, in av.frame.Frame.time_base.__set__
+  File "av/utils.pyx", line 51, in av.utils.to_avrational
+OverflowError: value too large to convert to int
+
+INFO:pc:PeerConnection(e14be60f-7cfd-4932-b4e5-de084fab6afc) Connection state is closed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:pc:PeerConnection(fa3ef1fd-b4ae-4a0e-93d5-70f9e1c25c0f) Created for 127.0.0.1
+INFO:pc:PeerConnection(fa3ef1fd-b4ae-4a0e-93d5-70f9e1c25c0f) Track video received
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 58926) -> ('10.5.0.2', 60989)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 48682) -> ('10.5.0.2', 60989)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 58926) -> ('172.29.144.1', 60990)) State.FROZEN -> State.WAITING
+INFO:pc:PeerConnection(fa3ef1fd-b4ae-4a0e-93d5-70f9e1c25c0f) Connection state is connecting
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 58926) -> ('10.5.0.2', 60989)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 48682) -> ('10.5.0.2', 60989)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 58926) -> ('172.29.144.1', 60990)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 48682) -> ('172.29.144.1', 60990)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 58926) -> ('192.168.132.1', 60991)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 48682) -> ('192.168.132.1', 60991)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 58926) -> ('169.254.6.190', 60992)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 48682) -> ('169.254.6.190', 60992)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 58926) -> ('192.168.75.1', 60993)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 48682) -> ('192.168.75.1', 60993)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 58926) -> ('192.168.66.188', 60994)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 48682) -> ('192.168.66.188', 60994)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 58926) -> ('192.168.66.188', 60994)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:pc:PeerConnection(fa3ef1fd-b4ae-4a0e-93d5-70f9e1c25c0f) Connection state is connected
+WARNING:aiortc.rtcrtpsender:RTCRtpsender(video) Traceback (most recent call last):
+  File "/home/jetson/Documents/brain-env/lib/python3.10/site-packages/aiortc/rtcrtpsender.py", line 359, in _run_rtp
+    enc_frame = await self._next_encoded_frame(codec)
+  File "/home/jetson/Documents/brain-env/lib/python3.10/site-packages/aiortc/rtcrtpsender.py", line 286, in _next_encoded_frame
+    data = await self.__track.recv()
+  File "/home/jetson/Documents/Brain/src/dashboard/webRTC/threads/trackStream.py", line 50, in recv
+    blank_frame.time_base = Fraction(1 / 30)
+  File "av/frame.pyx", line 124, in av.frame.Frame.time_base.__set__
+  File "av/utils.pyx", line 51, in av.utils.to_avrational
+OverflowError: value too large to convert to int
+
+INFO:pc:PeerConnection(fa3ef1fd-b4ae-4a0e-93d5-70f9e1c25c0f) Connection state is closed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:pc:PeerConnection(cf78eee0-5c04-409d-b37b-a569f8216127) Created for 127.0.0.1
+INFO:pc:PeerConnection(cf78eee0-5c04-409d-b37b-a569f8216127) Track video received
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 58201) -> ('10.5.0.2', 62946)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 46807) -> ('10.5.0.2', 62946)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 58201) -> ('172.29.144.1', 62947)) State.FROZEN -> State.WAITING
+INFO:pc:PeerConnection(cf78eee0-5c04-409d-b37b-a569f8216127) Connection state is connecting
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 58201) -> ('10.5.0.2', 62946)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 46807) -> ('10.5.0.2', 62946)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 58201) -> ('172.29.144.1', 62947)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 46807) -> ('172.29.144.1', 62947)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 58201) -> ('192.168.132.1', 62948)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 46807) -> ('192.168.132.1', 62948)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 58201) -> ('169.254.6.190', 62949)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 46807) -> ('169.254.6.190', 62949)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 58201) -> ('192.168.75.1', 62950)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 46807) -> ('192.168.75.1', 62950)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 58201) -> ('192.168.66.188', 62951)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 46807) -> ('192.168.66.188', 62951)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 58201) -> ('192.168.66.188', 62951)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:pc:PeerConnection(cf78eee0-5c04-409d-b37b-a569f8216127) Connection state is connected
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend && npm start' died with <Signals.SIGINT: 2>.
+WARNING:aiortc.rtcrtpsender:RTCRtpsender(video) Traceback (most recent call last):
+  File "/home/jetson/Documents/brain-env/lib/python3.10/site-packages/aiortc/rtcrtpsender.py", line 359, in _run_rtp
+    enc_frame = await self._next_encoded_frame(codec)
+  File "/home/jetson/Documents/brain-env/lib/python3.10/site-packages/aiortc/rtcrtpsender.py", line 286, in _next_encoded_frame
+    data = await self.__track.recv()
+  File "/home/jetson/Documents/Brain/src/dashboard/webRTC/threads/trackStream.py", line 50, in recv
+    blank_frame.time_base = Fraction(1, 30)
+  File "av/frame.pyx", line 124, in av.frame.Frame.time_base.__set__
+  File "av/utils.pyx", line 51, in av.utils.to_avrational
+OverflowError: value too large to convert to int
+
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend && npm start' died with <Signals.SIGINT: 2>.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend && npm start' died with <Signals.SIGINT: 2>.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:pc:PeerConnection(35be362a-8b3d-4179-8825-5a1436ba4f04) Created for 127.0.0.1
+INFO:pc:PeerConnection(35be362a-8b3d-4179-8825-5a1436ba4f04) Track video received
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 53150) -> ('10.5.0.2', 51302)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 60589) -> ('10.5.0.2', 51302)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 53150) -> ('172.29.144.1', 51303)) State.FROZEN -> State.WAITING
+INFO:pc:PeerConnection(35be362a-8b3d-4179-8825-5a1436ba4f04) Connection state is connecting
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 53150) -> ('10.5.0.2', 51302)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 60589) -> ('10.5.0.2', 51302)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 53150) -> ('172.29.144.1', 51303)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 60589) -> ('172.29.144.1', 51303)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 53150) -> ('192.168.132.1', 51304)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 60589) -> ('192.168.132.1', 51304)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 53150) -> ('169.254.6.190', 51305)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 60589) -> ('169.254.6.190', 51305)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 53150) -> ('192.168.75.1', 51306)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 60589) -> ('192.168.75.1', 51306)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 53150) -> ('192.168.66.188', 51307)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 60589) -> ('192.168.66.188', 51307)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 53150) -> ('192.168.66.188', 51307)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:pc:PeerConnection(35be362a-8b3d-4179-8825-5a1436ba4f04) Connection state is connected
+INFO:pc:PeerConnection(35be362a-8b3d-4179-8825-5a1436ba4f04) Connection state is closed
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend && npm start' died with <Signals.SIGINT: 2>.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:pc:PeerConnection(9b6c3b82-7800-4e3c-ba51-d51a228a19bd) Created for 127.0.0.1
+INFO:pc:PeerConnection(9b6c3b82-7800-4e3c-ba51-d51a228a19bd) Track video received
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 47941) -> ('10.5.0.2', 63707)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 53256) -> ('10.5.0.2', 63707)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 47941) -> ('172.29.144.1', 63708)) State.FROZEN -> State.WAITING
+INFO:pc:PeerConnection(9b6c3b82-7800-4e3c-ba51-d51a228a19bd) Connection state is connecting
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 47941) -> ('10.5.0.2', 63707)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 53256) -> ('10.5.0.2', 63707)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 47941) -> ('172.29.144.1', 63708)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 53256) -> ('172.29.144.1', 63708)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 47941) -> ('192.168.132.1', 63709)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 53256) -> ('192.168.132.1', 63709)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 47941) -> ('169.254.6.190', 63710)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 53256) -> ('169.254.6.190', 63710)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 47941) -> ('192.168.75.1', 63711)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 53256) -> ('192.168.75.1', 63711)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 47941) -> ('192.168.66.188', 63712)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 53256) -> ('192.168.66.188', 63712)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 47941) -> ('192.168.66.188', 63712)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:pc:PeerConnection(9b6c3b82-7800-4e3c-ba51-d51a228a19bd) Connection state is connected
+INFO:pc:PeerConnection(9b6c3b82-7800-4e3c-ba51-d51a228a19bd) Connection state is closed
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend && npm start' died with <Signals.SIGINT: 2>.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:pc:PeerConnection(2305a13f-03ed-4936-99e9-114952d29232) Created for 127.0.0.1
+INFO:pc:PeerConnection(2305a13f-03ed-4936-99e9-114952d29232) Track video received
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 42997) -> ('10.5.0.2', 64454)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 43976) -> ('10.5.0.2', 64454)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 42997) -> ('172.29.144.1', 64455)) State.FROZEN -> State.WAITING
+INFO:pc:PeerConnection(2305a13f-03ed-4936-99e9-114952d29232) Connection state is connecting
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 42997) -> ('10.5.0.2', 64454)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 43976) -> ('10.5.0.2', 64454)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 42997) -> ('172.29.144.1', 64455)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 43976) -> ('172.29.144.1', 64455)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 42997) -> ('192.168.132.1', 64456)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 43976) -> ('192.168.132.1', 64456)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 42997) -> ('169.254.6.190', 64457)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 43976) -> ('169.254.6.190', 64457)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 42997) -> ('192.168.75.1', 64458)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 43976) -> ('192.168.75.1', 64458)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 42997) -> ('192.168.66.188', 64459)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 43976) -> ('192.168.66.188', 64459)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 42997) -> ('192.168.66.188', 64459)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:pc:PeerConnection(2305a13f-03ed-4936-99e9-114952d29232) Connection state is connected
+INFO:pc:PeerConnection(2305a13f-03ed-4936-99e9-114952d29232) Connection state is closed
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend && npm start' died with <Signals.SIGINT: 2>.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:pc:PeerConnection(ae994326-56f2-4050-a83e-73ef9cde3fbd) Created for 127.0.0.1
+INFO:pc:PeerConnection(ae994326-56f2-4050-a83e-73ef9cde3fbd) Track video received
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 39492) -> ('10.5.0.2', 53346)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 33669) -> ('10.5.0.2', 53346)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 39492) -> ('172.29.144.1', 53347)) State.FROZEN -> State.WAITING
+INFO:pc:PeerConnection(ae994326-56f2-4050-a83e-73ef9cde3fbd) Connection state is connecting
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 39492) -> ('10.5.0.2', 53346)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 33669) -> ('10.5.0.2', 53346)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 39492) -> ('172.29.144.1', 53347)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 33669) -> ('172.29.144.1', 53347)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 39492) -> ('192.168.132.1', 53348)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 33669) -> ('192.168.132.1', 53348)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 39492) -> ('169.254.6.190', 53349)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 33669) -> ('169.254.6.190', 53349)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 39492) -> ('192.168.75.1', 53350)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 33669) -> ('192.168.75.1', 53350)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 39492) -> ('192.168.66.188', 53351)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 33669) -> ('192.168.66.188', 53351)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 39492) -> ('192.168.66.188', 53351)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:pc:PeerConnection(ae994326-56f2-4050-a83e-73ef9cde3fbd) Connection state is connected
+INFO:pc:PeerConnection(ae994326-56f2-4050-a83e-73ef9cde3fbd) Connection state is closed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:pc:PeerConnection(ad72f708-bdf3-4e10-b141-5a743930e1ac) Created for 127.0.0.1
+INFO:pc:PeerConnection(ad72f708-bdf3-4e10-b141-5a743930e1ac) Track video received
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 56362) -> ('10.5.0.2', 60725)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 48407) -> ('10.5.0.2', 60725)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 56362) -> ('172.29.144.1', 60726)) State.FROZEN -> State.WAITING
+INFO:pc:PeerConnection(ad72f708-bdf3-4e10-b141-5a743930e1ac) Connection state is connecting
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 56362) -> ('10.5.0.2', 60725)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 48407) -> ('10.5.0.2', 60725)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 56362) -> ('172.29.144.1', 60726)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 48407) -> ('172.29.144.1', 60726)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 56362) -> ('192.168.132.1', 60727)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 48407) -> ('192.168.132.1', 60727)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 56362) -> ('169.254.6.190', 60728)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 48407) -> ('169.254.6.190', 60728)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 56362) -> ('192.168.75.1', 60729)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 48407) -> ('192.168.75.1', 60729)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 56362) -> ('192.168.66.188', 60730)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 48407) -> ('192.168.66.188', 60730)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 56362) -> ('192.168.66.188', 60730)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:pc:PeerConnection(ad72f708-bdf3-4e10-b141-5a743930e1ac) Connection state is connected
+INFO:pc:PeerConnection(ad72f708-bdf3-4e10-b141-5a743930e1ac) Connection state is closed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:pc:PeerConnection(94b73107-2694-4f50-82e3-8de58245ad14) Created for 127.0.0.1
+INFO:pc:PeerConnection(94b73107-2694-4f50-82e3-8de58245ad14) Track video received
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 56846) -> ('10.5.0.2', 63627)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 55316) -> ('10.5.0.2', 63627)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 56846) -> ('172.29.144.1', 63628)) State.FROZEN -> State.WAITING
+INFO:pc:PeerConnection(94b73107-2694-4f50-82e3-8de58245ad14) Connection state is connecting
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 56846) -> ('10.5.0.2', 63627)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 55316) -> ('10.5.0.2', 63627)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 56846) -> ('172.29.144.1', 63628)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 55316) -> ('172.29.144.1', 63628)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 56846) -> ('192.168.132.1', 63629)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 55316) -> ('192.168.132.1', 63629)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 56846) -> ('169.254.6.190', 63630)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 55316) -> ('169.254.6.190', 63630)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 56846) -> ('192.168.75.1', 63631)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 55316) -> ('192.168.75.1', 63631)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 56846) -> ('192.168.66.188', 63632)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 55316) -> ('192.168.66.188', 63632)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 56846) -> ('192.168.66.188', 63632)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:pc:PeerConnection(94b73107-2694-4f50-82e3-8de58245ad14) Connection state is connected
+INFO:pc:PeerConnection(94b73107-2694-4f50-82e3-8de58245ad14) Connection state is closed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:pc:PeerConnection(5e97beab-7353-4aba-a597-bf845385c948) Created for 127.0.0.1
+INFO:pc:PeerConnection(5e97beab-7353-4aba-a597-bf845385c948) Track video received
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 54805) -> ('10.5.0.2', 56289)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 37160) -> ('10.5.0.2', 56289)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 54805) -> ('172.29.144.1', 56290)) State.FROZEN -> State.WAITING
+INFO:pc:PeerConnection(5e97beab-7353-4aba-a597-bf845385c948) Connection state is connecting
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 54805) -> ('10.5.0.2', 56289)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 37160) -> ('10.5.0.2', 56289)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 54805) -> ('172.29.144.1', 56290)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 37160) -> ('172.29.144.1', 56290)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 54805) -> ('192.168.132.1', 56291)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 37160) -> ('192.168.132.1', 56291)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 54805) -> ('169.254.6.190', 56292)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 37160) -> ('169.254.6.190', 56292)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 54805) -> ('192.168.75.1', 56293)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 37160) -> ('192.168.75.1', 56293)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 54805) -> ('192.168.66.188', 56294)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 37160) -> ('192.168.66.188', 56294)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 54805) -> ('192.168.66.188', 56294)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:pc:PeerConnection(5e97beab-7353-4aba-a597-bf845385c948) Connection state is connected
+INFO:pc:PeerConnection(5e97beab-7353-4aba-a597-bf845385c948) Connection state is closed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:pc:PeerConnection(60078d98-3a4e-4a96-a7ba-c80807eb714a) Created for 127.0.0.1
+INFO:pc:PeerConnection(60078d98-3a4e-4a96-a7ba-c80807eb714a) Track video received
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 58974) -> ('10.5.0.2', 56600)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 40886) -> ('10.5.0.2', 56600)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 58974) -> ('172.29.144.1', 56601)) State.FROZEN -> State.WAITING
+INFO:pc:PeerConnection(60078d98-3a4e-4a96-a7ba-c80807eb714a) Connection state is connecting
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 58974) -> ('10.5.0.2', 56600)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 40886) -> ('10.5.0.2', 56600)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 58974) -> ('172.29.144.1', 56601)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 40886) -> ('172.29.144.1', 56601)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 58974) -> ('192.168.132.1', 56602)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 40886) -> ('192.168.132.1', 56602)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 58974) -> ('169.254.6.190', 56603)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 40886) -> ('169.254.6.190', 56603)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 58974) -> ('192.168.75.1', 56604)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 40886) -> ('192.168.75.1', 56604)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 58974) -> ('192.168.66.188', 56605)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 40886) -> ('192.168.66.188', 56605)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 58974) -> ('192.168.66.188', 56605)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:pc:PeerConnection(60078d98-3a4e-4a96-a7ba-c80807eb714a) Connection state is connected
+INFO:pc:PeerConnection(60078d98-3a4e-4a96-a7ba-c80807eb714a) Connection state is closed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:pc:PeerConnection(1409f90e-dd94-49a5-8b57-a649fa3c5bbf) Created for 127.0.0.1
+INFO:pc:PeerConnection(1409f90e-dd94-49a5-8b57-a649fa3c5bbf) Track video received
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 41898) -> ('10.5.0.2', 50625)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 43213) -> ('10.5.0.2', 50625)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 41898) -> ('172.29.144.1', 50626)) State.FROZEN -> State.WAITING
+INFO:pc:PeerConnection(1409f90e-dd94-49a5-8b57-a649fa3c5bbf) Connection state is connecting
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 41898) -> ('10.5.0.2', 50625)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 43213) -> ('10.5.0.2', 50625)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 41898) -> ('172.29.144.1', 50626)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 43213) -> ('172.29.144.1', 50626)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 41898) -> ('192.168.132.1', 50627)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 43213) -> ('192.168.132.1', 50627)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 41898) -> ('169.254.6.190', 50628)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 43213) -> ('169.254.6.190', 50628)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 41898) -> ('192.168.75.1', 50629)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 43213) -> ('192.168.75.1', 50629)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 41898) -> ('192.168.66.188', 50630)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 43213) -> ('192.168.66.188', 50630)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 41898) -> ('192.168.66.188', 50630)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:pc:PeerConnection(1409f90e-dd94-49a5-8b57-a649fa3c5bbf) Connection state is connected
+INFO:pc:PeerConnection(1409f90e-dd94-49a5-8b57-a649fa3c5bbf) Connection state is closed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:pc:PeerConnection(44da542c-0b44-41f8-8753-b40ad0391f10) Created for 127.0.0.1
+INFO:pc:PeerConnection(44da542c-0b44-41f8-8753-b40ad0391f10) Track video received
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 55284) -> ('10.5.0.2', 64046)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 34876) -> ('10.5.0.2', 64046)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 55284) -> ('172.29.144.1', 64047)) State.FROZEN -> State.WAITING
+INFO:pc:PeerConnection(44da542c-0b44-41f8-8753-b40ad0391f10) Connection state is connecting
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 55284) -> ('10.5.0.2', 64046)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 34876) -> ('10.5.0.2', 64046)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 55284) -> ('172.29.144.1', 64047)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 34876) -> ('172.29.144.1', 64047)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 55284) -> ('192.168.132.1', 64048)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 34876) -> ('192.168.132.1', 64048)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 55284) -> ('169.254.6.190', 64049)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 34876) -> ('169.254.6.190', 64049)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 55284) -> ('192.168.75.1', 64050)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 34876) -> ('192.168.75.1', 64050)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 55284) -> ('192.168.66.188', 64051)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 34876) -> ('192.168.66.188', 64051)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 55284) -> ('192.168.66.188', 64051)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:pc:PeerConnection(44da542c-0b44-41f8-8753-b40ad0391f10) Connection state is connected
+INFO:pc:PeerConnection(44da542c-0b44-41f8-8753-b40ad0391f10) Connection state is closed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:pc:PeerConnection(1df39810-192a-454c-875b-c41121ec7ac2) Created for 127.0.0.1
+INFO:pc:PeerConnection(1df39810-192a-454c-875b-c41121ec7ac2) Track video received
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 47273) -> ('10.5.0.2', 51942)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 33868) -> ('10.5.0.2', 51942)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 47273) -> ('172.29.144.1', 51943)) State.FROZEN -> State.WAITING
+INFO:pc:PeerConnection(1df39810-192a-454c-875b-c41121ec7ac2) Connection state is connecting
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 47273) -> ('10.5.0.2', 51942)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 33868) -> ('10.5.0.2', 51942)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 47273) -> ('172.29.144.1', 51943)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 33868) -> ('172.29.144.1', 51943)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 47273) -> ('192.168.132.1', 51949)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 33868) -> ('192.168.132.1', 51949)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 47273) -> ('169.254.6.190', 51950)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 33868) -> ('169.254.6.190', 51950)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 47273) -> ('192.168.75.1', 51951)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 33868) -> ('192.168.75.1', 51951)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 47273) -> ('192.168.66.188', 51952)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 33868) -> ('192.168.66.188', 51952)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 47273) -> ('192.168.66.188', 51952)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:pc:PeerConnection(1df39810-192a-454c-875b-c41121ec7ac2) Connection state is connected
+INFO:pc:PeerConnection(1df39810-192a-454c-875b-c41121ec7ac2) Connection state is closed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:pc:PeerConnection(f54022f1-39d0-4cfd-b578-0002bd8a987c) Created for 127.0.0.1
+INFO:pc:PeerConnection(f54022f1-39d0-4cfd-b578-0002bd8a987c) Track video received
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 55650) -> ('10.5.0.2', 58029)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 37803) -> ('10.5.0.2', 58029)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 55650) -> ('172.29.144.1', 58032)) State.FROZEN -> State.WAITING
+INFO:pc:PeerConnection(f54022f1-39d0-4cfd-b578-0002bd8a987c) Connection state is connecting
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 55650) -> ('10.5.0.2', 58029)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 37803) -> ('10.5.0.2', 58029)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 55650) -> ('172.29.144.1', 58032)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 37803) -> ('172.29.144.1', 58032)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 55650) -> ('192.168.132.1', 58033)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 37803) -> ('192.168.132.1', 58033)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 55650) -> ('169.254.6.190', 58034)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 37803) -> ('169.254.6.190', 58034)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 55650) -> ('192.168.75.1', 58035)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 37803) -> ('192.168.75.1', 58035)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 55650) -> ('192.168.66.188', 58036)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 37803) -> ('192.168.66.188', 58036)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 55650) -> ('192.168.66.188', 58036)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:pc:PeerConnection(f54022f1-39d0-4cfd-b578-0002bd8a987c) Connection state is connected
+WARNING:aiortc.rtcrtpsender:RTCRtpsender(video) Traceback (most recent call last):
+  File "/home/jetson/Documents/brain-env/lib/python3.10/site-packages/aiortc/rtcrtpsender.py", line 359, in _run_rtp
+    enc_frame = await self._next_encoded_frame(codec)
+  File "/home/jetson/Documents/brain-env/lib/python3.10/site-packages/aiortc/rtcrtpsender.py", line 286, in _next_encoded_frame
+    data = await self.__track.recv()
+  File "/home/jetson/Documents/Brain/src/dashboard/webRTC/threads/trackStream.py", line 31, in recv
+    frame = self.MainVideoSubscriber.receive()
+AttributeError: 'trackStream' object has no attribute 'MainVideoSubscriber'
+
+INFO:pc:PeerConnection(f54022f1-39d0-4cfd-b578-0002bd8a987c) Connection state is closed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:pc:PeerConnection(bb278048-a459-4143-a235-cfd7dc2452ca) Created for 127.0.0.1
+INFO:pc:PeerConnection(bb278048-a459-4143-a235-cfd7dc2452ca) Track video received
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 60319) -> ('10.5.0.2', 61092)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 47670) -> ('10.5.0.2', 61092)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 60319) -> ('172.29.144.1', 61093)) State.FROZEN -> State.WAITING
+INFO:pc:PeerConnection(bb278048-a459-4143-a235-cfd7dc2452ca) Connection state is connecting
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 60319) -> ('10.5.0.2', 61092)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 47670) -> ('10.5.0.2', 61092)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 60319) -> ('172.29.144.1', 61093)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 47670) -> ('172.29.144.1', 61093)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 60319) -> ('192.168.132.1', 61094)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 47670) -> ('192.168.132.1', 61094)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 60319) -> ('169.254.6.190', 61095)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 47670) -> ('169.254.6.190', 61095)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 60319) -> ('192.168.75.1', 61096)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 47670) -> ('192.168.75.1', 61096)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 60319) -> ('192.168.66.188', 61097)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 47670) -> ('192.168.66.188', 61097)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 60319) -> ('192.168.66.188', 61097)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:pc:PeerConnection(bb278048-a459-4143-a235-cfd7dc2452ca) Connection state is connected
+INFO:pc:PeerConnection(bb278048-a459-4143-a235-cfd7dc2452ca) Connection state is closed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:pc:PeerConnection(133aca90-259c-43bb-9bc1-b5b82acd32cb) Created for 127.0.0.1
+INFO:pc:PeerConnection(133aca90-259c-43bb-9bc1-b5b82acd32cb) Track video received
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 54673) -> ('10.5.0.2', 64084)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 46054) -> ('10.5.0.2', 64084)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 54673) -> ('172.29.144.1', 64085)) State.FROZEN -> State.WAITING
+INFO:pc:PeerConnection(133aca90-259c-43bb-9bc1-b5b82acd32cb) Connection state is connecting
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 54673) -> ('10.5.0.2', 64084)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 46054) -> ('10.5.0.2', 64084)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 54673) -> ('172.29.144.1', 64085)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 46054) -> ('172.29.144.1', 64085)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 54673) -> ('192.168.132.1', 64086)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 46054) -> ('192.168.132.1', 64086)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 54673) -> ('169.254.6.190', 64087)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 46054) -> ('169.254.6.190', 64087)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 54673) -> ('192.168.75.1', 64088)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 46054) -> ('192.168.75.1', 64088)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 54673) -> ('192.168.66.188', 64089)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 46054) -> ('192.168.66.188', 64089)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 54673) -> ('192.168.66.188', 64089)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:pc:PeerConnection(133aca90-259c-43bb-9bc1-b5b82acd32cb) Connection state is connected
+INFO:pc:PeerConnection(133aca90-259c-43bb-9bc1-b5b82acd32cb) Connection state is closed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:pc:PeerConnection(66f5fadb-53c3-4d81-a517-bd7ed89a8812) Created for 127.0.0.1
+INFO:pc:PeerConnection(66f5fadb-53c3-4d81-a517-bd7ed89a8812) Track video received
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 60069) -> ('10.5.0.2', 63709)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 60281) -> ('10.5.0.2', 63709)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 60069) -> ('172.29.144.1', 63710)) State.FROZEN -> State.WAITING
+INFO:pc:PeerConnection(66f5fadb-53c3-4d81-a517-bd7ed89a8812) Connection state is connecting
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 60069) -> ('10.5.0.2', 63709)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 60281) -> ('10.5.0.2', 63709)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 60069) -> ('172.29.144.1', 63710)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 60281) -> ('172.29.144.1', 63710)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 60069) -> ('192.168.132.1', 63711)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 60281) -> ('192.168.132.1', 63711)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 60069) -> ('169.254.6.190', 63712)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 60281) -> ('169.254.6.190', 63712)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 60069) -> ('192.168.75.1', 63713)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 60281) -> ('192.168.75.1', 63713)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 60069) -> ('192.168.66.188', 63714)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 60281) -> ('192.168.66.188', 63714)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 60069) -> ('192.168.66.188', 63714)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:pc:PeerConnection(66f5fadb-53c3-4d81-a517-bd7ed89a8812) Connection state is connected
+INFO:pc:PeerConnection(66f5fadb-53c3-4d81-a517-bd7ed89a8812) Connection state is closed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:pc:PeerConnection(663948ec-2bd9-461f-8028-5b3f16d7e6bb) Created for 127.0.0.1
+INFO:pc:PeerConnection(663948ec-2bd9-461f-8028-5b3f16d7e6bb) Track video received
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 43600) -> ('10.5.0.2', 56543)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 38099) -> ('10.5.0.2', 56543)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 43600) -> ('172.29.144.1', 56544)) State.FROZEN -> State.WAITING
+INFO:pc:PeerConnection(663948ec-2bd9-461f-8028-5b3f16d7e6bb) Connection state is connecting
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 43600) -> ('10.5.0.2', 56543)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 38099) -> ('10.5.0.2', 56543)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 43600) -> ('172.29.144.1', 56544)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 38099) -> ('172.29.144.1', 56544)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 43600) -> ('192.168.132.1', 56545)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 38099) -> ('192.168.132.1', 56545)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 43600) -> ('169.254.6.190', 56546)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 38099) -> ('169.254.6.190', 56546)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 43600) -> ('192.168.75.1', 56547)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 38099) -> ('192.168.75.1', 56547)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 43600) -> ('192.168.66.188', 56548)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 38099) -> ('192.168.66.188', 56548)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 43600) -> ('192.168.66.188', 56548)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:pc:PeerConnection(663948ec-2bd9-461f-8028-5b3f16d7e6bb) Connection state is connected
+INFO:pc:PeerConnection(663948ec-2bd9-461f-8028-5b3f16d7e6bb) Connection state is closed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:pc:PeerConnection(7e93e74e-f38b-4ad1-ad16-d486ea83d20a) Created for 127.0.0.1
+INFO:pc:PeerConnection(7e93e74e-f38b-4ad1-ad16-d486ea83d20a) Track video received
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 47580) -> ('10.5.0.2', 52763)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 50497) -> ('10.5.0.2', 52763)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 47580) -> ('172.29.144.1', 52764)) State.FROZEN -> State.WAITING
+INFO:pc:PeerConnection(7e93e74e-f38b-4ad1-ad16-d486ea83d20a) Connection state is connecting
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 47580) -> ('10.5.0.2', 52763)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 50497) -> ('10.5.0.2', 52763)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 47580) -> ('172.29.144.1', 52764)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 50497) -> ('172.29.144.1', 52764)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 47580) -> ('192.168.132.1', 52765)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 50497) -> ('192.168.132.1', 52765)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 47580) -> ('169.254.6.190', 52766)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 50497) -> ('169.254.6.190', 52766)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 47580) -> ('192.168.75.1', 52767)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 50497) -> ('192.168.75.1', 52767)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 47580) -> ('192.168.66.188', 52768)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 50497) -> ('192.168.66.188', 52768)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 47580) -> ('192.168.66.188', 52768)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:pc:PeerConnection(7e93e74e-f38b-4ad1-ad16-d486ea83d20a) Connection state is connected
+WARNING:aiortc.rtcrtpsender:RTCRtpsender(video) Traceback (most recent call last):
+  File "/home/jetson/Documents/brain-env/lib/python3.10/site-packages/aiortc/rtcrtpsender.py", line 359, in _run_rtp
+    enc_frame = await self._next_encoded_frame(codec)
+  File "/home/jetson/Documents/brain-env/lib/python3.10/site-packages/aiortc/rtcrtpsender.py", line 286, in _next_encoded_frame
+    data = await self.__track.recv()
+  File "/home/jetson/Documents/Brain/src/dashboard/webRTC/threads/trackStream.py", line 38, in recv
+    av_frame = av.VideoFrame.from_ndarray(frame, format='bgr24')
+  File "av/video/frame.pyx", line 551, in av.video.frame.VideoFrame.from_ndarray
+  File "av/utils.pyx", line 66, in av.utils.check_ndarray
+ValueError: Expected numpy array with ndim `3` but got `1`
+
+INFO:pc:PeerConnection(7e93e74e-f38b-4ad1-ad16-d486ea83d20a) Connection state is closed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:pc:PeerConnection(0a56e306-836b-4393-9747-c53c16971a7c) Created for 127.0.0.1
+INFO:pc:PeerConnection(0a56e306-836b-4393-9747-c53c16971a7c) Track video received
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 46558) -> ('10.5.0.2', 51990)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 49677) -> ('10.5.0.2', 51990)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 46558) -> ('172.29.144.1', 51991)) State.FROZEN -> State.WAITING
+INFO:pc:PeerConnection(0a56e306-836b-4393-9747-c53c16971a7c) Connection state is connecting
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 46558) -> ('10.5.0.2', 51990)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 49677) -> ('10.5.0.2', 51990)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 46558) -> ('172.29.144.1', 51991)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 49677) -> ('172.29.144.1', 51991)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 46558) -> ('192.168.132.1', 51992)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 49677) -> ('192.168.132.1', 51992)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 46558) -> ('192.168.75.1', 51993)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 49677) -> ('192.168.75.1', 51993)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 46558) -> ('192.168.66.188', 51994)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 49677) -> ('192.168.66.188', 51994)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 46558) -> ('192.168.66.188', 51994)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:pc:PeerConnection(0a56e306-836b-4393-9747-c53c16971a7c) Connection state is connected
+INFO:pc:PeerConnection(0a56e306-836b-4393-9747-c53c16971a7c) Connection state is closed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:pc:PeerConnection(22bc5006-edef-457a-acd8-3b513d4db78b) Created for 127.0.0.1
+INFO:pc:PeerConnection(22bc5006-edef-457a-acd8-3b513d4db78b) Track video received
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 46253) -> ('10.5.0.2', 51295)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 33065) -> ('10.5.0.2', 51295)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 46253) -> ('172.29.144.1', 51296)) State.FROZEN -> State.WAITING
+INFO:pc:PeerConnection(22bc5006-edef-457a-acd8-3b513d4db78b) Connection state is connecting
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 46253) -> ('10.5.0.2', 51295)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 33065) -> ('10.5.0.2', 51295)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 46253) -> ('172.29.144.1', 51296)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 33065) -> ('172.29.144.1', 51296)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 46253) -> ('192.168.132.1', 51297)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 33065) -> ('192.168.132.1', 51297)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 46253) -> ('169.254.6.190', 51298)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 33065) -> ('169.254.6.190', 51298)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 46253) -> ('192.168.75.1', 51299)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 33065) -> ('192.168.75.1', 51299)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 46253) -> ('192.168.66.188', 51300)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 33065) -> ('192.168.66.188', 51300)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 46253) -> ('192.168.66.188', 51300)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:pc:PeerConnection(22bc5006-edef-457a-acd8-3b513d4db78b) Connection state is connected
+INFO:aioice.ice:Connection(0) Consent to send expired
+INFO:pc:PeerConnection(22bc5006-edef-457a-acd8-3b513d4db78b) Connection state is closed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:pc:PeerConnection(c4b7a5c6-1f63-4362-b55f-3ab88c79ac95) Created for 127.0.0.1
+INFO:pc:PeerConnection(c4b7a5c6-1f63-4362-b55f-3ab88c79ac95) Track video received
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 59215) -> ('10.5.0.2', 59100)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 42690) -> ('10.5.0.2', 59100)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 59215) -> ('172.29.144.1', 59101)) State.FROZEN -> State.WAITING
+INFO:pc:PeerConnection(c4b7a5c6-1f63-4362-b55f-3ab88c79ac95) Connection state is connecting
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 59215) -> ('10.5.0.2', 59100)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 42690) -> ('10.5.0.2', 59100)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 59215) -> ('172.29.144.1', 59101)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 42690) -> ('172.29.144.1', 59101)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 59215) -> ('192.168.132.1', 59102)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 42690) -> ('192.168.132.1', 59102)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 59215) -> ('169.254.6.190', 59103)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 42690) -> ('169.254.6.190', 59103)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 59215) -> ('192.168.75.1', 59104)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 42690) -> ('192.168.75.1', 59104)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 59215) -> ('192.168.66.188', 59105)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 42690) -> ('192.168.66.188', 59105)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 59215) -> ('192.168.66.188', 59105)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:pc:PeerConnection(c4b7a5c6-1f63-4362-b55f-3ab88c79ac95) Connection state is connected
+INFO:pc:PeerConnection(c4b7a5c6-1f63-4362-b55f-3ab88c79ac95) Connection state is closed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:pc:PeerConnection(20e07791-394b-445b-81d1-94a50f056aea) Created for 127.0.0.1
+INFO:pc:PeerConnection(20e07791-394b-445b-81d1-94a50f056aea) Track video received
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 48458) -> ('10.5.0.2', 59684)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 45541) -> ('10.5.0.2', 59684)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 48458) -> ('172.29.144.1', 59685)) State.FROZEN -> State.WAITING
+INFO:pc:PeerConnection(20e07791-394b-445b-81d1-94a50f056aea) Connection state is connecting
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 48458) -> ('10.5.0.2', 59684)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 45541) -> ('10.5.0.2', 59684)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 48458) -> ('172.29.144.1', 59685)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 45541) -> ('172.29.144.1', 59685)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 48458) -> ('192.168.132.1', 59686)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 45541) -> ('192.168.132.1', 59686)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 48458) -> ('169.254.6.190', 59687)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 45541) -> ('169.254.6.190', 59687)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 48458) -> ('192.168.75.1', 59688)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 45541) -> ('192.168.75.1', 59688)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 48458) -> ('192.168.66.188', 59689)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 45541) -> ('192.168.66.188', 59689)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 48458) -> ('192.168.66.188', 59689)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:pc:PeerConnection(20e07791-394b-445b-81d1-94a50f056aea) Connection state is connected
+INFO:pc:PeerConnection(20e07791-394b-445b-81d1-94a50f056aea) Connection state is closed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend && npm start' died with <Signals.SIGINT: 2>.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend && npm start' died with <Signals.SIGINT: 2>.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend && npm start' died with <Signals.SIGINT: 2>.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend && npm start' died with <Signals.SIGINT: 2>.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(6522b1e0-f362-4d3a-9da7-c71185159e68) Created for Angular
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(6631d0f0-f142-49cd-a51c-4b599acffef4) Created for Angular
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(db9d5fd1-3792-4b79-89bc-368894975a94) Created for Angular
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(37b92265-a96e-40a9-8196-4046e49b2651) Created for Angular
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(df747cc9-22e5-4090-abaf-e1979a08cde3) Created for Angular
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(16929b06-124f-493a-94b5-42457a254a09) Created for Angular
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(58ce2e00-af5c-432a-bd8e-9680a2c564a9) Created for Angular
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(34649ebe-1967-4a8e-9e89-6af8e3189c3f) Created for Angular
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(765ad90f-557f-4690-8ac1-9971e7ab0da8) Created for Angular
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(ed506bc1-1fca-40ef-8be9-7b42fb4420ee) Created for Angular
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(247058a1-4cbd-466b-be12-814107f70f66) Created for Angular
+INFO:stream:PeerConnection(247058a1-4cbd-466b-be12-814107f70f66) Connection state is new
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(779c1b7f-5f3d-446e-a92a-36f457af7646) Created for Angular
+INFO:stream:PeerConnection(779c1b7f-5f3d-446e-a92a-36f457af7646) Connection state is new
+INFO:stream:PeerConnection(779c1b7f-5f3d-446e-a92a-36f457af7646) Connection state is connecting
+INFO:aioice.ice:Connection(1) Discovered peer reflexive candidate Candidate(5rHWRTCZYG 1 udp 1845501695 192.168.66.188 65330 typ prflx)
+INFO:aioice.ice:Connection(1) Check CandidatePair(('192.168.66.155', 48964) -> ('192.168.66.188', 65330)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(1) Check CandidatePair(('192.168.66.155', 48964) -> ('192.168.66.188', 65330)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(1) ICE completed
+INFO:aioice.ice:Connection(1) Remote candidate "e1e3bbfc-4b94-41c0-b216-2ca2f479023c.local" resolved to 192.168.66.188
+INFO:aioice.ice:Connection(1) Check CandidatePair(('192.168.66.155', 48964) -> ('192.168.66.188', 65330)) State.FROZEN -> State.FAILED
+INFO:aioice.ice:Connection(1) Check CandidatePair(('172.17.0.1', 56050) -> ('192.168.66.188', 65330)) State.FROZEN -> State.FAILED
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(89c0b598-3cec-4f39-b4da-2208e477c893) Created for Angular
+INFO:stream:PeerConnection(89c0b598-3cec-4f39-b4da-2208e477c893) Connection state is new
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(c4028c8c-5a3f-4531-ba4b-cf1caf568524) Created for Angular
+INFO:stream:PeerConnection(c4028c8c-5a3f-4531-ba4b-cf1caf568524) Connection state is new
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(fccbcc60-90e7-4574-9454-643fce1564fb) Created for Angular
+INFO:stream:PeerConnection(fccbcc60-90e7-4574-9454-643fce1564fb) Connection state is new
+INFO:aioice.ice:Connection(1) Discovered peer reflexive candidate Candidate(dU33REYyDn 1 udp 1845501695 192.168.66.188 61098 typ prflx)
+INFO:aioice.ice:Connection(1) Check CandidatePair(('192.168.66.155', 54143) -> ('192.168.66.188', 61098)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(1) Check CandidatePair(('192.168.66.155', 54143) -> ('192.168.66.188', 61098)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(1) ICE completed
+INFO:aioice.ice:Connection(1) Remote candidate "c231615b-8894-41eb-bea4-1408c7a8aef2.local" resolved to 192.168.66.188
+INFO:aioice.ice:Connection(1) Check CandidatePair(('192.168.66.155', 54143) -> ('192.168.66.188', 61098)) State.FROZEN -> State.FAILED
+INFO:aioice.ice:Connection(1) Check CandidatePair(('172.17.0.1', 56672) -> ('192.168.66.188', 61098)) State.FROZEN -> State.FAILED
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(ac4a2ad5-e964-4381-adf3-88beeb1597e4) Created for Angular
+INFO:stream:PeerConnection(ac4a2ad5-e964-4381-adf3-88beeb1597e4) Connection state is new
+INFO:aioice.ice:Connection(1) Discovered peer reflexive candidate Candidate(OIauOYr070 1 udp 1845501695 192.168.66.188 61584 typ prflx)
+INFO:aioice.ice:Connection(1) Check CandidatePair(('192.168.66.155', 35692) -> ('192.168.66.188', 61584)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(1) Remote candidate "bad68551-90aa-4ca3-b727-aaaa6aadd565.local" resolved to 192.168.66.188
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(f0a8fe68-8ef8-4211-b180-1801ba599317) Created for Angular
+INFO:stream:PeerConnection(f0a8fe68-8ef8-4211-b180-1801ba599317) Connection state is new
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(68e6d389-a662-46fa-af0b-de008b6cf021) Created for Angular
+INFO:stream:PeerConnection(68e6d389-a662-46fa-af0b-de008b6cf021) Connection state is new
+INFO:stream:PeerConnection(95fcc437-9508-4591-b10e-11afd61828a5) Created for Angular
+INFO:aioice.ice:Connection(1) Check CandidatePair(('192.168.66.155', 54177) -> ('192.168.66.213', 41355)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(1) Check CandidatePair(('172.17.0.1', 36915) -> ('192.168.66.213', 41355)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(1) Discovered peer reflexive candidate Candidate(FOwOsM5e4p 1 udp 1845501695 192.168.66.213 46751 typ prflx)
+INFO:aioice.ice:Connection(1) Check CandidatePair(('192.168.66.155', 54177) -> ('192.168.66.213', 41355)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(1) Check CandidatePair(('192.168.66.155', 54177) -> ('192.168.66.213', 46751)) State.WAITING -> State.IN_PROGRESS
+INFO:stream:PeerConnection(95fcc437-9508-4591-b10e-11afd61828a5) Connection state is new
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:pc:PeerConnection(91b8d4e0-2808-44d8-aab6-6a29b4f26009) Created for 127.0.0.1
+INFO:pc:PeerConnection(91b8d4e0-2808-44d8-aab6-6a29b4f26009) Track video received
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 47782) -> ('10.5.0.2', 52314)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 40631) -> ('10.5.0.2', 52314)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 47782) -> ('172.29.144.1', 52315)) State.FROZEN -> State.WAITING
+INFO:pc:PeerConnection(91b8d4e0-2808-44d8-aab6-6a29b4f26009) Connection state is connecting
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 47782) -> ('10.5.0.2', 52314)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 40631) -> ('10.5.0.2', 52314)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 47782) -> ('172.29.144.1', 52315)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 40631) -> ('172.29.144.1', 52315)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 47782) -> ('192.168.132.1', 52316)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 40631) -> ('192.168.132.1', 52316)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 47782) -> ('169.254.6.190', 52317)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 40631) -> ('169.254.6.190', 52317)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 47782) -> ('192.168.75.1', 52318)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 40631) -> ('192.168.75.1', 52318)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 47782) -> ('192.168.66.188', 52319)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 40631) -> ('192.168.66.188', 52319)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 47782) -> ('192.168.66.188', 52319)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:pc:PeerConnection(91b8d4e0-2808-44d8-aab6-6a29b4f26009) Connection state is connected
+INFO:pc:PeerConnection(91b8d4e0-2808-44d8-aab6-6a29b4f26009) Connection state is closed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:pc:PeerConnection(883ffbac-c5f0-4b3f-aed8-8d174b049bc3) Created for 127.0.0.1
+INFO:pc:PeerConnection(883ffbac-c5f0-4b3f-aed8-8d174b049bc3) Track video received
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 34978) -> ('10.5.0.2', 56247)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 47234) -> ('10.5.0.2', 56247)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 34978) -> ('172.26.64.1', 56248)) State.FROZEN -> State.WAITING
+INFO:pc:PeerConnection(883ffbac-c5f0-4b3f-aed8-8d174b049bc3) Connection state is connecting
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 34978) -> ('10.5.0.2', 56247)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 47234) -> ('10.5.0.2', 56247)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 34978) -> ('172.26.64.1', 56248)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 47234) -> ('172.26.64.1', 56248)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 34978) -> ('192.168.132.1', 56249)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 47234) -> ('192.168.132.1', 56249)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 34978) -> ('169.254.6.190', 56250)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 47234) -> ('169.254.6.190', 56250)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 34978) -> ('192.168.75.1', 56251)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 47234) -> ('192.168.75.1', 56251)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 34978) -> ('192.168.66.188', 56252)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 47234) -> ('192.168.66.188', 56252)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 34978) -> ('192.168.66.188', 56252)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:pc:PeerConnection(883ffbac-c5f0-4b3f-aed8-8d174b049bc3) Connection state is connected
+INFO:pc:PeerConnection(883ffbac-c5f0-4b3f-aed8-8d174b049bc3) Connection state is closed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:pc:PeerConnection(8ff227ea-6c3e-4a81-8be2-ff7f16bcccaf) Created for 127.0.0.1
+INFO:aioice.ice:Connection(0) Remote candidate "07c39fe8-fe94-40cd-86f5-d2fddfccd85b.local" resolved to 192.168.66.188
+INFO:pc:PeerConnection(8ff227ea-6c3e-4a81-8be2-ff7f16bcccaf) Track video received
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 45095) -> ('192.168.66.188', 51421)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 56248) -> ('192.168.66.188', 51421)) State.FROZEN -> State.WAITING
+INFO:pc:PeerConnection(8ff227ea-6c3e-4a81-8be2-ff7f16bcccaf) Connection state is connecting
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 45095) -> ('192.168.66.188', 51421)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 56248) -> ('192.168.66.188', 51421)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 45095) -> ('192.168.66.188', 51421)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:pc:PeerConnection(8ff227ea-6c3e-4a81-8be2-ff7f16bcccaf) Connection state is connected
+INFO:pc:PeerConnection(8ff227ea-6c3e-4a81-8be2-ff7f16bcccaf) Connection state is closed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:pc:PeerConnection(6e1571ae-bb87-494c-b9f9-c60ec6291965) Created for 127.0.0.1
+INFO:pc:PeerConnection(6e1571ae-bb87-494c-b9f9-c60ec6291965) Track video received
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 56560) -> ('10.5.0.2', 61036)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 43157) -> ('10.5.0.2', 61036)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 56560) -> ('172.26.64.1', 61037)) State.FROZEN -> State.WAITING
+INFO:pc:PeerConnection(6e1571ae-bb87-494c-b9f9-c60ec6291965) Connection state is connecting
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 56560) -> ('10.5.0.2', 61036)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 43157) -> ('10.5.0.2', 61036)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 56560) -> ('172.26.64.1', 61037)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 43157) -> ('172.26.64.1', 61037)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 56560) -> ('192.168.132.1', 61038)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 43157) -> ('192.168.132.1', 61038)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 56560) -> ('169.254.6.190', 61039)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 43157) -> ('169.254.6.190', 61039)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 56560) -> ('192.168.75.1', 61040)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 43157) -> ('192.168.75.1', 61040)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 56560) -> ('192.168.66.188', 61041)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 43157) -> ('192.168.66.188', 61041)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 56560) -> ('192.168.66.188', 61041)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:pc:PeerConnection(6e1571ae-bb87-494c-b9f9-c60ec6291965) Connection state is connected
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:pc:PeerConnection(4d5473af-c1f0-4983-b9f0-d18f08fb6fd4) Created for 127.0.0.1
+INFO:pc:PeerConnection(4d5473af-c1f0-4983-b9f0-d18f08fb6fd4) Track video received
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 60046) -> ('10.5.0.2', 64463)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 48037) -> ('10.5.0.2', 64463)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 60046) -> ('172.26.64.1', 64464)) State.FROZEN -> State.WAITING
+INFO:pc:PeerConnection(4d5473af-c1f0-4983-b9f0-d18f08fb6fd4) Connection state is connecting
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 60046) -> ('10.5.0.2', 64463)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 48037) -> ('10.5.0.2', 64463)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 60046) -> ('172.26.64.1', 64464)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 48037) -> ('172.26.64.1', 64464)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 60046) -> ('192.168.132.1', 64465)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 48037) -> ('192.168.132.1', 64465)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 60046) -> ('192.168.75.1', 64466)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 48037) -> ('192.168.75.1', 64466)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 60046) -> ('192.168.66.188', 64467)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 48037) -> ('192.168.66.188', 64467)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 60046) -> ('192.168.66.188', 64467)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:pc:PeerConnection(4d5473af-c1f0-4983-b9f0-d18f08fb6fd4) Connection state is connected
+INFO:pc:PeerConnection(4d5473af-c1f0-4983-b9f0-d18f08fb6fd4) Connection state is closed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:pc:PeerConnection(bbc13c28-e4e0-4d4c-bf60-c666d2dfd364) Created for 127.0.0.1
+INFO:pc:PeerConnection(bbc13c28-e4e0-4d4c-bf60-c666d2dfd364) Track video received
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 37261) -> ('10.5.0.2', 64405)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 47286) -> ('10.5.0.2', 64405)) State.FROZEN -> State.WAITING
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 37261) -> ('172.26.64.1', 64406)) State.FROZEN -> State.WAITING
+INFO:pc:PeerConnection(bbc13c28-e4e0-4d4c-bf60-c666d2dfd364) Connection state is connecting
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 37261) -> ('10.5.0.2', 64405)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 47286) -> ('10.5.0.2', 64405)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 37261) -> ('172.26.64.1', 64406)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 47286) -> ('172.26.64.1', 64406)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 37261) -> ('192.168.132.1', 64407)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 47286) -> ('192.168.132.1', 64407)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 37261) -> ('169.254.6.190', 64408)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 47286) -> ('169.254.6.190', 64408)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 37261) -> ('192.168.75.1', 64409)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 47286) -> ('192.168.75.1', 64409)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 37261) -> ('192.168.66.188', 64410)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('172.17.0.1', 47286) -> ('192.168.66.188', 64410)) State.FROZEN -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 37261) -> ('192.168.66.188', 64410)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:pc:PeerConnection(bbc13c28-e4e0-4d4c-bf60-c666d2dfd364) Connection state is connected
+INFO:root:Angular server started successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:root:Angular server started successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:root:Angular server started successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:root:Angular server started successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:root:Angular server started successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(bc1330ba-6977-4994-a4ea-12a4e81b946b) Created for Angular
+INFO:stream:PeerConnection(bc1330ba-6977-4994-a4ea-12a4e81b946b) Connection state is new
+INFO:aioice.ice:Connection(1) Discovered peer reflexive candidate Candidate(Uie67zuqpQ 1 udp 1845501695 192.168.66.188 63030 typ prflx)
+INFO:aioice.ice:Connection(1) Check CandidatePair(('192.168.66.155', 57447) -> ('192.168.66.188', 63030)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(1) Check CandidatePair(('192.168.66.155', 57447) -> ('192.168.66.188', 63030)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(1) ICE completed
+INFO:root:Angular server started successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(139a726e-df7a-498f-a8eb-f6d3c92b07e7) Created for Angular
+INFO:stream:PeerConnection(139a726e-df7a-498f-a8eb-f6d3c92b07e7) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(GxA5cc1QKR 1 udp 1845501695 192.168.66.188 59324 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 41880) -> ('192.168.66.188', 59324)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 41880) -> ('192.168.66.188', 59324)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Angular server started successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(dc4dc336-442b-4652-91c7-d22e1dcd01c9) Created for Angular
+INFO:stream:PeerConnection(dc4dc336-442b-4652-91c7-d22e1dcd01c9) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(04pWb5zoeb 1 udp 1845501695 192.168.66.188 57617 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 59549) -> ('192.168.66.188', 57617)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 59549) -> ('192.168.66.188', 57617)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Angular server started successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(82a248ee-1f28-418f-8600-01ea8adecf62) Created for Angular
+INFO:stream:PeerConnection(82a248ee-1f28-418f-8600-01ea8adecf62) Connection state is new
+INFO:root:Angular server started successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(aac21790-d45d-4342-9745-8160c5e8a558) Created for Angular
+INFO:stream:PeerConnection(aac21790-d45d-4342-9745-8160c5e8a558) Connection state is new
+INFO:root:Angular server started successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(6e2f4885-f9d1-4065-9276-5309352f345c) Created for Angular
+INFO:stream:PeerConnection(6e2f4885-f9d1-4065-9276-5309352f345c) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(L0g3ki6NvB 1 udp 1845501695 192.168.66.188 58008 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 45011) -> ('192.168.66.188', 58008)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 45011) -> ('192.168.66.188', 58008)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Angular server started successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(efe4cb92-2ea9-4b21-a373-538870894834) Created for Angular
+INFO:stream:PeerConnection(efe4cb92-2ea9-4b21-a373-538870894834) Connection state is new
+INFO:root:Angular server started successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(6962eb45-bd38-40d3-9032-2e055c650f1c) Created for Angular
+INFO:stream:PeerConnection(6962eb45-bd38-40d3-9032-2e055c650f1c) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(lc9HFTTXfu 1 udp 1845501695 192.168.66.188 55516 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 34466) -> ('192.168.66.188', 55516)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 34466) -> ('192.168.66.188', 55516)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Angular server started successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(24a6c9f6-483f-4ea0-900f-6c43447a6049) Created for Angular
+INFO:stream:PeerConnection(24a6c9f6-483f-4ea0-900f-6c43447a6049) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(57l8zI3hPR 1 udp 1845501695 192.168.66.188 50331 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 34200) -> ('192.168.66.188', 50331)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 34200) -> ('192.168.66.188', 50331)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Angular server started successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(ad9afef0-cb85-42e6-bc69-c8e370124c4d) Created for Angular
+INFO:stream:PeerConnection(ad9afef0-cb85-42e6-bc69-c8e370124c4d) Connection state is new
+INFO:root:Angular server started successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(2525d114-5db1-4f72-9848-14e8f26bb91d) Created for Angular
+INFO:stream:PeerConnection(2525d114-5db1-4f72-9848-14e8f26bb91d) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(p71bq2E3EI 1 udp 1845501695 192.168.66.188 52841 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 42213) -> ('192.168.66.188', 52841)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 42213) -> ('192.168.66.188', 52841)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Angular server started successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(714e6ac3-f300-4961-b8d5-1bd10620b5cd) Created for Angular
+INFO:stream:PeerConnection(714e6ac3-f300-4961-b8d5-1bd10620b5cd) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(7n9dVs8pzL 1 udp 1845501695 192.168.66.188 52180 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 46268) -> ('192.168.66.188', 52180)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 46268) -> ('192.168.66.188', 52180)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Angular server started successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(c986e0ed-1be0-40bf-bb4f-89e8b6dca66d) Created for Angular
+INFO:stream:PeerConnection(c986e0ed-1be0-40bf-bb4f-89e8b6dca66d) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(geCOeeOQdP 1 udp 1845501695 192.168.66.188 59324 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 47619) -> ('192.168.66.188', 59324)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 47619) -> ('192.168.66.188', 59324)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Angular server started successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(01c6289e-cc57-4d74-8230-5d20aed20388) Created for Angular
+INFO:stream:PeerConnection(01c6289e-cc57-4d74-8230-5d20aed20388) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(JDVKLBgHdB 1 udp 1845501695 192.168.66.188 58324 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 46088) -> ('192.168.66.188', 58324)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 46088) -> ('192.168.66.188', 58324)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Angular server started successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(72cd8f15-0cc3-4542-8027-d57939884238) Created for Angular
+INFO:stream:PeerConnection(72cd8f15-0cc3-4542-8027-d57939884238) Connection state is new
+INFO:root:Angular server started successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(59348d33-e400-4483-9ca3-329c46090ddb) Created for Angular
+INFO:stream:PeerConnection(59348d33-e400-4483-9ca3-329c46090ddb) Connection state is new
+INFO:root:Angular server started successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(df95ce4c-a413-4e05-94b3-aa646deb8e0f) Created for Angular
+INFO:stream:PeerConnection(df95ce4c-a413-4e05-94b3-aa646deb8e0f) Connection state is new
+INFO:root:Angular server started successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(8a3e1659-f21e-4da0-b27a-ad864da2edfa) Created for Angular
+INFO:stream:PeerConnection(8a3e1659-f21e-4da0-b27a-ad864da2edfa) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(MaPJgXEwYs 1 udp 1845501695 192.168.66.188 51004 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 51224) -> ('192.168.66.188', 51004)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 51224) -> ('192.168.66.188', 51004)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Angular server started successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(719e6752-f9b9-4ae4-9798-4076f4a9cd50) Created for Angular
+INFO:stream:PeerConnection(719e6752-f9b9-4ae4-9798-4076f4a9cd50) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(AwWQkxzHQN 1 udp 1845501695 192.168.66.188 64865 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 46503) -> ('192.168.66.188', 64865)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 46503) -> ('192.168.66.188', 64865)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Angular server started successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(7ae66d37-6657-4279-ae05-21835c440f1a) Created for Angular
+INFO:stream:PeerConnection(7ae66d37-6657-4279-ae05-21835c440f1a) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(EME5OAIeEd 1 udp 1845501695 192.168.66.188 59324 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 35729) -> ('192.168.66.188', 59324)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 35729) -> ('192.168.66.188', 59324)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Angular server started successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(065aface-09ea-47b8-a7dc-a163e7206e79) Created for Angular
+INFO:stream:PeerConnection(065aface-09ea-47b8-a7dc-a163e7206e79) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(mqQWcQph9N 1 udp 1845501695 192.168.66.188 61567 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 52974) -> ('192.168.66.188', 61567)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 52974) -> ('192.168.66.188', 61567)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Angular server started successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(883872a3-22bd-4dd6-8294-fbac6cf4d317) Created for Angular
+INFO:stream:PeerConnection(883872a3-22bd-4dd6-8294-fbac6cf4d317) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(rOAcNbZiuS 1 udp 1845501695 192.168.66.188 64591 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 38702) -> ('192.168.66.188', 64591)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 38702) -> ('192.168.66.188', 64591)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Angular server started successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(4aa188e1-b2c5-483d-be26-f6a2719036a4) Created for Angular
+INFO:stream:PeerConnection(4aa188e1-b2c5-483d-be26-f6a2719036a4) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(8gGiw08bxh 1 udp 1845501695 192.168.66.188 64738 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 44881) -> ('192.168.66.188', 64738)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 44881) -> ('192.168.66.188', 64738)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Angular server started successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(1641c933-bd78-4b1e-9cc4-d932c572c5a3) Created for Angular
+INFO:stream:PeerConnection(1641c933-bd78-4b1e-9cc4-d932c572c5a3) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(ycSeLc8oW4 1 udp 1845501695 192.168.66.188 52862 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 41057) -> ('192.168.66.188', 52862)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 41057) -> ('192.168.66.188', 52862)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Angular server started successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(df40d104-404b-48d6-9cdd-eb3bb6d1b5a2) Created for Angular
+INFO:stream:PeerConnection(df40d104-404b-48d6-9cdd-eb3bb6d1b5a2) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(L0Hyxx0CEW 1 udp 1845501695 192.168.66.188 55430 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 59078) -> ('192.168.66.188', 55430)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 59078) -> ('192.168.66.188', 55430)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Angular server started successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(da5fbe82-ded4-4093-8bbd-976fe6bdcc93) Created for Angular
+INFO:stream:PeerConnection(da5fbe82-ded4-4093-8bbd-976fe6bdcc93) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(reYyJjPsNs 1 udp 1845501695 192.168.66.188 61168 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 34219) -> ('192.168.66.188', 61168)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 34219) -> ('192.168.66.188', 61168)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Angular server started successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(04f28b52-ecf3-4627-b41f-35fcf1b12603) Created for Angular
+INFO:stream:PeerConnection(04f28b52-ecf3-4627-b41f-35fcf1b12603) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(z4avSCNyUG 1 udp 1845501695 192.168.66.188 60814 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 44909) -> ('192.168.66.188', 60814)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 44909) -> ('192.168.66.188', 60814)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Angular server started successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(0199526c-3829-46df-b189-ca81d6902ce9) Created for Angular
+INFO:stream:PeerConnection(0199526c-3829-46df-b189-ca81d6902ce9) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(0rPjua6Vb5 1 udp 1845501695 192.168.66.188 55933 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 42641) -> ('192.168.66.188', 55933)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 42641) -> ('192.168.66.188', 55933)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Angular server started successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(58dac364-cc53-4de7-aecc-2c0e2691a544) Created for Angular
+INFO:stream:PeerConnection(58dac364-cc53-4de7-aecc-2c0e2691a544) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(u0oN1myM3t 1 udp 1845501695 192.168.66.188 60032 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 34445) -> ('192.168.66.188', 60032)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 34445) -> ('192.168.66.188', 60032)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Angular server started successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(8c092c8c-8d0d-4567-8b81-16753b415787) Created for Angular
+INFO:stream:PeerConnection(8c092c8c-8d0d-4567-8b81-16753b415787) Connection state is new
+INFO:root:Angular server started successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(fd8ea878-a1b9-4b5e-8e21-07f3e77a0600) Created for Angular
+INFO:stream:PeerConnection(fd8ea878-a1b9-4b5e-8e21-07f3e77a0600) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(jLem53xf4u 1 udp 1845501695 192.168.66.188 54668 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 58974) -> ('192.168.66.188', 54668)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 58974) -> ('192.168.66.188', 54668)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Angular server started successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(093f143d-4a33-454b-a83a-0a5f4e3545b1) Created for Angular
+INFO:stream:PeerConnection(093f143d-4a33-454b-a83a-0a5f4e3545b1) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(fD1fjr3W1z 1 udp 1845501695 192.168.66.188 62826 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 41549) -> ('192.168.66.188', 62826)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 41549) -> ('192.168.66.188', 62826)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Angular server started successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(b5269501-33dc-4150-a781-f75ae136ca51) Created for Angular
+INFO:stream:PeerConnection(b5269501-33dc-4150-a781-f75ae136ca51) Connection state is new
+INFO:root:Angular server started successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(df1f94ba-4c25-4536-bb18-e8ab6399741f) Created for Angular
+INFO:stream:PeerConnection(df1f94ba-4c25-4536-bb18-e8ab6399741f) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(rnWRtGNv41 1 udp 1845501695 192.168.66.188 57419 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 44459) -> ('192.168.66.188', 57419)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 44459) -> ('192.168.66.188', 57419)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Angular server started successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(15c40a7b-3f96-44bd-89dc-8b5e733fdb3b) Created for Angular
+INFO:stream:PeerConnection(15c40a7b-3f96-44bd-89dc-8b5e733fdb3b) Connection state is new
+INFO:root:Angular server started successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(d63f95ab-6971-4390-988f-cb7eba5d2372) Created for Angular
+INFO:stream:PeerConnection(d63f95ab-6971-4390-988f-cb7eba5d2372) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(H1ObADuzgN 1 udp 1845501695 192.168.66.188 63689 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 48169) -> ('192.168.66.188', 63689)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 48169) -> ('192.168.66.188', 63689)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Angular server started successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(746f7de5-7841-45ec-a66a-4d6222067937) Created for Angular
+INFO:stream:PeerConnection(746f7de5-7841-45ec-a66a-4d6222067937) Connection state is new
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(c706b4e9-c1de-4f5a-b9f6-8a07671d988b) Created for Angular
+INFO:stream:PeerConnection(c706b4e9-c1de-4f5a-b9f6-8a07671d988b) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(uUdylnzuj2 1 udp 1845501695 192.168.66.188 62137 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 58969) -> ('192.168.66.188', 62137)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 58969) -> ('192.168.66.188', 62137)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(3a918ccc-8467-40b5-bdc1-19d2905c754c) Created for Angular
+INFO:stream:PeerConnection(3a918ccc-8467-40b5-bdc1-19d2905c754c) Connection state is new
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(24fbd1ee-73d3-4933-b7d6-4ad01c275885) Created for Angular
+INFO:stream:PeerConnection(24fbd1ee-73d3-4933-b7d6-4ad01c275885) Connection state is new
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(f506bea6-11e6-427e-b18e-192303a274dd) Created for Angular
+INFO:stream:PeerConnection(f506bea6-11e6-427e-b18e-192303a274dd) Connection state is new
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(6a746990-2935-4745-8c7b-8f5121577212) Created for Angular
+INFO:stream:PeerConnection(6a746990-2935-4745-8c7b-8f5121577212) Connection state is new
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(83b1382f-6e47-46d0-b56d-ad9fb16f397f) Created for Angular
+INFO:stream:PeerConnection(83b1382f-6e47-46d0-b56d-ad9fb16f397f) Connection state is new
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(6d6cdfa3-dab8-4dc2-9159-31b5dea9e6cb) Created for Angular
+INFO:stream:PeerConnection(6d6cdfa3-dab8-4dc2-9159-31b5dea9e6cb) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(TYjQHr4CA9 1 udp 1845501695 192.168.66.188 64413 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 51032) -> ('192.168.66.188', 64413)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 51032) -> ('192.168.66.188', 64413)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed

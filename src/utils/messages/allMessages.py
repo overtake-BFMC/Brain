@@ -60,9 +60,15 @@ class LaneKeeping(Enum):
     msgType = "int"
 
 class MainVideo(Enum):
-    Queue = "General"
+    Queue = "Video"
     Owner = "threadCamera"
     msgID = 6
+    msgType = "ndarray"
+
+class LaneVideo(Enum):
+    Queue = "Video"
+    Owner = "threadLaneDetection"
+    msgID = 1
     msgType = "ndarray"
 
 ################################# processCarsAndSemaphores ##################################
@@ -192,6 +198,12 @@ class ICECandidate(Enum):
     Owner = "Dashboard"
     msgID = 19
     msgType = "dict"
+
+class startRun(Enum):
+    Queue = "General"
+    Owner = "Dashboard"
+    msgID = 20
+    msgType = "str"
 
 class WebRTCAnswer(Enum):
     Queue = "General"

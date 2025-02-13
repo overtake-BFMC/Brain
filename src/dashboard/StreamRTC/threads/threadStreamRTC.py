@@ -25,85 +25,51 @@ class threadStreamRTC(ThreadWithStop):
         self.logging = logging
         self.debugging = debugging
 
-        self.pcs = set()
-        self.RTCconfig = RTCConfiguration([])
+        #self.pcs = set()
+        #self.RTCconfig = RTCConfiguration([])
 
-        self.WebRTCAnswerSender = messageHandlerSender(self.queuesList, WebRTCAnswer)
-        self.subscribe()
+        #self.WebRTCAnswerSender = messageHandlerSender(self.queuesList, WebRTCAnswer)
+        #self.subscribe()
 
         super(threadStreamRTC, self).__init__()
 
     def run(self):
-        loop = asyncio.new_event_loop()
-        asyncio.set_event_loop(loop)
-        loop.run_until_complete(self.main_loop())
-
-    async def main_loop(self):
         while self._running:
-            try:
-                RTCoffer = self.WebRTCOfferSubscriber.receive()
-                if RTCoffer is not None:
-                    pc = RTCPeerConnection(self.RTCconfig)
-                    self.pcs.add(pc)
+            pass
+        #loop = asyncio.new_event_loop()
+        #asyncio.set_event_loop(loop)
+        #loop.run_until_complete(self.main_loop())
 
-                    stream = trackStream(self.queuesList, self.logging, debugging = True)
-                    pc.addTrack(stream)
+    #async def main_loop(self):
+    #    while self._running:
+    #        try:
+    #            ICECandidate = self.ICECandidateSubscriber.receive()
+    #            if ICECandidate is not None:
+    #                await self._handleIceCandidateAsync(ICECandidate)
+#
+    #        except Exception as e:
+    #            print(e)
 
-                    @pc.on("iceconnectionstatechange")
-                    def on_ice_connection_state_change():
-                        print(f"ICE Connection State Changed: {pc.iceConnectionState}")
-
-                    @pc.on("icecandidate")
-                    def on_ice_candidate(candidate):
-                        if candidate:
-                            print(f"ICE Candidate: {candidate.to_dict()}")
-                        else:
-                            print("ICE gathering complete, no candidates found.")
-
-                    @pc.on("icegatheringstatechange")
-                    def on_ice_gathering_state_change():
-                        print(f"ICE Gathering State: {pc.iceGatheringState}")
-
-                    @pc.on("connectionstatechange")
-                    def on_connection_state_change():
-                        print(f"Connection State Changed: {pc.connectionState}")
-
-                    await self.process_offer(pc, RTCoffer)
-                
-                ICECandidate = self.ICECandidateSubscriber.receive()
-                if ICECandidate is not None:
-                    await self._handleIceCandidateAsync(ICECandidate)
-
-
-            except Exception as e:
-                print(e)
-
-    async def process_offer(self, pc, RTCoffer):
-        await pc.setRemoteDescription(RTCSessionDescription(sdp=RTCoffer, type='offer'))
-        answer = await pc.createAnswer()
-        await pc.setLocalDescription(answer)
-        self.WebRTCAnswerSender.send({"sdp": pc.localDescription.sdp, "type": pc.localDescription.type})
-
-    async def _handleIceCandidateAsync(self, data):
-        print("Received ICE candidate from client:", data["candidate"])
-        pc = next(iter(self.pcs))
-        candidate_dict = self.parse_ice_candidate(data["candidate"]["candidate"])
+#    async def _handleIceCandidateAsync(self, data):
+#        print("Received ICE candidate from client:", data["candidate"])
+#        pc = next(iter(self.pcs))
+ #       candidate_dict = self.parse_ice_candidate(data["candidate"]["candidate"])
 
         # Create the RTCIceCandidate object
-        ice_candidate = RTCIceCandidate(
-            foundation=candidate_dict["foundation"],
-            component=candidate_dict["component"],
-            protocol=candidate_dict["protocol"],
-            priority=candidate_dict["priority"],
-            ip=candidate_dict["ip"],
-            port=candidate_dict["port"],
-            type=candidate_dict["type"],
-            sdpMid=data["candidate"]["sdpMid"],
-            sdpMLineIndex=data["candidate"]["sdpMLineIndex"],
-        )
+#        ice_candidate = RTCIceCandidate(
+#            foundation=candidate_dict["foundation"],
+##            component=candidate_dict["component"],
+ #           protocol=candidate_dict["protocol"],
+ #           priority=candidate_dict["priority"],
+ #           ip=candidate_dict["ip"],
+  #          port=candidate_dict["port"],
+  #          type=candidate_dict["type"],
+  #          sdpMid=data["candidate"]["sdpMid"],
+  #          sdpMLineIndex=data["candidate"]["sdpMLineIndex"],
+  #      )
 
         # Add the ICE candidate to the peer connection
-        await pc.addIceCandidate(ice_candidate)
+ #       await pc.addIceCandidate(ice_candidate)
 
     def parse_ice_candidate(self, candidate_str):
         """

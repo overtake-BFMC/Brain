@@ -27,7 +27,9 @@ class threadCamera(ThreadWithStop):
         self.debugger = debugger
         self.frame_rate = 30
         self.recording = False
-
+        self.send_fps = 15
+        self.frame_interval = 1.0 / self.send_fps
+        self.last_sent_time = time.time()
         self.video_writer = ""
 
         #frame storing for multiple access
@@ -124,7 +126,9 @@ class threadCamera(ThreadWithStop):
                     #current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")  # Get current time
                     #print(f"Processing frame: {frame_counter} at {current_time}")  # Print counter and time to terminal
                                         
-                    #serialRequest = cv2.resize(frame, (960, 540))  # Lo-res capture
+                    serialRequest = cv2.resize(frame, (960, 540))  # Lo-res capture
+                    _, encoded_frame = cv2.imencode(".jpg", serialRequest, [cv2.IMWRITE_JPEG_QUALITY, 50])
+                    decoded_frame = cv2.imdecode(encoded_frame, cv2.IMREAD_COLOR)
 
                     if self.recording:
                         self.video_writer.write(frame)
@@ -138,7 +142,10 @@ class threadCamera(ThreadWithStop):
                     #self.mainCameraSender.send(mainEncodedImageData)
                     #if (frame_counter % 5) == 0:
                     #    self.serialCameraSender.send(serialEncodedImageData)
-                    self.mainVideoSender.send(frame)
+                    current_time = time.time()
+                    if current_time - self.last_sent_time >= self.frame_interval:
+                        self.last_sent_time = current_time
+                        self.mainVideoSender.send(decoded_frame)
 
         send = not send
 

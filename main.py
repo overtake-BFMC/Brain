@@ -62,6 +62,8 @@ from src.utils.ipManager.IpReplacement import IPManager
 # ------ New component imports starts here ------#
 from src.dashboard.webRTC.processWebRTC import processWebRTC
 from src.dashboard.StreamRTC.processStreamRTC import processStreamRTC
+from src.driving.LaneDetection.processLaneDetection import processLaneDetection
+from src.driving.PathFollowing.processPathFollowing import processPathFollowing
 # ------ New component imports ends here ------#
 # ======================================== SETTING UP ====================================
 allProcesses = list()
@@ -80,11 +82,13 @@ Dashboard = True
 Camera = True
 Semaphores = False
 TrafficCommunication = False
-SerialHandler = False
+SerialHandler = True
 
 # ------ New component flags starts here ------#
-webRTC = True
-streamRTC = False
+webRTC = False #JS Version
+streamRTC = True
+LaneDetection = True
+PathFollowing = True
 # ------ New component flags ends here ------#
 
 # ===================================== SETUP PROCESSES ==================================
@@ -98,11 +102,19 @@ path = './src/dashboard/frontend/src/app/webSocket/web-socket.service.ts'
 IpChanger = IPManager(path)
 IpChanger.replace_ip_in_file()
 
-
 # Initializing dashboard
 if Dashboard:
     processDashboard = processDashboard( queueList, logging, debugging = False)
     allProcesses.append(processDashboard)
+
+# Initializing camera
+if Camera:
+    processCamera = processCamera(queueList, logging , debugging = False)
+    allProcesses.append(processCamera)
+
+if LaneDetection:
+    processLaneDetection = processLaneDetection(queueList, logging, debugging = False)
+    allProcesses.append(processLaneDetection)
 
 if webRTC:
     processWebRTC = processWebRTC(queueList, logging, debugging= False)
@@ -112,10 +124,9 @@ if streamRTC:
     processStreamRTC = processStreamRTC(queueList, logging, debugging= False)
     allProcesses.append(processStreamRTC)
 
-# Initializing camera
-if Camera:
-    processCamera = processCamera(queueList, logging , debugging = False)
-    allProcesses.append(processCamera)
+if PathFollowing:
+    processPathFollowing = processPathFollowing(queueList, logging, debugging = False)
+    allProcesses.append(processPathFollowing)
 
 # Initializing semaphores
 if Semaphores:

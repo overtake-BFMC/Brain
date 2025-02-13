@@ -5,7 +5,6 @@ if __name__ == "__main__":
 from src.templates.workerprocess import WorkerProcess
 from src.dashboard.webRTC.threads.threadwebRTC import threadwebRTC
 
-from src.utils.messages.allMessages import (mainCamera)
 from src.utils.messages.messageHandlerSubscriber import messageHandlerSubscriber
 from src.utils.messages.messageHandlerSender import messageHandlerSender
 
@@ -19,6 +18,7 @@ import uuid
 
 import cv2
 from aiohttp import web
+import aiohttp_cors
 from aiortc import MediaStreamTrack, RTCPeerConnection, RTCSessionDescription
 from aiortc.contrib.media import MediaBlackhole, MediaPlayer, MediaRecorder, MediaRelay
 from av import VideoFrame
@@ -47,10 +47,23 @@ class processWebRTC(WorkerProcess):
         self.ssl_context = None
 
         self.app = web.Application()
+        self.cors = aiohttp_cors.setup(self.app)
         self.app.on_shutdown.append(self.on_shutdown)
-        self.app.router.add_get("/", self.index)
+        self.cors.add(self.app.router.add_get("/", self.index)), {
+            "http://192.168.66.155:4200": aiohttp_cors.ResourceOptions(
+            allow_credentials=True,
+            expose_headers="*",
+            allow_headers="*",
+            )
+        }
         self.app.router.add_get("/client.js", self.javascript)
-        self.app.router.add_post("/offer", self.offer)
+        self.cors.add(self.app.router.add_post("/offer", self.offer)), {
+            "http://192.168.66.155:4200": aiohttp_cors.ResourceOptions(
+            allow_credentials=True,
+            expose_headers="*",
+            allow_headers="*",
+            )
+        }
 
     def run(self):
         """Apply the initializing methods and start the threads."""

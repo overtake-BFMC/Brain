@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { WebSocketService } from '../webSocket/web-socket.service';
-import { SpeedometerComponent } from '../cluster/speedometer/speedometer.component';
 
 @Injectable({
   providedIn: 'root',
@@ -25,12 +24,10 @@ export class WebRTCService {
       this.peerConnection.onicecandidate = (event) => {
         if (event.candidate) {
           console.log('Generated ICE candidate:', event.candidate);
-          this.webSocketService.sendIceCandidateToFlask({ candidate: event.candidate });
+          //this.webSocketService.sendIceCandidateToFlask({ candidate: event.candidate });
           //this.webSocketService.sendMessageToFlask(`{"Name": "ICECandidate", "Value": "${event.candidate}"}`);
-        } else {
-          console.log('ICE gathering complete');
         }
-      };
+        };
   
       // Log ICE candidate errors
       this.peerConnection.onicecandidateerror = (event) => {
@@ -66,7 +63,7 @@ export class WebRTCService {
     const iceCandidate = this.extractCandidatesFromSDP(sdpString );
     for(const candidate of await iceCandidate) {
       console.log("ICE Candidate Recieved: ", candidate);
-      await this.peerConnection.addIceCandidate(candidate);
+      //await this.peerConnection.addIceCandidate(candidate);
     }
   }
 
@@ -97,11 +94,55 @@ export class WebRTCService {
     this.videoElement = videoElement;
 
     this.peerConnection.addTransceiver('video', { direction: 'recvonly' });
+    this.peerConnection.addTransceiver('audio', { direction: 'recvonly' });
 
     const offer = await this.peerConnection.createOffer();
     await this.peerConnection.setLocalDescription(offer);
-
-    this.webSocketService.sendOfferToFlask({sdp: offer.sdp , type: offer.type});
+    /*
+    this.peerConnection.createOffer()
+      .then((offer) => this.peerConnection.setLocalDescription(offer))
+      .then(() => {
+        return new Promise<void>((resolve) => {
+          if (this.peerConnection.iceGatheringState === 'complete') {
+            resolve();
+          } else {
+            const checkState = () => {
+              if (this.peerConnection.iceGatheringState === 'complete') {
+                this.peerConnection.removeEventListener('icegatheringstatechange', checkState);
+                resolve();
+              }
+            };
+            this.peerConnection.addEventListener('icegatheringstatechange', checkState);
+          }
+        });
+      })
+      .then(() => {
+        const offer = this.peerConnection.localDescription;
+        if (!offer) return;
+  
+        return fetch('http://192.168.66.155:8085/offer', {
+          body: JSON.stringify({
+            sdp: offer.sdp,
+            type: offer.type,
+            video_transform: "none"
+          }),
+          headers: { 'Content-Type': 'application/json' },
+          method: 'POST'
+        });
+      })
+      .then(response => response?.json())
+      .then(answer => {
+        if (answer) {
+          (document.getElementById('answer-sdp') as HTMLElement).textContent = answer.sdp;
+          return this.peerConnection.setRemoteDescription(answer);
+        }
+        return
+      })
+      .catch((error) => {
+        alert(error);
+      });
+      */
+    this.webSocketService.sendOfferToFlask({sdp: this.peerConnection.localDescription?.sdp , type: this.peerConnection.localDescription?.type});
     //this.webSocketService.sendMessageToFlask(`{"Name": "WebRTCOffer", "Value": "'${offer.sdp}'"}`);
 
     this.peerConnection.ontrack = (event) => {

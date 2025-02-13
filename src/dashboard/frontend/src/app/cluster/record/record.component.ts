@@ -40,7 +40,7 @@ import { CommonModule } from '@angular/common'
 export class RecordComponent {
   recording: boolean = false;
   text: string = "start record"
-
+  startRunText: string = "start run"
   constructor( private webSocketService: WebSocketService) { }
 
   changeState() {
@@ -52,8 +52,11 @@ export class RecordComponent {
       this.recording = false;
       this.text = "start record"
     }
-
     this.webSocketService.sendMessageToFlask(`{"Name": "Record", "Value": "${this.recording}"}`);
+  }
+
+  startRun() {
+    this.webSocketService.sendMessageToFlask('{"Name": "startRun", "Value": "start"}')
   }
 
   getButtonColor() {

@@ -1,6 +1,7 @@
 from src.utils.messages.allMessages import (
 
     MainVideo,
+    LaneVideo,
 )
 
 from src.utils.messages.messageHandlerSubscriber import messageHandlerSubscriber
@@ -22,11 +23,13 @@ class trackStream(MediaStreamTrack):
         #self.track = track
         self.start_time = time.time()
         self.frame_count = 0
-        self.MainVideoSubscriber = messageHandlerSubscriber(self.queueList, MainVideo, "lastOnly", True)
+        #self.MainVideoSubscriber = messageHandlerSubscriber(self.queueList, MainVideo, "lastOnly", True)
+        self.LaneVideoSubcscriber = messageHandlerSubscriber(self.queueList, LaneVideo, "lastOnly", True)
 
     async def recv(self):
         while True:
-            frame = self.MainVideoSubscriber.receive()
+            #frame = self.MainVideoSubscriber.receive()
+            frame = self.LaneVideoSubcscriber.receive()
             if frame is not None:
                 
                 #SendFrame = await self.track.recv()
@@ -41,9 +44,16 @@ class trackStream(MediaStreamTrack):
             if self.debugging:
                 self.logger.warning("No frame received from the message queue")
             await asyncio.sleep(0.01)
-            # Convert the frame to av.VideoFrame
+            #blank_frame = await self._generate_blank_frame()
+            #self.frame_count += 1
+            #blank_frame.pts = self.frame_count
+            #blank_frame.time_base = Fraction(1, 30)
 
-            #return frame
+            #return blank_frame
+
+    def stop(self):
+        self.LaneVideoSubcscriber.unsubscribe()
+        super().stop()
     
     async def _generate_blank_frame(self):
         """Generate a blank frame to avoid breaking the stream."""
