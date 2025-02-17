@@ -50,11 +50,11 @@ class threadPathFollowing(ThreadWithStop):
         while self._running:
             startRun = self.startRunSubscriber.receive()
             if startRun is not None:
-                if startRun == 'true':
-                    self.isDriving = True
-                else:
+                if startRun == 'false':
                     self.isDriving = False
-                
+                else:
+                    self.isDriving = True
+                print("Start Test Run: ", startRun)
                 if self.isDriving:
                     self.purePursuit()
 

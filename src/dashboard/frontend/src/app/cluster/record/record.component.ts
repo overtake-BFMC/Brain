@@ -63,7 +63,7 @@ export class RecordComponent {
     }
     else {
       this.isTestRunning = false;
-      this.text = "start run"
+      this.startRunText = "start run"
     }
     this.webSocketService.sendMessageToFlask('{"Name": "startRun", "Value": "${this.isTestRunning}"}')
   }
