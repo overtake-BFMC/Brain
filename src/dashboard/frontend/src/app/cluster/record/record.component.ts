@@ -39,6 +39,7 @@ import { CommonModule } from '@angular/common'
 })
 export class RecordComponent {
   recording: boolean = false;
+  isTestRunning: boolean = false;
   text: string = "start record"
   startRunText: string = "start run"
   constructor( private webSocketService: WebSocketService) { }
@@ -56,7 +57,15 @@ export class RecordComponent {
   }
 
   startRun() {
-    this.webSocketService.sendMessageToFlask('{"Name": "startRun", "Value": "start"}')
+    if (this.isTestRunning == false) {
+      this.isTestRunning = true;
+      this.startRunText = "stop run"
+    }
+    else {
+      this.isTestRunning = false;
+      this.text = "start run"
+    }
+    this.webSocketService.sendMessageToFlask('{"Name": "startRun", "Value": "${this.isTestRunning}"}')
   }
 
   getButtonColor() {

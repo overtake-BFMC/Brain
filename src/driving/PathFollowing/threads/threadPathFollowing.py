@@ -39,6 +39,8 @@ class threadPathFollowing(ThreadWithStop):
         
         self.speed = speed
 
+        self.isDriving = False
+
         self.last_sent_time = time.time()
 
         self.subscribe()
@@ -48,7 +50,13 @@ class threadPathFollowing(ThreadWithStop):
         while self._running:
             startRun = self.startRunSubscriber.receive()
             if startRun is not None:
-                self.purePursuit()
+                if startRun == 'true':
+                    self.isDriving = True
+                else:
+                    self.isDriving = False
+                
+                if self.isDriving:
+                    self.purePursuit()
 
     def calculateDistanceToTarget(self, targetX, targetY):
         return np.sqrt((targetX - self.vehicle.x)**2 + (targetY - self.vehicle.y)**2)
@@ -81,6 +89,15 @@ class threadPathFollowing(ThreadWithStop):
             while distanceToTarget > 10:
                 
                 print(distanceToTarget)
+
+                stopRun = self.startRunSubscriber.receive()
+                if stopRun is not None:
+                    if stopRun == 'false':
+                        self.isDriving = False
+                        self.steerMotorSender.send(str(0))
+                        time.sleep(time_to_wait)
+                        self.speedMotorSender.send(str(0))
+                        return -1
 
                 distanceToTarget = self.calculateDistanceToTarget(targetX, targetY)
                 angleToTarget = self.calculateAngleToTarget(targetX, targetY)
