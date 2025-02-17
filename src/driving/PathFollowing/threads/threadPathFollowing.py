@@ -90,6 +90,15 @@ class threadPathFollowing(ThreadWithStop):
             self.speedMotorSender.send(str(self.vehicle.speed*10))
             distanceToTarget = self.calculateDistanceToTarget(targetX, targetY)
             while distanceToTarget > 5:
+
+                stopRun = self.startRunSubscriber.receive()
+                if stopRun is not None:
+                    if stopRun == 'false':
+                        self.isDriving = False
+                        self.steerMotorSender.send(str(0))
+                        time.sleep(0.3)
+                        self.speedMotorSender.send(str(0))
+                        return -1
                 
                 print(distanceToTarget)
 
@@ -117,7 +126,7 @@ class threadPathFollowing(ThreadWithStop):
                 self.last_sent_time = time.time()
 
         self.steerMotorSender.send(str(0))
-        time.sleep(time_to_wait)
+        time.sleep(0.3)
         self.speedMotorSender.send(str(0))                
 
         plt.plot(path_x, path_y, label="Robot Path")
