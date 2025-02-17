@@ -20,14 +20,16 @@ class processPathFollowing(WorkerProcess):
         super(processPathFollowing, self).__init__(self.queuesList)
 
         self.wayPoints = []
-        self.wayPoints.extend(range(359, 368))
-        self.wayPoints.extend(range(334, 339))
-        self.wayPoints.extend(range(398, 400))
+        # self.wayPoints.extend(range(359, 368))
+        # self.wayPoints.extend(range(334, 339))
+        # self.wayPoints.extend(range(398, 400))
 
-        self.speed = 30
+        self.wayPoints.extend(range(564, 595))
+
+        self.speed = 15
         self.lookAheadDistance = 1
-        self.theta=-90
-        self.dt = 0.2
+        self.theta = 0
+        self.dt = 0.4
 
     def run(self):
         """Apply the initializing methods and start the threads."""

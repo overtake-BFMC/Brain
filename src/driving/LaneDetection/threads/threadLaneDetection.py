@@ -12,6 +12,7 @@ from src.driving.LaneDetection.utils import cannyandhough as CH
 from src.driving.LaneDetection.utils.gamma import apply_gamma_on_frame
 import os
 import cv2
+
 class threadLaneDetection(ThreadWithStop):
     """This thread handles laneDetection.
     Args:
@@ -35,34 +36,37 @@ class threadLaneDetection(ThreadWithStop):
         self.ppData, self.maps = pre.loadPPData(dir_path + "/../utils/data")  
 
         self.pid = PID.PIDController( Kp = 0.27467977371505925, Ki = 0.0008108486849779399, Kd = 0.09678150213579352 )
-        self.total_error = 0
 
         super(threadLaneDetection, self).__init__()
 
     def run(self):
+        counter = 0
+        counter_max = 60
+
         while self._running:
             frame = self.MainVideoSubscriber.receive()
             #frame = None
             if frame is not None:
                 frame_width = frame.shape[1] 
 
+                counter += 1
+
                 edges, frame_lines, lines = CH.CannyEdge( frame )
 
                 frame_lines = apply_gamma_on_frame( frame_lines, gamma=0.5 )
 
-                frame_bev = pre.bev( frame_lines, self.ppData, self.maps )
+                #frame_bev = pre.bev( frame_lines, self.ppData, self.maps )
                 
                 lane_center = CH.get_lane_center( lines, frame_lines )
 
                 error = lane_center - frame_width // 2
 
-                self.total_error += error
-
                 compute_error = self.pid.pid_formula( error )
                 compute_error = max( -25, min( compute_error, 25 ))
 
-                #print("error je", error )
-                #print("steering angle je ", compute_error)
+                if counter >= counter_max:
+                    #print("steering angle je ", compute_error)
+                    counter = 0
 
                 cv2.line( frame_lines, (frame_width // 2,0), (frame_width // 2, 540), (255,0,0),3  )
 
