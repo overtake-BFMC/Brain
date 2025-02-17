@@ -11,6 +11,7 @@ from src.driving.PathFollowing.utils.nodes import nodes as nodesData
 from src.driving.PathFollowing.utils.vehicleState import vehicleState
 
 import numpy as np
+import matplotlib.pyplot as plt
 import time
 
 class threadPathFollowing(ThreadWithStop):
@@ -56,7 +57,7 @@ class threadPathFollowing(ThreadWithStop):
     def calculateAngleToTarget(self, targetX, targetY):
         return np.arctan2(targetY - self.vehicle.y, targetX - self.vehicle.x)
     
-    def calculateSteeringAngle(self, angleToTarget):
+    def calculateAlphaSteer(self, angleToTarget):
         return angleToTarget - self.vehicle.theta
     
     def kinematicBicycleModel(self):
@@ -73,28 +74,32 @@ class threadPathFollowing(ThreadWithStop):
 
     def purePursuit(self):
         path_x, path_y = [], []
-        #self.speedMotorSender.send(str(300))
+        
+        #self.speedMotorSender.send(str(self.vehicle.speed*10))
         for i in range(1, len(self.wayPoints)):
             targetX, targetY = self.nodes[self.wayPoints[i]]
-            self.speedMotorSender.send(str(300))
+                
+            self.speedMotorSender.send(str(self.vehicle.speed*10))
             distanceToTarget = self.calculateDistanceToTarget(targetX, targetY)
-            while distanceToTarget > 10:
+            while distanceToTarget > 5:
                 
-                print(distanceToTarget)
-
+                # print(distanceToTarget)
                 distanceToTarget = self.calculateDistanceToTarget(targetX, targetY)
-                angleToTarget = self.calculateAngleToTarget(targetX, targetY)
+                angleToTarget =  self.calculateAngleToTarget(targetX, targetY)
                 
-                #self.vehicle.steeringAngle = np.arctan2(2 * self.lookAheadDistance * np.sin(angleToTarget - self.vehicle.theta), distanceToTarget)
-                self.vehicle.steeringAngle = self.calculateSteeringAngle(angleToTarget) 
+                alpha = self.calculateAlphaSteer(angleToTarget)
+                
+                # self.vehicle.steeringAngle =  np.arctan2(2 * self.vehicle.wheelbase * np.sin(alpha), distanceToTarget)
+                # print(np.rad2deg(self.vehicle.steeringAngle))
+                self.vehicle.steeringAngle = alpha
                 # PRETVORI U DEGREES KAD SALJES NUCLEU np.rad2deg(self.vehicle.steeringAngle)
-                self.steerMotorSender.send(str(-round(np.rad2deg(self.vehicle.steeringAngle))*10))
+                self.steerMotorSender.send(str(round(np.rad2deg(self.vehicle.steeringAngle))*10))
                 self.kinematicBicycleModel()
                 
                 path_x.append(self.vehicle.x)
                 path_y.append(self.vehicle.y)
 
-                #time.sleep(self.timeStep)
+
                 #aktiviraj ovo kad runujes na nucleo
                 time_to_wait = self.timeStep - (time.time() - self.last_sent_time)
                 if time_to_wait > 0:
@@ -105,7 +110,19 @@ class threadPathFollowing(ThreadWithStop):
         self.steerMotorSender.send(str(0))
         time.sleep(time_to_wait)
         self.speedMotorSender.send(str(0))                
-                
+
+        plt.plot(path_x, path_y, label="Robot Path")
+        plt.scatter(*zip(*self.nodes.values()), color="red", label="Waypoints")  # Mark the nodes/waypoints
+        plt.title("Path Following with Pure Pursuit")
+        plt.xlabel("X (cm)")
+        plt.ylabel("Y (cm)")
+        plt.gca().invert_yaxis()
+
+        plt.legend()
+        plt.grid(True)
+        plt.show()
+        plt.savefig("path_following.pdf")  
+
         return path_x, path_y
 
     def subscribe(self):

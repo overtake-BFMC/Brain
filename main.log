@@ -2870,3 +2870,482 @@ INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(TYjQ
 INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 51032) -> ('192.168.66.188', 64413)) State.WAITING -> State.IN_PROGRESS
 INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 51032) -> ('192.168.66.188', 64413)) State.IN_PROGRESS -> State.SUCCEEDED
 INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(1b4a968f-eea6-4d63-9986-a99fdd37ad84) Created for Angular
+INFO:stream:PeerConnection(1b4a968f-eea6-4d63-9986-a99fdd37ad84) Connection state is new
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(e0056572-b811-4fcd-b811-5005ae603dce) Created for Angular
+INFO:stream:PeerConnection(e0056572-b811-4fcd-b811-5005ae603dce) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(kYmTSbzrXw 1 udp 1853817087 192.168.66.155 37668 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 37287) -> ('192.168.66.155', 37668)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 37287) -> ('192.168.66.155', 37668)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(4375862e-05b6-4165-86c5-b9369f81fcac) Created for Angular
+INFO:stream:PeerConnection(4375862e-05b6-4165-86c5-b9369f81fcac) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(kJORr7YukW 1 udp 1853817087 192.168.66.155 56758 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 38939) -> ('192.168.66.155', 56758)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 38939) -> ('192.168.66.155', 56758)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(fb940b80-5c43-471e-8b0f-632946ffd870) Created for Angular
+INFO:stream:PeerConnection(fb940b80-5c43-471e-8b0f-632946ffd870) Connection state is new
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(f851e852-5cd1-491a-abce-6ff8947f8eea) Created for Angular
+INFO:stream:PeerConnection(f851e852-5cd1-491a-abce-6ff8947f8eea) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(bzAeaUNPBm 1 udp 1853817087 192.168.66.155 60898 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 45315) -> ('192.168.66.155', 60898)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 45315) -> ('192.168.66.155', 60898)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(71ce535a-e23b-42b4-b7fb-5538704ab950) Created for Angular
+INFO:stream:PeerConnection(71ce535a-e23b-42b4-b7fb-5538704ab950) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(uAwgKsyLTP 1 udp 1853817087 192.168.66.155 49746 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 35258) -> ('192.168.66.155', 49746)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 35258) -> ('192.168.66.155', 49746)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(9b213c97-492a-4669-ae73-ac666ea85d2d) Created for Angular
+INFO:stream:PeerConnection(9b213c97-492a-4669-ae73-ac666ea85d2d) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(qYgaFo1AYS 1 udp 1853817087 192.168.66.155 40258 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 44840) -> ('192.168.66.155', 40258)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 44840) -> ('192.168.66.155', 40258)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(af981d7b-d100-4a44-8d42-961bdbe8df9d) Created for Angular
+INFO:stream:PeerConnection(af981d7b-d100-4a44-8d42-961bdbe8df9d) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(MfuC6g0Imx 1 udp 1853817087 192.168.66.155 39012 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 56003) -> ('192.168.66.155', 39012)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 56003) -> ('192.168.66.155', 39012)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(9a99fc81-904f-485d-b14b-a02ac53b9623) Created for Angular
+INFO:stream:PeerConnection(9a99fc81-904f-485d-b14b-a02ac53b9623) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(VvAuw9mWtc 1 udp 1853817087 192.168.66.234 46619 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 33465) -> ('192.168.66.234', 46619)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 33465) -> ('192.168.66.234', 46619)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(0b65e8c1-7895-4482-953f-914ad64e12fb) Created for Angular
+INFO:stream:PeerConnection(0b65e8c1-7895-4482-953f-914ad64e12fb) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(XFx8R9uDso 1 udp 1853817087 192.168.66.234 47534 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 60020) -> ('192.168.66.234', 47534)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 60020) -> ('192.168.66.234', 47534)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(e5b63e37-a83a-46e7-9c26-2bc59872908f) Created for Angular
+INFO:stream:PeerConnection(e5b63e37-a83a-46e7-9c26-2bc59872908f) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(KfeiIqpEZr 1 udp 1853817087 192.168.66.234 36812 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 50315) -> ('192.168.66.234', 36812)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 50315) -> ('192.168.66.234', 36812)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(e803e4ae-6a62-432a-89be-13d4ca92c205) Created for Angular
+INFO:stream:PeerConnection(e803e4ae-6a62-432a-89be-13d4ca92c205) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(DvM2NsJIe8 1 udp 1853817087 192.168.66.234 36764 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 48913) -> ('192.168.66.234', 36764)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 48913) -> ('192.168.66.234', 36764)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(f0d37fc6-4895-4325-a8ee-5173f92ae435) Created for Angular
+INFO:stream:PeerConnection(f0d37fc6-4895-4325-a8ee-5173f92ae435) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(41EHcuv78B 1 udp 1853817087 192.168.66.234 55820 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 54104) -> ('192.168.66.234', 55820)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 54104) -> ('192.168.66.234', 55820)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(d29b525f-f660-4e8f-98ed-ba03e727537b) Created for Angular
+INFO:stream:PeerConnection(d29b525f-f660-4e8f-98ed-ba03e727537b) Connection state is new
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(afdc305d-6138-42ed-bb64-9f95fe4a9f66) Created for Angular
+INFO:stream:PeerConnection(afdc305d-6138-42ed-bb64-9f95fe4a9f66) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(eIF5jScDP1 1 udp 1853817087 192.168.66.234 33128 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 57440) -> ('192.168.66.234', 33128)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 57440) -> ('192.168.66.234', 33128)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(a952b9b3-1523-4e5c-84ee-2f043c323791) Created for Angular
+INFO:stream:PeerConnection(a952b9b3-1523-4e5c-84ee-2f043c323791) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(1JUzZIUjzL 1 udp 1853817087 192.168.66.234 38992 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 45401) -> ('192.168.66.234', 38992)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 45401) -> ('192.168.66.234', 38992)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(b1e6b034-3a60-43b6-bcaa-da78f06f0c5e) Created for Angular
+INFO:stream:PeerConnection(b1e6b034-3a60-43b6-bcaa-da78f06f0c5e) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(OaIeaLUNip 1 udp 1853817087 192.168.66.234 38108 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 46074) -> ('192.168.66.234', 38108)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 46074) -> ('192.168.66.234', 38108)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(95abf607-768c-4f9e-a813-10007cf09126) Created for Angular
+INFO:stream:PeerConnection(95abf607-768c-4f9e-a813-10007cf09126) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(L0ovh5A9Bg 1 udp 1853817087 192.168.66.234 46476 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 46025) -> ('192.168.66.234', 46476)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 46025) -> ('192.168.66.234', 46476)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(e46196e5-7b2e-495b-af7f-9b76fb64c929) Created for Angular
+INFO:stream:PeerConnection(e46196e5-7b2e-495b-af7f-9b76fb64c929) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(on3JC4iQa7 1 udp 1853817087 192.168.66.234 41628 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 56005) -> ('192.168.66.234', 41628)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 56005) -> ('192.168.66.234', 41628)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(0f594083-9394-4f35-b7b1-1f1c58b6a0b4) Created for Angular
+INFO:stream:PeerConnection(0f594083-9394-4f35-b7b1-1f1c58b6a0b4) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(5dpgObxpbU 1 udp 1853817087 192.168.66.234 53337 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 51570) -> ('192.168.66.234', 53337)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 51570) -> ('192.168.66.234', 53337)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(b7b750ea-d297-4f46-9f84-bef2d2a09882) Created for Angular
+INFO:stream:PeerConnection(b7b750ea-d297-4f46-9f84-bef2d2a09882) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(lLsnd4P3Jn 1 udp 1853817087 192.168.66.234 59044 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 33246) -> ('192.168.66.234', 59044)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 33246) -> ('192.168.66.234', 59044)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(a1ca6704-f640-4295-a1cb-6fc3a08ff772) Created for Angular
+INFO:stream:PeerConnection(a1ca6704-f640-4295-a1cb-6fc3a08ff772) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(V0TMmkvsGA 1 udp 1853817087 192.168.66.234 58720 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 39309) -> ('192.168.66.234', 58720)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 39309) -> ('192.168.66.234', 58720)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(6c4a2277-d82c-4fa5-a0a2-58bb877c0f26) Created for Angular
+INFO:stream:PeerConnection(6c4a2277-d82c-4fa5-a0a2-58bb877c0f26) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(4go9FsQM2U 1 udp 1853817087 192.168.66.234 58052 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 33977) -> ('192.168.66.234', 58052)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 33977) -> ('192.168.66.234', 58052)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(5ebb4433-4e1c-4e72-ac3a-254bdff080fb) Created for Angular
+INFO:stream:PeerConnection(5ebb4433-4e1c-4e72-ac3a-254bdff080fb) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(pOP6R0M4XU 1 udp 1853817087 192.168.66.234 36198 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 35353) -> ('192.168.66.234', 36198)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 35353) -> ('192.168.66.234', 36198)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(69818653-70b6-4f5c-b7db-557712ea5614) Created for Angular
+INFO:stream:PeerConnection(69818653-70b6-4f5c-b7db-557712ea5614) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(cUFd6zlT1f 1 udp 1853817087 192.168.66.234 41436 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 52710) -> ('192.168.66.234', 41436)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 52710) -> ('192.168.66.234', 41436)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(e3cbee51-a9d5-4660-96d7-802b662b8380) Created for Angular
+INFO:stream:PeerConnection(e3cbee51-a9d5-4660-96d7-802b662b8380) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(PiS6BErbhB 1 udp 1853817087 192.168.66.234 58203 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 43561) -> ('192.168.66.234', 58203)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 43561) -> ('192.168.66.234', 58203)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(7c1f4bcf-2b5a-4525-83e0-5b809dacf032) Created for Angular
+INFO:stream:PeerConnection(7c1f4bcf-2b5a-4525-83e0-5b809dacf032) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(VgEXSrhnEv 1 udp 1853817087 192.168.66.234 43698 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 60335) -> ('192.168.66.234', 43698)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 60335) -> ('192.168.66.234', 43698)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(61d473e8-a113-47ec-ac26-a0a6f5dbfd5a) Created for Angular
+INFO:stream:PeerConnection(61d473e8-a113-47ec-ac26-a0a6f5dbfd5a) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(QFGfdwWHFA 1 udp 1853817087 192.168.66.234 47733 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 56181) -> ('192.168.66.234', 47733)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 56181) -> ('192.168.66.234', 47733)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(aae46068-9a6a-40ac-a7c6-39bb5a81927a) Created for Angular
+INFO:stream:PeerConnection(aae46068-9a6a-40ac-a7c6-39bb5a81927a) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(hiQUCLwam1 1 udp 1853817087 192.168.66.234 58614 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 53130) -> ('192.168.66.234', 58614)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 53130) -> ('192.168.66.234', 58614)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(7760a213-bce8-4f31-bc7f-e4c31b171893) Created for Angular
+INFO:stream:PeerConnection(7760a213-bce8-4f31-bc7f-e4c31b171893) Connection state is new
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(0d709b9e-4c76-4724-90d8-f5ec5fa6305c) Created for Angular
+INFO:stream:PeerConnection(0d709b9e-4c76-4724-90d8-f5ec5fa6305c) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(uRHW7zjuZE 1 udp 1853817087 192.168.66.234 41770 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 52011) -> ('192.168.66.234', 41770)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 52011) -> ('192.168.66.234', 41770)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(eb9fc51a-3d12-4e9a-9f3f-001d20dbf6a8) Created for Angular
+INFO:stream:PeerConnection(eb9fc51a-3d12-4e9a-9f3f-001d20dbf6a8) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(boQqkqfZsf 1 udp 1853817087 192.168.66.234 49561 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 52312) -> ('192.168.66.234', 49561)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 52312) -> ('192.168.66.234', 49561)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(16e86755-28a9-48ab-8957-0b07a6cbdd8c) Created for Angular
+INFO:stream:PeerConnection(16e86755-28a9-48ab-8957-0b07a6cbdd8c) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(c8lSV3BMQt 1 udp 1853817087 192.168.66.234 48377 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 42899) -> ('192.168.66.234', 48377)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 42899) -> ('192.168.66.234', 48377)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+                                                                                      INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(f470b125-01c1-443b-992f-1d6d2e34f7d8) Created for Angular
+INFO:stream:PeerConnection(f470b125-01c1-443b-992f-1d6d2e34f7d8) Connection state is new
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(6a3195a4-7dbc-4ed3-90a1-16ff9b164db2) Created for Angular
+INFO:stream:PeerConnection(6a3195a4-7dbc-4ed3-90a1-16ff9b164db2) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(Y2hqYaan04 1 udp 1853817087 192.168.66.234 37482 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 60787) -> ('192.168.66.234', 37482)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 60787) -> ('192.168.66.234', 37482)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(c04674e1-1fa9-48c6-a5ab-d3ac57ecdc81) Created for Angular
+INFO:stream:PeerConnection(c04674e1-1fa9-48c6-a5ab-d3ac57ecdc81) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(gDFxVMqPeT 1 udp 1853817087 192.168.66.234 36627 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 34863) -> ('192.168.66.234', 36627)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 34863) -> ('192.168.66.234', 36627)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(4f7ddfba-42c5-499e-9e2d-1acb9ce18957) Created for Angular
+INFO:stream:PeerConnection(4f7ddfba-42c5-499e-9e2d-1acb9ce18957) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(T8dZrdD47H 1 udp 1853817087 192.168.66.234 38742 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 53958) -> ('192.168.66.234', 38742)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 53958) -> ('192.168.66.234', 38742)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(aa8779b3-54bb-403f-976a-bfce0f11553c) Created for Angular
+INFO:stream:PeerConnection(aa8779b3-54bb-403f-976a-bfce0f11553c) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(qTqCvicEkM 1 udp 1853817087 192.168.66.234 51119 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 44613) -> ('192.168.66.234', 51119)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 44613) -> ('192.168.66.234', 51119)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(a05eba32-d5fd-434d-a3c4-c0f76f93a713) Created for Angular
+INFO:stream:PeerConnection(a05eba32-d5fd-434d-a3c4-c0f76f93a713) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(c8kYBbXEXT 1 udp 1853817087 192.168.66.234 54896 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 35426) -> ('192.168.66.234', 54896)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 35426) -> ('192.168.66.234', 54896)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(0dbaea2a-b802-43cd-91a9-69d014019513) Created for Angular
+INFO:stream:PeerConnection(0dbaea2a-b802-43cd-91a9-69d014019513) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(ILaDX9i9ia 1 udp 1853817087 192.168.66.234 38545 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 56790) -> ('192.168.66.234', 38545)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 56790) -> ('192.168.66.234', 38545)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(7065f6ef-cd1e-4f21-afed-636f47cf01e1) Created for Angular
+INFO:stream:PeerConnection(7065f6ef-cd1e-4f21-afed-636f47cf01e1) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(PniGYEdIxs 1 udp 1853817087 192.168.66.234 46141 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 34011) -> ('192.168.66.234', 46141)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 34011) -> ('192.168.66.234', 46141)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(8c75702b-9faf-42b4-9f0e-7cdd981f1f10) Created for Angular
+INFO:stream:PeerConnection(8c75702b-9faf-42b4-9f0e-7cdd981f1f10) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(Jj5hcwMZYJ 1 udp 1853817087 192.168.66.234 44448 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 43005) -> ('192.168.66.234', 44448)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 43005) -> ('192.168.66.234', 44448)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(75100fdb-0830-4d0e-b2e5-7e582d223e0f) Created for Angular
+INFO:stream:PeerConnection(75100fdb-0830-4d0e-b2e5-7e582d223e0f) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(oaK3pgHfyd 1 udp 1853817087 192.168.66.234 47038 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 44581) -> ('192.168.66.234', 47038)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 44581) -> ('192.168.66.234', 47038)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(ba2d501b-c83d-4a35-ae2f-2e184aba740c) Created for Angular
+INFO:stream:PeerConnection(ba2d501b-c83d-4a35-ae2f-2e184aba740c) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(pUpUZ1jthF 1 udp 1853817087 192.168.66.234 53930 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 56178) -> ('192.168.66.234', 53930)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 56178) -> ('192.168.66.234', 53930)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(32495156-af1a-4457-849f-06d05c504340) Created for Angular
+INFO:stream:PeerConnection(32495156-af1a-4457-849f-06d05c504340) Connection state is new
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(9bba44de-d1b9-4c6c-b9f7-13813b55c1a4) Created for Angular
+INFO:stream:PeerConnection(9bba44de-d1b9-4c6c-b9f7-13813b55c1a4) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(dlh2A1kwQ2 1 udp 1853817087 192.168.66.234 46279 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 48682) -> ('192.168.66.234', 46279)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 48682) -> ('192.168.66.234', 46279)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(6590f383-f9b0-4bbd-b9d7-d803dc159813) Created for Angular
+INFO:stream:PeerConnection(6590f383-f9b0-4bbd-b9d7-d803dc159813) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(7JuBYgxkhm 1 udp 1853817087 192.168.66.234 45959 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 44815) -> ('192.168.66.234', 45959)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 44815) -> ('192.168.66.234', 45959)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(070e2083-8608-446f-a936-a0c235fb4668) Created for Angular
+INFO:stream:PeerConnection(070e2083-8608-446f-a936-a0c235fb4668) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(jrQMf03uqI 1 udp 1853817087 192.168.66.234 35550 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 42889) -> ('192.168.66.234', 35550)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 42889) -> ('192.168.66.234', 35550)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(0bb89e68-04b6-41ac-8bec-46c2020b536e) Created for Angular
+INFO:stream:PeerConnection(0bb89e68-04b6-41ac-8bec-46c2020b536e) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(nLOLWoqFkW 1 udp 1845501695 192.168.66.234 37573 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 49558) -> ('192.168.66.234', 37573)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 49558) -> ('192.168.66.234', 37573)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(15f7a1a9-ca6f-4d61-9182-0ec872d381af) Created for Angular
+INFO:stream:PeerConnection(15f7a1a9-ca6f-4d61-9182-0ec872d381af) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(p8af8foiXB 1 udp 1845501695 192.168.66.234 43074 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 43488) -> ('192.168.66.234', 43074)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 43488) -> ('192.168.66.234', 43074)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(7a5b2ee9-488b-4db9-800a-80a3d8a931cd) Created for Angular
+INFO:stream:PeerConnection(7a5b2ee9-488b-4db9-800a-80a3d8a931cd) Connection state is new
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(721a3401-d174-49a1-8d88-82b60c3df0cc) Created for Angular
+INFO:stream:PeerConnection(721a3401-d174-49a1-8d88-82b60c3df0cc) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(VpefVNRWAt 1 udp 1845501695 192.168.66.234 55149 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 55900) -> ('192.168.66.234', 55149)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 55900) -> ('192.168.66.234', 55149)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:aioice.ice:Connection(0) Consent to send expired
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(ac4859cb-304e-475c-83ce-0c123f2a0561) Created for Angular
+INFO:stream:PeerConnection(ac4859cb-304e-475c-83ce-0c123f2a0561) Connection state is new
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(80080673-fbf9-4586-96e3-0231a9f69329) Created for Angular
+INFO:stream:PeerConnection(80080673-fbf9-4586-96e3-0231a9f69329) Connection state is new
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(2e6fb7d9-c5e7-4d59-9ef4-362fa6d3be38) Created for Angular
+INFO:stream:PeerConnection(2e6fb7d9-c5e7-4d59-9ef4-362fa6d3be38) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(KicyJBga52 1 udp 1845501695 192.168.66.234 41217 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 57743) -> ('192.168.66.234', 41217)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 57743) -> ('192.168.66.234', 41217)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(b973b615-759f-4e77-b8d0-4833ad7133d8) Created for Angular
+INFO:stream:PeerConnection(b973b615-759f-4e77-b8d0-4833ad7133d8) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(uB4Z3aEqU8 1 udp 1845501695 192.168.66.234 54116 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 49613) -> ('192.168.66.234', 54116)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 49613) -> ('192.168.66.234', 54116)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(24898b76-e3c4-4d76-9733-814004f1b031) Created for Angular
+INFO:stream:PeerConnection(24898b76-e3c4-4d76-9733-814004f1b031) Connection state is new
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0' died with <Signals.SIGINT: 2>.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(7b6468dc-07e8-4245-a4e4-c39c6b399f32) Created for Angular
+INFO:stream:PeerConnection(7b6468dc-07e8-4245-a4e4-c39c6b399f32) Connection state is new
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0' died with <Signals.SIGINT: 2>.
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(0591f8c7-1fe2-4943-8a41-59015bee80a7) Created for Angular
+INFO:stream:PeerConnection(0591f8c7-1fe2-4943-8a41-59015bee80a7) Connection state is new
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(9a8cfa25-cefa-4877-aa89-69bdcf36345f) Created for Angular
+INFO:stream:PeerConnection(9a8cfa25-cefa-4877-aa89-69bdcf36345f) Connection state is new
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(30fe8ce0-50cb-4b22-b614-6c8e1171201c) Created for Angular
+INFO:stream:PeerConnection(30fe8ce0-50cb-4b22-b614-6c8e1171201c) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(mBdhFEr4ek 1 udp 1853817087 192.168.66.234 45215 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 46231) -> ('192.168.66.234', 45215)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 46231) -> ('192.168.66.234', 45215)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(45603b07-564c-41b7-8ceb-7b5104e55504) Created for Angular
+INFO:stream:PeerConnection(45603b07-564c-41b7-8ceb-7b5104e55504) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(diCASaoJxF 1 udp 1853817087 192.168.66.234 51011 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 35796) -> ('192.168.66.234', 51011)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 35796) -> ('192.168.66.234', 51011)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(9b3d3520-a188-41b7-9791-51fd2b20194e) Created for Angular
+INFO:stream:PeerConnection(9b3d3520-a188-41b7-9791-51fd2b20194e) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(Y4KOLiH2Qa 1 udp 1853817087 192.168.66.234 44008 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 56582) -> ('192.168.66.234', 44008)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 56582) -> ('192.168.66.234', 44008)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(96da2356-f42c-411c-825e-473363ce564f) Created for Angular
+INFO:stream:PeerConnection(96da2356-f42c-411c-825e-473363ce564f) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(H1O75xxQLk 1 udp 1845501695 192.168.66.234 44979 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 39734) -> ('192.168.66.234', 44979)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 39734) -> ('192.168.66.234', 44979)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(95a94def-862a-47ca-bd97-e670c4ba6575) Created for Angular
+INFO:stream:PeerConnection(95a94def-862a-47ca-bd97-e670c4ba6575) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(oOZoBlo6JH 1 udp 1845501695 192.168.66.234 43143 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 59310) -> ('192.168.66.234', 43143)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 59310) -> ('192.168.66.234', 43143)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed

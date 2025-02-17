@@ -9,23 +9,23 @@ class PIDController:
         self.prev_error = 0
         self.integral = 0
 
-        self.last_time = time.time()
+    #    self.last_time = time.time()
 
 
     def pid_formula( self, error ):
 
-        current_time = time.time()
-        delta_time = current_time - self.last_time
-        self.last_time = current_time
+    #    current_time = time.time()
+    #    delta_time = current_time - self.last_time
+    #    self.last_time = current_time
 
-        if delta_time == 0:
-            return 0
+    #    if delta_time == 0:
+    #        return 0
 
         #error P dejstvo
-        self.integral += error * delta_time #I dejstvo
+        self.integral += error #* delta_time #I dejstvo
         self.integral = max( -50, min( self.integral, 50 ))
 
-        derivative = ( error - self.prev_error )  / delta_time #D dejstvo
+        derivative = ( error - self.prev_error )  #/ delta_time #D dejstvo
         self.prev_error = error 
 
         return self.Kp * error + self.Ki * self.integral + self.Kd * derivative
