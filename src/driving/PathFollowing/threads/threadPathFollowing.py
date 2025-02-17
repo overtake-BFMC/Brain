@@ -90,17 +90,8 @@ class threadPathFollowing(ThreadWithStop):
             self.speedMotorSender.send(str(self.vehicle.speed*10))
             distanceToTarget = self.calculateDistanceToTarget(targetX, targetY)
             while distanceToTarget > 5:
-
-                stopRun = self.startRunSubscriber.receive()
-                if stopRun is not None:
-                    if stopRun == 'false':
-                        self.isDriving = False
-                        self.steerMotorSender.send(str(0))
-                        time.sleep(0.3)
-                        self.speedMotorSender.send(str(0))
-                        return -1
                 
-                print(distanceToTarget)
+                # print(distanceToTarget)
 
                 distanceToTarget = self.calculateDistanceToTarget(targetX, targetY)
                 angleToTarget =  self.calculateAngleToTarget(targetX, targetY)
@@ -108,10 +99,13 @@ class threadPathFollowing(ThreadWithStop):
                 alpha = self.calculateAlphaSteer(angleToTarget)
                 
                 # self.vehicle.steeringAngle =  np.arctan2(2 * self.vehicle.wheelbase * np.sin(alpha), distanceToTarget)
-                # print(np.rad2deg(self.vehicle.steeringAngle))
                 self.vehicle.steeringAngle = alpha
-                # PRETVORI U DEGREES KAD SALJES NUCLEU np.rad2deg(self.vehicle.steeringAngle)
-                self.steerMotorSender.send(str(round(np.rad2deg(self.vehicle.steeringAngle))*10))
+                
+
+                # print(f"Before rounding: {np.rad2deg(np.clip(self.vehicle.steeringAngle, -0.4363, 0.4363))}")
+                # print(f"After rounding: {str(round(np.rad2deg(np.clip(self.vehicle.steeringAngle, -0.4363, 0.4363)))*10)}")
+
+                self.steerMotorSender.send(str(round(np.rad2deg(np.clip(self.vehicle.steeringAngle, -0.4363, 0.4363)))*10))
                 self.kinematicBicycleModel()
                 
                 path_x.append(self.vehicle.x)
