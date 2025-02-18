@@ -205,10 +205,30 @@ class startRun(Enum):
     msgID = 20
     msgType = "str"
 
+class startLaneDetection(Enum):
+    Queue = "General"
+    Owner = "Dashboard"
+    msgID = 21
+    msgType = "str"
+
+################################# From WebRTC(Video Stream) ##################################
 class WebRTCAnswer(Enum):
     Queue = "General"
     Owner = "threadWebRTC"
     msgID = 1
+    msgType = "dict"
+
+################################# From SysInfo ##################################
+class memory_channel(Enum):
+    Queue = "General"
+    Owner = "threadSysInfo"
+    msgID = 1
+    msgType = "float"
+
+class cpu_channel(Enum):
+    Queue = "General"
+    Owner = "threadSysInfo"
+    msgID = 2
     msgType = "dict"
 
 ################################# From Nucleo ##################################

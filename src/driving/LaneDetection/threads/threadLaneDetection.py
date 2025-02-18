@@ -3,6 +3,8 @@ from src.utils.messages.allMessages import (
 
     MainVideo,
     LaneVideo,
+    startLaneDetection,
+    SteerMotor,
 )
 from src.utils.messages.messageHandlerSubscriber import messageHandlerSubscriber
 from src.utils.messages.messageHandlerSender import messageHandlerSender
@@ -30,6 +32,10 @@ class threadLaneDetection(ThreadWithStop):
 
         self.subscribe()
 
+        self.isLaneKeeping = False
+        #self.vehicle = vehicleState( 15, 0, 0, 0 )
+        self.steerMotorSender = messageHandlerSender(self.queuesList, SteerMotor)
+
         # kalibrisani podaci
         dir_path = os.path.dirname(os.path.realpath(__file__))
         print("dir_path_lane_det: ", dir_path)
@@ -41,11 +47,18 @@ class threadLaneDetection(ThreadWithStop):
 
     def run(self):
         counter = 0
-        counter_max = 60
+        counter_max = 5
 
         while self._running:
             frame = self.MainVideoSubscriber.receive()
             #frame = None
+            startLaneDet = self.LaneDetectionStartSubscriber.receive()
+            if startLaneDet is not None:
+                if startLaneDet == 'false':
+                    self.isLaneKeeping = False
+                else:
+                    self.isLaneKeeping = True
+                print("Start Lane Keeping: ", startLaneDet)
             if frame is not None:
                 frame_width = frame.shape[1] 
 
@@ -60,12 +73,17 @@ class threadLaneDetection(ThreadWithStop):
                 lane_center = CH.get_lane_center( lines, frame_lines )
 
                 error = lane_center - frame_width // 2
-
+                if error < 20 and error > -20:
+                    error = 0
                 compute_error = self.pid.pid_formula( error )
                 compute_error = max( -25, min( compute_error, 25 ))
 
                 if counter >= counter_max:
-                    #print("steering angle je ", compute_error)
+                    #self.vehicle.steering_angle = compute_error
+                    if self.isLaneKeeping:
+                        self.steerMotorSender.send(str(round(compute_error)*10))
+                    print("steering angle je ", compute_error)
+                    print("Greska je: ", error)
                     counter = 0
 
                 cv2.line( frame_lines, (frame_width // 2,0), (frame_width // 2, 540), (255,0,0),3  )
@@ -74,3 +92,4 @@ class threadLaneDetection(ThreadWithStop):
 
     def subscribe(self):
         self.MainVideoSubscriber = messageHandlerSubscriber(self.queuesList, MainVideo, "lastOnly", True)
+        self.LaneDetectionStartSubscriber = messageHandlerSubscriber(self.queuesList, startLaneDetection, "lastOnly", True)

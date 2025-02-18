@@ -43,7 +43,7 @@ export class HardwareDataComponent {
   private memorySubscription: Subscription | undefined;
   private resourceSubscription: Subscription | undefined;
   public cpuTemp: number = 0;
-  public cpuUsage: number[] = [0, 0, 0, 0];
+  public cpuUsage: number[] = [0, 0, 0, 0, 0, 0];
   public memoryUsage: number = 0;
   public heap: number = 0;
   public stack: number = 0;
@@ -55,11 +55,14 @@ export class HardwareDataComponent {
     // Listen for cpu data
     this.cpuSubscription = this.webSocketService.receiveCpuUsage().subscribe(
       (message) => {
-        this.cpuTemp = message['data']['temp'];
-        this.cpuUsage[0] = parseInt(message['data']['usage'][0]);
-        this.cpuUsage[1] = parseInt(message['data']['usage'][1]);
-        this.cpuUsage[2] = parseInt(message['data']['usage'][2]);
-        this.cpuUsage[3] = parseInt(message['data']['usage'][3]);
+        //console.log(message.value)
+        this.cpuTemp = message.value['temp'];
+        this.cpuUsage[0] = parseInt(message.value['usage'][0]);
+        this.cpuUsage[1] = parseInt(message.value['usage'][1]);
+        this.cpuUsage[2] = parseInt(message.value['usage'][2]);
+        this.cpuUsage[3] = parseInt(message.value['usage'][3]);
+        this.cpuUsage[4] = parseInt(message.value['usage'][4]);
+        this.cpuUsage[5] = parseInt(message.value['usage'][5]);
       },
       (error) => {
         console.error('Error receiving disk usage:', error);
@@ -78,7 +81,8 @@ export class HardwareDataComponent {
 
     this.memorySubscription = this.webSocketService.receiveMemoryUsage().subscribe(
       (message) => {
-        this.memoryUsage = Math.round(message['data']);
+        //console.log(message.value)
+        this.memoryUsage = Math.round(message.value);
         
       },
       (error) => {

@@ -9,26 +9,29 @@ class vehicleState:
     x = 0
     y = 0
 
-    theta = 0
+    yaw = 0
 
-    def __init__(self, speed = 0, x = 0, y = 0, theta = 0):
+    def __init__(self, speed = 0, x = 0, y = 0, yaw = 0):
         self.speed = speed
         
         self.x = x
         self.y = y
-        self.theta = theta
+        self.yaw = yaw
     
-    def updateVehicleState(self, speed, x, y, theta):
+    def updateVehicleState(self, speed, x, y, yaw):
         self.speed = speed
         
         self.x = x
         self.y = y
-        self.theta = theta
+        self.yaw = yaw
     
     def setSpeed(self, speed):
         self.speed = speed
 
-    def setPosition(self, x, y, theta):
+    def setPosition(self, x, y, yaw):
         self.x = x
         self.y = y
-        self.theta = theta
+        self.yaw = yaw
+
+    def getPosition(self):
+        return self.x, self.y

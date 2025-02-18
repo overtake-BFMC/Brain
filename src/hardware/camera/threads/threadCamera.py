@@ -2,7 +2,6 @@ import cv2
 import threading
 import base64
 import time
-from datetime import datetime
 from src.utils.messages.allMessages import (
     mainCamera,
     serialCamera,
@@ -25,7 +24,7 @@ class threadCamera(ThreadWithStop):
         self.queuesList = queuesList
         self.logger = logger
         self.debugger = debugger
-        self.frame_rate = 30
+        self.frame_rate = 15
         self.recording = False
         self.send_fps = 15
         self.frame_interval = 1.0 / self.send_fps
@@ -187,9 +186,38 @@ class threadCamera(ThreadWithStop):
         """This function will initialize the camera object with GStreamer pipeline."""
         #self.show_camera()
         # Use GStreamer for CSI camera on Jetson
-        gst_pipeline = self.gstreamer_pipeline(flip_method=0, framerate=30)
+        gst_pipeline = self.gstreamer_pipeline(flip_method=0, framerate=self.frame_rate)
 
         self.camera = cv2.VideoCapture(gst_pipeline, cv2.CAP_GSTREAMER)
 
         if not self.camera.isOpened():
             raise Exception("Could not open video device.")
+
+# def gstreamer_pipeline(
+#         self,
+#         sensor_id=0,
+#         capture_width=1920,
+#         capture_height=1080,
+#         display_width=960,
+#         display_height=540,
+#         framerate=30,
+#         flip_method=0,
+#     ):
+
+#         return (
+#             "nvarguscamerasrc sensor-id=%d ! "
+#             "video/x-raw(memory:NVMM), width=(int)%d, height=(int)%d, framerate=(fraction)%d/1 ! "
+#             "nvvidconv flip-method=%d ! "
+#             "video/x-raw, width=(int)%d, height=(int)%d, format=(string)BGRx ! "
+#             "videoconvert ! "
+#             "video/x-raw, format=(string)BGR ! appsink"
+#             % (
+#                 sensor_id,
+#                 capture_width,
+#                 capture_height,
+#                 framerate,
+#                 flip_method,
+#                 display_width,
+#                 display_height,
+#             )
+#         )

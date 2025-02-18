@@ -40,8 +40,10 @@ import { CommonModule } from '@angular/common'
 export class RecordComponent {
   recording: boolean = false;
   isTestRunning: boolean = false;
+  isLaneDetection: boolean = false;
   text: string = "start record"
   startRunText: string = "start run"
+  startLaneDetectionText: string = "start Lane Det"
   constructor( private webSocketService: WebSocketService) { }
 
   changeState() {
@@ -65,11 +67,39 @@ export class RecordComponent {
       this.isTestRunning = false;
       this.startRunText = "start run"
     }
-    this.webSocketService.sendMessageToFlask('{"Name": "startRun", "Value": "${this.isTestRunning}"}')
+    this.webSocketService.sendMessageToFlask(`{"Name": "startRun", "Value": "${this.isTestRunning}"}`)
+  }
+
+  startLaneDetection() {
+    if (this.isLaneDetection == false) {
+      this.isLaneDetection = true;
+      this.startLaneDetectionText = "stop Lane Det";
+    }
+    else {
+      this.isLaneDetection = false;
+      this.startLaneDetectionText = "start Lane Det";
+    }
+    this.webSocketService.sendMessageToFlask(`{"Name": "startLaneDetection", "Value": "${this.isLaneDetection}"}`)
   }
 
   getButtonColor() {
-    if (this.recording === true) { 
+    if (this.recording === true ) { 
+      return "#5cb85c";
+    }
+
+    return "#d9534f";
+  }
+
+  getStartButtonColor() {
+    if (this.isTestRunning === true ) { 
+      return "#5cb85c";
+    }
+
+    return "#d9534f";
+  }
+
+  getLaneDetectionButtonColor() {
+    if (this.isLaneDetection === true ) { 
       return "#5cb85c";
     }
 

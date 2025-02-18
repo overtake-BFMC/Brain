@@ -42,10 +42,8 @@ from src.utils.messages.allMessages import Semaphores
 from src.dashboard.threads.threadStartFrontend import ThreadStartFrontend  
 import src.utils.messages.allMessages as allMessages
 
-from aiortc import RTCPeerConnection, RTCIceCandidate, RTCConfiguration, RTCIceServer
-from aiortc import RTCSessionDescription
-import asyncio
-#from src.dashboard.threads.threadStartWebRTC import threadStartWebRTC
+
+from src.dashboard.threads.threadSysInfo import threadSysInfo
 
 class processDashboard(WorkerProcess):
     """This process handles the dashboard interactions, updating the UI based on the system's state.
@@ -66,9 +64,9 @@ class processDashboard(WorkerProcess):
         self.sendMessages = {}
         self.messagesAndVals = {}
 
-        self.memoryUsage = 0
-        self.cpuCoreUsage = 0
-        self.cpuTemperature = 0
+        #self.memoryUsage = 0
+        #self.cpuCoreUsage = 0
+        #self.cpuTemperature = 0
 
         self.sessionActive = False
         self.activeUser = None
@@ -220,12 +218,12 @@ class processDashboard(WorkerProcess):
                     if self.debugging:
                         self.logger.info(f"{msg}: {resp}")
             
-            if counter >= sendTime:
-                self.socketio.emit('memory_channel', {'data': self.memoryUsage})
-                self.socketio.emit('cpu_channel', {'data': {'usage': self.cpuCoreUsage, 'temp': self.cpuTemperature}})
-                counter = 0
-            else:
-                counter += socketSleep
+            #if counter >= sendTime:
+            #    self.socketio.emit('memory_channel', {'data': self.memoryUsage})
+            #    self.socketio.emit('cpu_channel', {'data': {'usage': self.cpuCoreUsage, 'temp': self.cpuTemperature}})
+            #    counter = 0
+            #else:
+            #    counter += socketSleep
 
             eventlet.sleep(socketSleep)
 
@@ -239,19 +237,17 @@ class processDashboard(WorkerProcess):
         self.sendMessageToBackend(dataName, dataDict)
 
     def handleIceCandidate(self, data):
-        #print("Received ICE candidate from client:", data)
         dataName = 'ICECandidate'
         dataDict = {}
         dataDict["Name"] = 'ICECandidate'
         dataDict["Value"] = data
         self.sendMessageToBackend(dataName, dataDict)
-        #eventlet.spawn(lambda: asyncio.run(self._handleIceCandidateAsync(data)))
 
     # ===================================== INIT TH ======================================
     def _init_threads(self):
         """Initialize the Dashboard thread."""
         dashboardThreadFrontend = ThreadStartFrontend(self.logger)
-        #dashboardThreadWebRTC = threadStartWebRTC(self.queueList, self.logger , debugger= False)
+        dashboardThreadSysInfo = threadSysInfo(self.queueList, self.logger , debugger= False)
         self.threads.append(dashboardThreadFrontend)
-        #self.threads.append(dashboardThreadWebRTC)
+        self.threads.append(dashboardThreadSysInfo)
 
