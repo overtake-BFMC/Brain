@@ -125,12 +125,12 @@ class threadCamera(ThreadWithStop):
                     #current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")  # Get current time
                     #print(f"Processing frame: {frame_counter} at {current_time}")  # Print counter and time to terminal
                                         
-                    serialRequest = cv2.resize(frame, (960, 540))  # Lo-res capture
-                    _, encoded_frame = cv2.imencode(".jpg", serialRequest, [cv2.IMWRITE_JPEG_QUALITY, 50])
+                    #serialRequest = cv2.resize(frame, (960, 540))  # Lo-res capture
+                    _, encoded_frame = cv2.imencode(".jpg", frame, [cv2.IMWRITE_JPEG_QUALITY, 50])
                     decoded_frame = cv2.imdecode(encoded_frame, cv2.IMREAD_COLOR)
 
-                    if self.recording:
-                        self.video_writer.write(frame)
+                    #if self.recording:
+                    #    self.video_writer.write(frame)
 
                     #_, mainEncodedImg = cv2.imencode(".jpg", frame)
                     #_, serialEncodedImg = cv2.imencode(".jpg", serialRequest)
@@ -143,6 +143,8 @@ class threadCamera(ThreadWithStop):
                     #    self.serialCameraSender.send(serialEncodedImageData)
                     current_time = time.time()
                     if current_time - self.last_sent_time >= self.frame_interval:
+                        if self.recording:
+                            self.video_writer.write(decoded_frame)
                         self.last_sent_time = current_time
                         self.mainVideoSender.send(decoded_frame)
 
@@ -156,8 +158,8 @@ class threadCamera(ThreadWithStop):
     def gstreamer_pipeline(
         self,
         sensor_id=0,
-        capture_width=1920,
-        capture_height=1080,
+        capture_width=3280,
+        capture_height=1848,
         display_width=960,
         display_height=540,
         framerate=30,

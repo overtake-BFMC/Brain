@@ -2,6 +2,8 @@ import cv2
 import numpy as np
 import scipy.interpolate as si
 
+from scipy.interpolate import UnivariateSpline
+
 def region_of_interest( img, vertices ):
 
     mask = np.zeros_like( img )  
@@ -29,25 +31,52 @@ def CannyEdge( frame ):
 
     edges = cv2.Canny( gray, 50, 200 )
 
-    height = edges.shape[0] #540
-    width = edges.shape[1] #960
+    height = edges.shape[0] #1484
+    width = edges.shape[1] #3280
 
     #region = np.array([[(0, 540), (300, 270), (800, 270), (960, 540)]], dtype=np.int32)    
-    #region = np.array([[(0, 540), (430, 200), (650, 200), (960, 540)]], dtype=np.int32)    
-    region = np.array( [[ ( 0, 540), ( 300, 200 ), ( 650 ,200), ( 960, 540)]])
+    # region = np.array( [[ (0 , 540), ( 370, 100 ), ( 700 ,100), ( 960, 540)]])
+    region = np.array( [ [ ( width // 8, height ), ( 2 * width // 5, height // 3 ), ( 4 * width // 7 ,height // 3), (7 * width // 8  ,height)]])
 
     edges = region_of_interest( edges, region )
 
-    #lines = cv2.HoughLinesP(edges, 1, np.pi / 180, threshold = 68, minLineLength=15, maxLineGap=250)
-    lines = cv2.HoughLinesP(edges, 1, np.pi / 180, threshold = 75, minLineLength=50, maxLineGap=250)
+    lines = cv2.HoughLinesP(edges, 1, np.pi / 180, threshold = 50, minLineLength=30, maxLineGap=90)
+
     
+    #print( "LINIJE", lines )
     draw_all_lines( frame, lines )
     frame = draw_ROI( frame, region )
-    
+
     return edges, frame, lines
 
 
+# def draw_parabola( frame, points ):
+
+#     points = np.array( points )
+#     x_values, y_values = points[:, 0], points[:, 1]
+
+#     coeffs = np.polyfit( x_values, y_values, 2 )
+#     a, b, c = coeffs
+
+#     x_curve = np.linspace( min(x_values) - 50, max(x_values) + 50, 100 )
+#     y_curve = a * x_curve**2 + b * x_curve + c
+
+#     for i in range(len(x_curve) - 1 ):
+#         cv2.line( frame, 
+#             ( int( x_curve[i] ), int( y_curve[i] ) ), 
+#             ( int( x_curve[i+1] ), int(y_curve[i+1] ) ), 
+#             (0, 0, 255), 10)
+        
+#     # global parabola_points
+#     # parabola_points = list(zip(x_curve, y_curve))
+
+
 def draw_all_lines( frame, lines ):
+
+    left_lines_x1, left_lines_x2, right_lines_x1, right_lines_x2 = [], [], [], []
+    left_lines_y1, left_lines_y2, right_lines_y1, right_lines_y2 = [], [], [], []
+
+    points = []
 
     if lines is not None:
         for line in lines:
@@ -55,12 +84,54 @@ def draw_all_lines( frame, lines ):
 
             if x2 - x1 == 0:
                 continue
-
+            
             slope = abs( (y2 - y1 ) / ( x2 - x1) )
 
-            if slope > 0.5: 
-                cv2.line( frame, (x1, y1), (x2, y2), (130, 15, 250), 5 )
+            if slope < 1:
 
+                points.append( ( x1, y1 ) )
+                points.append(( x2, y2 ) )
+
+            #prava npr
+            if slope > 1: 
+                
+                if x1 < 960 // 2:  
+
+                    left_lines_x1.append( int(x1) )
+                    left_lines_x2.append( int(x2) )
+                    left_lines_y1.append( int( y1) )
+                    left_lines_y2.append( int( y2 ) )
+                
+                else:
+                    
+                    right_lines_x1.append( int(x1) )
+                    right_lines_x2.append( int(x2) )
+                    right_lines_y1.append( int( y1) )
+                    right_lines_y2.append( int( y2))
+  
+        if left_lines_x1:
+            min_index_L = left_lines_x1.index(min(left_lines_x1))  
+
+            left_line_x1 = left_lines_x1[min_index_L]  
+            left_line_x2 = left_lines_x2[min_index_L]  
+            left_line_y1 = left_lines_y1[min_index_L]  
+            left_line_y2 = left_lines_y2[min_index_L]  
+
+            cv2.line(frame, (left_line_x1, left_line_y1), (left_line_x2, left_line_y2), (0, 0, 255), 10)
+
+        if right_lines_x1:
+            max_index_R = right_lines_x1.index( max( right_lines_x1 ) )
+
+            right_line_x1 = right_lines_x1[max_index_R]
+            right_line_x2 = right_lines_x2[max_index_R]
+            right_line_y1 = right_lines_y1[max_index_R]
+            right_line_y2 = right_lines_y2[max_index_R]
+
+            cv2.line(frame, (right_line_x1, right_line_y1), (right_line_x2, right_line_y2), (0, 0, 255), 10)
+
+        # if len( points ) > 5:
+        #     draw_parabola( frame, points )
+      
 def draw_ROI( frame, region ):
 
     overlay = frame.copy()  
@@ -71,7 +142,7 @@ def draw_ROI( frame, region ):
 
     return frame
 
- 
+
 def get_lane_center( lines, frame ):
 
     frame_width = frame.shape[1]
@@ -95,17 +166,24 @@ def get_lane_center( lines, frame ):
 
 
     if left_lines:
-        left_x = int(np.mean([x for x1, _, x2, _ in left_lines for x in (x1, x2)]))
+        left_x = int( np.mean([x for x1, _, x2, _ in left_lines for x in (x1, x2)]) )
     else:
         left_x = 0  
 
     if right_lines:
-        right_x = int(np.mean([x for x1, _, x2, _ in right_lines for x in (x1, x2)]))
+        right_x = int( np.mean([x for x1, _, x2, _ in right_lines for x in (x1, x2)]) )
     else:
         right_x = frame_width  
+    
+    # if 'parabola_points' in globals() and len(parabola_points) > 0:     
+    #     parabola_center = int( np.mean( [ x for x, _ in parabola_points ] ) )
+    # else:
+    #     parabola_center = ( left_x + right_x ) // 2
+    
+    # lane_center = (left_x + right_x + parabola_center) // 3  
 
     lane_center = ( left_x + right_x ) // 2
 
-    cv2.line( frame, (lane_center, frame.shape[0] // 2), (lane_center, frame.shape[0] ), (0, 255, 0 ), 4 )  # Zelena linija
+    cv2.line( frame, (lane_center, frame.shape[0] // 2), (lane_center, frame.shape[0] ), (0, 255, 0 ), 4 ) 
 
-    return lane_center
+    return left_lines, right_lines, lane_center

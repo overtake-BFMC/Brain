@@ -12,8 +12,13 @@ from src.driving.LaneDetection.utils import preprocessing as pre
 from src.driving.LaneDetection.utils import PID
 from src.driving.LaneDetection.utils import cannyandhough as CH
 from src.driving.LaneDetection.utils.gamma import apply_gamma_on_frame
+from src.driving.LaneDetection.utils.kalman_filter import KalmanFilter_LANE
 import os
 import cv2
+from ultralytics import YOLO
+import torch
+import onnxruntime as ort
+import numpy as np
 
 class threadLaneDetection(ThreadWithStop):
     """This thread handles laneDetection.
@@ -36,12 +41,24 @@ class threadLaneDetection(ThreadWithStop):
         #self.vehicle = vehicleState( 15, 0, 0, 0 )
         self.steerMotorSender = messageHandlerSender(self.queuesList, SteerMotor)
 
+        self.kf = KalmanFilter_LANE()
+
         # kalibrisani podaci
         dir_path = os.path.dirname(os.path.realpath(__file__))
         print("dir_path_lane_det: ", dir_path)
         self.ppData, self.maps = pre.loadPPData(dir_path + "/../utils/data")  
 
-        self.pid = PID.PIDController( Kp = 0.27467977371505925, Ki = 0.0008108486849779399, Kd = 0.09678150213579352 )
+        self.pid = PID.PIDController( Kp = 0.1, Ki = 0.0008108486849779399, Kd = 0.09678150213579352 )
+
+        #self.detectionModel = YOLO(dir_path + "/../utils/best.onnx")
+        #self.detectionModel.to('cuda')
+        
+        #self.detectionModelSession = ort.InferenceSession(dir_path + "/../utils/best.onnx", providers=['CUDAExecutionProvider'])
+
+        #print(self.detectionModelSession.get_inputs()[0].name)
+        #print(self.detectionModelSession.get_inputs()[0].shape)
+        #self.detectionOutputNames = [o.name for o in self.detectionModelSession.get_outputs()]
+        #print(self.detectionOutputNames)
 
         super(threadLaneDetection, self).__init__()
 
@@ -70,7 +87,7 @@ class threadLaneDetection(ThreadWithStop):
 
                 #frame_bev = pre.bev( frame_lines, self.ppData, self.maps )
                 
-                lane_center = CH.get_lane_center( lines, frame_lines )
+                left_lines, right_lines, lane_center = CH.get_lane_center( lines, frame_lines )
 
                 error = lane_center - frame_width // 2
                 if error < 20 and error > -20:
@@ -78,17 +95,75 @@ class threadLaneDetection(ThreadWithStop):
                 compute_error = self.pid.pid_formula( error )
                 compute_error = max( -25, min( compute_error, 25 ))
 
+                self.kf.correct(compute_error)
+
+                filtriran = self.kf.get_filtered_error()
+
                 if counter >= counter_max:
                     #self.vehicle.steering_angle = compute_error
                     if self.isLaneKeeping:
-                        self.steerMotorSender.send(str(round(compute_error)*10))
-                    print("steering angle je ", compute_error)
-                    print("Greska je: ", error)
+                        self.steerMotorSender.send(str(round(filtriran)*10))
+                    #print("steering angle filtriran je ", filtriran)
+                    #print("steering angle je ", compute_error)
+                    #print("Greska je: ", error)
                     counter = 0
 
+                #detected = self.detectionModel.predict(source=frame_lines, conf=0.5)
+                #for r in detected:
+                #    print(r.boxes.data)
+                signDetectFrame = cv2.resize(frame, (640, 640))
+                signDetectFrame = signDetectFrame.astype(np.float32) / 255.0
+                signDetectFrame = np.transpose(signDetectFrame, (2, 0, 1))
+                signDetectFrame = np.expand_dims(signDetectFrame, axis=0)
+
+                #outputs = self.detectionModelSession.run(self.detectionOutputNames, {"images": signDetectFrame})
+                #print(outputs)
+                #boxes, confidences, class_ids = self.decode_yolo_output(outputs, frame.shape[0], frame.shape[1])
+                #print("Boxes: ", boxes)
+                #print("Confidences: ", confidences)
+                #print("Class IDs:", class_ids)
+                #print("Output Shape:", np.array(outputs).shape)
+                #print("Sample Output Data:", outputs[0][:5])  # Print first 5 predictions
                 cv2.line( frame_lines, (frame_width // 2,0), (frame_width // 2, 540), (255,0,0),3  )
 
                 self.laneVideoSender.send(frame_lines)
+
+    def decode_yolo_output(self, output, height, width, conf_threshold = 0.5):
+
+        output = output[0][0]  # Extract the first element if it's a tuple
+
+        #output = np.squeeze(output)  # Remove extra dimensions -> shape (19, 8400)
+
+        #print(f"Decoded output shape: {output.shape}")
+
+        h = height
+        w = width
+        boxes, confidences, class_ids = [], [], []
+
+        for i in range(output.shape[1]):
+            row = output[:, i]
+
+            x_center, y_center, width, height = row[:4]
+            object_confidence = row[4]
+            class_scores = row[5:]
+    
+            class_id = np.argmax(class_scores)
+            class_prob = class_scores[class_id]
+
+            final_confidence = object_confidence * class_prob
+
+            if final_confidence > conf_threshold:
+
+                x1 = int((x_center - width / 2) * w)
+                y1 = int((y_center - height / 2) * h)
+                x2 = int((x_center + width / 2) * w)
+                y2 = int((y_center + height / 2) * h)
+
+                boxes.append([x1, y1, x2, y2])
+                confidences.append(float(final_confidence))
+                class_ids.append(int(class_id))
+
+        return boxes, confidences, class_ids
 
     def subscribe(self):
         self.MainVideoSubscriber = messageHandlerSubscriber(self.queuesList, MainVideo, "lastOnly", True)

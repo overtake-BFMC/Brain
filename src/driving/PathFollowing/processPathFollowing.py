@@ -31,7 +31,7 @@ class processPathFollowing(WorkerProcess):
         self.waypoints.extend(range(295, 307))
         self.waypoints.extend(range(231, 233))
 
-        self.speed = 15
+        self.speed = 10
         self.lookAheadDistance = 1
         self.yaw = 0
         self.dt = 0.2

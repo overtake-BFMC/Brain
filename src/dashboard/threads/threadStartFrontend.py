@@ -56,7 +56,7 @@ class ThreadStartFrontend(ThreadWithStop):
 
         try:
             #subprocess.run(f"cd {self.project_path} && npm start", shell=True, check=True)
-            subprocess.run(f"cd {self.project_path} && ng build --configuration production --base-href ./", shell=True, check=True)
+            #subprocess.run(f"cd {self.project_path} && ng build --configuration production --base-href ./", shell=True, check=True)
             self.project_path = self.project_path + "/dist/dashboard/browser"
             subprocess.run(f"cd {self.project_path} && http-server -p 8090 -a 0.0.0.0 -c-1", shell=True, check=True)
             self.logger.info("Angular server started successfully.")
