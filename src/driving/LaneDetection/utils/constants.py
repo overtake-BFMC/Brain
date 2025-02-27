@@ -20,14 +20,13 @@ PATH = ""  # path of the current directory ("workspace")
 VIDEO_FILE = PATH + "output.avi"    # filename of video file
 
 ######################### IMG  CONSTS #########################
-IMAGE_WIDTH = 960
-IMAGE_HEIGHT = 540
+IMAGE_WIDTH = 3280
+IMAGE_HEIGHT = 1848
 EDGE_SIZE = 3
 X_START = 0  # početna koordinata za X os
-X_STOP = 540   # završna koordinata za X os
+X_STOP = 1848   # završna koordinata za X os
 Y_START = 0   # početna koordinata za Y os
-Y_STOP = 960   # završna koordinata za Y os
-
+Y_STOP = 3280   # završna koordinata za Y os
 
 ######################## LANE DETECTION #######################
 LANE_WIDTH = 2                        # specify lane width. no specific unit

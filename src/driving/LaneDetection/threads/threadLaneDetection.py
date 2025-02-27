@@ -15,10 +15,11 @@ from src.driving.LaneDetection.utils.gamma import apply_gamma_on_frame
 from src.driving.LaneDetection.utils.kalman_filter import KalmanFilter_LANE
 import os
 import cv2
-from ultralytics import YOLO
-import torch
+#from ultralytics import YOLO
+#import torch
 import onnxruntime as ort
 import numpy as np
+from src.driving.LaneDetection.utils.signDetection import signDetection
 
 class threadLaneDetection(ThreadWithStop):
     """This thread handles laneDetection.
@@ -48,12 +49,13 @@ class threadLaneDetection(ThreadWithStop):
         print("dir_path_lane_det: ", dir_path)
         self.ppData, self.maps = pre.loadPPData(dir_path + "/../utils/data")  
 
-        self.pid = PID.PIDController( Kp = 0.1, Ki = 0.0008108486849779399, Kd = 0.09678150213579352 )
+        self.pid = PID.PIDController( Kp = 0.1, Ki = 0.008, Kd = 0.003 )
 
         #self.detectionModel = YOLO(dir_path + "/../utils/best.onnx")
         #self.detectionModel.to('cuda')
         
         #self.detectionModelSession = ort.InferenceSession(dir_path + "/../utils/best.onnx", providers=['CUDAExecutionProvider'])
+        self.detector = signDetection(conf_thresh=0.5, iou_thresh=0.45)
 
         #print(self.detectionModelSession.get_inputs()[0].name)
         #print(self.detectionModelSession.get_inputs()[0].shape)
@@ -111,10 +113,11 @@ class threadLaneDetection(ThreadWithStop):
                 #detected = self.detectionModel.predict(source=frame_lines, conf=0.5)
                 #for r in detected:
                 #    print(r.boxes.data)
-                signDetectFrame = cv2.resize(frame, (640, 640))
-                signDetectFrame = signDetectFrame.astype(np.float32) / 255.0
-                signDetectFrame = np.transpose(signDetectFrame, (2, 0, 1))
-                signDetectFrame = np.expand_dims(signDetectFrame, axis=0)
+                #signDetectFrame = cv2.resize(frame, (640, 640))
+                #signDetectFrame = signDetectFrame.astype(np.float32) / 255.0
+                #signDetectFrame = np.transpose(signDetectFrame, (2, 0, 1))
+                #signDetectFrame = np.expand_dims(signDetectFrame, axis=0)
+                filtered_boxes, class_ids, class_scores = self.detector.detect(frame)
 
                 #outputs = self.detectionModelSession.run(self.detectionOutputNames, {"images": signDetectFrame})
                 #print(outputs)
@@ -125,45 +128,10 @@ class threadLaneDetection(ThreadWithStop):
                 #print("Output Shape:", np.array(outputs).shape)
                 #print("Sample Output Data:", outputs[0][:5])  # Print first 5 predictions
                 cv2.line( frame_lines, (frame_width // 2,0), (frame_width // 2, 540), (255,0,0),3  )
+                detected_image = self.detector.draw_detections(frame, filtered_boxes, class_ids, class_scores)
 
-                self.laneVideoSender.send(frame_lines)
-
-    def decode_yolo_output(self, output, height, width, conf_threshold = 0.5):
-
-        output = output[0][0]  # Extract the first element if it's a tuple
-
-        #output = np.squeeze(output)  # Remove extra dimensions -> shape (19, 8400)
-
-        #print(f"Decoded output shape: {output.shape}")
-
-        h = height
-        w = width
-        boxes, confidences, class_ids = [], [], []
-
-        for i in range(output.shape[1]):
-            row = output[:, i]
-
-            x_center, y_center, width, height = row[:4]
-            object_confidence = row[4]
-            class_scores = row[5:]
-    
-            class_id = np.argmax(class_scores)
-            class_prob = class_scores[class_id]
-
-            final_confidence = object_confidence * class_prob
-
-            if final_confidence > conf_threshold:
-
-                x1 = int((x_center - width / 2) * w)
-                y1 = int((y_center - height / 2) * h)
-                x2 = int((x_center + width / 2) * w)
-                y2 = int((y_center + height / 2) * h)
-
-                boxes.append([x1, y1, x2, y2])
-                confidences.append(float(final_confidence))
-                class_ids.append(int(class_id))
-
-        return boxes, confidences, class_ids
+                #self.laneVideoSender.send(frame_lines)
+                self.laneVideoSender.send(detected_image)
 
     def subscribe(self):
         self.MainVideoSubscriber = messageHandlerSubscriber(self.queuesList, MainVideo, "lastOnly", True)
