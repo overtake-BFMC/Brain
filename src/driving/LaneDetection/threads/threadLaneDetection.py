@@ -5,6 +5,7 @@ from src.utils.messages.allMessages import (
     LaneVideo,
     startLaneDetection,
     SteerMotor,
+    ImuData
 )
 from src.utils.messages.messageHandlerSubscriber import messageHandlerSubscriber
 from src.utils.messages.messageHandlerSender import messageHandlerSender
@@ -19,7 +20,8 @@ import cv2
 #import torch
 import onnxruntime as ort
 import numpy as np
-from src.driving.LaneDetection.utils.signDetection import signDetection
+import ast
+# from src.driving.LaneDetection.utils.signDetection import signDetection
 
 class threadLaneDetection(ThreadWithStop):
     """This thread handles laneDetection.
@@ -55,7 +57,7 @@ class threadLaneDetection(ThreadWithStop):
         #self.detectionModel.to('cuda')
         
         #self.detectionModelSession = ort.InferenceSession(dir_path + "/../utils/best.onnx", providers=['CUDAExecutionProvider'])
-        self.detector = signDetection(conf_thresh=0.5, iou_thresh=0.45)
+        # self.detector = signDetection(conf_thresh=0.5, iou_thresh=0.45)
 
         #print(self.detectionModelSession.get_inputs()[0].name)
         #print(self.detectionModelSession.get_inputs()[0].shape)
@@ -67,6 +69,7 @@ class threadLaneDetection(ThreadWithStop):
     def run(self):
         counter = 0
         counter_max = 5
+        prev_lane_center = 960 // 2
 
         while self._running:
             frame = self.MainVideoSubscriber.receive()
@@ -89,17 +92,20 @@ class threadLaneDetection(ThreadWithStop):
 
                 #frame_bev = pre.bev( frame_lines, self.ppData, self.maps )
                 
-                left_lines, right_lines, lane_center = CH.get_lane_center( lines, frame_lines )
+                left_lines, right_lines, lane_center = CH.get_lane_center( lines, frame_lines, prev_lane_center )
 
+               
+                prev_lane_center = lane_center
+
+                    
                 error = lane_center - frame_width // 2
                 if error < 20 and error > -20:
                     error = 0
                 compute_error = self.pid.pid_formula( error )
                 compute_error = max( -25, min( compute_error, 25 ))
-
                 self.kf.correct(compute_error)
-
                 filtriran = self.kf.get_filtered_error()
+            
 
                 if counter >= counter_max:
                     #self.vehicle.steering_angle = compute_error
@@ -117,7 +123,7 @@ class threadLaneDetection(ThreadWithStop):
                 #signDetectFrame = signDetectFrame.astype(np.float32) / 255.0
                 #signDetectFrame = np.transpose(signDetectFrame, (2, 0, 1))
                 #signDetectFrame = np.expand_dims(signDetectFrame, axis=0)
-                filtered_boxes, class_ids, class_scores = self.detector.detect(frame)
+                # filtered_boxes, class_ids, class_scores = self.detector.detect(frame)
 
                 #outputs = self.detectionModelSession.run(self.detectionOutputNames, {"images": signDetectFrame})
                 #print(outputs)
@@ -128,10 +134,10 @@ class threadLaneDetection(ThreadWithStop):
                 #print("Output Shape:", np.array(outputs).shape)
                 #print("Sample Output Data:", outputs[0][:5])  # Print first 5 predictions
                 cv2.line( frame_lines, (frame_width // 2,0), (frame_width // 2, 540), (255,0,0),3  )
-                detected_image = self.detector.draw_detections(frame, filtered_boxes, class_ids, class_scores)
+                # detected_image = self.detector.draw_detections(frame, filtered_boxes, class_ids, class_scores)
 
-                #self.laneVideoSender.send(frame_lines)
-                self.laneVideoSender.send(detected_image)
+                self.laneVideoSender.send(frame_lines)
+                # self.laneVideoSender.send(detected_image)
 
     def subscribe(self):
         self.MainVideoSubscriber = messageHandlerSubscriber(self.queuesList, MainVideo, "lastOnly", True)

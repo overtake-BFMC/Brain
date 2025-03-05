@@ -2,7 +2,8 @@ from src.templates.threadwithstop import ThreadWithStop
 from src.utils.messages.allMessages import (
     startRun,
     SteerMotor,
-    SpeedMotor
+    SpeedMotor,
+    ImuData
 )
 from src.utils.messages.messageHandlerSubscriber import messageHandlerSubscriber
 from src.utils.messages.messageHandlerSender import messageHandlerSender
@@ -13,6 +14,7 @@ from src.driving.PathFollowing.utils.vehicleState import vehicleState
 import numpy as np
 import matplotlib.pyplot as plt
 import time
+import ast
 
 class threadPathFollowing(ThreadWithStop):
     """This thread handles pathFollowing.
@@ -115,18 +117,18 @@ class threadPathFollowing(ThreadWithStop):
 
         return newPath
 
-    def kinematicBicycleModel(self):
+    def kinematicBicycleModel(self, elapsedTime):
         
         # https://dingyan89.medium.com/simple-understanding-of-kinematic-bicycle-model-81cac6420357
         beta = np.arctan2(self.vehicle.centerOfMass * np.tan(self.vehicle.steeringAngle), self.vehicle.wheelbase)
 
-        self.vehicle.x = self.vehicle.x + self.vehicle.speed * np.cos(self.vehicle.yaw + beta) * (self.timeStep + 0.1)
-        self.vehicle.y = self.vehicle.y + self.vehicle.speed * np.sin(self.vehicle.yaw + beta) * (self.timeStep + 0.1)
+        self.vehicle.x = self.vehicle.x + self.vehicle.speed * np.cos(self.vehicle.yaw + beta) * elapsedTime
+        self.vehicle.y = self.vehicle.y + self.vehicle.speed * np.sin(self.vehicle.yaw + beta) * elapsedTime
         if self.vehicle.steeringAngle != 0:
             rearWheelsDistanceFromICR = self.vehicle.wheelbase / np.tan(self.vehicle.steeringAngle)
             
             CenterOfMassDistanceFromICR = rearWheelsDistanceFromICR / np.cos(beta)
-            self.vehicle.yaw = self.vehicle.yaw + self.vehicle.speed / CenterOfMassDistanceFromICR * (self.timeStep + 0.1)
+            self.vehicle.yaw = self.vehicle.yaw + self.vehicle.speed / CenterOfMassDistanceFromICR * elapsedTime
 
     def findLookAheadPoint(self, lastPathPointId):
         
@@ -147,58 +149,58 @@ class threadPathFollowing(ThreadWithStop):
 
     def purePursuit(self):
 
+        startTime = time.time()
+
         self.path = self.createAdditionalNodesInThePath(times = 2)
-        self.path = self.pathSmoother(weightData=0.77)
+        self.path = self.pathSmoother(weightData=0.95)
 
         path_x, path_y = [], []
         lastPathPointId = 1
-        
-        #self.speedMotorSender.send(str(self.vehicle.speed*10))
-        # for targetX, targetY in path:
-        #     distanceToTarget = self.calculateDistanceToTarget(targetX, targetY)
-        #     previousDistanceToTarget = 1000
-                
-        #     self.speedMotorSender.send(str(self.vehicle.speed*10))
-        #     time.sleep(0.3)
-        #     while distanceToTarget > 10 and previousDistanceToTarget > distanceToTarget:
-                
-        #         #print(distanceToTarget)
 
-        #         angleToTarget = self.calculateAngleToTarget(targetX, targetY)
-
-        #         alpha = self.calculateAlphaSteer(angleToTarget)
-        #         alpha = np.clip(alpha, -0.4363, 0.4363)
-        #         self.vehicle.steeringAngle = np.arctan2(2 * self.vehicle.wheelbase * np.sin(alpha), distanceToTarget)
-        #         self.vehicle.steeringAngle = np.clip(self.vehicle.steeringAngle, -0.4363, 0.4363)
-        #         self.kinematicBicycleModel()
-                
-        #         print("Angle: ", np.rad2deg(self.vehicle.steeringAngle))
-        #         #print(f"Before rounding: {np.rad2deg(np.clip(self.vehicle.steeringAngle, -0.4363, 0.4363))}")
-        #         #print(f"After rounding: {str(round(np.rad2deg(np.clip(self.vehicle.steeringAngle, -0.4363, 0.4363)))*10)}")
-        #         self.steerMotorSender.send(str(round(np.rad2deg(np.clip(self.vehicle.steeringAngle, -0.4363, 0.4363)))*10))
-                
-        #         previousDistanceToTarget = distanceToTarget
-        #         distanceToTarget = self.calculateDistanceToTarget(targetX, targetY)
-
-        #         path_x.append(self.vehicle.x)
-        #         path_y.append(self.vehicle.y)
-
-        #         #aktiviraj ovo kad runujes na nucleo
-        #         #time_to_wait = self.timeStep - (time.time() - self.last_sent_time)
-        #         #if time_to_wait > 0:
-        #             #time.sleep(time_to_wait)
-
-        #         start_time = time.perf_counter()
-        #         while time.perf_counter() - start_time < self.timeStep:  # Waits for 2 seconds
-        #             pass
-
-        #         self.last_sent_time = time.time()
-        self.speedMotorSender.send(str(self.vehicle.speed*10))
+        self.speedMotorSender.send(str(np.clip(self.vehicle.speed*10, -500, 500)))
         targetX, targetY = self.findLookAheadPoint(lastPathPointId)
-        while targetX and targetY: 
-            self.speedMotorSender.send(str(self.vehicle.speed*10))
-            print(f"{targetX} {targetY} {np.rad2deg(self.vehicle.steeringAngle)}")
-            if self.calculateDistanceToTarget(self.path[lastPathPointId][0], self.path[lastPathPointId][1]) < 15:
+
+        startX = self.vehicle.x
+        starty = self.vehicle.y
+        velocity = 0
+
+        while targetX and targetY:
+            self.speedMotorSender.send(str(np.clip(self.vehicle.speed*10, -500, 500)))
+            while(not velocity):
+                IMUData = self.IMUDataSubscriber.receive()
+                if IMUData is not None:
+                    self.speedMotorSender.send(str(np.clip(self.vehicle.speed*10, -500, 500)))
+
+                    FormattedIMUData = ast.literal_eval(IMUData)
+                    velocityX = abs(float(FormattedIMUData["accelx"]))
+                    velocityY = abs(float(FormattedIMUData["accely"]))
+                    velocity = int(np.sqrt(velocityX**2 + velocityY**2) * 100)
+                    
+                
+            # self.vehicle.setSpeed(self.speed + (self.vehicle.speed - velocity))
+
+            # IMUData = self.IMUDataSubscriber.receive()
+            # if IMUData is not None:
+            #     self.speedMotorSender.send(str(np.clip(self.vehicle.speed*10, -500, 500)))
+
+            #     FormattedIMUData = ast.literal_eval(IMUData)
+            #     velocityX = abs(float(FormattedIMUData["accelx"]))
+            #     velocityY = abs(float(FormattedIMUData["accely"]))
+            #     velocity = int(np.sqrt(velocityX**2 + velocityY**2) * 100)
+                #print(f"{velocityX} , {velocityY}")
+
+            #print(f"Vel: {velocityX} , {velocityY}")
+            #print(f"{self.vehicle.speed} , {velocity}")
+            # print(f"{targetX} {targetY} {np.rad2deg(self.vehicle.steeringAngle)}")
+
+            if self.calculateDistanceToTarget(startX, starty) >= 230:
+                self.vehicle.setSpeed(0)
+                self.speedMotorSender.send(str(np.clip(self.vehicle.speed*10, -500, 500)))
+                print(f"time: {time.time()} stop")
+
+                break
+
+            if self.calculateDistanceToTarget(self.path[lastPathPointId][0], self.path[lastPathPointId][1]) < 10:
                 lastPathPointId += 1
 
             distanceToTarget = self.calculateDistanceToTarget(targetX, targetY)
@@ -207,10 +209,14 @@ class threadPathFollowing(ThreadWithStop):
             alpha = self.calculateAlphaSteer(angleToTarget)
             alpha = np.clip(alpha, -0.4363, 0.4363)
 
-            self.vehicle.steeringAngle = np.arctan2(2 * self.vehicle.wheelbase * np.sin(alpha), distanceToTarget)
+            # self.vehicle.steeringAngle = np.arctan2(2 * self.vehicle.wheelbase * np.sin(alpha), distanceToTarget)
+
+            self.vehicle.steeringAngle = alpha
             self.vehicle.steeringAngle = np.clip(self.vehicle.steeringAngle, -0.4363, 0.4363)
 
-            self.kinematicBicycleModel()
+            elapsedTime = time.time() - startTime
+            self.kinematicBicycleModel(elapsedTime)
+            startTime = time.time()
 
             self.steerMotorSender.send(str(round(np.rad2deg(np.clip(self.vehicle.steeringAngle, -0.4363, 0.4363)))*10))
             
@@ -249,3 +255,4 @@ class threadPathFollowing(ThreadWithStop):
     def subscribe(self):
         """Subscribes to the messages you are interested in"""
         self.startRunSubscriber = messageHandlerSubscriber(self.queuesList, startRun, "lastOnly", True)
+        self.IMUDataSubscriber = messageHandlerSubscriber(self.queuesList, ImuData, "lastOnly", True)

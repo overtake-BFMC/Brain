@@ -41,16 +41,15 @@ def CannyEdge( frame ):
 
     edges = region_of_interest( edges, region )
 
-    lines = cv2.HoughLinesP(edges, 1, np.pi / 180, threshold = 50, minLineLength=30, maxLineGap=90)
+    lines = cv2.HoughLinesP(edges, 1, np.pi / 180, threshold = 30, minLineLength=10, maxLineGap=100)
 
     draw_all_lines( frame, lines )
     frame = draw_ROI( frame, region )
 
-    return edges, frame, lines
-
+    return edges, frame, lines      
 
 def draw_parabola( frame, points ):
-
+       
        points = np.array( points )
        x_values, y_values = points[:, 0], points[:, 1]
 
@@ -65,16 +64,104 @@ def draw_parabola( frame, points ):
                ( int( x_curve[i] ), int( y_curve[i] ) ), 
                ( int( x_curve[i+1] ), int( y_curve[i+1] ) ), 
                (0, 0, 255), 10)
-           
+
+
+def draw_all_lines__( frame, lines ):
+
+    left_lines_x1, left_lines_x2, right_lines_x1, right_lines_x2 = [], [], [], []
+    left_lines_y1, left_lines_y2, right_lines_y1, right_lines_y2 = [], [], [], []
+
+    left_curve_x1, left_curve_x2, left_curve_y1, left_curve_y2 = [], [], [], []
+    right_curve_x1output_left_lines, right_curve_x2, right_curve_y1, right_curve_y2 = [], [], [], []
+
+    output_left_lines, output_right_lines = [], []
+
+    points = []
+    l_points, r_points = [], []
+
+    r_lines, l_lines = [], []
+
+    if lines is not None:
+        for line in lines:
+            x1, y1, x2, y2 = line[0]
+
+            if x2 - x1 == 0:
+                continue
+            
+            slope = abs( (y2 - y1 ) / ( x2 - x1) )
+
+            if slope < 0:
+
+                if x1 > 960 // 2:
+                    r_lines.append(x1, y1)
+                    r_lines.append(x2, y2)
+
+                    cv2.line( frame, ( x1, y1), ( x2, y2 ), ( 0,255,0),  5)
+            else:
+                if x1 < 960 // 2:
+                    l_lines.append((x1, y1))
+                    l_lines.append((x2, y2))
+
+                    cv2.line( frame, ( x1, y1), ( x2, y2 ), ( 0,255,0),  5)
+        
+
+
+        # if len(r_lines) > 0:
+
+        #     print( r_lines )
+
+        #     r_lines = np.array(r_lines)  # Konverzija u NumPy niz
+        #     max_right_x, max_right_y = r_lines.max(axis=0)
+        #     min_right_x, min_right_y = r_lines.min(axis=0)
+        
+        # if len(l_lines) > 0:
+        #     l_lines = np.array(l_lines)
+        #     max_left_x, max_left_y = l_lines.max(axis=0)
+        #     min_left_x, min_left_y = l_lines.min(axis=0)
+        
+        # # Provera pre korišćenja np.polyfit
+        # if len(r_lines) > 0 and r_lines.shape[0] > 2:
+        #     right_curve = np.poly1d(np.polyfit(r_lines[:,1], r_lines[:,0], 2))
+        #     max_right_x = int(right_curve(frame.shape[0]))
+        #     min_right_x = int(right_curve(min_right_y))
+
+        # if len(l_lines) > 0 and l_lines.shape[0] > 2:
+        #     left_curve = np.poly1d(np.polyfit(l_lines[:,1], l_lines[:,0], 2))
+        #     min_left_x = int(left_curve(frame.shape[0]))
+
+        # min_y = min(min_left_y, min_right_y)
+
+        # # Crtanje linija
+        # if len(r_lines) > 0:
+        #     r1 = (min_right_x, min_y)
+        #     r2 = (max_right_x, img.shape[0])
+        #     print('Right points r1 and r2,', r1, r2)
+        #     cv2.line(frame, r1, r2, (0,255,0), 5)
+
+        # if len(l_lines) > 0:
+        #     l1 = (max_left_x, min_y)
+        #     l2 = (min_left_x, img.shape[0])
+        #     print('Left points l1 and l2,', l1, l2)
+        #     cv2.line(frame, l1, l2, (0,255,0), 5)
+
+        
+    return r_lines, l_lines
+
+
+
 
 def draw_all_lines( frame, lines ):
 
     left_lines_x1, left_lines_x2, right_lines_x1, right_lines_x2 = [], [], [], []
     left_lines_y1, left_lines_y2, right_lines_y1, right_lines_y2 = [], [], [], []
 
+    left_curve_x1, left_curve_x2, left_curve_y1, left_curve_y2 = [], [], [], []
+    right_curve_x1output_left_lines, right_curve_x2, right_curve_y1, right_curve_y2 = [], [], [], []
+
+    output_left_lines, output_right_lines = [], []
+
     points = []
-    output_left_lines = []
-    output_right_lines = []
+    l_points, r_points = [], []
 
 
     if lines is not None:
@@ -87,26 +174,33 @@ def draw_all_lines( frame, lines ):
             slope = abs( (y2 - y1 ) / ( x2 - x1) )
 
             if slope < 1:
-            
-                points.append( ( int(x1), int(y1), int( x2), int(y2) ) )
+
+                if x1 > 960 // 2:
+
+                    r_points.append([x1, y1])
+                    r_points.append([x2, y2])
+                else:
+                    l_points.append([x1, y1])
+                    l_points.append([x1,y1])
                 
             #prava npr
             if slope >= 1:
             
-                if x1 < 960 // 2:  
+                if x1 < 960 // 2 and x2 < 960 // 2:  
 
-                    left_lines_x1.append( int(x1) )
-                    left_lines_x2.append( int(x2) )
+                    left_lines_x1.append( int(x1)  )
+                    left_lines_x2.append( int(x2)  )
                     left_lines_y1.append( int( y1) )
-                    left_lines_y2.append( int( y2 ) )
+                    left_lines_y2.append( int( y2 ))
                 
-                else:
+                elif x1 > 960 // 2 and x2 > 960 // 2: 
                     
-                    right_lines_x1.append( int(x1) )
-                    right_lines_x2.append( int(x2) )
+                    right_lines_x1.append( int(x1)  ) 
+                    right_lines_x2.append( int(x2)  )
                     right_lines_y1.append( int( y1) )
-                    right_lines_y2.append( int( y2))
-
+                    right_lines_y2.append( int( y2) )   
+            # else:                
+            #         cv2.line( frame, ( x1, y1 ), ( x2, y2 ), ( 0, 0, 255 ), 5 )
 
        
     if left_lines_x1 and left_lines_x2:
@@ -135,6 +229,8 @@ def draw_all_lines( frame, lines ):
         cv2.line(frame, (right_line_x2, right_line_y2), (right_line_x1, right_line_y1), (0, 0, 255), 10)
         output_right_lines.append( (right_line_x1, right_line_x2, right_line_y1, right_line_y2) )
 
+     
+
     return output_left_lines, output_right_lines
        
 def draw_ROI( frame, region ):
@@ -148,25 +244,38 @@ def draw_ROI( frame, region ):
     return frame
 
 
-def get_lane_center( lines, frame ):
+def get_lane_center( lines, frame, prev_lane_center ):
 
     left_lines, right_lines = draw_all_lines( frame, lines )
     
     frame_width = frame.shape[1]
 
+    left_ind = False
+    right_ind = False
+
     if left_lines:
         left_x = int( np.mean([x for x1, x2, _, _ in left_lines for x in (x1, x2)]) )
-    else:
-        left_x = 0  
+        left_ind = True
+    # else:
+    #     left_x = 0    
 
     if right_lines:
         right_x = int( np.mean([x for x1, x2, _, _ in right_lines for x in (x1, x2)]) )
-    else:
-        right_x = frame_width  
+        right_ind = True
+    # else:
+    #     right_x = frame_width  
 
-    lane_center = ( left_x + right_x ) // 2
+    if left_ind and right_ind:
+        lane_center = ( left_x + right_x ) // 2
+    elif not left_ind and right_ind:
+        lane_center = frame_width // 2 - 70
+    elif left_ind and not right_ind:
+        lane_center = frame_width // 2 + 70
+    else:
+        lane_center = prev_lane_center
+
+    lane_center = int(0.7 * lane_center + (1 - 0.7) * prev_lane_center)
 
     cv2.line( frame, (lane_center, frame.shape[0] // 2), (lane_center, frame.shape[0] ), (0, 255, 0 ), 4 ) 
 
     return left_lines, right_lines, lane_center
-
