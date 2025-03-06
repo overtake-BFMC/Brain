@@ -9,11 +9,15 @@ from src.utils.messages.allMessages import (
     Record,
     Brightness,
     Contrast,
-    MainVideo,
+    #MainVideo,
+    createShMem,
+    ShMemResponse
 )
 from src.utils.messages.messageHandlerSender import messageHandlerSender
 from src.utils.messages.messageHandlerSubscriber import messageHandlerSubscriber
 from src.templates.threadwithstop import ThreadWithStop
+from multiprocessing.shared_memory import SharedMemory
+import numpy as np
 
 class threadCamera(ThreadWithStop):
     """Thread which will handle camera functionalities."""
@@ -37,18 +41,22 @@ class threadCamera(ThreadWithStop):
         self.recordingSender = messageHandlerSender(self.queuesList, Recording)
         self.mainCameraSender = messageHandlerSender(self.queuesList, mainCamera)
         self.serialCameraSender = messageHandlerSender(self.queuesList, serialCamera)
-        self.mainVideoSender = messageHandlerSender(self.queuesList, MainVideo)
+        #self.mainVideoSender = messageHandlerSender(self.queuesList, MainVideo)
+        self.createShMemSender = messageHandlerSender(self.queuesList, createShMem)
+        self.shMemName = "mainVideoFrames"
 
         self.subscribe()
         self._init_camera()
         self.Queue_Sending()
         self.Configs()
+        self.init_shMem()
 
     def subscribe(self):
         """Subscribe function. In this function we make all the required subscribe to process gateway."""
         self.recordSubscriber = messageHandlerSubscriber(self.queuesList, Record, "lastOnly", True)
         self.brightnessSubscriber = messageHandlerSubscriber(self.queuesList, Brightness, "lastOnly", True)
         self.contrastSubscriber = messageHandlerSubscriber(self.queuesList, Contrast, "lastOnly", True)
+        self.shMemResponseSubscriber = messageHandlerSubscriber(self.queuesList, ShMemResponse, "lastOnly", True)
 
     def Queue_Sending(self):
         """Callback function for recording flag."""
@@ -60,6 +68,7 @@ class threadCamera(ThreadWithStop):
         if self.recording:
             self.video_writer.release()
         super(threadCamera, self).stop()
+        self.shm.close()
 
     # =============================== CONFIG ==============================================
     def Configs(self):
@@ -78,9 +87,20 @@ class threadCamera(ThreadWithStop):
 
         threading.Timer(1, self.Configs).start()
 
+    def init_shMem(self):
+        self.createShMemSender.send({"name": self.shMemName, "shape": (540, 960, 3), "dtype": "uint8"})
+
+        shMemResp = self.shMemResponseSubscriber.receiveWithBlock()
+        if shMemResp is not None:
+            self.shMemName = shMemResp["name"]
+            self.lock = shMemResp["lock"]
+            self.shm = SharedMemory(name=self.shMemName)
+            self.frameBuffer = np.ndarray((540, 960, 3), dtype=np.uint8, buffer=self.shm.buf)
+
     # ================================ RUN ================================================
     def run(self):
         """This function will run while the running flag is True. It captures the image from camera and makes the required modifications and sends the data to process gateway."""
+        
         send = True
         frame_counter = 0  # Counter for frames
         recordingInitialized = False
@@ -146,7 +166,10 @@ class threadCamera(ThreadWithStop):
                         if self.recording:
                             self.video_writer.write(decoded_frame)
                         self.last_sent_time = current_time
-                        self.mainVideoSender.send(decoded_frame)
+                        #self.mainVideoSender.send(decoded_frame)
+                        with self.lock:
+                            #np.copyto(self.frameBuffer, decoded_frame)
+                            self.frameBuffer[:] = frame
 
         send = not send
 

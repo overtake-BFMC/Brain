@@ -96,6 +96,8 @@ class signDetection:
         img_h, img_w, _ = orig_img.shape
         scale_h = img_h / input_imgH
         scale_w = img_w / input_imgW
+        #print("ScaleW: ", scale_w)
+        #print("ScaleH: ", scale_h)
 
         predictions = pred_results[0]  # (1, 19, 8400) → Extract first element
         predictions = predictions.squeeze(0)  # (19, 8400) → Remove batch dimension
@@ -107,20 +109,24 @@ class signDetection:
         class_scores = np.max(class_probs, axis=1)  # Get the corresponding confidence score
 
         valid_indices = class_scores > confidence_threshold
-
         valid_boxes = boxes[valid_indices]  # (N, 4)
         valid_class_scores = class_scores[valid_indices]  # (N,)
-
         valid_class_ids = np.where(valid_indices, class_ids, -1)[valid_indices]
-        #predBox = self.nms(detectResult)
+
         nms_boxes, nms_scores, nms_class_ids = self.non_max_suppression(valid_boxes, valid_class_scores, valid_class_ids)
 
-        scaled_boxes = boxes.copy()
-        scaled_boxes[:, 0] *= scale_w  # x
-        scaled_boxes[:, 1] *= scale_h  # y
-        scaled_boxes[:, 2] *= scale_w  # width
-        scaled_boxes[:, 3] *= scale_h  # height
-        
+        if isinstance(valid_class_scores, np.ndarray) and valid_class_scores.size != 0:
+            scaled_boxes = nms_boxes.copy()
+            #print("NMS: ", nms_boxes)
+            scaled_boxes[:, 0] *= scale_w  # x
+            scaled_boxes[:, 1] *= scale_h  # y
+            scaled_boxes[:, 2] *= scale_w  # width
+            scaled_boxes[:, 3] *= scale_h  # height
+        else:
+            scaled_boxes = np.array([])
+            nms_class_ids = np.array([])
+            nms_scores = np.array([])
+
         return scaled_boxes, nms_class_ids, nms_scores
 
     def detect(self, img_path):
@@ -238,10 +244,13 @@ if __name__ == "__main__":
     testDetector = signDetection(conf_thresh=0.5, iou_thresh=0.45)
 
     dir_path = os.path.dirname(os.path.realpath(__file__))
-    image_path = dir_path + "/crosswalk_sign.jpg"
+    #image_path = dir_path + "/crosswalk_sign.jpg"
+    image_path = dir_path + "/pure-black.jpg"
     image = cv2.imread(image_path)
     filtered_boxes, class_ids, class_scores = testDetector.detect(image)
-    detected_image = testDetector.draw_detections(image, filtered_boxes, class_ids, class_scores)
+    detected_image = image
+    if class_scores.size != 0:
+        detected_image = testDetector.draw_detections(image, filtered_boxes, class_ids, class_scores)
     cv2.imwrite("Detected.jpg", detected_image)
     logging.basicConfig(filename='signDetection.log', level=logging.INFO)
     logger = logging.getLogger()

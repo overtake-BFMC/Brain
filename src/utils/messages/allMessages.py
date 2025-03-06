@@ -59,17 +59,17 @@ class LaneKeeping(Enum):
     msgID = 5
     msgType = "int"
 
-class MainVideo(Enum):
-    Queue = "Video"
-    Owner = "threadCamera"
-    msgID = 6
-    msgType = "ndarray"
+# class MainVideo(Enum):
+#     Queue = "Video"
+#     Owner = "threadCamera"
+#     msgID = 6
+#     msgType = "ndarray"
 
-class LaneVideo(Enum):
-    Queue = "Video"
-    Owner = "threadLaneDetection"
-    msgID = 1
-    msgType = "ndarray"
+# class LaneVideo(Enum):
+#     Queue = "Video"
+#     Owner = "threadLaneDetection"
+#     msgID = 1
+#     msgType = "ndarray"
 
 ################################# processCarsAndSemaphores ##################################
 class Cars(Enum):
@@ -229,6 +229,31 @@ class cpu_channel(Enum):
     Queue = "General"
     Owner = "threadSysInfo"
     msgID = 2
+    msgType = "dict"
+
+################################# From SysInfo ##################################
+class createShMem(Enum):
+    Queue = "ShMemConfig"
+    Owner = "threadSharedMemoryGateway"
+    msgID = 1
+    msgType = "dict"
+
+class getShMem(Enum):
+    Queue = "ShMemConfig"
+    Owner = "threadSharedMemoryGateway"
+    msgID = 2
+    msgType = "str"
+
+class releaseShMem(Enum):
+    Queue = "ShMemConfig"
+    Owner = "threadSharedMemoryGateway"
+    msgID = 3
+    msgType = "str"
+
+class ShMemResponse(Enum):
+    Queue = "General"
+    Owner = "threadSharedMemoryGateway"
+    msgID = 4
     msgType = "dict"
 
 ################################# From Nucleo ##################################

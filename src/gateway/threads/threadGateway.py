@@ -128,10 +128,10 @@ class threadGateway(ThreadWithStop):
             video = None
             # We are using "elif" because we are processing one message at a time.
             # We work with the queues in the priority order( We start from the high priority to low priority)
-            if not self.queuesList["Video"].empty():
-                video = self.queuesList["Video"].get()
-            if video is not None:
-                self.send(video)
+            #if not self.queuesList["Video"].empty():
+            #    video = self.queuesList["Video"].get()
+            #if video is not None:
+            #    self.send(video)
 
             if not self.queuesList["Critical"].empty():
                 message = self.queuesList["Critical"].get()
@@ -139,6 +139,8 @@ class threadGateway(ThreadWithStop):
                 message = self.queuesList["Warning"].get()
             elif not self.queuesList["General"].empty():
                 message = self.queuesList["General"].get()
+            elif not self.queuesList["ShMemConfig"].empty():
+                message = self.queuesList["ShMemConfig"].get()
             if message is not None:
                 self.send(message)
             if not self.queuesList["Config"].empty():

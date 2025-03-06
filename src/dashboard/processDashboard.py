@@ -83,6 +83,10 @@ class processDashboard(WorkerProcess):
         self.messagesAndVals.pop("Semaphores", None)
         self.messagesAndVals.pop("MainVideo", None)
         self.messagesAndVals.pop("LaneVideo", None)
+        self.messagesAndVals.pop("createShMem", None)
+        self.messagesAndVals.pop("getShMem", None)
+        self.messagesAndVals.pop("releaseShMem", None)
+        self.messagesAndVals.pop("ShMemResponse", None)
         self.subscribe()
 
         # define WebSocket event handlers

@@ -64,6 +64,7 @@ from src.dashboard.webRTC.processWebRTC import processWebRTC
 from src.dashboard.StreamRTC.processStreamRTC import processStreamRTC
 from src.driving.LaneDetection.processLaneDetection import processLaneDetection
 from src.driving.PathFollowing.processPathFollowing import processPathFollowing
+from src.gateway.SharedMemoryGateway.processSharedMemoryGateway import processSharedMemoryGateway
 # ------ New component imports ends here ------#
 # ======================================== SETTING UP ====================================
 allProcesses = list()
@@ -72,6 +73,7 @@ queueList = {
     "Critical": Queue(),
     "Warning": Queue(),
     "General": Queue(),
+    "ShMemConfig": Queue(),
     "Config": Queue(),
     "Video" : Queue(),
 }
@@ -82,7 +84,7 @@ Dashboard = True
 Camera = True
 Semaphores = False
 TrafficCommunication = False
-SerialHandler = True
+SerialHandler = False
 
 # ------ New component flags starts here ------#
 webRTC = False #JS Version
@@ -96,6 +98,9 @@ PathFollowing = True
 # Initializing gateway
 processGateway = processGateway(queueList, logging, debugging = False)
 processGateway.start()
+
+processSharedMemoryGateway = processSharedMemoryGateway(queueList, logging, debugging= False)
+processSharedMemoryGateway.start()
 
 # Ip replacement
 path = './src/dashboard/frontend/src/app/webSocket/web-socket.service.ts'
@@ -187,6 +192,8 @@ except KeyboardInterrupt:
     for proc in reversed(allProcesses):
         print("Process stopped", proc)
         proc.stop()
+    print("Process stopped", processSharedMemoryGateway)
+    processSharedMemoryGateway.stop()
     print("Process stopped", processGateway)
     processGateway.stop()
 

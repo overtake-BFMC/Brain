@@ -1,15 +1,20 @@
 from src.utils.messages.allMessages import (
 
-    MainVideo,
-    LaneVideo,
+    #MainVideo,
+    #LaneVideo,
+    getShMem,
+    ShMemResponse
 )
 
 from src.utils.messages.messageHandlerSubscriber import messageHandlerSubscriber
+from src.utils.messages.messageHandlerSender import messageHandlerSender
 from aiortc import MediaStreamTrack
 import av
 import time
 import asyncio
 from fractions import Fraction
+from multiprocessing.shared_memory import SharedMemory
+import numpy as np
 class trackStream(MediaStreamTrack):
     
     kind = 'video'
@@ -24,12 +29,31 @@ class trackStream(MediaStreamTrack):
         self.start_time = time.time()
         self.frame_count = 0
         #self.MainVideoSubscriber = messageHandlerSubscriber(self.queueList, MainVideo, "lastOnly", True)
-        self.LaneVideoSubcscriber = messageHandlerSubscriber(self.queueList, LaneVideo, "lastOnly", True)
+        #self.LaneVideoSubcscriber = messageHandlerSubscriber(self.queueList, LaneVideo, "lastOnly", True)
+        self.shMemResponseSubscriber = messageHandlerSubscriber(self.queueList, ShMemResponse, "lastOnly", True)
+
+        self.getShMemSender = messageHandlerSender(self.queueList, getShMem)
+        self.shMemName = "laneVideoFrames"
+
+        self.init_shMem()
+
+    def init_shMem(self):
+        self.getShMemSender.send(self.shMemName)
+
+        shMemResp = self.shMemResponseSubscriber.receiveWithBlock()
+        if shMemResp is not None:
+            self.shMemName = shMemResp["name"]
+            self.lock = shMemResp["lock"]
+            self.shm = SharedMemory(name=self.shMemName)
+            self.frameBuffer = np.ndarray((540, 960, 3), dtype=np.uint8, buffer=self.shm.buf)
 
     async def recv(self):
         while True:
             #frame = self.MainVideoSubscriber.receive()
-            frame = self.LaneVideoSubcscriber.receive()
+            #frame = self.LaneVideoSubcscriber.receive()
+            with self.lock:
+                frame = self.frameBuffer.copy()
+            #frame = None
             if frame is not None:
                 
                 #SendFrame = await self.track.recv()
@@ -52,7 +76,8 @@ class trackStream(MediaStreamTrack):
             #return blank_frame
 
     def stop(self):
-        self.LaneVideoSubcscriber.unsubscribe()
+        #self.LaneVideoSubcscriber.unsubscribe()
+        #self.shm.close()
         super().stop()
     
     async def _generate_blank_frame(self):

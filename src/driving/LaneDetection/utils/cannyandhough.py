@@ -37,7 +37,8 @@ def CannyEdge( frame ):
     #region = np.array([[(0, 540), (300, 270), (800, 270), (960, 540)]], dtype=np.int32)    
     # region = np.array( [[ (0 , 540), ( 370, 100 ), ( 700 ,100), ( 960, 540)]])
     # region = np.array( [ [ ( width // 8, height ), ( 2 * width // 5, height // 3 ), ( 4 * width // 7 ,height // 3), (7 * width // 8  ,height)]])
-    region = np.array( [ [ ( 80, 540 ), ( 360, 180 ), ( 600 , 180 ), ( 820  ,540)]])
+    region = np.array( [ [ ( 80, 540 ), ( 360, 200 ), ( 650 , 200 ), ( 820  ,540)]])
+    # region = np.array( [ [ ( 80, 540 ), ( 360, 180 ), ( 600 , 180 ), ( 820  ,540)]])
 
     edges = region_of_interest( edges, region )
 
@@ -150,7 +151,7 @@ def draw_all_lines__( frame, lines ):
 
 
 
-def draw_all_lines( frame, lines ):
+def draw_all_lines__( frame, lines ):
 
     left_lines_x1, left_lines_x2, right_lines_x1, right_lines_x2 = [], [], [], []
     left_lines_y1, left_lines_y2, right_lines_y1, right_lines_y2 = [], [], [], []
@@ -232,7 +233,108 @@ def draw_all_lines( frame, lines ):
      
 
     return output_left_lines, output_right_lines
-       
+
+
+
+def draw_all_lines(frame, lines):
+    left_lines_x1, left_lines_x2, right_lines_x1, right_lines_x2 = [], [], [], []
+    left_lines_y1, left_lines_y2, right_lines_y1, right_lines_y2 = [], [], [], []
+
+    l_points, r_points = [], []
+
+    LEVO = False
+    DESNO = False
+
+    if lines is not None:
+        for line in lines:
+            x1, y1, x2, y2 = line[0]
+
+            # Izbegavamo skoro horizontalne linije
+            if abs(y2 - y1) < 20:
+                continue
+            
+            if x2 - x1 == 0:
+                continue
+
+            slope = ( y2 - y1 ) / ( x2 - x1 )
+
+
+            if slope > 1 or slope < -1:
+
+                if x1 < 960 // 2 and x2 < 960 // 2:  
+                    left_lines_x1.append(int(x1))
+                    left_lines_x2.append(int(x2))
+                    left_lines_y1.append(int(y1))
+                    left_lines_y2.append(int(y2))
+
+                    # print( "LEVA", slope)
+
+                elif x1 > 960 // 2 and x2 > 960 // 2:
+                    right_lines_x1.append(int(x1))
+                    right_lines_x2.append(int(x2))
+                    right_lines_y1.append(int(y1))
+                    right_lines_y2.append(int(y2))
+
+                    # print("DESNA", slope)
+            
+            else:
+
+                # if x1 > 960 // 2:
+                #     DESNO = True
+                #     if slope < 0:
+                #         print("NA LEVO")
+                #     else:
+                #         print("NA DESNO")
+
+                # else:
+                    LEVO = True
+                    # print( "KRIVINA U LEVO", slope )
+
+            
+               
+
+    output_left_lines = []
+    output_right_lines = []
+
+    Left = False
+    Right = False
+
+    # Crtanje pravih linija po tvojoj logici
+    if left_lines_x1 and left_lines_x2:
+        Left = True
+        min_index_L = left_lines_x1.index(min(left_lines_x1))  
+        left_line_x1 = left_lines_x1[min_index_L]  
+        left_line_y1 = left_lines_y1[min_index_L]  
+
+        max_index_L = left_lines_x2.index(max(left_lines_x2))
+        left_line_x2 = left_lines_x2[max_index_L]
+        left_line_y2 = left_lines_y2[max_index_L]
+
+        # left_line_x2 = 960 // 2
+        # left_line_y2 = 180
+
+        cv2.line(frame, (left_line_x1, left_line_y1), (left_line_x2, left_line_y2), (0, 0, 255), 10)
+        output_left_lines.append((left_line_x1, left_line_x2, left_line_y1, left_line_y2))
+
+    if right_lines_x1 and right_lines_x2:
+        Right = True
+        max_index_R = right_lines_x2.index(max(right_lines_x2))
+        right_line_x2 = right_lines_x2[max_index_R]
+        right_line_y2 = right_lines_y2[max_index_R]
+
+        min_index_L = right_lines_x1.index(min(right_lines_x1))
+        right_line_x1 = right_lines_x1[min_index_L]
+        right_line_y1 = right_lines_y1[min_index_L]
+
+        # right_line_x1 = 960 // 2
+        # right_line_y1 = 180
+
+        cv2.line(frame, (right_line_x2, right_line_y2), (right_line_x1, right_line_y1), (0, 0, 255), 10)
+        output_right_lines.append((right_line_x1, right_line_x2, right_line_y1, right_line_y2))
+        
+
+    return output_left_lines, output_right_lines, DESNO, LEVO       
+
 def draw_ROI( frame, region ):
 
     overlay = frame.copy()  
@@ -246,7 +348,8 @@ def draw_ROI( frame, region ):
 
 def get_lane_center( lines, frame, prev_lane_center ):
 
-    left_lines, right_lines = draw_all_lines( frame, lines )
+    left_lines, right_lines, DESNO, LEVO = draw_all_lines( frame, lines )
+
     
     frame_width = frame.shape[1]
 
@@ -265,7 +368,9 @@ def get_lane_center( lines, frame, prev_lane_center ):
     # else:
     #     right_x = frame_width  
 
-    if left_ind and right_ind:
+    if DESNO:
+        lane_center = frame_width // 2 - 120
+    elif left_ind and right_ind:
         lane_center = ( left_x + right_x ) // 2
     elif not left_ind and right_ind:
         lane_center = frame_width // 2 - 70
@@ -274,8 +379,24 @@ def get_lane_center( lines, frame, prev_lane_center ):
     else:
         lane_center = prev_lane_center
 
+    # if left_lines and right_lines:
+
+    #     l_from_c = 960 // 2 - left_lines[0][0]
+    #     r_from_c = right_lines[0][1] - 960 // 2
+
+    #     if abs( l_from_c - r_from_c ) < 100:
+    #         lane_center = ( l_from_c + r ) // 2
+    #     else:
+    #         lane_center = 960 // 2
+
+    # else:
+    #     lane_center = 960 // 2
+  
+
     lane_center = int(0.7 * lane_center + (1 - 0.7) * prev_lane_center)
 
     cv2.line( frame, (lane_center, frame.shape[0] // 2), (lane_center, frame.shape[0] ), (0, 255, 0 ), 4 ) 
+
+    
 
     return left_lines, right_lines, lane_center
