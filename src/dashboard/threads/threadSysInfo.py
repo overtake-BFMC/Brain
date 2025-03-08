@@ -1,5 +1,3 @@
-import subprocess
-import os
 from src.templates.threadwithstop import ThreadWithStop
 
 from src.utils.messages.allMessages import (
@@ -9,6 +7,8 @@ from src.utils.messages.allMessages import (
 from src.utils.messages.messageHandlerSender import messageHandlerSender
 from jtop import jtop
 import psutil
+from src.dashboard.threads.utils.ina226 import INA226
+import logging
 
 class threadSysInfo(ThreadWithStop):
 
@@ -23,6 +23,14 @@ class threadSysInfo(ThreadWithStop):
         self.memory_usage = 0
         self.core_usage = 0
         self.cpu_temp = 0
+
+        self.INA226Jetson = INA226(busnum=7, address=0x40, max_expected_amps=0.5, shunt_ohms=0.1, log_level=logging.INFO)
+        self.INA226Jetson.configure()
+        self.INA226Jetson.set_low_battery(5)
+
+        self.INA226Nucleo = INA226(busnum=7, address=0x41, max_expected_amps=0.5, shunt_ohms=0.1, log_level=logging.INFO)
+        self.INA226Nucleo.configure()
+        self.INA226Nucleo.set_low_battery(5)
 
         self.cpuChannelSender = messageHandlerSender(self.queuesList, cpu_channel)
         self.memoryChannelSender = messageHandlerSender(self.queuesList, memory_channel)
@@ -47,9 +55,29 @@ class threadSysInfo(ThreadWithStop):
                         #print("Temp: ", self.cpu_temp)
                         self.memoryChannelSender.send(self.memory_usage)
                         self.cpuChannelSender.send({'usage': self.core_usage, 'temp': self.cpu_temp})
+
+                        self.INA226Jetson.wake(3)
+                        self.INA226Nucleo.wake(3)
+                        while 1:
+                            if self.INA226Jetson.is_conversion_ready():
+                                #sleep(1)
+                                print("===================================================Conversion ready")
+                                self.readJetsonVolt()
+
+                            if self.INA226Nucleo.is_conversion_ready():
+                                self.readNucleoVolt()
+                                break
+    
             except Exception as e:
                 print(e)
 
+    def readJetsonVolt(self):
+        print("Jetson Bus Voltage    : %.3f V" % self.INA226Jetson.voltage())
+        print("Jetson Supply Voltage : %.3f V" % self.INA226Jetson.supply_voltage())
+
+    def readNucleoVolt(self):
+        print("Nucleo Bus Voltage    : %.3f V" % self.INA226Nucleo.voltage())
+        print("Nucleo Supply Voltage : %.3f V" % self.INA226Nucleo.supply_voltage())
 
 # =============================== START ===============================================
     def start(self):

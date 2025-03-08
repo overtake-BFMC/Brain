@@ -172,3 +172,134 @@ INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 39567) -> (
 INFO:aioice.ice:Connection(0) ICE completed
 WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
 WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Starting processCamera...
+WARNING:root:Shared Memory Block 'mainVideoFrames' does not exist.
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(1629c14e-83f2-44d1-91c7-97c3f8e79bc3) Created for Angular
+INFO:stream:PeerConnection(1629c14e-83f2-44d1-91c7-97c3f8e79bc3) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(YmlQBbsd1Q 1 udp 1845501695 192.168.66.188 56580 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 49838) -> ('192.168.66.188', 56580)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 49838) -> ('192.168.66.188', 56580)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0 -c-1' died with <Signals.SIGINT: 2>.
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Starting processCamera...
+WARNING:root:Shared Memory Block 'mainVideoFrames' does not exist.
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(e2a11a06-2ddd-4aae-a31a-c170ab1efe88) Created for Angular
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0 -c-1' died with <Signals.SIGINT: 2>.
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Starting processCamera...
+WARNING:root:Shared Memory Block 'mainVideoFrames' does not exist.
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(95dc3a98-9fcf-460b-9781-fed3b875eb15) Created for Angular
+INFO:stream:PeerConnection(95dc3a98-9fcf-460b-9781-fed3b875eb15) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(BFn5lAnRxa 1 udp 1845501695 192.168.66.188 62442 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 39138) -> ('192.168.66.188', 62442)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 39138) -> ('192.168.66.188', 62442)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Starting processCamera...
+WARNING:root:Shared Memory Block 'mainVideoFrames' does not exist.
+INFO:root:Camera thread initialized successfully.
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Starting processCamera...
+WARNING:root:Shared Memory Block 'mainVideoFrames' does not exist.
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(2c0fc076-c265-44eb-8b05-3b1a0795f5f0) Created for Angular
+INFO:stream:PeerConnection(2c0fc076-c265-44eb-8b05-3b1a0795f5f0) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(ctc3lyDysh 1 udp 1845501695 192.168.66.188 50312 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 48366) -> ('192.168.66.188', 50312)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 48366) -> ('192.168.66.188', 50312)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Starting processCamera...
+WARNING:root:Shared Memory Block 'mainVideoFrames' does not exist.
+INFO:root:Camera thread initialized successfully.
+INFO:src.dashboard.threads.utils.ina226:calibrate called with: bus max volts: 40V, max shunt volts: 0.08V, max expected amps: 0.500A
+INFO:src.dashboard.threads.utils.ina226:max possible current: 0.82A
+INFO:src.dashboard.threads.utils.ina226:max expected current: 0.500A
+INFO:src.dashboard.threads.utils.ina226:expected current LSB base on max_expected_amps: 1.526e-05 A/bit
+INFO:src.dashboard.threads.utils.ina226:current LSB: 1.526e-05 A/bit
+INFO:src.dashboard.threads.utils.ina226:power LSB: 3.845e-04 W/bit
+INFO:src.dashboard.threads.utils.ina226:max current before overflow: 0.5000A
+INFO:src.dashboard.threads.utils.ina226:max shunt voltage before overflow: 49.9985mV
+INFO:src.dashboard.threads.utils.ina226:calibration: 0x0d1b (3355)
+INFO:root:Starting processCamera...
+WARNING:root:Shared Memory Block 'mainVideoFrames' does not exist.
+INFO:root:Camera thread initialized successfully.
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0 -c-1' died with <Signals.SIGINT: 2>.
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:src.dashboard.threads.utils.ina226:calibrate called with: bus max volts: 40V, max shunt volts: 0.08V, max expected amps: 0.500A
+INFO:src.dashboard.threads.utils.ina226:max possible current: 0.82A
+INFO:src.dashboard.threads.utils.ina226:max expected current: 0.500A
+INFO:src.dashboard.threads.utils.ina226:expected current LSB base on max_expected_amps: 1.526e-05 A/bit
+INFO:src.dashboard.threads.utils.ina226:current LSB: 1.526e-05 A/bit
+INFO:src.dashboard.threads.utils.ina226:power LSB: 3.845e-04 W/bit
+INFO:src.dashboard.threads.utils.ina226:max current before overflow: 0.5000A
+INFO:src.dashboard.threads.utils.ina226:max shunt voltage before overflow: 49.9985mV
+INFO:src.dashboard.threads.utils.ina226:calibration: 0x0d1b (3355)
+INFO:root:Starting processCamera...
+WARNING:root:Shared Memory Block 'mainVideoFrames' does not exist.
+INFO:root:Camera thread initialized successfully.
+INFO:stream:PeerConnection(1e944911-66d1-4db7-9af8-f6b0ff7edd2c) Created for Angular
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:src.dashboard.threads.utils.ina226:calibrate called with: bus max volts: 40V, max shunt volts: 0.08V, max expected amps: 0.500A
+INFO:src.dashboard.threads.utils.ina226:max possible current: 0.82A
+INFO:src.dashboard.threads.utils.ina226:max expected current: 0.500A
+INFO:src.dashboard.threads.utils.ina226:expected current LSB base on max_expected_amps: 1.526e-05 A/bit
+INFO:src.dashboard.threads.utils.ina226:current LSB: 1.526e-05 A/bit
+INFO:src.dashboard.threads.utils.ina226:power LSB: 3.845e-04 W/bit
+INFO:src.dashboard.threads.utils.ina226:max current before overflow: 0.5000A
+INFO:src.dashboard.threads.utils.ina226:max shunt voltage before overflow: 49.9985mV
+INFO:src.dashboard.threads.utils.ina226:calibration: 0x0d1b (3355)
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0 -c-1' died with <Signals.SIGINT: 2>.
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:src.dashboard.threads.utils.ina226:calibrate called with: bus max volts: 40V, max shunt volts: 0.08V, max expected amps: 0.500A
+INFO:src.dashboard.threads.utils.ina226:max possible current: 0.82A
+INFO:src.dashboard.threads.utils.ina226:max expected current: 0.500A
+INFO:src.dashboard.threads.utils.ina226:expected current LSB base on max_expected_amps: 1.526e-05 A/bit
+INFO:src.dashboard.threads.utils.ina226:current LSB: 1.526e-05 A/bit
+INFO:src.dashboard.threads.utils.ina226:power LSB: 3.845e-04 W/bit
+INFO:src.dashboard.threads.utils.ina226:max current before overflow: 0.5000A
+INFO:src.dashboard.threads.utils.ina226:max shunt voltage before overflow: 49.9985mV
+INFO:src.dashboard.threads.utils.ina226:calibration: 0x0d1b (3355)
+INFO:root:Starting processCamera...
+INFO:root:Camera thread initialized successfully.
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0 -c-1' died with <Signals.SIGINT: 2>.
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:src.dashboard.threads.utils.ina226:calibrate called with: bus max volts: 40V, max shunt volts: 0.08V, max expected amps: 0.500A
+INFO:src.dashboard.threads.utils.ina226:max possible current: 0.82A
+INFO:src.dashboard.threads.utils.ina226:max expected current: 0.500A
+INFO:src.dashboard.threads.utils.ina226:expected current LSB base on max_expected_amps: 1.526e-05 A/bit
+INFO:src.dashboard.threads.utils.ina226:current LSB: 1.526e-05 A/bit
+INFO:src.dashboard.threads.utils.ina226:power LSB: 3.845e-04 W/bit
+INFO:src.dashboard.threads.utils.ina226:max current before overflow: 0.5000A
+INFO:src.dashboard.threads.utils.ina226:max shunt voltage before overflow: 49.9985mV
+INFO:src.dashboard.threads.utils.ina226:calibration: 0x0d1b (3355)
+INFO:src.dashboard.threads.utils.ina226:calibrate called with: bus max volts: 40V, max shunt volts: 0.08V, max expected amps: 0.500A
+INFO:src.dashboard.threads.utils.ina226:max possible current: 0.82A
+INFO:src.dashboard.threads.utils.ina226:max expected current: 0.500A
+INFO:src.dashboard.threads.utils.ina226:expected current LSB base on max_expected_amps: 1.526e-05 A/bit
+INFO:src.dashboard.threads.utils.ina226:current LSB: 1.526e-05 A/bit
+INFO:src.dashboard.threads.utils.ina226:power LSB: 3.845e-04 W/bit
+INFO:src.dashboard.threads.utils.ina226:max current before overflow: 0.5000A
+INFO:src.dashboard.threads.utils.ina226:max shunt voltage before overflow: 49.9985mV
+INFO:src.dashboard.threads.utils.ina226:calibration: 0x0d1b (3355)
+INFO:root:Starting processCamera...
+WARNING:root:Shared Memory Block 'mainVideoFrames' does not exist.
+INFO:root:Camera thread initialized successfully.
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0 -c-1' died with <Signals.SIGINT: 2>.
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
