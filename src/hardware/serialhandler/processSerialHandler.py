@@ -22,8 +22,8 @@ class processSerialHandler(WorkerProcess):
         # comm init
         try:
             self.serialCom = serial.Serial(devFile, 115200, timeout=0.1)
-            self.serialCom.flushInput()
-            self.serialCom.flushOutput()
+            self.serialCom.reset_input_buffer()
+            self.serialCom.reset_output_buffer()
         except serial.SerialException as e:
             logging.error(f"Failed to initialize serial communication: {e}")
             self.serialCom = None

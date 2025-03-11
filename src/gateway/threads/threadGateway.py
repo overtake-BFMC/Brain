@@ -125,7 +125,7 @@ class threadGateway(ThreadWithStop):
         """
         while self._running:
             message = None
-            video = None
+            #video = None
             # We are using "elif" because we are processing one message at a time.
             # We work with the queues in the priority order( We start from the high priority to low priority)
             #if not self.queuesList["Video"].empty():

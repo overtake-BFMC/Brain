@@ -149,9 +149,9 @@ class signDetection:
         boxes = predictions[:4, :].T  # (8400, 4) -> (x, y, w, h)
         class_probs = predictions[4:, :].T  # (8400, 15) -> Class probabilities
         
-        for box, class_id, class_score in zip(valid_boxes, valid_class_ids, valid_class_scores):
-            x, y, w, h = box
-            print(f"x: {x}, y: {y}, w: {w}, h: {h}, object confidence: {class_score:.2f}, class ID: {class_id}")
+        #for box, class_id, class_score in zip(valid_boxes, valid_class_ids, valid_class_scores):
+        #    x, y, w, h = box
+            #print(f"x: {x}, y: {y}, w: {w}, h: {h}, object confidence: {class_score:.2f}, class ID: {class_id}")
         #for box in predbox:
         #    boxes.append([int(box.xmin), int(box.ymin), int(box.xmax), int(box.ymax)])
         #    scores.append(box.score)

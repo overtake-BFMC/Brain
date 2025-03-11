@@ -69,6 +69,7 @@ class threadRead(ThreadWithStop):
                 try:
                     self.buff = self.serialCon.readline().decode("ascii")
                     self.sendqueue(self.buff)
+                    self.serialCon.reset_input_buffer()
                 except Exception as e:
                     print("ThreadRead -> run method:", e)
 
@@ -96,6 +97,9 @@ class threadRead(ThreadWithStop):
         """This function selects which type of message we receive from NUCLEO and sends the data further."""
 
         if '@' in buff and ':' in buff:
+            if buff.count('@') > 1 or buff.count(':') > 1 or not buff.startswith('@'):
+                #raise ValueError("String contains more than two '@' symbols")
+                return 1
             action, value = buff.split(":")  # @action:value;;
             action = action[1:]
             value = value[:-4]

@@ -24,13 +24,15 @@ class threadSysInfo(ThreadWithStop):
         self.core_usage = 0
         self.cpu_temp = 0
 
-        self.INA226Jetson = INA226(busnum=7, address=0x40, max_expected_amps=0.5, shunt_ohms=0.1, log_level=logging.INFO)
+        self.INA226Jetson = INA226(busnum=7, address=0x40, max_expected_amps=0.5, shunt_ohms=0.1)
         self.INA226Jetson.configure()
         self.INA226Jetson.set_low_battery(5)
+        self.jetsonBatt = 0
 
-        self.INA226Nucleo = INA226(busnum=7, address=0x41, max_expected_amps=0.5, shunt_ohms=0.1, log_level=logging.INFO)
+        self.INA226Nucleo = INA226(busnum=7, address=0x41, max_expected_amps=0.5, shunt_ohms=0.1)
         self.INA226Nucleo.configure()
         self.INA226Nucleo.set_low_battery(5)
+        self.nucleoBatt = 0
 
         self.cpuChannelSender = messageHandlerSender(self.queuesList, cpu_channel)
         self.memoryChannelSender = messageHandlerSender(self.queuesList, memory_channel)
@@ -53,34 +55,34 @@ class threadSysInfo(ThreadWithStop):
                         #print("Core: ",self.core_usage)
                         #print("Memory: ", self.memory_usage)
                         #print("Temp: ", self.cpu_temp)
-                        self.memoryChannelSender.send(self.memory_usage)
-                        self.cpuChannelSender.send({'usage': self.core_usage, 'temp': self.cpu_temp})
 
                         self.INA226Jetson.wake(3)
                         self.INA226Nucleo.wake(3)
                         while 1:
                             if self.INA226Jetson.is_conversion_ready():
-                                #sleep(1)
-                                print("===================================================Conversion ready")
+                                #print("===================================================Conversion ready")
                                 self.readJetsonVolt()
 
                             if self.INA226Nucleo.is_conversion_ready():
                                 self.readNucleoVolt()
                                 break
+
+                        self.memoryChannelSender.send(self.memory_usage)
+                        self.cpuChannelSender.send({'usage': self.core_usage, 'temp': self.cpu_temp, 'jetsonBatt': self.jetsonBatt, 'nucleoBatt': self.nucleoBatt})
     
             except Exception as e:
                 print(e)
 
     def readJetsonVolt(self):
-        print("Jetson Bus Voltage    : %.3f V" % self.INA226Jetson.voltage())
-        print("Jetson Supply Voltage : %.3f V" % self.INA226Jetson.supply_voltage())
+        self.jetsonBatt = self.INA226Jetson.voltage()
+        #print("Jetson Bus Voltage    : %.3f V" % self.INA226Jetson.voltage())
+        #print("Jetson Supply Voltage : %.3f V" % self.INA226Jetson.supply_voltage())
 
     def readNucleoVolt(self):
-        print("Nucleo Bus Voltage    : %.3f V" % self.INA226Nucleo.voltage())
-        print("Nucleo Supply Voltage : %.3f V" % self.INA226Nucleo.supply_voltage())
+        self.nucleoBatt = self.INA226Nucleo.voltage()
+        #print("Nucleo Bus Voltage    : %.3f V" % self.INA226Nucleo.voltage())
+        #print("Nucleo Supply Voltage : %.3f V" % self.INA226Nucleo.supply_voltage())
 
 # =============================== START ===============================================
     def start(self):
         super(threadSysInfo, self).start()
-
-#MOVE THIS THREAD TO SEPERATE PROCESS AND THAN TALK WITH IT, proccessDashboard can only be on one thread 

@@ -81,8 +81,8 @@ class processDashboard(WorkerProcess):
         self.getNamesAndVals()
         self.messagesAndVals.pop("mainCamera", None)
         self.messagesAndVals.pop("Semaphores", None)
-        self.messagesAndVals.pop("MainVideo", None)
-        self.messagesAndVals.pop("LaneVideo", None)
+        #self.messagesAndVals.pop("MainVideo", None)
+        #self.messagesAndVals.pop("LaneVideo", None)
         self.messagesAndVals.pop("createShMem", None)
         self.messagesAndVals.pop("getShMem", None)
         self.messagesAndVals.pop("releaseShMem", None)
@@ -182,14 +182,16 @@ class processDashboard(WorkerProcess):
             self.logger.info("Received save message: " + data)
 
         dataDict = json.loads(data)
-        file_path = '/home/pi/Brain/src/utils/table_state.json'  # change as necessary
+        #file_path = '/home/pi/Brain/src/utils/table_state.json'  # change as necessary
+        file_path = '/home/jetson/Documents/Brain/src/utils/table_state.json'
 
         with open(file_path, 'w') as json_file:
             json.dump(dataDict, json_file, indent=4)
 
     def handleLoadTableState(self, data):
         """Handle loading the table state from a JSON file."""
-        file_path = '/home/pi/Brain/src/utils/table_state.json'  # change as necessary
+        #file_path = '/home/pi/Brain/src/utils/table_state.json'  # change as necessary
+        file_path = '/home/jetson/Documents/Brain/src/utils/table_state.json'
 
         try:
             with open(file_path, 'r') as json_file:

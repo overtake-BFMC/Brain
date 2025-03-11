@@ -259,7 +259,7 @@ def draw_all_lines(frame, lines):
             slope = ( y2 - y1 ) / ( x2 - x1 )
 
 
-            if slope > 1 or slope < -1:
+            if slope > 0.8 or slope < -0.8:
 
                 if x1 < 960 // 2 and x2 < 960 // 2:  
                     left_lines_x1.append(int(x1))
@@ -277,18 +277,18 @@ def draw_all_lines(frame, lines):
 
                     # print("DESNA", slope)
             
-            else:
+            # else:
 
-                # if x1 > 960 // 2:
-                #     DESNO = True
-                #     if slope < 0:
-                #         print("NA LEVO")
-                #     else:
-                #         print("NA DESNO")
+            #     # if x1 > 960 // 2:
+            #     #     DESNO = True
+            #     #     if slope < 0:
+            #     #         print("NA LEVO")
+            #     #     else:
+            #     #         print("NA DESNO")
 
-                # else:
-                    LEVO = True
-                    # print( "KRIVINA U LEVO", slope )
+            #     # else:
+            #         LEVO = True
+            #         # print( "KRIVINA U LEVO", slope )
 
             
                

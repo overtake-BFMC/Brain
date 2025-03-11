@@ -29,6 +29,7 @@ class threadPathFollowing(ThreadWithStop):
         self.logging = logging
         self.debugging = debugging
 
+
         self.nodes = nodesData
         self.waypoints = waypoints
         self.path = [(self.nodes[pointId][0], self.nodes[pointId][1]) for pointId in self.waypoints]
@@ -91,8 +92,11 @@ class threadPathFollowing(ThreadWithStop):
     def calculateAngleToTarget(self, targetX, targetY):
         return np.arctan2(targetY - self.vehicle.y, targetX - self.vehicle.x)
     
+    def normalize_angle(self, angle):
+        return (angle + np.pi) % (2 * np.pi) - np.pi
+
     def calculateAlphaSteer(self, angleToTarget):
-        return angleToTarget - self.vehicle.yaw
+        return self.normalize_angle(angleToTarget - self.vehicle.yaw)
     
     def pathSmoother(self, weightData):
         
@@ -129,7 +133,7 @@ class threadPathFollowing(ThreadWithStop):
             
             CenterOfMassDistanceFromICR = rearWheelsDistanceFromICR / np.cos(beta)
             self.vehicle.yaw = self.vehicle.yaw + self.vehicle.speed / CenterOfMassDistanceFromICR * elapsedTime
-
+            # self.vehicle.yaw = 
     def findLookAheadPoint(self, lastPathPointId):
         
         closestPoint = self.path[-1]
@@ -152,7 +156,7 @@ class threadPathFollowing(ThreadWithStop):
         startTime = time.time()
 
         self.path = self.createAdditionalNodesInThePath(times = 2)
-        self.path = self.pathSmoother(weightData=0.95)
+        self.path = self.pathSmoother(weightData=0.85)
 
         path_x, path_y = [], []
         lastPathPointId = 1
@@ -165,6 +169,10 @@ class threadPathFollowing(ThreadWithStop):
         velocity = 0
 
         while targetX and targetY:
+            print(str(round(np.rad2deg(np.clip(self.vehicle.steeringAngle, -0.4363, 0.4363)))*10))
+            print("============= YAW =================")
+            print(str(self.vehicle.yaw))
+            
             self.speedMotorSender.send(str(np.clip(self.vehicle.speed*10, -500, 500)))
             while(not velocity):
                 IMUData = self.IMUDataSubscriber.receive()
@@ -193,12 +201,12 @@ class threadPathFollowing(ThreadWithStop):
             #print(f"{self.vehicle.speed} , {velocity}")
             # print(f"{targetX} {targetY} {np.rad2deg(self.vehicle.steeringAngle)}")
 
-            if self.calculateDistanceToTarget(startX, starty) >= 230:
-                self.vehicle.setSpeed(0)
-                self.speedMotorSender.send(str(np.clip(self.vehicle.speed*10, -500, 500)))
-                print(f"time: {time.time()} stop")
+            # if self.calculateDistanceToTarget(startX, starty) >= 230:
+            #     self.vehicle.setSpeed(0)
+            #     self.speedMotorSender.send(str(np.clip(self.vehicle.speed*10, -500, 500)))
+            #     print(f"time: {time.time()} stop")
 
-                break
+            #     break
 
             if self.calculateDistanceToTarget(self.path[lastPathPointId][0], self.path[lastPathPointId][1]) < 10:
                 lastPathPointId += 1
@@ -212,12 +220,12 @@ class threadPathFollowing(ThreadWithStop):
             # self.vehicle.steeringAngle = np.arctan2(2 * self.vehicle.wheelbase * np.sin(alpha), distanceToTarget)
 
             self.vehicle.steeringAngle = alpha
-            self.vehicle.steeringAngle = np.clip(self.vehicle.steeringAngle, -0.4363, 0.4363)
+            # self.vehicle.steeringAngle = np.clip(self.vehicle.steeringAngle, -0.4363, 0.4363)
 
             elapsedTime = time.time() - startTime
             self.kinematicBicycleModel(elapsedTime)
             startTime = time.time()
-
+ 
             self.steerMotorSender.send(str(round(np.rad2deg(np.clip(self.vehicle.steeringAngle, -0.4363, 0.4363)))*10))
             
             targetX, targetY = self.findLookAheadPoint(lastPathPointId)

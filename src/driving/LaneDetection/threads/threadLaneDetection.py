@@ -57,7 +57,7 @@ class threadLaneDetection(ThreadWithStop):
         print("dir_path_lane_det: ", dir_path)
         self.ppData, self.maps = pre.loadPPData(dir_path + "/../utils/data")  
 
-        self.pid = PID.PIDController( Kp = 0.1, Ki = 0.01, Kd = 0.003 )
+        self.pid = PID.PIDController( Kp = 0.1, Ki = 0.05, Kd = 0.003 )
 
         self.detector = signDetection(conf_thresh=0.5, iou_thresh=0.45)
 

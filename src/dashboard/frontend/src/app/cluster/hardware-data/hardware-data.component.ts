@@ -47,6 +47,8 @@ export class HardwareDataComponent {
   public memoryUsage: number = 0;
   public heap: number = 0;
   public stack: number = 0;
+  public jetsonBatt: number = 0;
+  public nucleoBatt: number = 0;
   
   constructor(private  webSocketService: WebSocketService) { }
 
@@ -63,6 +65,8 @@ export class HardwareDataComponent {
         this.cpuUsage[3] = parseInt(message.value['usage'][3]);
         this.cpuUsage[4] = parseInt(message.value['usage'][4]);
         this.cpuUsage[5] = parseInt(message.value['usage'][5]);
+        this.jetsonBatt = Math.round(parseFloat(message.value['jetsonBatt']) * 100 ) / 100
+        this.nucleoBatt = Math.round(parseFloat(message.value['nucleoBatt']) * 100 ) / 100
       },
       (error) => {
         console.error('Error receiving disk usage:', error);

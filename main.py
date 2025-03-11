@@ -109,7 +109,7 @@ IpChanger.replace_ip_in_file()
 
 # Initializing dashboard
 if Dashboard:
-    processDashboard = processDashboard( queueList, logging, debugging = False)
+    processDashboard = processDashboard( queueList, logging, debugging = True)
     allProcesses.append(processDashboard)
 
 # Initializing camera
@@ -145,7 +145,7 @@ if TrafficCommunication:
 
 # Initializing serial connection NUCLEO - > PI
 if SerialHandler:
-    processSerialHandler = processSerialHandler(queueList, logging, debugging = False)
+    processSerialHandler = processSerialHandler(queueList, logging, debugging = True)
     allProcesses.append(processSerialHandler)
 
 # ------ New component runs starts here ------#

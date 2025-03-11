@@ -54,4 +54,15 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. -->
             <app-indicator class="stack-usage" [value]="stack" [minValue]="0" [maxValue]="100" title="stack" [titleOffset]="100" symbol="%"/>
         </div>
     </div>
+
+    <div class="hardware-data-nucleo">
+        <div class="hardware-data-nucleo-title">
+            <p class="hardware-data-nucleo-title-text">Battery</p>
+        </div>
+        
+        <div class="hardware-data-nucleo-indicators">
+            <app-indicator class="heap-usage" [value]="jetsonBatt" [minValue]="10.6" [maxValue]="12.6" title="Jetson" [titleOffset]="100" symbol="V"/>
+            <app-indicator class="stack-usage" [value]="nucleoBatt" [minValue]="7.0" [maxValue]="8.4" title="Nucleo" [titleOffset]="100" symbol="V"/>
+        </div>
+    </div>
 </div>

@@ -20,18 +20,16 @@ class processPathFollowing(WorkerProcess):
         super(processPathFollowing, self).__init__(self.queuesList)
 
         self.waypoints = []
-        # self.wayPoints.extend(range(359, 368))
-        # self.wayPoints.extend(range(334, 339))
-        # self.wayPoints.extend(range(398, 400))
 
-        # self.wayPoints.extend(range(564, 595))
+        # self.waypoints.extend(range(295, 307))
+        # self.waypoints.extend(range(231, 233))
+        self.waypoints.extend(range(301, 304))
+        self.waypoints.extend(range(343, 345))
 
-        #self.waypoints.extend(range(147, 164))
 
-        self.waypoints.extend(range(295, 307))
-        self.waypoints.extend(range(231, 233))
+        # self.waypoints.extend(range(207, 215))
 
-        self.speed = 10
+        self.speed = 20
         self.lookAheadDistance = 1
         self.yaw = 0
         self.dt = 0.2

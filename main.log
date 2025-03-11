@@ -1,305 +1,1368 @@
 INFO:root:Starting processCamera...
+INFO:root:EnableButton: True
+INFO:root:@batteryCapacity:ack;;
+
+INFO:root:cpu_channel: {'usage': [8.5, 13.7, 63.5, 6.5, 11.0, 24.0], 'temp': 48.9, 'jetsonBatt': 0, 'nucleoBatt': 1.7875}
+INFO:root:memory_channel: 30.5
+WARNING:root:Shared Memory Block 'mainVideoFrames' does not exist.
+INFO:root:EnableButton: True
+INFO:root:Recording: False
 INFO:root:Camera thread initialized successfully.
-INFO:stream:PeerConnection(0e713fc0-808e-4741-9e2b-e38ee94852d9) Created for Angular
-WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
-WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
-INFO:root:Starting processCamera...
-INFO:root:Camera thread initialized successfully.
-INFO:stream:PeerConnection(840f0e77-9441-4482-b3b3-86e052460f78) Created for Angular
-INFO:stream:PeerConnection(840f0e77-9441-4482-b3b3-86e052460f78) Connection state is new
-INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(BnbSMZLVFU 1 udp 1845501695 192.168.66.188 61528 typ prflx)
-INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 47408) -> ('192.168.66.188', 61528)) State.WAITING -> State.IN_PROGRESS
-INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 47408) -> ('192.168.66.188', 61528)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:root:cpu_channel: {'usage': [85.8, 78.1, 100.0, 82.9, 77.1, 92.5], 'temp': 49.5, 'jetsonBatt': 0.0, 'nucleoBatt': 1.7875}
+INFO:root:memory_channel: 41.2
+INFO:root:EnableButton: True
+INFO:root:Recording: False
+INFO:root:EnableButton: True
+INFO:root:Recording: False
+INFO:root:cpu_channel: {'usage': [87.4, 91.5, 100.0, 100.0, 93.9, 99.0], 'temp': 49.9, 'jetsonBatt': 0.0, 'nucleoBatt': 1.78625}
+INFO:root:memory_channel: 64.0
+INFO:root:EnableButton: True
+INFO:root:Recording: False
+INFO:root:EnableButton: True
+INFO:root:Recording: False
+INFO:root:cpu_channel: {'usage': [82.2, 86.7, 95.5, 99.5, 98.0, 95.0], 'temp': 50.3, 'jetsonBatt': 0.0, 'nucleoBatt': 1.78625}
+INFO:root:memory_channel: 58.8
+INFO:root:EnableButton: True
+INFO:root:Recording: False
+INFO:root:EnableButton: True
+INFO:root:Recording: False
+INFO:root:cpu_channel: {'usage': [91.4, 86.1, 98.5, 100.0, 100.0, 88.7], 'temp': 50.9, 'jetsonBatt': 0.0, 'nucleoBatt': 1.7875}
+INFO:root:memory_channel: 56.3
+INFO:root:EnableButton: True
+INFO:root:Recording: False
+INFO:root:EnableButton: True
+INFO:root:Recording: False
+INFO:root:cpu_channel: {'usage': [88.1, 86.2, 100.0, 100.0, 100.0, 97.5], 'temp': 50.7, 'jetsonBatt': 0.0, 'nucleoBatt': 1.7875}
+INFO:root:memory_channel: 59.6
+INFO:root:EnableButton: True
+INFO:root:Recording: False
+INFO:root:EnableButton: True
+INFO:root:Recording: False
+INFO:root:cpu_channel: {'usage': [76.5, 85.7, 99.5, 100.0, 100.0, 99.0], 'temp': 51.1, 'jetsonBatt': 0.0, 'nucleoBatt': 1.785}
+INFO:root:memory_channel: 59.3
+INFO:root:EnableButton: True
+INFO:root:Recording: False
+INFO:root:EnableButton: True
+INFO:root:Recording: False
+INFO:root:cpu_channel: {'usage': [87.2, 86.0, 100.0, 100.0, 100.0, 98.5], 'temp': 51.3, 'jetsonBatt': 0.0, 'nucleoBatt': 1.7875}
+INFO:root:memory_channel: 56.0
+INFO:root:EnableButton: True
+INFO:root:Recording: False
+INFO:root:EnableButton: True
+INFO:root:Recording: False
+INFO:root:cpu_channel: {'usage': [75.8, 98.5, 81.1, 100.0, 98.5, 99.0], 'temp': 51.3, 'jetsonBatt': 0.0, 'nucleoBatt': 1.7875}
+INFO:root:memory_channel: 56.0
+INFO:root:EnableButton: True
+INFO:root:Recording: False
+INFO:root:EnableButton: True
+INFO:root:Received message: {"Name": "SessionAccess"}
+INFO:root:Recording: False
+INFO:stream:PeerConnection(79e4ee0b-c3e4-4448-9f8f-1b5d110ced1e) Created for Angular
+INFO:stream:PeerConnection(79e4ee0b-c3e4-4448-9f8f-1b5d110ced1e) Connection state is new
+INFO:root:WebRTCAnswer: {'sdp': 'v=0\r\no=- 3950706213 3950706213 IN IP4 0.0.0.0\r\ns=-\r\nt=0 0\r\na=group:BUNDLE 0 1\r\na=msid-semantic:WMS *\r\nm=video 35291 UDP/TLS/RTP/SAVPF 96 97 103 104 109 114\r\nc=IN IP4 192.168.66.155\r\na=sendonly\r\na=extmap:2 http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time\r\na=extmap:9 urn:ietf:params:rtp-hdrext:sdes:mid\r\na=mid:0\r\na=msid:7736f03b-4c77-4df6-909e-85043aeaab58 cefd11b7-c241-491f-9d63-90c3ffbddf23\r\na=rtcp:9 IN IP4 0.0.0.0\r\na=rtcp-mux\r\na=ssrc-group:FID 1019663737 3593326701\r\na=ssrc:1019663737 cname:dca523ce-6bc4-4270-93b3-b415b34220c2\r\na=ssrc:3593326701 cname:dca523ce-6bc4-4270-93b3-b415b34220c2\r\na=rtpmap:96 VP8/90000\r\na=rtcp-fb:96 nack\r\na=rtcp-fb:96 nack pli\r\na=rtcp-fb:96 goog-remb\r\na=rtpmap:97 rtx/90000\r\na=fmtp:97 apt=96\r\na=rtpmap:103 H264/90000\r\na=rtcp-fb:103 nack\r\na=rtcp-fb:103 nack pli\r\na=rtcp-fb:103 goog-remb\r\na=fmtp:103 level-asymmetry-allowed=1;packetization-mode=1;profile-level-id=42001f\r\na=rtpmap:104 rtx/90000\r\na=fmtp:104 apt=103\r\na=rtpmap:109 H264/90000\r\na=rtcp-fb:109 nack\r\na=rtcp-fb:109 nack pli\r\na=rtcp-fb:109 goog-remb\r\na=fmtp:109 level-asymmetry-allowed=1;packetization-mode=1;profile-level-id=42e01f\r\na=rtpmap:114 rtx/90000\r\na=fmtp:114 apt=109\r\na=candidate:dc134103974d7ff02958409e72cae3a7 1 udp 2130706431 192.168.66.155 35291 typ host\r\na=end-of-candidates\r\na=ice-ufrag:BJws\r\na=ice-pwd:lBbtzGzSoOlH4VLI94ikdu\r\na=fingerprint:sha-256 60:CF:7F:EB:EE:B0:96:4B:F2:26:66:1A:9B:89:92:EA:B7:16:1C:13:6D:89:BF:21:22:7C:1E:44:B4:B0:F7:CE\r\na=fingerprint:sha-384 C6:25:FA:9C:8A:4C:AF:79:CB:1E:34:7D:C7:BF:85:DA:8C:CC:F9:DB:05:9F:52:16:35:CF:52:60:3A:21:3A:6E:DA:F7:B5:43:C6:42:12:22:A9:02:68:DD:BE:E6:A8:6F\r\na=fingerprint:sha-512 23:B1:2E:A3:E2:86:EB:95:82:3D:C9:07:4C:30:32:B5:79:81:56:B7:62:14:FD:E6:36:B8:FF:56:58:66:D8:B7:06:AF:A1:27:EE:F7:72:80:65:8E:F4:EA:BF:28:DA:CF:8B:8C:2A:E7:F8:40:D7:0B:21:C6:5C:83:80:C7:47:DD\r\na=setup:active\r\nm=audio 35291 UDP/TLS/RTP/SAVPF 111 0 8\r\nc=IN IP4 192.168.66.155\r\na=inactive\r\na=extmap:14 urn:ietf:params:rtp-hdrext:ssrc-audio-level\r\na=extmap:9 urn:ietf:params:rtp-hdrext:sdes:mid\r\na=mid:1\r\na=msid:7736f03b-4c77-4df6-909e-85043aeaab58 55ee4db1-6adc-45e6-a1f5-d683f65bdb96\r\na=rtcp:9 IN IP4 0.0.0.0\r\na=rtcp-mux\r\na=ssrc:2478000920 cname:dca523ce-6bc4-4270-93b3-b415b34220c2\r\na=rtpmap:111 opus/48000/2\r\na=rtpmap:0 PCMU/8000\r\na=rtpmap:8 PCMA/8000\r\na=candidate:dc134103974d7ff02958409e72cae3a7 1 udp 2130706431 192.168.66.155 35291 typ host\r\na=end-of-candidates\r\na=ice-ufrag:BJws\r\na=ice-pwd:lBbtzGzSoOlH4VLI94ikdu\r\na=fingerprint:sha-256 60:CF:7F:EB:EE:B0:96:4B:F2:26:66:1A:9B:89:92:EA:B7:16:1C:13:6D:89:BF:21:22:7C:1E:44:B4:B0:F7:CE\r\na=fingerprint:sha-384 C6:25:FA:9C:8A:4C:AF:79:CB:1E:34:7D:C7:BF:85:DA:8C:CC:F9:DB:05:9F:52:16:35:CF:52:60:3A:21:3A:6E:DA:F7:B5:43:C6:42:12:22:A9:02:68:DD:BE:E6:A8:6F\r\na=fingerprint:sha-512 23:B1:2E:A3:E2:86:EB:95:82:3D:C9:07:4C:30:32:B5:79:81:56:B7:62:14:FD:E6:36:B8:FF:56:58:66:D8:B7:06:AF:A1:27:EE:F7:72:80:65:8E:F4:EA:BF:28:DA:CF:8B:8C:2A:E7:F8:40:D7:0B:21:C6:5C:83:80:C7:47:DD\r\na=setup:active\r\n', 'type': 'answer'}
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(MafLNAeokA 1 udp 1845501695 192.168.66.188 59015 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 35291) -> ('192.168.66.188', 59015)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 35291) -> ('192.168.66.188', 59015)) State.IN_PROGRESS -> State.SUCCEEDED
 INFO:aioice.ice:Connection(0) ICE completed
-WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
-WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
-INFO:root:Starting processCamera...
-WARNING:root:Shared Memory Block 'mainVideoFrames' does not exist.
-INFO:root:Camera thread initialized successfully.
-INFO:stream:PeerConnection(0838b362-f0bd-42c2-aecf-e922b042aba4) Created for Angular
-INFO:stream:PeerConnection(0838b362-f0bd-42c2-aecf-e922b042aba4) Connection state is new
-INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(i0AOWYAtPG 1 udp 1845501695 192.168.66.188 65175 typ prflx)
-INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 59782) -> ('192.168.66.188', 65175)) State.WAITING -> State.IN_PROGRESS
-INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 59782) -> ('192.168.66.188', 65175)) State.IN_PROGRESS -> State.SUCCEEDED
-INFO:aioice.ice:Connection(0) ICE completed
-WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
-WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
-INFO:root:Starting processCamera...
-WARNING:root:Shared Memory Block 'mainVideoFrames' does not exist.
-INFO:root:Camera thread initialized successfully.
-INFO:stream:PeerConnection(2b1fac97-49bd-4340-9313-2f97dca2ce66) Created for Angular
-WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0 -c-1' died with <Signals.SIGINT: 2>.
-WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
-WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
-INFO:root:Starting processCamera...
-WARNING:root:Shared Memory Block 'mainVideoFrames' does not exist.
-INFO:root:Camera thread initialized successfully.
-INFO:stream:PeerConnection(74fa895d-572f-424a-a872-dd16df88c428) Created for Angular
-INFO:stream:PeerConnection(74fa895d-572f-424a-a872-dd16df88c428) Connection state is new
-INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(wtMho4x4xp 1 udp 1845501695 192.168.66.188 51930 typ prflx)
-INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 37173) -> ('192.168.66.188', 51930)) State.WAITING -> State.IN_PROGRESS
-INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 37173) -> ('192.168.66.188', 51930)) State.IN_PROGRESS -> State.SUCCEEDED
-INFO:aioice.ice:Connection(0) ICE completed
-WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
-WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
-INFO:root:Starting processCamera...
-WARNING:root:Shared Memory Block 'mainVideoFrames' does not exist.
-INFO:root:Camera thread initialized successfully.
-WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
-WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
-INFO:root:Starting processCamera...
-WARNING:root:Shared Memory Block 'mainVideoFrames' does not exist.
-INFO:root:Camera thread initialized successfully.
-WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
-WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
-INFO:root:Starting processCamera...
-WARNING:root:Shared Memory Block 'mainVideoFrames' does not exist.
-INFO:root:Camera thread initialized successfully.
-WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
-WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
-INFO:root:Starting processCamera...
-WARNING:root:Shared Memory Block 'mainVideoFrames' does not exist.
-INFO:root:Camera thread initialized successfully.
-INFO:stream:PeerConnection(86d8be29-4d9d-4df2-a7ca-87da526d4d9b) Created for Angular
-WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
-WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
-INFO:root:Starting processCamera...
-WARNING:root:Shared Memory Block 'mainVideoFrames' does not exist.
-INFO:root:Camera thread initialized successfully.
-INFO:stream:PeerConnection(c1c8b4eb-000f-426a-9f93-f376ae48049d) Created for Angular
-INFO:stream:PeerConnection(c1c8b4eb-000f-426a-9f93-f376ae48049d) Connection state is new
-INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(1BO3NcShxe 1 udp 1845501695 192.168.66.188 54126 typ prflx)
-INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 35071) -> ('192.168.66.188', 54126)) State.WAITING -> State.IN_PROGRESS
-INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 35071) -> ('192.168.66.188', 54126)) State.IN_PROGRESS -> State.SUCCEEDED
-INFO:aioice.ice:Connection(0) ICE completed
-WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0 -c-1' died with <Signals.SIGINT: 2>.
-WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
-WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
-INFO:root:Starting processCamera...
-WARNING:root:Shared Memory Block 'mainVideoFrames' does not exist.
-INFO:root:Camera thread initialized successfully.
-WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
-WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
-INFO:root:Starting processCamera...
-WARNING:root:Shared Memory Block 'mainVideoFrames' does not exist.
-INFO:root:Camera thread initialized successfully.
-WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
-WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
-INFO:root:Starting processCamera...
-WARNING:root:Shared Memory Block 'mainVideoFrames' does not exist.
-INFO:root:Camera thread initialized successfully.
-WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
-WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
-INFO:root:Starting processCamera...
-WARNING:root:Shared Memory Block 'mainVideoFrames' does not exist.
-INFO:root:Camera thread initialized successfully.
-WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0 -c-1' died with <Signals.SIGINT: 2>.
-WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
-WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
-INFO:root:Starting processCamera...
-WARNING:root:Shared Memory Block 'mainVideoFrames' does not exist.
-INFO:root:Camera thread initialized successfully.
-WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
-WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
-INFO:root:Starting processCamera...
-WARNING:root:Shared Memory Block 'mainVideoFrames' does not exist.
-INFO:root:Camera thread initialized successfully.
-WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
-WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
-INFO:root:Starting processCamera...
-WARNING:root:Shared Memory Block 'mainVideoFrames' does not exist.
-INFO:root:Camera thread initialized successfully.
-WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
-WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
-INFO:root:Starting processCamera...
-WARNING:root:Shared Memory Block 'mainVideoFrames' does not exist.
-INFO:root:Camera thread initialized successfully.
-WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
-WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
-INFO:root:Starting processCamera...
-WARNING:root:Shared Memory Block 'mainVideoFrames' does not exist.
-INFO:root:Camera thread initialized successfully.
-WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
-WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
-INFO:root:Starting processCamera...
-WARNING:root:Shared Memory Block 'mainVideoFrames' does not exist.
-INFO:root:Camera thread initialized successfully.
-INFO:root:Starting processCamera...
-WARNING:root:Shared Memory Block 'mainVideoFrames' does not exist.
-INFO:root:Camera thread initialized successfully.
-WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
-WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
-INFO:root:Starting processCamera...
-WARNING:root:Shared Memory Block 'mainVideoFrames' does not exist.
-INFO:root:Camera thread initialized successfully.
-WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
-WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
-INFO:root:Starting processCamera...
-WARNING:root:Shared Memory Block 'mainVideoFrames' does not exist.
-INFO:root:Camera thread initialized successfully.
-INFO:stream:PeerConnection(241c8165-7b8a-4fd0-b25b-1f58df1f96bf) Created for Angular
-WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
-WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
-INFO:root:Starting processCamera...
-WARNING:root:Shared Memory Block 'mainVideoFrames' does not exist.
-INFO:root:Camera thread initialized successfully.
-INFO:stream:PeerConnection(708a351b-ba03-4f43-9f5d-dd370b847dc2) Created for Angular
-WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
-WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
-INFO:root:Starting processCamera...
-WARNING:root:Shared Memory Block 'mainVideoFrames' does not exist.
-INFO:root:Camera thread initialized successfully.
-INFO:stream:PeerConnection(c361321a-05ab-47a4-b10f-55257eca09bd) Created for Angular
-INFO:stream:PeerConnection(c361321a-05ab-47a4-b10f-55257eca09bd) Connection state is new
-INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(0eZwWFCwy7 1 udp 1845501695 192.168.66.188 50527 typ prflx)
-INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 52046) -> ('192.168.66.188', 50527)) State.WAITING -> State.IN_PROGRESS
-INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 52046) -> ('192.168.66.188', 50527)) State.IN_PROGRESS -> State.SUCCEEDED
-INFO:aioice.ice:Connection(0) ICE completed
-WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0 -c-1' died with <Signals.SIGINT: 2>.
-WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
-WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
-INFO:root:Starting processCamera...
-WARNING:root:Shared Memory Block 'mainVideoFrames' does not exist.
-INFO:root:Camera thread initialized successfully.
-INFO:root:Starting processCamera...
-WARNING:root:Shared Memory Block 'mainVideoFrames' does not exist.
-INFO:root:Camera thread initialized successfully.
-INFO:stream:PeerConnection(37aa302e-3bb4-4392-b22e-18b2190712ed) Created for Angular
-INFO:stream:PeerConnection(37aa302e-3bb4-4392-b22e-18b2190712ed) Connection state is new
-INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(MRONsyvisa 1 udp 1845501695 192.168.66.188 62878 typ prflx)
-INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 39567) -> ('192.168.66.188', 62878)) State.WAITING -> State.IN_PROGRESS
-INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 39567) -> ('192.168.66.188', 62878)) State.IN_PROGRESS -> State.SUCCEEDED
-INFO:aioice.ice:Connection(0) ICE completed
-WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
-WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
-INFO:root:Starting processCamera...
-WARNING:root:Shared Memory Block 'mainVideoFrames' does not exist.
-INFO:root:Camera thread initialized successfully.
-INFO:stream:PeerConnection(1629c14e-83f2-44d1-91c7-97c3f8e79bc3) Created for Angular
-INFO:stream:PeerConnection(1629c14e-83f2-44d1-91c7-97c3f8e79bc3) Connection state is new
-INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(YmlQBbsd1Q 1 udp 1845501695 192.168.66.188 56580 typ prflx)
-INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 49838) -> ('192.168.66.188', 56580)) State.WAITING -> State.IN_PROGRESS
-INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 49838) -> ('192.168.66.188', 56580)) State.IN_PROGRESS -> State.SUCCEEDED
-INFO:aioice.ice:Connection(0) ICE completed
-WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0 -c-1' died with <Signals.SIGINT: 2>.
-WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
-WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
-INFO:root:Starting processCamera...
-WARNING:root:Shared Memory Block 'mainVideoFrames' does not exist.
-INFO:root:Camera thread initialized successfully.
-INFO:stream:PeerConnection(e2a11a06-2ddd-4aae-a31a-c170ab1efe88) Created for Angular
-WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0 -c-1' died with <Signals.SIGINT: 2>.
-WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
-WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
-INFO:root:Starting processCamera...
-WARNING:root:Shared Memory Block 'mainVideoFrames' does not exist.
-INFO:root:Camera thread initialized successfully.
-INFO:stream:PeerConnection(95dc3a98-9fcf-460b-9781-fed3b875eb15) Created for Angular
-INFO:stream:PeerConnection(95dc3a98-9fcf-460b-9781-fed3b875eb15) Connection state is new
-INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(BFn5lAnRxa 1 udp 1845501695 192.168.66.188 62442 typ prflx)
-INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 39138) -> ('192.168.66.188', 62442)) State.WAITING -> State.IN_PROGRESS
-INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 39138) -> ('192.168.66.188', 62442)) State.IN_PROGRESS -> State.SUCCEEDED
-INFO:aioice.ice:Connection(0) ICE completed
-WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
-WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
-INFO:root:Starting processCamera...
-WARNING:root:Shared Memory Block 'mainVideoFrames' does not exist.
-INFO:root:Camera thread initialized successfully.
-WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
-WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
-INFO:root:Starting processCamera...
-WARNING:root:Shared Memory Block 'mainVideoFrames' does not exist.
-INFO:root:Camera thread initialized successfully.
-INFO:stream:PeerConnection(2c0fc076-c265-44eb-8b05-3b1a0795f5f0) Created for Angular
-INFO:stream:PeerConnection(2c0fc076-c265-44eb-8b05-3b1a0795f5f0) Connection state is new
-INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(ctc3lyDysh 1 udp 1845501695 192.168.66.188 50312 typ prflx)
-INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 48366) -> ('192.168.66.188', 50312)) State.WAITING -> State.IN_PROGRESS
-INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 48366) -> ('192.168.66.188', 50312)) State.IN_PROGRESS -> State.SUCCEEDED
-INFO:aioice.ice:Connection(0) ICE completed
-WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
-WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
-INFO:root:Starting processCamera...
-WARNING:root:Shared Memory Block 'mainVideoFrames' does not exist.
-INFO:root:Camera thread initialized successfully.
-INFO:src.dashboard.threads.utils.ina226:calibrate called with: bus max volts: 40V, max shunt volts: 0.08V, max expected amps: 0.500A
-INFO:src.dashboard.threads.utils.ina226:max possible current: 0.82A
-INFO:src.dashboard.threads.utils.ina226:max expected current: 0.500A
-INFO:src.dashboard.threads.utils.ina226:expected current LSB base on max_expected_amps: 1.526e-05 A/bit
-INFO:src.dashboard.threads.utils.ina226:current LSB: 1.526e-05 A/bit
-INFO:src.dashboard.threads.utils.ina226:power LSB: 3.845e-04 W/bit
-INFO:src.dashboard.threads.utils.ina226:max current before overflow: 0.5000A
-INFO:src.dashboard.threads.utils.ina226:max shunt voltage before overflow: 49.9985mV
-INFO:src.dashboard.threads.utils.ina226:calibration: 0x0d1b (3355)
-INFO:root:Starting processCamera...
-WARNING:root:Shared Memory Block 'mainVideoFrames' does not exist.
-INFO:root:Camera thread initialized successfully.
-WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0 -c-1' died with <Signals.SIGINT: 2>.
-WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
-WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
-INFO:src.dashboard.threads.utils.ina226:calibrate called with: bus max volts: 40V, max shunt volts: 0.08V, max expected amps: 0.500A
-INFO:src.dashboard.threads.utils.ina226:max possible current: 0.82A
-INFO:src.dashboard.threads.utils.ina226:max expected current: 0.500A
-INFO:src.dashboard.threads.utils.ina226:expected current LSB base on max_expected_amps: 1.526e-05 A/bit
-INFO:src.dashboard.threads.utils.ina226:current LSB: 1.526e-05 A/bit
-INFO:src.dashboard.threads.utils.ina226:power LSB: 3.845e-04 W/bit
-INFO:src.dashboard.threads.utils.ina226:max current before overflow: 0.5000A
-INFO:src.dashboard.threads.utils.ina226:max shunt voltage before overflow: 49.9985mV
-INFO:src.dashboard.threads.utils.ina226:calibration: 0x0d1b (3355)
-INFO:root:Starting processCamera...
-WARNING:root:Shared Memory Block 'mainVideoFrames' does not exist.
-INFO:root:Camera thread initialized successfully.
-INFO:stream:PeerConnection(1e944911-66d1-4db7-9af8-f6b0ff7edd2c) Created for Angular
-WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
-WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
-INFO:src.dashboard.threads.utils.ina226:calibrate called with: bus max volts: 40V, max shunt volts: 0.08V, max expected amps: 0.500A
-INFO:src.dashboard.threads.utils.ina226:max possible current: 0.82A
-INFO:src.dashboard.threads.utils.ina226:max expected current: 0.500A
-INFO:src.dashboard.threads.utils.ina226:expected current LSB base on max_expected_amps: 1.526e-05 A/bit
-INFO:src.dashboard.threads.utils.ina226:current LSB: 1.526e-05 A/bit
-INFO:src.dashboard.threads.utils.ina226:power LSB: 3.845e-04 W/bit
-INFO:src.dashboard.threads.utils.ina226:max current before overflow: 0.5000A
-INFO:src.dashboard.threads.utils.ina226:max shunt voltage before overflow: 49.9985mV
-INFO:src.dashboard.threads.utils.ina226:calibration: 0x0d1b (3355)
-INFO:root:Starting processCamera...
-INFO:root:Camera thread initialized successfully.
-WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0 -c-1' died with <Signals.SIGINT: 2>.
-WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
-WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
-INFO:src.dashboard.threads.utils.ina226:calibrate called with: bus max volts: 40V, max shunt volts: 0.08V, max expected amps: 0.500A
-INFO:src.dashboard.threads.utils.ina226:max possible current: 0.82A
-INFO:src.dashboard.threads.utils.ina226:max expected current: 0.500A
-INFO:src.dashboard.threads.utils.ina226:expected current LSB base on max_expected_amps: 1.526e-05 A/bit
-INFO:src.dashboard.threads.utils.ina226:current LSB: 1.526e-05 A/bit
-INFO:src.dashboard.threads.utils.ina226:power LSB: 3.845e-04 W/bit
-INFO:src.dashboard.threads.utils.ina226:max current before overflow: 0.5000A
-INFO:src.dashboard.threads.utils.ina226:max shunt voltage before overflow: 49.9985mV
-INFO:src.dashboard.threads.utils.ina226:calibration: 0x0d1b (3355)
-INFO:root:Starting processCamera...
-INFO:root:Camera thread initialized successfully.
-WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0 -c-1' died with <Signals.SIGINT: 2>.
-WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
-WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
-INFO:src.dashboard.threads.utils.ina226:calibrate called with: bus max volts: 40V, max shunt volts: 0.08V, max expected amps: 0.500A
-INFO:src.dashboard.threads.utils.ina226:max possible current: 0.82A
-INFO:src.dashboard.threads.utils.ina226:max expected current: 0.500A
-INFO:src.dashboard.threads.utils.ina226:expected current LSB base on max_expected_amps: 1.526e-05 A/bit
-INFO:src.dashboard.threads.utils.ina226:current LSB: 1.526e-05 A/bit
-INFO:src.dashboard.threads.utils.ina226:power LSB: 3.845e-04 W/bit
-INFO:src.dashboard.threads.utils.ina226:max current before overflow: 0.5000A
-INFO:src.dashboard.threads.utils.ina226:max shunt voltage before overflow: 49.9985mV
-INFO:src.dashboard.threads.utils.ina226:calibration: 0x0d1b (3355)
-INFO:src.dashboard.threads.utils.ina226:calibrate called with: bus max volts: 40V, max shunt volts: 0.08V, max expected amps: 0.500A
-INFO:src.dashboard.threads.utils.ina226:max possible current: 0.82A
-INFO:src.dashboard.threads.utils.ina226:max expected current: 0.500A
-INFO:src.dashboard.threads.utils.ina226:expected current LSB base on max_expected_amps: 1.526e-05 A/bit
-INFO:src.dashboard.threads.utils.ina226:current LSB: 1.526e-05 A/bit
-INFO:src.dashboard.threads.utils.ina226:power LSB: 3.845e-04 W/bit
-INFO:src.dashboard.threads.utils.ina226:max current before overflow: 0.5000A
-INFO:src.dashboard.threads.utils.ina226:max shunt voltage before overflow: 49.9985mV
-INFO:src.dashboard.threads.utils.ina226:calibration: 0x0d1b (3355)
-INFO:root:Starting processCamera...
-WARNING:root:Shared Memory Block 'mainVideoFrames' does not exist.
-INFO:root:Camera thread initialized successfully.
-WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0 -c-1' died with <Signals.SIGINT: 2>.
+INFO:root:cpu_channel: {'usage': [91.7, 99.5, 90.1, 95.4, 93.4, 99.5], 'temp': 51.3, 'jetsonBatt': 0.0, 'nucleoBatt': 1.785}
+INFO:root:memory_channel: 57.7
+INFO:root:EnableButton: True
+INFO:root:Recording: False
+INFO:root:EnableButton: True
+INFO:root:Recording: False
+INFO:root:cpu_channel: {'usage': [97.5, 98.0, 98.5, 99.0, 97.5, 99.0], 'temp': 51.5, 'jetsonBatt': 0.0, 'nucleoBatt': 1.785}
+INFO:root:memory_channel: 57.7
+INFO:root:EnableButton: True
+INFO:root:Recording: False
+INFO:root:EnableButton: True
+INFO:root:Recording: False
+INFO:root:cpu_channel: {'usage': [97.5, 98.5, 99.0, 99.5, 99.5, 97.5], 'temp': 51.9, 'jetsonBatt': 0.0, 'nucleoBatt': 1.78375}
+INFO:root:memory_channel: 57.7
+INFO:root:EnableButton: True
+INFO:root:Recording: False
+INFO:root:EnableButton: True
+INFO:root:Recording: False
+INFO:root:cpu_channel: {'usage': [98.0, 99.0, 98.5, 99.5, 99.5, 98.0], 'temp': 52.3, 'jetsonBatt': 0.0, 'nucleoBatt': 1.78625}
+INFO:root:memory_channel: 57.9
+INFO:root:EnableButton: True
+INFO:root:Recording: False
+INFO:root:EnableButton: True
+INFO:root:Recording: False
+INFO:root:cpu_channel: {'usage': [97.5, 98.0, 98.0, 98.0, 100.0, 100.0], 'temp': 52.0, 'jetsonBatt': 0.0, 'nucleoBatt': 1.78625}
+INFO:root:memory_channel: 58.0
+INFO:root:EnableButton: True
+INFO:root:Recording: False
+INFO:root:EnableButton: True
+INFO:root:Recording: False
+INFO:root:cpu_channel: {'usage': [97.5, 100.0, 99.0, 98.0, 99.5, 99.5], 'temp': 52.0, 'jetsonBatt': 0.0, 'nucleoBatt': 1.78625}
+INFO:root:memory_channel: 57.9
+INFO:root:EnableButton: True
+INFO:root:Recording: False
+INFO:root:Received message: {"Name": "Klem", "Value": "30"}
+INFO:root:30
+INFO:root:@kl:30;;
+
+INFO:root:@instant:1;;
+
+INFO:root:InstantConsumption: 0.001
+INFO:root:@battery:1;;
+
+INFO:root:BatteryLvl: 0
+INFO:root:@imu:-5.937;7.187;31.945;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@resourceMonitor:1;;
+
+INFO:root:EnableButton: True
+INFO:root:@imu:-5.937;7.187;31.945;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:Recording: False
+INFO:root:@imu:-5.937;7.187;31.945;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@instant:1;;
+
+INFO:root:InstantConsumption: 0.001
+INFO:root:@imu:-5.937;7.187;31.945;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:cpu_channel: {'usage': [97.4, 99.5, 98.0, 99.0, 99.5, 99.0], 'temp': 52.2, 'jetsonBatt': 0.0, 'nucleoBatt': 1.78625}
+INFO:root:memory_channel: 58.0
+INFO:root:@imu:-5.937;7.187;31.945;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;31.945;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;31.945;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:EnableButton: True
+INFO:root:Recording: False
+INFO:root:@imu:-5.937;7.187;31.945;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;31.945;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;31.945;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;31.945;0.000;0.000;0.000;;
+
+INFO:root:EnableButton: True
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:Recording: False
+INFO:root:@imu:-5.937;7.187;31.945;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;31.945;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@instant:1;;
+
+INFO:root:InstantConsumption: 0.001
+INFO:root:@imu:-5.937;7.187;31.945;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;31.945;0.000;0.000;0.000;;
+
+INFO:root:cpu_channel: {'usage': [99.0, 99.0, 100.0, 98.0, 99.0, 99.5], 'temp': 52.3, 'jetsonBatt': 0.0, 'nucleoBatt': 1.78625}
+INFO:root:memory_channel: 57.8
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;31.945;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;31.945;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:EnableButton: True
+INFO:root:Recording: False
+INFO:root:@imu:-5.937;7.187;31.945;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;31.945;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@instant:1;;
+
+INFO:root:InstantConsumption: 0.001
+INFO:root:@imu:-5.937;7.187;31.945;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;31.945;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;31.945;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;31.945;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:EnableButton: True
+INFO:root:Recording: False
+INFO:root:@imu:-5.937;7.187;31.945;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;31.945;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@instant:1;;
+
+INFO:root:InstantConsumption: 0.001
+INFO:root:@imu:-5.937;7.187;31.945;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:cpu_channel: {'usage': [95.5, 97.5, 99.0, 98.5, 99.5, 100.0], 'temp': 52.6, 'jetsonBatt': 0.0, 'nucleoBatt': 1.785}
+INFO:root:memory_channel: 58.0
+INFO:root:@imu:-5.937;7.187;31.945;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;31.945;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;31.945;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:Recording: False
+INFO:root:EnableButton: True
+INFO:root:@imu:-5.937;7.187;31.945;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@instant:1;;
+
+INFO:root:InstantConsumption: 0.001
+INFO:root:@imu:-5.937;7.187;31.945;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;31.945;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;31.945;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;31.945;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;31.945;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:Recording: False
+INFO:root:EnableButton: True
+INFO:root:@imu:-5.937;7.187;31.945;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@resourceMonitor:Heap (4.63);Stack (33.55);;
+
+INFO:root:ResourceMonitor: {'heap': '4.63', 'stack': '33.55'}
+INFO:root:cpu_channel: {'usage': [97.0, 98.0, 98.0, 99.0, 100.0, 100.0], 'temp': 52.7, 'jetsonBatt': 0.0, 'nucleoBatt': 1.78625}
+INFO:root:memory_channel: 58.0
+INFO:root:@imu:-5.937;7.187;31.945;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;31.945;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;31.945;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:Recording: False
+INFO:root:@imu:-5.937;7.187;31.945;0.000;0.000;0.000;;
+
+INFO:root:EnableButton: True
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;31.945;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;31.945;0.000;0.000;0.000;;
+
+INFO:root:@imu:-5.937;7.187;31.945;0.022;0.016;0.012;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.022', 'accely': '0.016', 'accelz': '0.012'}
+INFO:root:@imu:-5.937;7.187;31.945;0.022;0.016;0.012;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.022', 'accely': '0.016', 'accelz': '0.012'}
+INFO:root:@imu:-5.937;7.187;31.945;0.022;0.016;0.012;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.022', 'accely': '0.016', 'accelz': '0.012'}
+INFO:root:@imu:-5.937;7.187;31.945;0.022;0.016;0.012;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.022', 'accely': '0.016', 'accelz': '0.012'}
+INFO:root:Recording: False
+INFO:root:EnableButton: True
+INFO:root:@imu:-5.937;7.187;31.945;0.022;0.016;0.012;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.022', 'accely': '0.016', 'accelz': '0.012'}
+INFO:root:@imu:-5.937;7.187;31.945;0.022;0.016;0.012;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.022', 'accely': '0.016', 'accelz': '0.012'}
+INFO:root:@instant:1;;
+
+INFO:root:InstantConsumption: 0.001
+INFO:root:@imu:-5.937;7.187;31.945;0.022;0.016;0.012;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.022', 'accely': '0.016', 'accelz': '0.012'}
+INFO:root:@imu:-5.937;7.187;31.945;0.022;0.016;0.012;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.022', 'accely': '0.016', 'accelz': '0.012'}
+INFO:root:cpu_channel: {'usage': [98.0, 98.0, 99.0, 97.5, 100.0, 100.0], 'temp': 53.0, 'jetsonBatt': 0.0, 'nucleoBatt': 1.78375}
+INFO:root:memory_channel: 57.9
+INFO:root:@imu:-5.937;7.187;31.945;0.022;0.016;0.012;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.022', 'accely': '0.016', 'accelz': '0.012'}
+INFO:root:@imu:-5.937;7.187;31.945;0.022;0.016;0.012;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.022', 'accely': '0.016', 'accelz': '0.012'}
+INFO:root:@imu:-5.937;7.187;31.945;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:Recording: False
+INFO:root:EnableButton: True
+INFO:root:@imu:-5.937;7.187;31.945;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@instant:1;;
+
+INFO:root:InstantConsumption: 0.001
+INFO:root:@imu:-5.937;7.187;31.945;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;31.945;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;31.945;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;31.945;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;31.945;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:Recording: False
+INFO:root:EnableButton: True
+INFO:root:@imu:-5.937;7.187;31.945;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@instant:1;;
+
+INFO:root:InstantConsumption: 0.001
+INFO:root:@imu:-5.937;7.187;31.945;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:cpu_channel: {'usage': [98.5, 97.0, 98.0, 97.5, 100.0, 100.0], 'temp': 52.8, 'jetsonBatt': 0.0, 'nucleoBatt': 1.78375}
+INFO:root:memory_channel: 58.0
+INFO:root:@imu:-5.937;7.187;31.945;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;31.945;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '31.945', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.024;0.001;0.021;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.024', 'accely': '0.001', 'accelz': '0.021'}
+INFO:root:Recording: False
+INFO:root:EnableButton: True
+INFO:root:@imu:-5.875;7.187;32.007;0.024;0.001;0.021;;
+
+INFO:root:ImuData: {'roll': '-5.875', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.024', 'accely': '0.001', 'accelz': '0.021'}
+INFO:root:@imu:-5.875;7.187;32.007;0.024;0.001;0.021;;
+
+INFO:root:ImuData: {'roll': '-5.875', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.024', 'accely': '0.001', 'accelz': '0.021'}
+INFO:root:@resourceMonitor:Heap (4.63);Stack (33.55);;
+
+INFO:root:ResourceMonitor: {'heap': '4.63', 'stack': '33.55'}
+INFO:root:@imu:-5.937;7.187;32.007;0.024;0.001;0.021;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.024', 'accely': '0.001', 'accelz': '0.021'}
+INFO:root:@imu:-5.937;7.187;32.007;0.024;0.001;0.021;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.024', 'accely': '0.001', 'accelz': '0.021'}
+INFO:root:@imu:-5.937;7.187;32.007;0.024;0.001;0.021;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.024', 'accely': '0.001', 'accelz': '0.021'}
+INFO:root:@imu:-5.937;7.187;32.007;0.024;0.001;0.021;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.024', 'accely': '0.001', 'accelz': '0.021'}
+INFO:root:Recording: False
+INFO:root:EnableButton: True
+INFO:root:@imu:-5.937;7.187;32.007;0.024;0.001;0.021;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.024', 'accely': '0.001', 'accelz': '0.021'}
+INFO:root:@instant:1;;
+
+INFO:root:InstantConsumption: 0.001
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:cpu_channel: {'usage': [97.5, 96.0, 99.5, 99.5, 100.0, 100.0], 'temp': 52.9, 'jetsonBatt': 0.0, 'nucleoBatt': 1.78625}
+INFO:root:memory_channel: 58.0
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:Recording: False
+INFO:root:EnableButton: True
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@instant:1;;
+
+INFO:root:InstantConsumption: 0.001
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:Recording: False
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:EnableButton: True
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:cpu_channel: {'usage': [98.0, 99.0, 97.9, 98.5, 100.0, 100.0], 'temp': 53.2, 'jetsonBatt': 0.0, 'nucleoBatt': 1.7875}
+INFO:root:memory_channel: 57.9
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:Recording: False
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:EnableButton: True
+INFO:root:@instant:1;;
+
+INFO:root:InstantConsumption: 0.001
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:Recording: False
+INFO:root:EnableButton: True
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:cpu_channel: {'usage': [96.5, 98.5, 100.0, 97.5, 100.0, 100.0], 'temp': 53.4, 'jetsonBatt': 0.0, 'nucleoBatt': 1.78625}
+INFO:root:memory_channel: 57.9
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:Recording: False
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@instant:1;;
+
+INFO:root:EnableButton: True
+INFO:root:InstantConsumption: 0.001
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:Recording: False
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@instant:1;;
+
+INFO:root:InstantConsumption: 0.001
+INFO:root:EnableButton: True
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:cpu_channel: {'usage': [96.5, 96.5, 98.0, 98.5, 100.0, 100.0], 'temp': 53.3, 'jetsonBatt': 0.0, 'nucleoBatt': 1.78625}
+INFO:root:memory_channel: 57.9
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.001;0.024;0.010;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.001', 'accely': '0.024', 'accelz': '0.010'}
+INFO:root:@imu:-5.937;7.187;32.007;0.001;0.024;0.010;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.001', 'accely': '0.024', 'accelz': '0.010'}
+INFO:root:Recording: False
+INFO:root:@imu:-5.937;7.187;32.007;0.001;0.024;0.010;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.001', 'accely': '0.024', 'accelz': '0.010'}
+INFO:root:@instant:1;;
+
+INFO:root:InstantConsumption: 0.001
+INFO:root:@imu:-5.937;7.187;32.007;0.001;0.024;0.010;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.001', 'accely': '0.024', 'accelz': '0.010'}
+INFO:root:EnableButton: True
+INFO:root:@imu:-5.937;7.187;32.007;0.001;0.024;0.010;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.001', 'accely': '0.024', 'accelz': '0.010'}
+INFO:root:@imu:-5.937;7.187;32.007;0.001;0.024;0.010;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.001', 'accely': '0.024', 'accelz': '0.010'}
+INFO:root:@imu:-5.937;7.187;32.007;0.001;0.024;0.010;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.001', 'accely': '0.024', 'accelz': '0.010'}
+INFO:root:@imu:-5.937;7.187;32.007;0.001;0.024;0.010;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.001', 'accely': '0.024', 'accelz': '0.010'}
+INFO:root:@imu:-5.937;7.187;32.007;0.001;0.024;0.010;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.001', 'accely': '0.024', 'accelz': '0.010'}
+INFO:root:Recording: False
+INFO:root:@imu:-5.937;7.187;32.007;0.001;0.024;0.010;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.001', 'accely': '0.024', 'accelz': '0.010'}
+INFO:root:@instant:1;;
+
+INFO:root:InstantConsumption: 0.001
+INFO:root:EnableButton: True
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:cpu_channel: {'usage': [93.4, 99.5, 98.0, 97.5, 100.0, 100.0], 'temp': 53.6, 'jetsonBatt': 0.0, 'nucleoBatt': 1.78375}
+INFO:root:memory_channel: 57.9
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:Recording: False
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@battery:8000;;
+
+INFO:root:BatteryLvl: 67
+INFO:root:EnableButton: True
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:Recording: False
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@instant:1;;
+
+INFO:root:InstantConsumption: 0.001
+INFO:root:EnableButton: True
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:cpu_channel: {'usage': [95.9, 98.0, 98.5, 99.0, 99.0, 99.0], 'temp': 53.8, 'jetsonBatt': 0.0, 'nucleoBatt': 1.7875}
+INFO:root:memory_channel: 57.9
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:Recording: False
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@instant:1;;
+
+INFO:root:InstantConsumption: 0.001
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:EnableButton: True
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:Recording: False
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:EnableButton: True
+INFO:root:cpu_channel: {'usage': [97.0, 98.5, 99.0, 99.0, 100.0, 100.0], 'temp': 54.1, 'jetsonBatt': 0.0, 'nucleoBatt': 1.78625}
+INFO:root:memory_channel: 57.9
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:Recording: False
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@instant:1;;
+
+INFO:root:InstantConsumption: 0.001
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:EnableButton: True
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:Recording: False
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@resourceMonitor:Heap (4.63);Stack (33.55);;
+
+INFO:root:ResourceMonitor: {'heap': '4.63', 'stack': '33.55'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:EnableButton: True
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:cpu_channel: {'usage': [98.0, 98.0, 98.5, 97.5, 100.0, 100.0], 'temp': 53.9, 'jetsonBatt': 0.0, 'nucleoBatt': 1.785}
+INFO:root:memory_channel: 57.9
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:Recording: False
+INFO:root:@instant:1;;
+
+INFO:root:InstantConsumption: 0.001
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:EnableButton: True
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:Recording: False
+INFO:root:@instant:1;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:InstantConsumption: 0.001
+INFO:root:cpu_channel: {'usage': [95.9, 95.9, 96.4, 96.4, 100.0, 99.0], 'temp': 54.0, 'jetsonBatt': 0.0, 'nucleoBatt': 1.785}
+INFO:root:memory_channel: 57.9
+INFO:root:EnableButton: True
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:Recording: False
+INFO:root:@instant:1;;
+
+INFO:root:InstantConsumption: 0.001
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:EnableButton: True
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@instant:1;;
+
+INFO:root:InstantConsumption: 0.001
+INFO:root:Recording: False
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:cpu_channel: {'usage': [96.5, 98.0, 98.5, 98.0, 100.0, 100.0], 'temp': 54.4, 'jetsonBatt': 0.0, 'nucleoBatt': 1.785}
+INFO:root:memory_channel: 57.9
+INFO:root:EnableButton: True
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@instant:1;;
+
+INFO:root:Recording: False
+INFO:root:InstantConsumption: 0.001
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:EnableButton: True
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:Recording: False
+INFO:root:@instant:1;;
+
+INFO:root:InstantConsumption: 0.001
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:cpu_channel: {'usage': [95.5, 99.5, 99.0, 99.0, 99.5, 96.0], 'temp': 54.5, 'jetsonBatt': 0.0, 'nucleoBatt': 1.78375}
+INFO:root:memory_channel: 58.0
+INFO:root:EnableButton: True
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:Recording: False
+INFO:root:@instant:1;;
+
+INFO:root:InstantConsumption: 0.001
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:EnableButton: True
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:@instant:1;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:InstantConsumption: 0.001
+INFO:root:Recording: False
+INFO:root:Received message: {"Name": "Klem", "Value": "0"}
+INFO:root:0
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:cpu_channel: {'usage': [97.0, 100.0, 98.5, 100.0, 98.0, 98.5], 'temp': 54.3, 'jetsonBatt': 0.0, 'nucleoBatt': 1.7875}
+INFO:root:memory_channel: 58.0
+INFO:root:@kl:0;;
+
+INFO:root:EnableButton: True
+INFO:root:Recording: False
+INFO:root:EnableButton: True
+INFO:root:Received message: {"Name": "Klem", "Value": "30"}
+INFO:root:30
+INFO:root:@kl:30;;
+
+INFO:root:@instant:1;;
+
+INFO:root:InstantConsumption: 0.001
+INFO:root:@battery:1;;
+
+INFO:root:BatteryLvl: 0
+INFO:root:@imu:1;;
+
+INFO:root:ImuAck: 1
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@resourceMonitor:1;;
+
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:Recording: False
+INFO:root:@instant:1;;
+
+INFO:root:InstantConsumption: 0.001
+INFO:root:Received message: {"Name": "Klem", "Value": "0"}
+INFO:root:0
+INFO:root:cpu_channel: {'usage': [99.5, 99.0, 100.0, 98.5, 96.9, 98.0], 'temp': 54.3, 'jetsonBatt': 0.0, 'nucleoBatt': 1.785}
+INFO:root:memory_channel: 57.9
+INFO:root:EnableButton: True
+INFO:root:@kl:0;;
+
+INFO:root:Received message: {"Name": "Klem", "Value": "30"}
+INFO:root:30
+INFO:root:@kl:30;;
+
+INFO:root:@instant:1;;
+
+INFO:root:InstantConsumption: 0.001
+INFO:root:@battery:1;;
+
+INFO:root:BatteryLvl: 0
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:1;;
+
+INFO:root:ImuAck: 1
+INFO:root:@resourceMonitor:1;;
+
+INFO:root:@instant:1;;
+
+INFO:root:InstantConsumption: 0.001
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:Recording: False
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@vcd:0;0;0;;
+
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:Received message: {"Name": "Klem", "Value": "0"}
+INFO:root:0
+INFO:root:@kl:0;;
+
+INFO:root:EnableButton: True
+INFO:root:Received message: {"Name": "Klem", "Value": "30"}
+INFO:root:30
+INFO:root:@kl:30;;
+
+INFO:root:@instant:1;;
+
+INFO:root:InstantConsumption: 0.001
+INFO:root:@battery:1;;
+
+INFO:root:BatteryLvl: 0
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@resourceMonitor:1;;
+
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:Received message: {"Name": "Klem", "Value": "0"}
+INFO:root:0
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:Recording: False
+INFO:root:@kl:0;;
+
+INFO:root:cpu_channel: {'usage': [99.0, 94.5, 97.5, 99.5, 98.5, 98.0], 'temp': 54.5, 'jetsonBatt': 0.0, 'nucleoBatt': 1.785}
+INFO:root:memory_channel: 57.9
+INFO:root:Received message: {"Name": "Klem", "Value": "30"}
+INFO:root:30
+INFO:root:@kl:30;;
+
+INFO:root:@instant:1;;
+
+INFO:root:InstantConsumption: 0.001
+INFO:root:@battery:1;;
+
+INFO:root:BatteryLvl: 0
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:1;;
+
+INFO:root:ImuAck: 1
+INFO:root:@resourceMonitor:1;;
+
+INFO:root:EnableButton: True
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@vcd:0;0;0;;
+
+INFO:root:Received message: {"Name": "Klem", "Value": "0"}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:0
+INFO:root:@kl:0;;
+
+INFO:root:Recording: False
+INFO:root:Received message: {"Name": "Klem", "Value": "30"}
+INFO:root:30
+INFO:root:@kl:30;;
+
+INFO:root:@instant:1;;
+
+INFO:root:InstantConsumption: 0.001
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:1;;
+
+INFO:root:ImuAck: 1
+INFO:root:@resourceMonitor:1;;
+
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@vcd:0;0;0;;
+
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:Received message: {"Name": "Klem", "Value": "0"}
+INFO:root:0
+INFO:root:EnableButton: True
+INFO:root:@kl:0;;
+
+INFO:root:Received message: {"Name": "Klem", "Value": "30"}
+INFO:root:30
+INFO:root:@kl:30;;
+
+INFO:root:@instant:1;;
+
+INFO:root:InstantConsumption: 0.001
+INFO:root:@instant:1;;
+
+INFO:root:@battery:1;;
+
+INFO:root:InstantConsumption: 0.001
+INFO:root:BatteryLvl: 0
+INFO:root:@imu:1;;
+
+INFO:root:ImuAck: 1
+INFO:root:Recording: False
+INFO:root:@resourceMonitor:1;;
+
+INFO:root:@vcd:0;0;0;;
+
+INFO:root:cpu_channel: {'usage': [96.4, 99.5, 99.5, 100.0, 96.9, 97.4], 'temp': 54.7, 'jetsonBatt': 0.0, 'nucleoBatt': 1.78625}
+INFO:root:memory_channel: 58.0
+INFO:root:Received message: {"Name": "Klem", "Value": "0"}
+INFO:root:0
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@kl:0;;
+
+INFO:root:EnableButton: True
+INFO:root:Received message: {"Name": "Klem", "Value": "30"}
+INFO:root:30
+INFO:root:@kl:30;;
+
+INFO:root:@instant:1;;
+
+INFO:root:InstantConsumption: 0.001
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@battery:1;;
+
+INFO:root:BatteryLvl: 0
+INFO:root:@imu:1;;
+
+INFO:root:ImuAck: 1
+INFO:root:@resourceMonitor:1;;
+
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@resourceMonitor:Heap (4.63);Stack (33.55);;
+
+INFO:root:ResourceMonitor: {'heap': '4.63', 'stack': '33.55'}
+INFO:root:Recording: False
+INFO:root:@vcd:0;0;0;;
+
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:Received message: {"Name": "Klem", "Value": "0"}
+INFO:root:0
+INFO:root:@kl:0;;
+
+INFO:root:EnableButton: True
+INFO:root:Recording: False
+INFO:root:cpu_channel: {'usage': [97.5, 99.5, 98.5, 98.5, 96.4, 98.5], 'temp': 54.5, 'jetsonBatt': 0.0, 'nucleoBatt': 1.785}
+INFO:root:memory_channel: 57.9
+INFO:root:EnableButton: True
+INFO:root:Recording: False
+INFO:root:EnableButton: True
+INFO:root:Recording: False
+INFO:root:cpu_channel: {'usage': [97.5, 98.5, 99.0, 99.5, 98.0, 100.0], 'temp': 54.8, 'jetsonBatt': 0.0, 'nucleoBatt': 1.785}
+INFO:root:memory_channel: 57.9
+INFO:root:EnableButton: True
+INFO:root:Recording: False
+INFO:root:EnableButton: True
+INFO:root:Recording: False
+INFO:root:cpu_channel: {'usage': [96.0, 99.0, 98.5, 98.0, 98.5, 99.5], 'temp': 54.9, 'jetsonBatt': 0.0, 'nucleoBatt': 1.785}
+INFO:root:memory_channel: 58.0
+INFO:root:Received message: {"Name": "Klem", "Value": "30"}
+INFO:root:30
+INFO:root:@kl:30;;
+
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@instant:1;;
+
+INFO:root:InstantConsumption: 0.001
+INFO:root:@battery:1;;
+
+INFO:root:BatteryLvl: 0
+INFO:root:@imu:1;;
+
+INFO:root:ImuAck: 1
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:@resourceMonitor:1;;
+
+INFO:root:EnableButton: True
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@vcd:0;0;0;;
+
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@instant:1;;
+
+INFO:root:InstantConsumption: 0.001
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:Recording: False
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:Received message: {"Name": "Klem", "Value": "0"}
+INFO:root:0
+INFO:root:EnableButton: True
+INFO:root:@kl:0;;
+
+INFO:root:Recording: False
+INFO:root:cpu_channel: {'usage': [97.4, 99.0, 98.0, 99.5, 94.4, 100.0], 'temp': 54.8, 'jetsonBatt': 0.0, 'nucleoBatt': 1.78625}
+INFO:root:memory_channel: 58.0
+INFO:root:EnableButton: True
+INFO:root:Received message: {"Name": "Klem", "Value": "30"}
+INFO:root:30
+INFO:root:@kl:30;;
+
+INFO:root:@instant:1;;
+
+INFO:root:InstantConsumption: 0.001
+INFO:root:@instant:1;;
+
+INFO:root:InstantConsumption: 0.001
+INFO:root:@battery:1;;
+
+INFO:root:BatteryLvl: 0
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:1;;
+
+INFO:root:ImuAck: 1
+INFO:root:@resourceMonitor:1;;
+
+INFO:root:Recording: False
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@vcd:0;0;0;;
+
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:EnableButton: True
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:Received message: {"Name": "Klem", "Value": "0"}
+INFO:root:0
+INFO:root:Recording: False
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:cpu_channel: {'usage': [99.0, 99.5, 98.0, 99.5, 95.4, 98.5], 'temp': 54.9, 'jetsonBatt': 0.0, 'nucleoBatt': 1.785}
+INFO:root:memory_channel: 58.0
+INFO:root:@kl:0;;
+
+INFO:root:EnableButton: True
+INFO:root:Recording: False
+INFO:root:EnableButton: True
+INFO:root:Recording: False
+INFO:root:cpu_channel: {'usage': [99.5, 99.0, 99.5, 99.5, 98.0, 96.5], 'temp': 54.9, 'jetsonBatt': 0.0, 'nucleoBatt': 1.785}
+INFO:root:memory_channel: 58.0
+INFO:root:EnableButton: True
+INFO:root:Recording: False
+INFO:root:EnableButton: True
+INFO:root:Recording: False
+INFO:root:cpu_channel: {'usage': [100.0, 99.5, 100.0, 100.0, 99.0, 98.5], 'temp': 55.4, 'jetsonBatt': 0.0, 'nucleoBatt': 1.785}
+INFO:root:memory_channel: 58.1
+INFO:root:EnableButton: True
+INFO:root:Recording: False
+INFO:root:EnableButton: True
+INFO:root:Recording: False
+INFO:root:cpu_channel: {'usage': [99.5, 98.0, 100.0, 99.0, 96.0, 99.5], 'temp': 55.2, 'jetsonBatt': 0.0, 'nucleoBatt': 1.785}
+INFO:root:memory_channel: 57.9
+INFO:root:EnableButton: True
+INFO:root:Recording: False
+INFO:root:EnableButton: True
+INFO:root:Recording: False
+INFO:root:cpu_channel: {'usage': [98.0, 99.5, 98.5, 98.5, 98.0, 98.5], 'temp': 55.1, 'jetsonBatt': 0.0, 'nucleoBatt': 1.78625}
+INFO:root:memory_channel: 58.0
+INFO:root:Received message: {"Name": "Klem", "Value": "30"}
+INFO:root:30
+INFO:root:@kl:30;;
+
+INFO:root:@instant:1;;
+
+INFO:root:InstantConsumption: 0.001
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@battery:1;;
+
+INFO:root:BatteryLvl: 0
+INFO:root:EnableButton: True
+INFO:root:@imu:1;;
+
+INFO:root:ImuAck: 1
+INFO:root:@resourceMonitor:1;;
+
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@instant:1;;
+
+INFO:root:InstantConsumption: 0.001
+INFO:root:@vcd:0;0;0;;
+
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:Recording: False
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:Received message: {"Name": "Klem", "Value": "0"}
+INFO:root:0
+INFO:root:@imu:-5.937;7.187;32.007;0.000;0.000;0.000;;
+
+INFO:root:ImuData: {'roll': '-5.937', 'pitch': '7.187', 'yaw': '32.007', 'accelx': '0.000', 'accely': '0.000', 'accelz': '0.000'}
+INFO:root:@kl:0;;
+
+INFO:root:EnableButton: True
+INFO:root:Recording: False
+INFO:root:cpu_channel: {'usage': [94.4, 100.0, 98.0, 98.5, 99.5, 93.0], 'temp': 55.2, 'jetsonBatt': 0.0, 'nucleoBatt': 1.7875}
+INFO:root:memory_channel: 58.0
+INFO:root:EnableButton: True
+INFO:root:Recording: False
+INFO:root:EnableButton: True
+INFO:root:Recording: False
+INFO:root:cpu_channel: {'usage': [98.0, 100.0, 99.5, 99.5, 96.5, 98.5], 'temp': 55.5, 'jetsonBatt': 0.0, 'nucleoBatt': 1.7875}
+INFO:root:memory_channel: 58.0
+INFO:root:EnableButton: True
+INFO:root:Recording: False
+INFO:root:EnableButton: True
+INFO:root:cpu_channel: {'usage': [94.9, 98.0, 100.0, 95.9, 98.5, 99.0], 'temp': 55.3, 'jetsonBatt': 0.0, 'nucleoBatt': 1.7875}
+INFO:root:memory_channel: 58.0
+INFO:root:Recording: False
+INFO:root:EnableButton: True
+INFO:root:Recording: False
+INFO:root:EnableButton: True
+INFO:root:cpu_channel: {'usage': [100.0, 100.0, 100.0, 99.5, 98.5, 97.5], 'temp': 55.2, 'jetsonBatt': 0.0, 'nucleoBatt': 1.78625}
+INFO:root:memory_channel: 58.0
+INFO:root:Recording: False
+INFO:root:EnableButton: True
+INFO:root:Recording: False
+INFO:root:EnableButton: True
+INFO:root:cpu_channel: {'usage': [98.0, 100.0, 99.0, 98.0, 94.9, 96.5], 'temp': 55.4, 'jetsonBatt': 0.0, 'nucleoBatt': 1.7875}
+INFO:root:memory_channel: 58.1
+INFO:root:Recording: False
+INFO:root:EnableButton: True
+INFO:root:Recording: False
+INFO:root:EnableButton: True
+INFO:root:cpu_channel: {'usage': [97.5, 100.0, 99.0, 100.0, 98.0, 99.0], 'temp': 55.5, 'jetsonBatt': 0.0, 'nucleoBatt': 1.78875}
+INFO:root:memory_channel: 58.0
+INFO:root:Recording: False
+INFO:root:EnableButton: True
+INFO:root:Recording: False
+INFO:root:EnableButton: True
+INFO:root:cpu_channel: {'usage': [99.0, 99.5, 97.5, 97.5, 100.0, 93.9], 'temp': 55.5, 'jetsonBatt': 0.0, 'nucleoBatt': 1.78375}
+INFO:root:memory_channel: 58.0
+INFO:root:Recording: False
+INFO:root:EnableButton: True
+INFO:root:Recording: False
+INFO:root:EnableButton: True
+INFO:root:cpu_channel: {'usage': [97.0, 99.5, 100.0, 97.5, 100.0, 98.5], 'temp': 55.5, 'jetsonBatt': 0.0, 'nucleoBatt': 1.78625}
+INFO:root:memory_channel: 58.0
+INFO:root:Recording: False
+INFO:root:EnableButton: True
+INFO:root:Recording: False
+INFO:root:EnableButton: True
+INFO:root:cpu_channel: {'usage': [99.0, 100.0, 100.0, 98.5, 96.5, 98.5], 'temp': 55.5, 'jetsonBatt': 0.0, 'nucleoBatt': 1.78625}
+INFO:root:memory_channel: 58.0
+INFO:root:Recording: False
+INFO:root:EnableButton: True
+INFO:root:Recording: False
+INFO:root:EnableButton: True
+INFO:root:cpu_channel: {'usage': [98.0, 99.0, 99.5, 98.5, 99.0, 98.5], 'temp': 55.6, 'jetsonBatt': 0.0, 'nucleoBatt': 1.78625}
+INFO:root:memory_channel: 57.9
+INFO:root:Recording: False
 WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
 WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
