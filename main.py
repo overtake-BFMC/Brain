@@ -93,6 +93,9 @@ LaneDetection = True
 PathFollowing = True
 # ------ New component flags ends here ------#
 
+#Log the start of the instance
+logging.info(f"Starting Brain instance...")
+
 # ===================================== SETUP PROCESSES ==================================
 
 # Initializing gateway
@@ -109,7 +112,7 @@ IpChanger.replace_ip_in_file()
 
 # Initializing dashboard
 if Dashboard:
-    processDashboard = processDashboard( queueList, logging, debugging = True)
+    processDashboard = processDashboard( queueList, logging, debugging = False)
     allProcesses.append(processDashboard)
 
 # Initializing camera
@@ -121,6 +124,10 @@ if LaneDetection:
     processLaneDetection = processLaneDetection(queueList, logging, debugging = False)
     allProcesses.append(processLaneDetection)
 
+if PathFollowing:
+    processPathFollowing = processPathFollowing(queueList, logging, debugging = False)
+    allProcesses.append(processPathFollowing)
+
 if webRTC:
     processWebRTC = processWebRTC(queueList, logging, debugging= False)
     allProcesses.append(processWebRTC)
@@ -128,10 +135,6 @@ if webRTC:
 if streamRTC:
     processStreamRTC = processStreamRTC(queueList, logging, debugging= False)
     allProcesses.append(processStreamRTC)
-
-if PathFollowing:
-    processPathFollowing = processPathFollowing(queueList, logging, debugging = False)
-    allProcesses.append(processPathFollowing)
 
 # Initializing semaphores
 if Semaphores:
@@ -145,7 +148,7 @@ if TrafficCommunication:
 
 # Initializing serial connection NUCLEO - > PI
 if SerialHandler:
-    processSerialHandler = processSerialHandler(queueList, logging, debugging = True)
+    processSerialHandler = processSerialHandler(queueList, logging, debugging = False)
     allProcesses.append(processSerialHandler)
 
 # ------ New component runs starts here ------#
@@ -156,8 +159,9 @@ if SerialHandler:
 for process in allProcesses:
     process.daemon = True
     process.start()
+    time.sleep(2)
 
-time.sleep(10)
+time.sleep(5)
 c4_bomb = r"""
   _______________________
  /                       \
@@ -196,6 +200,7 @@ except KeyboardInterrupt:
     processSharedMemoryGateway.stop()
     print("Process stopped", processGateway)
     processGateway.stop()
+    logging.info("Stopped Brain instance...")
 
     big_text = """
     PPPP   RRRR   EEEEE  SSSS  SSSS       CCCC  TTTTT RRRR    L          ++      CCCC      !!! 

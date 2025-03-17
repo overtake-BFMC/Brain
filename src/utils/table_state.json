@@ -82,6 +82,21 @@
         "hasChanged": false
     },
     {
+        "channel": "SelectTrackNo",
+        "value": "Track1",
+        "initialValue": "Track1",
+        "interval": 0,
+        "type": "dropdown",
+        "values": [
+            "None",
+            "Track1",
+            "Track2",
+            "Track3"
+        ],
+        "checked": true,
+        "hasChanged": false
+    },
+    {
         "channel": "init",
         "type": "Config",
         "batteryCapacity": {

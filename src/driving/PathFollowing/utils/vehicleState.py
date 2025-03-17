@@ -2,7 +2,7 @@
 class vehicleState:
 
     wheelbase = 26
-    centerOfMass = 16 #from the rear wheels
+    #centerOfMass = 16 #from the rear wheels
     steeringAngle = 0
     speed = 0
     
@@ -28,10 +28,19 @@ class vehicleState:
     def setSpeed(self, speed):
         self.speed = speed
 
+    def getSpeed(self):
+        return self.speed
+
+    def setSteeringAngle(self, steer):
+        self.steeringAngle = steer
+
     def setPosition(self, x, y, yaw):
         self.x = x
         self.y = y
         self.yaw = yaw
 
     def getPosition(self):
-        return self.x, self.y
+        return self.x, self.y, self.yaw
+
+    def getSpeedSteerWheelbase(self):
+        return self.speed, self.steeringAngle, self.wheelbase

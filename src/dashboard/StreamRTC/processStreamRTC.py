@@ -95,6 +95,7 @@ class processStreamRTC(WorkerProcess):
         pc.addTrack(trackStream(self.queuesList, self.logging, debugging = False))
         #player = MediaPlayer(self.dir_path + '/demo-instruct.wav')
         #pc.addTrack(player.audio)
+        log_info("Created track stream")
         await pc.setRemoteDescription(RTCSessionDescription(sdp=RTCoffer, type='offer'))
         answer = await pc.createAnswer()
         await pc.setLocalDescription(answer)

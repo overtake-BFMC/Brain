@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Subscription, interval } from 'rxjs';
+import { takeWhile } from 'rxjs/operators';
 import { WebSocketService } from '../webSocket/web-socket.service';
 
 @Injectable({
@@ -7,53 +9,87 @@ import { WebSocketService } from '../webSocket/web-socket.service';
 export class WebRTCService {
   private peerConnection!: RTCPeerConnection;
   private videoElement!: HTMLVideoElement;
+  private WebRTCAnswerSubscription: Subscription | undefined;
+  private IceCandidateSubscription: Subscription | undefined;
+  private offerSubscription: Subscription | null = null;
+  private isConnected = false;
 
   constructor(private webSocketService: WebSocketService) {
-    this.webSocketService.receiveUnhandledEvents().subscribe(({ channel, data }) => {
-      if (channel === 'WebRTCAnswer') {
-        this.handleAnswer(data.value);
-      } else if (channel === 'ice_candidate') {
-        this.handleIceCandidate(data);
+    // this.webSocketService.receiveUnhandledEvents().subscribe(({ channel, data }) => {
+    //   if (channel === 'WebRTCAnswer') {
+    //     this.handleAnswer(data.value);
+    //   } else if (channel === 'ice_candidate') {
+    //     this.handleIceCandidate(data);
+    //   }
+    // });
+
+    this.WebRTCAnswerSubscription = this.webSocketService.receiveWebRTCAnswer().subscribe(
+      (message) => {
+        this.handleAnswer(message.value)
+      },
+      (error) => {
+        console.error('Error receiving RTC data: ', error)
       }
-    });
+    );
+
+    this.IceCandidateSubscription = this.webSocketService.receiveICECandidate().subscribe(
+      (message) => {
+        this.handleIceCandidate(message)
+      },
+      (error) => {
+        console.error('Error getting ICE Candidate: ', error)
+      }
+    );
 
     this.peerConnection = new RTCPeerConnection({
         iceServers: []
       });
 
-      this.peerConnection.onicecandidate = (event) => {
-        if (event.candidate) {
-          console.log('Generated ICE candidate:', event.candidate);
-          //this.webSocketService.sendIceCandidateToFlask({ candidate: event.candidate });
-          //this.webSocketService.sendMessageToFlask(`{"Name": "ICECandidate", "Value": "${event.candidate}"}`);
-        }
-        };
+    this.peerConnection.onicecandidate = (event) => {
+      if (event.candidate) {
+        console.log('Generated ICE candidate:', event.candidate);
+        //this.webSocketService.sendIceCandidateToFlask({ candidate: event.candidate });
+        //this.webSocketService.sendMessageToFlask(`{"Name": "ICECandidate", "Value": "${event.candidate}"}`);
+      }
+    };
   
       // Log ICE candidate errors
-      this.peerConnection.onicecandidateerror = (event) => {
-        console.error('ICE candidate error:', event);
-      };
+    this.peerConnection.onicecandidateerror = (event) => {
+      console.error('ICE candidate error:', event);
+    };
   
       // Log connection state changes
-      this.peerConnection.onconnectionstatechange = () => {
-        console.log('Peer Connection state:', this.peerConnection.connectionState);
-      };
+    this.peerConnection.onconnectionstatechange = () => {
+      console.log('Peer Connection state:', this.peerConnection.connectionState);
+      if(this.peerConnection.connectionState == 'connected') {
+        this.onPeerConnected();
+      } 
+    };
   
       // Log signaling state changes
-      this.peerConnection.onsignalingstatechange = () => {
-        console.log('Signaling state:', this.peerConnection.signalingState);
-      };
+    this.peerConnection.onsignalingstatechange = () => {
+      console.log('Signaling state:', this.peerConnection.signalingState);
+    };
 
-      this.peerConnection.oniceconnectionstatechange = () => {
-        console.log("ICE Connection State: ", this.peerConnection.iceConnectionState);
-      };
+    this.peerConnection.oniceconnectionstatechange = () => {
+      console.log("ICE Connection State: ", this.peerConnection.iceConnectionState);
+    };
 
-      this.peerConnection.onicegatheringstatechange = () => {
-        if (this.peerConnection.iceGatheringState === 'complete') {
-          console.log("ICE gathering complete.");
-          console.log("FINAL SDP OFFER: ", this.peerConnection.localDescription)
+    this.peerConnection.onicegatheringstatechange = () => {
+      if (this.peerConnection.iceGatheringState === 'complete') {
+        console.log("ICE gathering complete.");
+        console.log("FINAL SDP OFFER: ", this.peerConnection.localDescription)
+      }
+    };
+
+    this.peerConnection.ontrack = (event) => {
+      if (event.streams.length > 0) {
+        console.log('Remote stream received:', event.streams[0]);
+        if (this.videoElement) {
+          this.videoElement.srcObject = event.streams[0];
         }
-      };
+      }
+    };
   }
 
   async handleAnswer(data: RTCSessionDescriptionInit) {
@@ -96,60 +132,55 @@ export class WebRTCService {
     this.peerConnection.addTransceiver('video', { direction: 'recvonly' });
     this.peerConnection.addTransceiver('audio', { direction: 'recvonly' });
 
-    const offer = await this.peerConnection.createOffer();
-    await this.peerConnection.setLocalDescription(offer);
-    /*
-    this.peerConnection.createOffer()
-      .then((offer) => this.peerConnection.setLocalDescription(offer))
-      .then(() => {
-        return new Promise<void>((resolve) => {
-          if (this.peerConnection.iceGatheringState === 'complete') {
-            resolve();
-          } else {
-            const checkState = () => {
-              if (this.peerConnection.iceGatheringState === 'complete') {
-                this.peerConnection.removeEventListener('icegatheringstatechange', checkState);
-                resolve();
-              }
-            };
-            this.peerConnection.addEventListener('icegatheringstatechange', checkState);
-          }
-        });
-      })
-      .then(() => {
-        const offer = this.peerConnection.localDescription;
-        if (!offer) return;
-  
-        return fetch('http://192.168.66.155:8085/offer', {
-          body: JSON.stringify({
-            sdp: offer.sdp,
-            type: offer.type,
-            video_transform: "none"
-          }),
-          headers: { 'Content-Type': 'application/json' },
-          method: 'POST'
-        });
-      })
-      .then(response => response?.json())
-      .then(answer => {
-        if (answer) {
-          (document.getElementById('answer-sdp') as HTMLElement).textContent = answer.sdp;
-          return this.peerConnection.setRemoteDescription(answer);
-        }
-        return
-      })
-      .catch((error) => {
-        alert(error);
-      });
-      */
-    this.webSocketService.sendOfferToFlask({sdp: this.peerConnection.localDescription?.sdp , type: this.peerConnection.localDescription?.type});
-    //this.webSocketService.sendMessageToFlask(`{"Name": "WebRTCOffer", "Value": "'${offer.sdp}'"}`);
+    this.startOfferLoop();
 
+    //const offer = await this.peerConnection.createOffer();
+    //await this.peerConnection.setLocalDescription(offer);
+    
+    //this.webSocketService.sendOfferToFlask({sdp: this.peerConnection.localDescription?.sdp , type: this.peerConnection.localDescription?.type});
+    /*
     this.peerConnection.ontrack = (event) => {
       if (event.streams.length > 0) {
         console.log("Remote stream received:", event.streams[0]);
         this.videoElement.srcObject = event.streams[0];
       }
     };
+    */
+  }
+
+  private startOfferLoop(): void {
+    if (this.offerSubscription) {
+      this.offerSubscription.unsubscribe();
+    }
+
+    this.offerSubscription = interval(2000)
+      .pipe(takeWhile(() => !this.isConnected))
+      .subscribe(() => this.sendOffer());
+  }
+
+  private async sendOffer(): Promise<void> {
+    try {
+      const offer = await this.peerConnection.createOffer();
+      await this.peerConnection.setLocalDescription(offer);
+      console.log('Sending SDP Offer!');
+
+      this.webSocketService.sendOfferToFlask({
+        sdp: this.peerConnection.localDescription?.sdp,
+        type: this.peerConnection.localDescription?.type,
+      });
+    } catch (error) {
+      console.error('Failed to create or send offer: ', error);
+    }
+  }
+
+  private stopOfferLoop(): void {
+    this.offerSubscription?.unsubscribe();
+    this.offerSubscription = null;
+  }
+
+  private onPeerConnected(): void {
+    this.isConnected = true;
+    this.stopOfferLoop();
+    console.log('Peer successfully connected. Stopping SDP offers.')
   }
 }

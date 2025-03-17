@@ -1,8 +1,10 @@
 from src.templates.threadwithstop import ThreadWithStop
 from src.utils.messages.allMessages import (
-    createShMem,
-    getShMem,
-    releaseShMem,
+    #createShMem,
+    #getShMem,
+    #releaseShMem,
+    #getVehicleStateObj,
+    ShMemConfig,
     ShMemResponse,
     )
 from src.utils.messages.messageHandlerSubscriber import messageHandlerSubscriber
@@ -11,7 +13,7 @@ from multiprocessing.shared_memory import SharedMemory
 from multiprocessing import Lock, Manager
 import numpy as np
 from typing import Dict, Tuple, Type
-from multiprocessing.resource_tracker import _resource_tracker
+import time
 
 SharedMemoryBlock = Dict[str, Tuple[SharedMemory, Lock]]
 LockType = Lock
@@ -24,7 +26,7 @@ class threadSharedMemoryGateway(ThreadWithStop):
         debugging (bool, optional): A flag for debugging. Defaults to False.
     """
 
-    def __init__(self, queueList, logging, manager, debugging=False):
+    def __init__(self, queueList, logging, manager, vehicleManager, debugging=False):
         self.queuesList = queueList
         self.logging = logging
         self.debugging = debugging
@@ -32,7 +34,11 @@ class threadSharedMemoryGateway(ThreadWithStop):
         self.manager = manager
         self.subscribe()
 
+        self.vehicleManager = vehicleManager
+        self.vehicleState = self.vehicleManager.vehicleState()
+
         self.ShMemResponseSender = messageHandlerSender(self.queuesList, ShMemResponse)
+        
         super(threadSharedMemoryGateway, self).__init__()
 
     def creteSharedMemory(self, name: str, shape: Tuple[int, int, int], dtype: str):
@@ -75,38 +81,86 @@ class threadSharedMemoryGateway(ThreadWithStop):
         #The config through the seperate queue??? or the critical level queue to properly configure it
         #
 
+    # def run(self):
+    #     while self._running:
+    #         createShMemResp = self.createShMemSubscriber.receive()
+    #         if createShMemResp is not None:
+    #             name = createShMemResp.get("name")
+    #             shape = createShMemResp.get("shape")
+    #             dtype = createShMemResp.get("dtype")
+    #             dest = createShMemResp.get("owner")
+    #             try:
+    #                 shm, lock = self.creteSharedMemory(name, shape, dtype)
+    #                 self.ShMemResponseSender.send({"status": 0 , "name": name, "lock": lock, "dest": dest})
+    #             except Exception as e:
+    #                 self.logging.warning(str(e))
+
+    #         getShMemResp = self.getShMemSubscriber.receive()
+    #         if getShMemResp is not None:
+    #             try:
+    #                 name = getShMemResp.get("name")
+    #                 dest = getShMemResp.get("owner")
+    #                 shm, lock = self.getSharedMemory(name)
+    #                 self.ShMemResponseSender.send({"status": 1 , "name": name, "lock": lock, "dest": dest})
+    #             except Exception as e:
+    #                 self.logging.warning(str(e))
+
+    #         releaseShMemResp = self.releaseShMemSubscriber.receive()
+    #         if releaseShMemResp is not None:
+    #             try:
+    #                 name = getShMemResp
+    #                 self.releaseSharedMemory(name)
+    #                 self.ShMemResponseSender.send({"status": 2 , "name": name})
+    #             except Exception as e:
+    #                 self.logging.warning(str(e))
+
+    #         #print(self.sharedMemoryBlocks.keys())
+
+    #         getVehicleStateObjResp = self.getVehicleStateObjSubscriber.receive()
+    #         if getVehicleStateObjResp is not None:
+    #             try:
+    #                 dest = getVehicleStateObjResp
+    #                 self.ShMemResponseSender.send({"status": 3 , "vehicleState": self.vehicleState, "dest": dest})
+    #             except Exception as e:
+    #                 self.logging.warning(str(e))
     def run(self):
         while self._running:
-            createShMemResp = self.createShMemSubscriber.receive()
-            if createShMemResp is not None:
-                name = createShMemResp.get("name")
-                shape = createShMemResp.get("shape")
-                dtype = createShMemResp.get("dtype")
-                try:
-                    shm, lock = self.creteSharedMemory(name, shape, dtype)
-                    self.ShMemResponseSender.send({"status": 0 , "name": name, "lock": lock})
-                except Exception as e:
-                    self.logging.warning(str(e))
+            shMemConfigResp = self.shMemConfigSubscriber.receive()
+            if shMemConfigResp is not None:
+                action = shMemConfigResp.get("action")
+                if action == "createShMem":
+                    try:
+                        name = shMemConfigResp.get("name")
+                        shape = shMemConfigResp.get("shape")
+                        dtype = shMemConfigResp.get("dtype")
+                        dest = shMemConfigResp.get("owner")
+                        shm, lock = self.creteSharedMemory(name, shape, dtype)
+                        self.ShMemResponseSender.send({"status": 0 , "name": name, "lock": lock, "dest": dest})
+                    except Exception as e:
+                        self.logging.warning(str(e))
+                elif action == "getShMem":
+                    try:
+                        name = shMemConfigResp.get("name")
+                        dest = shMemConfigResp.get("owner")
+                        shm, lock = self.getSharedMemory(name)
+                        self.ShMemResponseSender.send({"status": 1 , "name": name, "lock": lock, "dest": dest})
+                    except Exception as e:
+                        self.logging.warning(str(e))
+                elif action == "releaseShMem":
+                    try:
+                        name = shMemConfigResp.get("name")
+                        self.releaseSharedMemory(name)
+                        self.ShMemResponseSender.send({"status": 2 , "name": name})
+                    except Exception as e:
+                        self.logging.warning(str(e))
+                elif action == "getVehicleState":
+                    try:
+                        dest = shMemConfigResp.get("owner")
+                        self.ShMemResponseSender.send({"status": 3 , "vehicleState": self.vehicleState, "dest": dest})
+                        #print(f"SharedMemoryGateway received for dest: {dest}")
+                    except Exception as e:
+                        self.logging.warning(str(e))
 
-            getShMemResp = self.getShMemSubscriber.receive()
-            if getShMemResp is not None:
-                try:
-                    name = getShMemResp
-                    shm, lock = self.getSharedMemory(name)
-                    self.ShMemResponseSender.send({"status": 0 , "name": name, "lock": lock})
-                except Exception as e:
-                    self.logging.warning(str(e))
-
-            releaseShMemResp = self.releaseShMemSubscriber.receive()
-            if releaseShMemResp is not None:
-                try:
-                    name = getShMemResp
-                    self.releaseSharedMemory(name)
-                    self.ShMemResponseSender.send({"status": 0 , "name": name})
-                except Exception as e:
-                    self.logging.warning(str(e))
-
-            #print(self.sharedMemoryBlocks.keys())
 
     def stop(self):
         for name in list(self.sharedMemoryBlocks.keys()):
@@ -115,6 +169,9 @@ class threadSharedMemoryGateway(ThreadWithStop):
 
     def subscribe(self):
         """Subscribes to the messages you are interested in"""
-        self.createShMemSubscriber = messageHandlerSubscriber(self.queuesList, createShMem, "fifo", True)
-        self.getShMemSubscriber = messageHandlerSubscriber(self.queuesList, getShMem, "fifo", True)
-        self.releaseShMemSubscriber = messageHandlerSubscriber(self.queuesList, releaseShMem, "fifo", True)
+        #self.createShMemSubscriber = messageHandlerSubscriber(self.queuesList, createShMem, "fifo", True)
+        #self.getShMemSubscriber = messageHandlerSubscriber(self.queuesList, getShMem, "fifo", True)
+        #self.releaseShMemSubscriber = messageHandlerSubscriber(self.queuesList, releaseShMem, "fifo", True)
+        #self.getVehicleStateObjSubscriber = messageHandlerSubscriber(self.queuesList, getVehicleStateObj, "fifo", True)
+        self.shMemConfigSubscriber = messageHandlerSubscriber(self.queuesList, ShMemConfig, "fifo", True)
+        

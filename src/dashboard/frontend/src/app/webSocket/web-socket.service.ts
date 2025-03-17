@@ -56,7 +56,9 @@ export class WebSocketService {
     'CurrentSpeed',
     'CurrentSteer',
     'EnableButton',
-    'MainVideo'
+    'MainVideo',
+    'WebRTCAnswer',
+    'ice_candidate'
   ]);
   
  constructor() {
@@ -188,5 +190,13 @@ export class WebSocketService {
   // Method to receive any unhandled event
   receiveUnhandledEvents(): Observable<{ channel: string, data: any }> {
     return this.eventSubject.asObservable();
+  }
+
+  receiveWebRTCAnswer(): Observable<any> {
+    return this.webSocket.fromEvent('WebRTCAnswer')
+  }
+
+  receiveICECandidate(): Observable<any> {
+    return this.webSocket.fromEvent('ice_candidate')
   }
 }

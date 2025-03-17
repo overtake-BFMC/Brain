@@ -19,19 +19,7 @@ class processPathFollowing(WorkerProcess):
         self.debugging = debugging
         super(processPathFollowing, self).__init__(self.queuesList)
 
-        self.waypoints = []
-
-        # self.waypoints.extend(range(295, 307))
-        # self.waypoints.extend(range(231, 233))
-        self.waypoints.extend(range(301, 304))
-        self.waypoints.extend(range(343, 345))
-
-
-        # self.waypoints.extend(range(207, 215))
-
-        self.speed = 20
         self.lookAheadDistance = 1
-        self.yaw = 0
         self.dt = 0.2
 
     def run(self):
@@ -41,6 +29,6 @@ class processPathFollowing(WorkerProcess):
     def _init_threads(self):
         """Create the pathFollowing Publisher thread and add to the list of threads."""
         pathFollowingTh = threadPathFollowing(
-            self.queuesList, self.logging, self.waypoints, self.yaw, self.speed, self.lookAheadDistance, self.dt, self.debugging
+            self.queuesList, self.logging, self.lookAheadDistance, self.dt, self.debugging
         )
         self.threads.append(pathFollowingTh)

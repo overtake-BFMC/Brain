@@ -13,7 +13,9 @@ from src.utils.messages.allMessages import (
     ResourceMonitor,
     CurrentSpeed,
     CurrentSteer,
-    WarningSignal
+    WarningSignal,
+    DistanceFront,
+
 )
 from src.utils.messages.messageHandlerSender import messageHandlerSender
 
@@ -48,6 +50,7 @@ class threadRead(ThreadWithStop):
         self.currentSpeedSender = messageHandlerSender(self.queuesList, CurrentSpeed)
         self.currentSteerSender = messageHandlerSender(self.queuesList, CurrentSteer)
         self.warningSender = messageHandlerSender(self.queuesList, WarningSignal)
+        self.distanceFrontSender = messageHandlerSender(self.queuesList, DistanceFront)
 
         self.expectedValues = {"kl": "0, 15 or 30", "instant": "1 or 0", "battery": "1 or 0",
                                "resourceMonitor": "1 or 0", "imu": "1 or 0", "steer": "between -25 and 25",
@@ -69,7 +72,7 @@ class threadRead(ThreadWithStop):
                 try:
                     self.buff = self.serialCon.readline().decode("ascii")
                     self.sendqueue(self.buff)
-                    self.serialCon.reset_input_buffer()
+                    #self.serialCon.reset_input_buffer()
                 except Exception as e:
                     print("ThreadRead -> run method:", e)
 
@@ -121,7 +124,14 @@ class threadRead(ThreadWithStop):
                     self.imuDataSender.send(str(data))
                 else:
                     self.imuAckSender.send(splittedValue[0])
-
+            
+            elif action == "distanceF":
+                distance = value.split(",")[0]
+                if self.isFloat(distance):
+                    try:
+                        self.distanceFrontSender.send(float(distance))
+                    except:
+                        print("Error in front distance")
             elif action == "speed":
                 speed = value.split(",")[0]
                 if self.isFloat(speed):

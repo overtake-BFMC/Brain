@@ -132,7 +132,6 @@ class threadGateway(ThreadWithStop):
             #    video = self.queuesList["Video"].get()
             #if video is not None:
             #    self.send(video)
-
             if not self.queuesList["Critical"].empty():
                 message = self.queuesList["Critical"].get()
             elif not self.queuesList["Warning"].empty():
@@ -149,6 +148,5 @@ class threadGateway(ThreadWithStop):
                     self.subscribe(message2)
                 else:
                     self.unsubscribe(message2)
-
 
 # =====================================================================================

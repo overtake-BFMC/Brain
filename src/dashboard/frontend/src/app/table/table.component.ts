@@ -118,12 +118,35 @@ export class TableComponent implements OnInit {
     });
     const nonDefaultItems = this.items.filter(item => item.type == 'dropdown' && item.checked == true);
     nonDefaultItems.forEach(item => {
+      let trackSelection = false
+      if(item.channel == "SelectTrackNo") {
+        trackSelection = true
+        //console.log("Track sel: ", trackSelection)
+      }
       let value = 1
-      if (item.value == "False")
-        value = 0
-
+      if(trackSelection) {
+        value = -1
+        if(item.value == "Track1")
+          value = 0
+        else if(item.value == "Track2")
+          value = 1
+        else if(item.value == "Track3")
+          value = 2
+      } else {
+        value = 1
+        if (item.value == "False")
+          value = 0
+      }
+      // let value = 1
+      // if (item.value == "False")
+      //   value = 0
       let channel = item.channel
-      this.webSocketService.sendMessageToFlask(`{"Name": "${channel}", "Value": "${value}"}`);
+      let message = `{"Name": "${channel}", "Value": "${value}"}`
+      if(trackSelection) {
+        message = `{"Name": "${channel}", "Value": ${value}}`
+      }
+      //console.log("Value: ", value)
+      this.webSocketService.sendMessageToFlask(message);
     });
   }
   getFontSize(value: string): string {

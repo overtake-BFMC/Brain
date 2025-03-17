@@ -211,6 +211,12 @@ class startLaneDetection(Enum):
     msgID = 21
     msgType = "str"
 
+class SelectTrackNo(Enum):
+    Queue = "General"
+    Owner = "Dashboard"
+    msgID = 22
+    msgType = "int"
+
 ################################# From WebRTC(Video Stream) ##################################
 class WebRTCAnswer(Enum):
     Queue = "General"
@@ -231,29 +237,47 @@ class cpu_channel(Enum):
     msgID = 2
     msgType = "dict"
 
-################################# From SysInfo ##################################
-class createShMem(Enum):
+################################# From SharedMemoryGateway ##################################
+# class createShMem(Enum):
+#     Queue = "ShMemConfig"
+#     Owner = "threadSharedMemoryGateway"
+#     msgID = 1
+#     msgType = "dict"
+
+# class getShMem(Enum):
+#     Queue = "ShMemConfig"
+#     Owner = "threadSharedMemoryGateway"
+#     msgID = 2
+#     msgType = "dict"
+
+# class releaseShMem(Enum):
+#     Queue = "ShMemConfig"
+#     Owner = "threadSharedMemoryGateway"
+#     msgID = 3
+#     msgType = "str"
+
+# class getVehicleStateObj(Enum):
+#     Queue = "ShMemConfig"
+#     Owner = "threadSharedMemoryGateway"
+#     msgID = 4
+#     msgType = "str"
+
+# class ShMemResponse(Enum):
+#     Queue = "General"
+#     Owner = "threadSharedMemoryGateway"
+#     msgID = 5
+#     msgType = "dict"
+
+class ShMemConfig(Enum):
     Queue = "ShMemConfig"
     Owner = "threadSharedMemoryGateway"
     msgID = 1
     msgType = "dict"
 
-class getShMem(Enum):
-    Queue = "ShMemConfig"
-    Owner = "threadSharedMemoryGateway"
-    msgID = 2
-    msgType = "str"
-
-class releaseShMem(Enum):
-    Queue = "ShMemConfig"
-    Owner = "threadSharedMemoryGateway"
-    msgID = 3
-    msgType = "str"
-
 class ShMemResponse(Enum):
     Queue = "General"
     Owner = "threadSharedMemoryGateway"
-    msgID = 4
+    msgID = 2
     msgType = "dict"
 
 ################################# From Nucleo ##################################
@@ -302,8 +326,14 @@ class ImuAck(Enum):
 class WarningSignal(Enum):
     Queue = "General"
     Owner = "threadRead"
-    msgID = 7
+    msgID = 8
     msgType = "str"
+
+class DistanceFront(Enum):
+    Queue = "General"
+    Owner = "threadRead"
+    msgID = 8
+    msgType = "float"
 
 ################################# From Locsys ##################################
 class Location(Enum):
@@ -322,7 +352,7 @@ class EnableButton(Enum):
 class WarningSignal(Enum):
     Queue = "General"
     Owner = "brain"
-    msgID = 3
-    msgType = "str"
+    msgID = 1
+    msgType = "dict"
 
 ### It will have this format: {"WarningName":"name1", "WarningID": 1}

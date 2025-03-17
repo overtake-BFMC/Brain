@@ -26,6 +26,10 @@
 # OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+# <button class="record-button" [style.backgroundColor]="getLaneDetectionButtonColor()" (click)="startLaneDetection()">
+#       {{startLaneDetectionText}}
+#     </button>
+
 if __name__ == "__main__":
     import sys
     sys.path.insert(0, "../../..")

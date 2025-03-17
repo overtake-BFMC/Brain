@@ -9,8 +9,7 @@ from src.utils.messages.allMessages import (
     Record,
     Brightness,
     Contrast,
-    #MainVideo,
-    createShMem,
+    ShMemConfig,
     ShMemResponse
 )
 from src.utils.messages.messageHandlerSender import messageHandlerSender
@@ -26,11 +25,11 @@ class threadCamera(ThreadWithStop):
     def __init__(self, queuesList, logger, debugger):
         super(threadCamera, self).__init__()
         self.queuesList = queuesList
-        self.logger = logger
+        self.logging = logger
         self.debugger = debugger
-        self.frame_rate = 15
+        self.frame_rate = 20
         self.recording = False
-        self.send_fps = 15
+        self.send_fps = 20
         self.frame_interval = 1.0 / self.send_fps
         self.last_sent_time = time.time()
         self.video_writer = ""
@@ -42,13 +41,14 @@ class threadCamera(ThreadWithStop):
         self.mainCameraSender = messageHandlerSender(self.queuesList, mainCamera)
         self.serialCameraSender = messageHandlerSender(self.queuesList, serialCamera)
         #self.mainVideoSender = messageHandlerSender(self.queuesList, MainVideo)
-        self.createShMemSender = messageHandlerSender(self.queuesList, createShMem)
+        self.createShMemSender = messageHandlerSender(self.queuesList, ShMemConfig)
         self.shMemName = "mainVideoFrames"
+        self.shMemMsgOwner = "threadCamera"
 
         self.subscribe()
         self._init_camera()
         self.Queue_Sending()
-        self.Configs()
+        #self.Configs()
         self.init_shMem()
 
     def subscribe(self):
@@ -76,26 +76,35 @@ class threadCamera(ThreadWithStop):
         if self.brightnessSubscriber.isDataInPipe():
             message = self.brightnessSubscriber.receive()
             if self.debugger:
-                self.logger.info(str(message))
+                self.logging.info(str(message))
             self.camera.set(cv2.CAP_PROP_BRIGHTNESS, max(0.0, min(1.0, float(message))))
 
         if self.contrastSubscriber.isDataInPipe():
             message = self.contrastSubscriber.receive()
             if self.debugger:
-                self.logger.info(str(message))
+                self.logging.info(str(message))
             self.camera.set(cv2.CAP_PROP_CONTRAST, max(0.0, min(32.0, float(message))))
 
         threading.Timer(1, self.Configs).start()
 
     def init_shMem(self):
-        self.createShMemSender.send({"name": self.shMemName, "shape": (540, 960, 3), "dtype": "uint8"})
+        self.createShMemSender.send({"action": "createShMem", "name": self.shMemName, "shape": (540, 960, 3), "dtype": "uint8", "owner": self.shMemMsgOwner})
 
-        shMemResp = self.shMemResponseSubscriber.receiveWithBlock()
-        if shMemResp is not None:
-            self.shMemName = shMemResp["name"]
-            self.lock = shMemResp["lock"]
-            self.shm = SharedMemory(name=self.shMemName)
-            self.frameBuffer = np.ndarray((540, 960, 3), dtype=np.uint8, buffer=self.shm.buf)
+        isMemoryConfigured = False
+
+        while not isMemoryConfigured:
+            shMemResp = self.shMemResponseSubscriber.receive()
+            if shMemResp is not None:
+                if shMemResp["status"] == 0 and shMemResp["dest"] == self.shMemMsgOwner:
+                    self.shMemName = shMemResp["name"]
+                    self.lock = shMemResp["lock"]
+                    self.shm = SharedMemory(name=self.shMemName)
+                    self.frameBuffer = np.ndarray((540, 960, 3), dtype=np.uint8, buffer=self.shm.buf)
+                    isMemoryConfigured = True
+                    #print("ThreadCamera ShMem Init Success!")
+                    self.logging.info("ThreadCamera ShMem Init Success!")
+
+
 
     # ================================ RUN ================================================
     def run(self):
@@ -138,29 +147,11 @@ class threadCamera(ThreadWithStop):
             if send:
                 ret, frame = self.camera.read()
                 if ret:
-                    #cv2.imshow('Frame',frame)
-                    #cv2.waitKey(1)
                     self.latest_frame = frame
-                    #frame_counter += 1  # Increment frame counter
-                    #current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")  # Get current time
-                    #print(f"Processing frame: {frame_counter} at {current_time}")  # Print counter and time to terminal
-                                        
-                    #serialRequest = cv2.resize(frame, (960, 540))  # Lo-res capture
+
                     _, encoded_frame = cv2.imencode(".jpg", frame, [cv2.IMWRITE_JPEG_QUALITY, 50])
                     decoded_frame = cv2.imdecode(encoded_frame, cv2.IMREAD_COLOR)
 
-                    #if self.recording:
-                    #    self.video_writer.write(frame)
-
-                    #_, mainEncodedImg = cv2.imencode(".jpg", frame)
-                    #_, serialEncodedImg = cv2.imencode(".jpg", serialRequest)
-
-                    #mainEncodedImageData = base64.b64encode(mainEncodedImg).decode("utf-8")
-                    #serialEncodedImageData = base64.b64encode(serialEncodedImg).decode("utf-8")
-
-                    #self.mainCameraSender.send(mainEncodedImageData)
-                    #if (frame_counter % 5) == 0:
-                    #    self.serialCameraSender.send(serialEncodedImageData)
                     current_time = time.time()
                     if current_time - self.last_sent_time >= self.frame_interval:
                         if self.recording:
@@ -168,8 +159,8 @@ class threadCamera(ThreadWithStop):
                         self.last_sent_time = current_time
                         #self.mainVideoSender.send(decoded_frame)
                         with self.lock:
-                            #np.copyto(self.frameBuffer, decoded_frame)
-                            self.frameBuffer[:] = frame
+                            np.copyto(self.frameBuffer, decoded_frame)
+                            #self.frameBuffer[:] = frame
 
         send = not send
 
@@ -214,35 +205,7 @@ class threadCamera(ThreadWithStop):
         gst_pipeline = self.gstreamer_pipeline(flip_method=0, framerate=self.frame_rate)
 
         self.camera = cv2.VideoCapture(gst_pipeline, cv2.CAP_GSTREAMER)
-
+        cv2.setUseOptimized(True)
+        cv2.setNumThreads(2)  # Limit OpenCV to 2 threads
         if not self.camera.isOpened():
             raise Exception("Could not open video device.")
-
-# def gstreamer_pipeline(
-#         self,
-#         sensor_id=0,
-#         capture_width=1920,
-#         capture_height=1080,
-#         display_width=960,
-#         display_height=540,
-#         framerate=30,
-#         flip_method=0,
-#     ):
-
-#         return (
-#             "nvarguscamerasrc sensor-id=%d ! "
-#             "video/x-raw(memory:NVMM), width=(int)%d, height=(int)%d, framerate=(fraction)%d/1 ! "
-#             "nvvidconv flip-method=%d ! "
-#             "video/x-raw, width=(int)%d, height=(int)%d, format=(string)BGRx ! "
-#             "videoconvert ! "
-#             "video/x-raw, format=(string)BGR ! appsink"
-#             % (
-#                 sensor_id,
-#                 capture_width,
-#                 capture_height,
-#                 framerate,
-#                 flip_method,
-#                 display_width,
-#                 display_height,
-#             )
-#         )

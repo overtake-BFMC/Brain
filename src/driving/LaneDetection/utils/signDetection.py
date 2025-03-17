@@ -7,6 +7,9 @@ import cv2
 from math import exp
 import logging
 import matplotlib.pyplot as plt
+#import tensorrt as trt
+#import pycuda.driver as cuda
+#import pycuda.autoinit
 
 CLASSES = ['car', 'closed-road-stand', 'crosswalk-sign', 'highway-entry-sign', 'highway-exit-sign', 'no-entry-road-sign',
             'one-way-road-sign', 'parking-sign', 'parking-spot', 'pedestrian', 'priority-sign', 'round-about-sign',
@@ -36,9 +39,14 @@ class signDetection:
 
         dir_path = os.path.dirname(os.path.realpath(__file__))
         self.model_path = dir_path + "/best.onnx"
+        #self.engine_path = dir_path + "/best.engine"
         self.conf_thresh = conf_thresh
         self.iou_thresh = iou_thresh
         self.detectionModelSession = ort.InferenceSession(self.model_path, providers=['CUDAExecutionProvider']) #TensorrtExecutionProvider
+        #self.engine = self.load_engine(self.engine_path)
+        #self.context = self.engine.create_execution_context()
+
+        #self.inputs, self.outputs, self.bindings, self.stream = self.allocate_buffers()
 
     @staticmethod
     def sigmoid(x):
@@ -54,6 +62,53 @@ class signDetection:
         image = np.expand_dims(image, axis=0)
         return image
     
+    # def load_engine(self, engine_path):
+    #     TRT_LOGGER = trt.Logger(trt.Logger.WARNING)
+    #     with open(engine_path, "rb") as f, trt.Runtime(TRT_LOGGER) as runtime:
+    #         return runtime.deserialize_cuda_engine(f.read())
+        
+    # def allocate_buffers(self):
+    #     inputs = []
+    #     outputs = []
+    #     bindings = []
+    #     stream = cuda.Stream()
+
+    #     for binding in self.engine:
+    #         size = trt.volume(self.engine.get_tensor_shape(binding))
+    #         dtype = trt.nptype(self.engine.get_tensor_dtype(binding))
+    #         host_mem = cuda.pagelocked_empty(size, dtype)
+    #         device_mem = cuda.mem_alloc(host_mem.nbytes)
+    #         bindings.append(int(device_mem))
+    #         if self.engine.get_tensor_mode(binding) == trt.TensorIOMode.INPUT:
+    #             inputs.append({'host': host_mem, 'device': device_mem})
+    #         else:
+    #             outputs.append({'host': host_mem, 'device': device_mem})
+
+    #     return inputs, outputs, bindings, stream
+
+    # def infer(self, image):
+    #     # Preprocess the image
+    #     input_data = self.preprocess_image(image, input_imgW, input_imgH)
+
+    #     # Copy input data to GPU
+    #     np.copyto(self.inputs[0]['host'], input_data.ravel())
+    #     cuda.memcpy_htod_async(self.inputs[0]['device'], self.inputs[0]['host'], self.stream)
+
+    #     for i in range(self.engine.num_io_tensors):  # Updated attribute
+    #         tensor_name = self.engine.get_tensor_name(i)  # Get tensor name from index
+    #         self.context.set_tensor_address(tensor_name, self.bindings[i])  # Set address
+
+    #     # Perform inference
+    #     self.context.execute_async_v3(stream_handle=self.stream.handle)
+
+
+    #     # Copy output data from GPU
+    #     cuda.memcpy_dtoh_async(self.outputs[0]['host'], self.outputs[0]['device'], self.stream)
+    #     self.stream.synchronize()
+
+    #     # Return the output
+    #     return self.outputs[0]['host']
+
     def non_max_suppression(self, boxes, scores, class_ids, iou_threshold=0.5):
         """
         Perform Non-Maximum Suppression (NMS) on the detected bounding boxes.
@@ -96,8 +151,6 @@ class signDetection:
         img_h, img_w, _ = orig_img.shape
         scale_h = img_h / input_imgH
         scale_w = img_w / input_imgW
-        #print("ScaleW: ", scale_w)
-        #print("ScaleH: ", scale_h)
 
         predictions = pred_results[0]  # (1, 19, 8400) → Extract first element
         predictions = predictions.squeeze(0)  # (19, 8400) → Remove batch dimension
@@ -117,7 +170,6 @@ class signDetection:
 
         if isinstance(valid_class_scores, np.ndarray) and valid_class_scores.size != 0:
             scaled_boxes = nms_boxes.copy()
-            #print("NMS: ", nms_boxes)
             scaled_boxes[:, 0] *= scale_w  # x
             scaled_boxes[:, 1] *= scale_h  # y
             scaled_boxes[:, 2] *= scale_w  # width
@@ -129,59 +181,30 @@ class signDetection:
 
         return scaled_boxes, nms_class_ids, nms_scores
 
-    def detect(self, img_path):
+    def detect(self, img_path, showOutput = False):
         if isinstance(img_path, str):
             orig = cv2.imread(img_path)
         else:
             orig = img_path
 
+        conf_threshold = 0.6
+
         image = self.preprocess_image(orig, input_imgW, input_imgH)
 
         pred_results = self.detectionModelSession.run(None, {'images': image})
-        valid_boxes, valid_class_ids, valid_class_scores = self.postprocess(pred_results, orig)
+        #pred_results = self.infer(orig)
+        valid_boxes, valid_class_ids, valid_class_scores = self.postprocess(pred_results, orig, conf_threshold)
 
-        #print("Valid: ", valid_indices )
-        # Extract NumPy array from the list
         predictions = pred_results[0]  # (1, 19, 8400) → Extract first element
         predictions = predictions.squeeze(0)  # (19, 8400) → Remove batch dimension
-
         
-        boxes = predictions[:4, :].T  # (8400, 4) -> (x, y, w, h)
-        class_probs = predictions[4:, :].T  # (8400, 15) -> Class probabilities
-        
-        #for box, class_id, class_score in zip(valid_boxes, valid_class_ids, valid_class_scores):
-        #    x, y, w, h = box
-            #print(f"x: {x}, y: {y}, w: {w}, h: {h}, object confidence: {class_score:.2f}, class ID: {class_id}")
-        #for box in predbox:
-        #    boxes.append([int(box.xmin), int(box.ymin), int(box.xmax), int(box.ymax)])
-        #    scores.append(box.score)
-        #    class_ids.append(box.classId)
-        conf_threshold = 0.5
-        nms_threshold = 0.4
-
-        class_ids = np.argmax(class_probs, axis=1)  # Find class with highest probability
-        class_scores = np.max(class_probs, axis=1)  # Get the corresponding confidence score
-
-        #print("IDS:", class_ids)
-        #print("SCORES: ",class_scores)
-
-        #final_scores = confidences * class_scores
-
-        #valid_indices = final_scores > conf_threshold
-        #filtered_boxes = boxes[valid_indices]
-        #filtered_scores = final_scores[valid_indices]
-        #filtered_class_ids = class_ids[valid_indices]
-
-        #indices = cv2.dnn.NMSBoxes(
-        #    filtered_boxes.tolist(), filtered_scores.tolist(), conf_threshold, nms_threshold
-        #)
-
-        #filtered_boxes = [filtered_boxes[i] for i in indices]
-        #filtered_scores = [filtered_scores[i] for i in indices]
-        #filtered_class_ids = [filtered_class_ids[i] for i in indices]
+        #print("++++++++DETECTED+++++++++")
+        if showOutput:
+            for box, class_id, class_score in zip(valid_boxes, valid_class_ids, valid_class_scores):
+                x, y, w, h = box
+                print(f"x: {x}, y: {y}, w: {w}, h: {h}, object confidence: {class_score:.2f}, class ID: {class_id}, class name: {CLASSES[class_id]}")
 
         return valid_boxes, valid_class_ids, valid_class_scores
-        #return boxes, confidences, class_probs
 
     def draw_detections(self,image, boxes, class_ids, scores, mask_alpha=0.3):
         """
@@ -244,15 +267,15 @@ if __name__ == "__main__":
     testDetector = signDetection(conf_thresh=0.5, iou_thresh=0.45)
 
     dir_path = os.path.dirname(os.path.realpath(__file__))
-    #image_path = dir_path + "/crosswalk_sign.jpg"
-    image_path = dir_path + "/pure-black.jpg"
+    image_path = dir_path + "/crosswalk_sign.jpg"
+    #image_path = dir_path + "/pure-black.jpg"
     image = cv2.imread(image_path)
     filtered_boxes, class_ids, class_scores = testDetector.detect(image)
     detected_image = image
     if class_scores.size != 0:
         detected_image = testDetector.draw_detections(image, filtered_boxes, class_ids, class_scores)
-    cv2.imwrite("Detected.jpg", detected_image)
-    logging.basicConfig(filename='signDetection.log', level=logging.INFO)
+    cv2.imwrite(dir_path + "/Detected.jpg", detected_image)
+    logging.basicConfig(filename= dir_path + '/signDetection.log', level=logging.INFO)
     logger = logging.getLogger()
     #msgStr = "Boxes: " + str(boxes)
     #logger.info(msgStr)
