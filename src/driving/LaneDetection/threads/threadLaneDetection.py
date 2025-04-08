@@ -22,12 +22,12 @@ import numpy as np
 import os
 import cv2
 #from ultralytics import YOLO
-import torch
-import onnxruntime as ort
 import numpy as np
 import ast
 from src.driving.LaneDetection.utils.signDetection import signDetection
 from src.driving.LaneDetection.utils.signDetection import CLASSES
+
+from src.driving.LaneDetection.utils.cannyandhough import LaneFollowing
 
 CLASSES_ROI = [
     [0, 0, 960, 540], #car 0
@@ -81,8 +81,6 @@ class threadLaneDetection(ThreadWithStop):
 
         self.detector = signDetection(conf_thresh=0.5, iou_thresh=0.45)
         self.noOfDetections = [0] * 15
-        #self.signROI = [720, 110, 900, 205]
-        #self.lineROI = [400, 400, 550, 470]
         self.frame = np.empty((540, 960, 3), dtype=np.uint8)
 
         self.ShMemConfigSender = messageHandlerSender(self.queuesList, ShMemConfig)
@@ -296,6 +294,8 @@ class threadLaneDetection(ThreadWithStop):
 
         distanceF = 99
 
+        LANEFOL = LaneFollowing()
+
         while self._running:
             #frame = self.MainVideoSubscriber.receive()
             with self.MainVideolock:
@@ -326,13 +326,17 @@ class threadLaneDetection(ThreadWithStop):
 
                     print(self.vehicleState.getPosition())
 
-                edges, frame_lines, lines = CH.CannyEdge( self.frame )
+                # frame_lines, lines = CH.CannyEdge( self.frame )
+
+                frame_lines, lines = LANEFOL.CannyEdge( self.frame )
 
                 frame_lines = apply_gamma_on_frame( frame_lines, gamma=0.5 )
 
                 #frame_bev = pre.bev( frame_lines, self.ppData, self.maps )
                 
-                left_lines, right_lines, lane_center = CH.get_lane_center( lines, frame_lines, prev_lane_center )
+                # left_lines, right_lines, lane_center = CH.get_lane_center( lines, frame_lines, prev_lane_center )
+
+                lane_center = LANEFOL.get_lane_center( lines, frame_lines, prev_lane_center)
 
                 prev_lane_center = lane_center
                     
@@ -364,10 +368,10 @@ class threadLaneDetection(ThreadWithStop):
 
     def stop(self):
         super(threadLaneDetection, self).stop()
-        with self.MainVideolock:    
-            self.shmMainVideo.close()
-        with self.LaneVideolock:
-            self.shmLaneVideo.close()
+        #self.shmLaneVideo.close()
+        #self.shmMainVideo.close()
+        #Does not work because resource tracker deletes it by itself when process is deleted
+        #Fixed in python version 3.13 by adding track = False in shm constructor.. example: self.shm = SharedMemory(name=self.shMemName, track=False)
 
     def subscribe(self):
         #self.MainVideoSubscriber = messageHandlerSubscriber(self.queuesList, MainVideo, "lastOnly", True)

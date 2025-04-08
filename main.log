@@ -2184,3 +2184,736 @@ INFO:aioice.ice:Connection(0) ICE completed
 WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
 WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
 INFO:root:Stopped Brain instance...
+INFO:root:Starting Brain instance...
+ERROR:root:Failed to initialize serial communication: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+WARNING:root:No battery logger attached at I2C bus 7 address 0x40 for jetson
+WARNING:root:No battery logger attached at I2C bus 7 address 0x40 for nucleo
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0 -c-1' died with <Signals.SIGINT: 2>.
+INFO:root:Starting Brain instance...
+ERROR:root:Failed to initialize serial communication: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+WARNING:root:No battery logger attached at I2C bus 7 address 0x40 for jetson
+WARNING:root:No battery logger attached at I2C bus 7 address 0x40 for nucleo
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0 -c-1' died with <Signals.SIGINT: 2>.
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting Brain instance...
+ERROR:root:Failed to initialize serial communication: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+WARNING:root:No battery logger attached at I2C bus 7 address 0x40 for jetson
+WARNING:root:No battery logger attached at I2C bus 7 address 0x40 for nucleo
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting Brain instance...
+WARNING:root:No battery logger attached at I2C bus 7 address 0x40 for jetson
+WARNING:root:No battery logger attached at I2C bus 7 address 0x40 for nucleo
+INFO:root:Starting processCamera...
+INFO:root:Stopped Brain instance...
+INFO:root:Starting Brain instance...
+WARNING:root:No battery logger attached at I2C bus 7 address 0x40 for jetson
+WARNING:root:No battery logger attached at I2C bus 7 address 0x40 for nucleo
+INFO:root:Starting processCamera...
+INFO:root:Stopped Brain instance...
+INFO:root:Starting Brain instance...
+ERROR:root:Failed to initialize serial communication: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+WARNING:root:No battery logger attached at I2C bus 7 address 0x40 for jetson
+WARNING:root:No battery logger attached at I2C bus 7 address 0x40 for nucleo
+INFO:root:Starting processCamera...
+INFO:root:Stopped Brain instance...
+INFO:root:Starting Brain instance...
+ERROR:root:Failed to initialize serial communication: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+WARNING:root:No battery logger attached at I2C bus 7 address 0x40 for jetson
+WARNING:root:No battery logger attached at I2C bus 7 address 0x40 for nucleo
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting Brain instance...
+ERROR:root:Failed to initialize serial communication: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+WARNING:root:No battery logger attached at I2C bus 7 address 0x40 for jetson
+WARNING:root:No battery logger attached at I2C bus 7 address 0x40 for nucleo
+INFO:root:Starting processCamera...
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0 -c-1' died with <Signals.SIGINT: 2>.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting Brain instance...
+ERROR:root:Failed to initialize serial communication: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+WARNING:root:No battery logger attached at I2C bus 7 address 0x40 for jetson
+WARNING:root:No battery logger attached at I2C bus 7 address 0x40 for nucleo
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0 -c-1' died with <Signals.SIGINT: 2>.
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting Brain instance...
+ERROR:root:Failed to initialize serial communication: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+WARNING:root:No battery logger attached at I2C bus 7 address 0x40 for jetson
+WARNING:root:No battery logger attached at I2C bus 7 address 0x40 for nucleo
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting Brain instance...
+ERROR:root:Failed to initialize serial communication: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+WARNING:root:No battery logger attached at I2C bus 7 address 0x40 for jetson
+WARNING:root:No battery logger attached at I2C bus 7 address 0x40 for nucleo
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting Brain instance...
+ERROR:root:Failed to initialize serial communication: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+WARNING:root:No battery logger attached at I2C bus 7 address 0x40 for jetson
+WARNING:root:No battery logger attached at I2C bus 7 address 0x40 for nucleo
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0 -c-1' died with <Signals.SIGINT: 2>.
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting Brain instance...
+ERROR:root:Failed to initialize serial communication: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+WARNING:root:No battery logger attached at I2C bus 7 address 0x40 for jetson
+WARNING:root:No battery logger attached at I2C bus 7 address 0x40 for nucleo
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:stream:PeerConnection(0c914bd3-09b6-4c26-b085-992eae0bd74d) Created for Angular
+INFO:root:trackStream LaneVideoShMem Init Success!
+INFO:stream:PeerConnection(0c914bd3-09b6-4c26-b085-992eae0bd74d) Created track stream
+INFO:stream:PeerConnection(0c914bd3-09b6-4c26-b085-992eae0bd74d) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(uKlaqHv6YC 1 udp 1845501695 192.168.66.162 59379 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 54647) -> ('192.168.66.162', 59379)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 54647) -> ('192.168.66.162', 59379)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting Brain instance...
+ERROR:root:Failed to initialize serial communication: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+WARNING:root:No battery logger attached at I2C bus 7 address 0x40 for jetson
+WARNING:root:No battery logger attached at I2C bus 7 address 0x40 for nucleo
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0 -c-1' died with <Signals.SIGINT: 2>.
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting Brain instance...
+ERROR:root:Failed to initialize serial communication: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+WARNING:root:No battery logger attached at I2C bus 7 address 0x40 for jetson
+WARNING:root:No battery logger attached at I2C bus 7 address 0x40 for nucleo
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting Brain instance...
+ERROR:root:Failed to initialize serial communication: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+WARNING:root:No battery logger attached at I2C bus 7 address 0x40 for jetson
+WARNING:root:No battery logger attached at I2C bus 7 address 0x40 for nucleo
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:root:Stopped Brain instance...
+INFO:root:Starting Brain instance...
+ERROR:root:Failed to initialize serial communication: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+WARNING:root:No battery logger attached at I2C bus 7 address 0x40 for jetson
+WARNING:root:No battery logger attached at I2C bus 7 address 0x40 for nucleo
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0 -c-1' died with <Signals.SIGINT: 2>.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting Brain instance...
+ERROR:root:Failed to initialize serial communication: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+WARNING:root:No battery logger attached at I2C bus 7 address 0x40 for jetson
+WARNING:root:No battery logger attached at I2C bus 7 address 0x40 for nucleo
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:root:Stopped Brain instance...
+INFO:root:Starting Brain instance...
+ERROR:root:Failed to initialize serial communication: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+WARNING:root:No battery logger attached at I2C bus 7 address 0x40 for jetson
+WARNING:root:No battery logger attached at I2C bus 7 address 0x40 for nucleo
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0 -c-1' died with <Signals.SIGINT: 2>.
+ERROR:root:Error in processCamera run: [Errno 2] No such file or directory: '/mainVideoFrames'
+Traceback (most recent call last):
+  File "/home/jetson/Documents/Brain/src/hardware/camera/processCamera.py", line 61, in run
+    super(processCamera, self).run()
+  File "/home/jetson/Documents/Brain/src/templates/workerprocess.py", line 83, in run
+    th.stop()
+  File "/home/jetson/Documents/Brain/src/hardware/camera/threads/threadCamera.py", line 72, in stop
+    self.shm.unlink()
+  File "/usr/lib/python3.10/multiprocessing/shared_memory.py", line 243, in unlink
+    _posixshmem.shm_unlink(self._name)
+FileNotFoundError: [Errno 2] No such file or directory: '/mainVideoFrames'
+INFO:root:Stopped Brain instance...
+INFO:root:Starting Brain instance...
+ERROR:root:Failed to initialize serial communication: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+WARNING:root:No battery logger attached at I2C bus 7 address 0x40 for jetson
+WARNING:root:No battery logger attached at I2C bus 7 address 0x40 for nucleo
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:root:Starting Brain instance...
+ERROR:root:Failed to initialize serial communication: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+WARNING:root:No battery logger attached at I2C bus 7 address 0x40 for jetson
+WARNING:root:No battery logger attached at I2C bus 7 address 0x40 for nucleo
+INFO:root:Starting processCamera...
+WARNING:root:[Errno 17] File exists: '/mainVideoFrames'
+WARNING:root:Shared Memory Block 'mainVideoFrames' does not exist.
+INFO:root:PathFollowing VehicleState Initialized!
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0 -c-1' died with <Signals.SIGINT: 2>.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting Brain instance...
+ERROR:root:Failed to initialize serial communication: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+WARNING:root:No battery logger attached at I2C bus 7 address 0x40 for jetson
+WARNING:root:No battery logger attached at I2C bus 7 address 0x40 for nucleo
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0 -c-1' died with <Signals.SIGINT: 2>.
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting Brain instance...
+ERROR:root:Failed to initialize serial communication: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+WARNING:root:No battery logger attached at I2C bus 7 address 0x40 for jetson
+WARNING:root:No battery logger attached at I2C bus 7 address 0x40 for nucleo
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0 -c-1' died with <Signals.SIGINT: 2>.
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting Brain instance...
+ERROR:root:Failed to initialize serial communication: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+WARNING:root:No battery logger attached at I2C bus 7 address 0x40 for jetson
+WARNING:root:No battery logger attached at I2C bus 7 address 0x40 for nucleo
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting Brain instance...
+ERROR:root:Failed to initialize serial communication: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+WARNING:root:No battery logger attached at I2C bus 7 address 0x40 for jetson
+WARNING:root:No battery logger attached at I2C bus 7 address 0x40 for nucleo
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:root:Starting Brain instance...
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting Brain instance...
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0 -c-1' died with <Signals.SIGINT: 2>.
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting Brain instance...
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0 -c-1' died with <Signals.SIGINT: 2>.
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting Brain instance...
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:stream:PeerConnection(ce930ca5-a712-4e41-be0e-8d166c474fa5) Created for Angular
+INFO:root:trackStream LaneVideoShMem Init Success!
+INFO:stream:PeerConnection(ce930ca5-a712-4e41-be0e-8d166c474fa5) Created track stream
+INFO:stream:PeerConnection(ce930ca5-a712-4e41-be0e-8d166c474fa5) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(ovLR5dFXip 1 udp 1845501695 192.168.66.162 49960 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 50335) -> ('192.168.66.162', 49960)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 50335) -> ('192.168.66.162', 49960)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0 -c-1' died with <Signals.SIGINT: 2>.
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+                                                                                                                                                                                                                                                                                                                                                                                    INFO:root:Starting Brain instance...
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0 -c-1' died with <Signals.SIGINT: 2>.
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting Brain instance...
+WARNING:root:No battery logger attached at I2C bus 7 address 0x40 for nucleo
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0 -c-1' died with <Signals.SIGINT: 2>.
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting Brain instance...
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting Brain instance...
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:stream:PeerConnection(09ac4afe-f8f9-4f78-bc06-2e51d92a6f67) Created for Angular
+INFO:root:trackStream LaneVideoShMem Init Success!
+INFO:stream:PeerConnection(09ac4afe-f8f9-4f78-bc06-2e51d92a6f67) Created track stream
+INFO:stream:PeerConnection(09ac4afe-f8f9-4f78-bc06-2e51d92a6f67) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(deGl6Rt9lJ 1 udp 1845501695 192.168.66.162 59184 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 53978) -> ('192.168.66.162', 59184)) State.WAITING -> State.IN_PROGRESS
+INFO:stream:PeerConnection(c90f3550-4ff5-4e88-8108-ea1b85262aac) Created for Angular
+INFO:stream:PeerConnection(69168f5d-2c50-4ec7-b996-3b932ec6fc9c) Created for Angular
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting Brain instance...
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:stream:PeerConnection(9591e32c-5d90-4a40-9e1c-80c7aa696f57) Created for Angular
+INFO:stream:PeerConnection(6e98a60b-6f63-4398-86a8-64411cc69c49) Created for Angular
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0 -c-1' died with <Signals.SIGINT: 2>.
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting Brain instance...
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting Brain instance...
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting Brain instance...
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0 -c-1' died with <Signals.SIGINT: 2>.
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting Brain instance...
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:stream:PeerConnection(78547df1-11dc-4662-b2bb-b9a8ca55cb62) Created for Angular
+INFO:root:trackStream LaneVideoShMem Init Success!
+INFO:stream:PeerConnection(78547df1-11dc-4662-b2bb-b9a8ca55cb62) Created track stream
+INFO:stream:PeerConnection(78547df1-11dc-4662-b2bb-b9a8ca55cb62) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(ypavI5zVRJ 1 udp 1845501695 192.168.66.162 52800 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 35226) -> ('192.168.66.162', 52800)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 35226) -> ('192.168.66.162', 52800)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0 -c-1' died with <Signals.SIGINT: 2>.
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting Brain instance...
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting Brain instance...
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:stream:PeerConnection(db0248a7-cb73-4a41-8221-416574be487a) Created for Angular
+INFO:root:trackStream LaneVideoShMem Init Success!
+INFO:stream:PeerConnection(db0248a7-cb73-4a41-8221-416574be487a) Created track stream
+INFO:stream:PeerConnection(db0248a7-cb73-4a41-8221-416574be487a) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(RwWSxXByt3 1 udp 1845501695 192.168.66.162 63408 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 41297) -> ('192.168.66.162', 63408)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 41297) -> ('192.168.66.162', 63408)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting Brain instance...
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:stream:PeerConnection(6c3ccad3-7ee3-46a6-96ab-b93d6fc22d67) Created for Angular
+INFO:root:trackStream LaneVideoShMem Init Success!
+INFO:stream:PeerConnection(6c3ccad3-7ee3-46a6-96ab-b93d6fc22d67) Created track stream
+INFO:stream:PeerConnection(6c3ccad3-7ee3-46a6-96ab-b93d6fc22d67) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(a7ma2MSOrK 1 udp 1845501695 192.168.66.162 53496 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 39550) -> ('192.168.66.162', 53496)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 39550) -> ('192.168.66.162', 53496)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0 -c-1' died with <Signals.SIGINT: 2>.
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting Brain instance...
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0 -c-1' died with <Signals.SIGINT: 2>.
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting Brain instance...
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:stream:PeerConnection(bc33c455-5b47-4842-bc4e-026b13aa3314) Created for Angular
+INFO:root:trackStream LaneVideoShMem Init Success!
+INFO:stream:PeerConnection(bc33c455-5b47-4842-bc4e-026b13aa3314) Created track stream
+INFO:stream:PeerConnection(bc33c455-5b47-4842-bc4e-026b13aa3314) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(Y9ngvhwjte 1 udp 1845501695 192.168.66.162 55542 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 58521) -> ('192.168.66.162', 55542)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 58521) -> ('192.168.66.162', 55542)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0 -c-1' died with <Signals.SIGINT: 2>.
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting Brain instance...
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:stream:PeerConnection(98e3a5a9-a42d-4186-8d8d-43a34584223d) Created for Angular
+INFO:root:trackStream LaneVideoShMem Init Success!
+INFO:stream:PeerConnection(98e3a5a9-a42d-4186-8d8d-43a34584223d) Created track stream
+INFO:stream:PeerConnection(98e3a5a9-a42d-4186-8d8d-43a34584223d) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(0Gch4cPn8H 1 udp 1845501695 192.168.66.162 55968 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 42584) -> ('192.168.66.162', 55968)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 42584) -> ('192.168.66.162', 55968)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0 -c-1' died with <Signals.SIGINT: 2>.
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting Brain instance...
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:stream:PeerConnection(f5c5d90b-4c49-4996-b310-a60debf4fb30) Created for Angular
+INFO:root:trackStream LaneVideoShMem Init Success!
+INFO:stream:PeerConnection(f5c5d90b-4c49-4996-b310-a60debf4fb30) Created track stream
+INFO:stream:PeerConnection(f5c5d90b-4c49-4996-b310-a60debf4fb30) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(tybPNyydk2 1 udp 1845501695 192.168.66.162 58144 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 32854) -> ('192.168.66.162', 58144)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 32854) -> ('192.168.66.162', 58144)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0 -c-1' died with <Signals.SIGINT: 2>.
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting Brain instance...
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:stream:PeerConnection(8659bdec-6810-4089-b871-495b5e7f6d78) Created for Angular
+INFO:root:trackStream LaneVideoShMem Init Success!
+INFO:stream:PeerConnection(8659bdec-6810-4089-b871-495b5e7f6d78) Created track stream
+INFO:stream:PeerConnection(8659bdec-6810-4089-b871-495b5e7f6d78) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(wtiwmTRT8k 1 udp 1845501695 192.168.66.162 60432 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 53985) -> ('192.168.66.162', 60432)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 53985) -> ('192.168.66.162', 60432)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting Brain instance...
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:stream:PeerConnection(8e142eb8-5aa8-4661-b063-0c24a97ebf82) Created for Angular
+INFO:root:trackStream LaneVideoShMem Init Success!
+INFO:stream:PeerConnection(8e142eb8-5aa8-4661-b063-0c24a97ebf82) Created track stream
+INFO:stream:PeerConnection(8e142eb8-5aa8-4661-b063-0c24a97ebf82) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(jQlXRReP8i 1 udp 1845501695 192.168.66.162 53137 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 60099) -> ('192.168.66.162', 53137)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 60099) -> ('192.168.66.162', 53137)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting Brain instance...
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:stream:PeerConnection(3cde4bad-3a41-4729-8b3f-74c91d51a41b) Created for Angular
+INFO:root:trackStream LaneVideoShMem Init Success!
+INFO:stream:PeerConnection(3cde4bad-3a41-4729-8b3f-74c91d51a41b) Created track stream
+INFO:stream:PeerConnection(3cde4bad-3a41-4729-8b3f-74c91d51a41b) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(pHHcltbjtb 1 udp 1845501695 192.168.66.162 63870 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 56775) -> ('192.168.66.162', 63870)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 56775) -> ('192.168.66.162', 63870)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting Brain instance...
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:stream:PeerConnection(41f1262e-5b7f-401b-b637-0c1ed8fae299) Created for Angular
+INFO:root:trackStream LaneVideoShMem Init Success!
+INFO:stream:PeerConnection(41f1262e-5b7f-401b-b637-0c1ed8fae299) Created track stream
+INFO:stream:PeerConnection(41f1262e-5b7f-401b-b637-0c1ed8fae299) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(cybmHrJZj6 1 udp 1845501695 192.168.66.162 52361 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 35162) -> ('192.168.66.162', 52361)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 35162) -> ('192.168.66.162', 52361)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting Brain instance...
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:stream:PeerConnection(a3771f34-bf1b-4971-b743-bb931a6a11d3) Created for Angular
+INFO:root:trackStream LaneVideoShMem Init Success!
+INFO:stream:PeerConnection(a3771f34-bf1b-4971-b743-bb931a6a11d3) Created track stream
+INFO:stream:PeerConnection(a3771f34-bf1b-4971-b743-bb931a6a11d3) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(0uAjt5F9j8 1 udp 1845501695 192.168.66.162 64554 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 44404) -> ('192.168.66.162', 64554)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 44404) -> ('192.168.66.162', 64554)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0 -c-1' died with <Signals.SIGINT: 2>.
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting Brain instance...
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:stream:PeerConnection(a018fb16-6dcb-44c0-834c-72fd7c799e99) Created for Angular
+INFO:root:trackStream LaneVideoShMem Init Success!
+INFO:stream:PeerConnection(a018fb16-6dcb-44c0-834c-72fd7c799e99) Created track stream
+INFO:stream:PeerConnection(a018fb16-6dcb-44c0-834c-72fd7c799e99) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(P5slGWZvqS 1 udp 1853817087 192.168.66.172 61511 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 55891) -> ('192.168.66.172', 61511)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 55891) -> ('192.168.66.172', 61511)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0 -c-1' died with <Signals.SIGINT: 2>.
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...

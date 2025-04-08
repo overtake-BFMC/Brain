@@ -1,166 +1,161 @@
 import cv2
 import numpy as np
-import scipy.interpolate as si
 
-from scipy.interpolate import UnivariateSpline
+class LaneFollowing:
 
-def region_of_interest( img, vertices ):
-
-    mask = np.zeros_like( img )  
-   
-    cv2.fillPoly( mask, vertices, 255 )  
-   
-    masked_img = cv2.bitwise_and( img, mask )  
-   
-    return masked_img
-
-
-def CannyEdge( frame ):
-
-    # hsv = cv2.cvtColor( frame, cv2.COLOR_BGR2HSV )
-
-    gray = cv2.GaussianBlur(frame, (5, 5), 0)
-
-    edges = cv2.Canny( gray, 50, 200 )
-
-    height = edges.shape[0] #1484
-    width = edges.shape[1] #3280
-
-    region = np.array( [ [ ( 80, 540 ), ( 360, 200 ), ( 650 , 200 ), ( 820  ,540)]])
-
-    edges = region_of_interest( edges, region )
-
-    lines = cv2.HoughLinesP(edges, 1, np.pi / 180, threshold = 30, minLineLength=10, maxLineGap=100)
-
-    draw_all_lines( frame, lines )
-    frame = draw_ROI( frame, region )
-
-    return edges, frame, lines      
-
-
-def draw_all_lines(frame, lines):
-    left_lines_x1, left_lines_x2, right_lines_x1, right_lines_x2 = [], [], [], []
-    left_lines_y1, left_lines_y2, right_lines_y1, right_lines_y2 = [], [], [], []
-
-    l_points, r_points = [], []
-
-    LEVO = False
-    DESNO = False
-
-    if lines is not None:
-        for line in lines:
-            x1, y1, x2, y2 = line[0]
-
-            # Izbegavamo skoro horizontalne linije
-            if abs(y2 - y1) < 20:
-                continue
-            
-            if x2 - x1 == 0:
-                continue
-
-            slope = ( y2 - y1 ) / ( x2 - x1 )
-
-
-            if slope > 0.8 or slope < -0.8:
-
-                if x1 < 960 // 2 and x2 < 960 // 2:  
-                    left_lines_x1.append(int(x1))
-                    left_lines_x2.append(int(x2))
-                    left_lines_y1.append(int(y1))
-                    left_lines_y2.append(int(y2))
-
-                    # print( "LEVA", slope)
-
-                elif x1 > 960 // 2 and x2 > 960 // 2:
-                    right_lines_x1.append(int(x1))
-                    right_lines_x2.append(int(x2))
-                    right_lines_y1.append(int(y1))
-                    right_lines_y2.append(int(y2))
-
-    output_left_lines = []
-    output_right_lines = []
-
-    Left = False
-    Right = False
-
-    if left_lines_x1 and left_lines_x2:
-        Left = True
-        min_index_L = left_lines_x1.index(min(left_lines_x1))  
-        left_line_x1 = left_lines_x1[min_index_L]  
-        left_line_y1 = left_lines_y1[min_index_L]  
-
-        max_index_L = left_lines_x2.index(max(left_lines_x2))
-        left_line_x2 = left_lines_x2[max_index_L]
-        left_line_y2 = left_lines_y2[max_index_L]
-
-        # left_line_x2 = 960 // 2
-        # left_line_y2 = 180
-
-        cv2.line(frame, (left_line_x1, left_line_y1), (left_line_x2, left_line_y2), (0, 0, 255), 10)
-        output_left_lines.append((left_line_x1, left_line_x2, left_line_y1, left_line_y2))
-
-    if right_lines_x1 and right_lines_x2:
-        Right = True
-        max_index_R = right_lines_x2.index(max(right_lines_x2))
-        right_line_x2 = right_lines_x2[max_index_R]
-        right_line_y2 = right_lines_y2[max_index_R]
-
-        min_index_L = right_lines_x1.index(min(right_lines_x1))
-        right_line_x1 = right_lines_x1[min_index_L]
-        right_line_y1 = right_lines_y1[min_index_L]
-
-        # right_line_x1 = 960 // 2
-        # right_line_y1 = 180
-
-        cv2.line(frame, (right_line_x2, right_line_y2), (right_line_x1, right_line_y1), (0, 0, 255), 10)
-        output_right_lines.append((right_line_x1, right_line_x2, right_line_y1, right_line_y2))
+    def __init__( self ):
         
+        self.left_lines = None
+        self.right_lines = None
+        self.prev_lane_center = None
+        self.lane_center = None
+        self.masked_img = None
+        self.frame_width = 960 
 
-    return output_left_lines, output_right_lines, DESNO, LEVO       
+    def ROI( self, frame, vertices ):
+        
+        mask = np.zeros_like( frame )
+        cv2.fillPoly( mask, vertices, 255 )  
+        self.masked_img = cv2.bitwise_and( frame, mask )  
 
-def draw_ROI( frame, region ):
-
-    overlay = frame.copy()  
-    cv2.fillPoly(overlay, [region], (0, 255, 0))  
+        return self
     
-    alpha = 0.3  
-    frame = cv2.addWeighted(overlay, alpha, frame, 1 - alpha, 0)  
+    def draw_ROI( self, frame, region ):
 
-    return frame
+        overlay = frame.copy()  
+        cv2.fillPoly(overlay, [region], (0, 255, 0))  
+        
+        alpha = 0.3  
+        frame = cv2.addWeighted(overlay, alpha, frame, 1 - alpha, 0)  
 
-def get_lane_center( lines, frame, prev_lane_center ):
-
-    left_lines, right_lines, DESNO, LEVO = draw_all_lines( frame, lines )
-
+        return frame 
     
-    frame_width = frame.shape[1]
+    def CannyEdge( self, frame ):
 
-    left_ind = False
-    right_ind = False
+        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+        gray = cv2.GaussianBlur(gray, (7, 7), 0)
 
-    if left_lines:
-        left_x = int( np.mean([x for x1, x2, _, _ in left_lines for x in (x1, x2)]) )
-        left_ind = True 
+        edges = cv2.Canny( gray, 30, 120 )
 
-    if right_lines:
-        right_x = int( np.mean([x for x1, x2, _, _ in right_lines for x in (x1, x2)]) )
-        right_ind = True
+        region = np.array( [[ ( 80, 540 ), ( 330, 170 ), ( 620, 170 ), (840, 540) ]]) 
+        # region = np.array( [[ ( 80, 540, ), ( 330, 170 ), ( 680, 170 ), ( 900, 540 ) ]] ) #za snimak u raskrsnici
+
+        self.ROI(edges, region)
+        edges = self.masked_img
+
+        lines = cv2.HoughLinesP(edges, 1, np.pi / 180, threshold = 50, minLineLength=50, maxLineGap=50)
+
+        self.draw_all_lines( frame, lines )
+        frame = self.draw_ROI( frame, region )
+        # self.draw_ROI( frame, region )
+
+        return frame, lines
+    
+    def draw_all_lines( self, frame, lines ):
+
+        left_lines_x1, left_lines_x2, right_lines_x1, right_lines_x2 = [], [], [], []
+        left_lines_y1, left_lines_y2, right_lines_y1, right_lines_y2 = [], [], [], []
+
+
+        if lines is not None:
+            for line in lines:
+                x1, y1, x2, y2 = line[0]
+
+                if abs( y2 - y1 ) < 100:
+                    continue
+
+                if x1 - x2 == 0:
+                    continue
+
+                if x1 < self.frame_width // 2 and x2 < self.frame_width // 2:
+
+                    left_lines_x1.append( int(x1) )
+                    left_lines_x2.append( int(x2) )
+                    left_lines_y1.append( int(y1) )
+                    left_lines_y2.append( int(y2) )
+
+                elif x1 > self.frame_width // 2 and x2 > self.frame_width // 2:
+
+                    right_lines_x1.append( int(x1) )
+                    right_lines_x2.append( int(x2) )
+                    right_lines_y1.append( int(y1) )
+                    right_lines_y2.append( int(y2) )
+
+        output_left_lines = []
+        output_right_lines = []
+
+        if left_lines_x1 and left_lines_x2:
+
+            min_index_L = left_lines_x1.index(min(left_lines_x1))  
+            left_line_x1 = left_lines_x1[min_index_L]  
+            left_line_y1 = left_lines_y1[min_index_L]  
+
+            max_index_L = left_lines_x2.index( max( left_lines_x2 ) )
+            left_line_x2 = left_lines_x2[max_index_L]
+            left_line_y2 = left_lines_y2[max_index_L]
+
+            cv2.line(frame, (left_line_x1, left_line_y1), (left_line_x2, left_line_y2), (0, 0, 255), 10)
+            output_left_lines.append( (left_line_x1, left_line_x2, left_line_y1, left_line_y2) )
+
+        if right_lines_x1 and right_lines_x2:
+            
+            max_index_R = right_lines_x2.index( max( right_lines_x2 ) )
+            right_line_x2 = right_lines_x2[max_index_R]
+            right_line_y2 = right_lines_y2[max_index_R]
+
+            min_index_L = right_lines_x1.index( min( right_lines_x1 ) )
+            right_line_x1 = right_lines_x1[min_index_L]
+            right_line_y1 = right_lines_y1[min_index_L]
+
+            cv2.line(frame, (right_line_x2, right_line_y2), (right_line_x1, right_line_y1), (0, 0, 255), 10)
+            output_right_lines.append( (right_line_x1, right_line_x2, right_line_y1, right_line_y2) )
+
+        self.left_lines = output_left_lines
+        self.right_lines = output_right_lines
+
+        return output_left_lines, output_right_lines
+
+    def twoLanes( self, left_lines, right_lines, frame, prev_lane_center ):
+
+        left_ind = False
+        right_ind = False
+
+        if left_lines:
+            left_x = int( np.mean([x for x1, x2, _, _ in left_lines for x in (x1, x2)]) )
+            left_ind = True   
+
+        if right_lines:
+            right_x = int( np.mean([x for x1, x2, _, _ in right_lines for x in (x1, x2)]) )
+            right_ind = True
+
+        if left_ind and right_ind:
+            lane_center = ( left_x + right_x ) // 2
+        elif not left_ind and right_ind:
+            lane_center = self.frame_width // 2 - 70
+        elif left_ind and not right_ind:
+            lane_center = self.frame_width // 2 + 70
+        else:
+            lane_center = prev_lane_center   
+
+        return lane_center
+
+    def get_lane_center( self, lines, frame, prev_lane_center ):
+
+        left_lines, right_lines = self.draw_all_lines( frame, lines )
    
-    if DESNO:
-        lane_center = frame_width // 2 - 120
-    elif left_ind and right_ind:
-        lane_center = ( left_x + right_x ) // 2
-    elif not left_ind and right_ind:
-        lane_center = frame_width // 2 - 70
-    elif left_ind and not right_ind:
-        lane_center = frame_width // 2 + 70
-    else:
-        lane_center = prev_lane_center
+        if left_lines and right_lines:
+            lane_center = self.twoLanes( left_lines, right_lines, frame, prev_lane_center )
+        elif left_lines and not right_lines:
+            lane_center = self.frame_width // 2 - 5
+        elif not left_lines and right_lines:
+            lane_center = self.frame_width // 2 + 5
+        elif not left_lines and not right_lines:
+            lane_center = prev_lane_center
 
-    lane_center = int(0.7 * lane_center + (1 - 0.7) * prev_lane_center)
+        lane_center = int(0.6 * lane_center + (1 - 0.6) * prev_lane_center)
+        cv2.line( frame, (lane_center, frame.shape[0] // 2), (lane_center, frame.shape[0] ), (0, 255, 0 ), 4 ) 
 
-    cv2.line( frame, (lane_center, frame.shape[0] // 2), (lane_center, frame.shape[0] ), (0, 255, 0 ), 4 ) 
+        self.lane_center = lane_center
 
+        return lane_center
     
-
-    return left_lines, right_lines, lane_center

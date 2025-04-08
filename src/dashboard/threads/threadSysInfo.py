@@ -24,15 +24,27 @@ class threadSysInfo(ThreadWithStop):
         self.core_usage = 0
         self.cpu_temp = 0
 
-        self.INA226Jetson = INA226(busnum=7, address=0x40, max_expected_amps=0.5, shunt_ohms=0.1)
-        self.INA226Jetson.configure()
-        self.INA226Jetson.set_low_battery(5)
+        self.INA226JetsonPresent = 0
         self.jetsonBatt = 0
-
-        self.INA226Nucleo = INA226(busnum=7, address=0x41, max_expected_amps=0.5, shunt_ohms=0.1)
-        self.INA226Nucleo.configure()
-        self.INA226Nucleo.set_low_battery(5)
+        try:
+            self.INA226Jetson = INA226(busnum=7, address=0x40, max_expected_amps=0.5, shunt_ohms=0.1)
+            self.INA226Jetson.configure()
+            self.INA226Jetson.set_low_battery(5)
+            self.INA226JetsonPresent = 1
+        except Exception as e:
+            self.logger.warning("No battery logger attached at I2C bus 7 address 0x40 for jetson")
+            print("No battery logger attached at I2C bus 7 address 0x40 for jetson")
+            
+        self.INA226NucleoPresent = 0
         self.nucleoBatt = 0
+        try:
+            self.INA226Nucleo = INA226(busnum=7, address=0x41, max_expected_amps=0.5, shunt_ohms=0.1)
+            self.INA226Nucleo.configure()
+            self.INA226Nucleo.set_low_battery(5)
+            self.INA226NucleoPresent = 1
+        except Exception as e:
+            self.logger.warning("No battery logger attached at I2C bus 7 address 0x40 for nucleo")
+            print("No battery logger attached at I2C bus 7 address 0x40 for nucleo")
 
         self.cpuChannelSender = messageHandlerSender(self.queuesList, cpu_channel)
         self.memoryChannelSender = messageHandlerSender(self.queuesList, memory_channel)
@@ -55,17 +67,17 @@ class threadSysInfo(ThreadWithStop):
                         #print("Core: ",self.core_usage)
                         #print("Memory: ", self.memory_usage)
                         #print("Temp: ", self.cpu_temp)
+                        if self.INA226JetsonPresent and self.INA226NucleoPresent:
+                            self.INA226Jetson.wake(3)
+                            self.INA226Nucleo.wake(3)
+                            while 1:
+                                if self.INA226Jetson.is_conversion_ready():
+                                    #print("===================================================Conversion ready")
+                                    self.readJetsonVolt()
 
-                        self.INA226Jetson.wake(3)
-                        self.INA226Nucleo.wake(3)
-                        while 1:
-                            if self.INA226Jetson.is_conversion_ready():
-                                #print("===================================================Conversion ready")
-                                self.readJetsonVolt()
-
-                            if self.INA226Nucleo.is_conversion_ready():
-                                self.readNucleoVolt()
-                                break
+                                if self.INA226Nucleo.is_conversion_ready():
+                                    self.readNucleoVolt()
+                                    break
 
                         self.memoryChannelSender.send(self.memory_usage)
                         self.cpuChannelSender.send({'usage': self.core_usage, 'temp': self.cpu_temp, 'jetsonBatt': self.jetsonBatt, 'nucleoBatt': self.nucleoBatt})

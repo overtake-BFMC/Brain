@@ -193,6 +193,7 @@ except KeyboardInterrupt:
     """
 
     print(big_text)
+
     for proc in reversed(allProcesses):
         print("Process stopped", proc)
         proc.stop()

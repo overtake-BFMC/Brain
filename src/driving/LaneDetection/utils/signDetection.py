@@ -2,14 +2,13 @@ import os
 import sys
 import numpy as np
 np.set_printoptions(threshold=sys.maxsize)
-import onnxruntime as ort
+#import onnxruntime as ort
 import cv2
 from math import exp
 import logging
 import matplotlib.pyplot as plt
-#import tensorrt as trt
-#import pycuda.driver as cuda
-#import pycuda.autoinit
+import tensorrt as trt
+import pycuda.driver as cuda
 
 CLASSES = ['car', 'closed-road-stand', 'crosswalk-sign', 'highway-entry-sign', 'highway-exit-sign', 'no-entry-road-sign',
             'one-way-road-sign', 'parking-sign', 'parking-spot', 'pedestrian', 'priority-sign', 'round-about-sign',
@@ -17,11 +16,6 @@ CLASSES = ['car', 'closed-road-stand', 'crosswalk-sign', 'highway-entry-sign', '
 
 COLORS = np.random.uniform(0, 255, size=(len(CLASSES), 3))
 
-meshgrid = []
-class_num = len(CLASSES)
-headNum = 3
-strides = [8, 16, 32]
-mapSize = [[80, 80], [40, 40], [20, 20]]
 input_imgH = 640
 input_imgW = 640
 
@@ -38,16 +32,27 @@ class signDetection:
     def __init__(self, conf_thresh=0.5, iou_thresh=0.45):
 
         dir_path = os.path.dirname(os.path.realpath(__file__))
-        self.model_path = dir_path + "/best.onnx"
-        #self.engine_path = dir_path + "/best.engine"
+        #self.model_path = dir_path + "/best.onnx"
+        self.engine_path = dir_path + "/best.engine"
         self.conf_thresh = conf_thresh
         self.iou_thresh = iou_thresh
-        self.detectionModelSession = ort.InferenceSession(self.model_path, providers=['CUDAExecutionProvider']) #TensorrtExecutionProvider
-        #self.engine = self.load_engine(self.engine_path)
-        #self.context = self.engine.create_execution_context()
+        #self.detectionModelSession = ort.InferenceSession(self.model_path, providers=['CUDAExecutionProvider']) #TensorrtExecutionProvider
+        cuda.init()
+        self.device = cuda.Device(0)
+        self.ctx = self.device.make_context()
+        self.stream = cuda.Stream()
+        self.engine = self.load_engine(self.engine_path)
+        self.context = self.engine.create_execution_context()
 
-        #self.inputs, self.outputs, self.bindings, self.stream = self.allocate_buffers()
+        self.inputs, self.outputs, self.bindings = self.allocate_buffers()
 
+    def __del__(self):
+        # Clean up context when destroyed
+        if hasattr(self, 'stream'):
+            self.stream.synchronize()
+        if hasattr(self, 'ctx'):
+            self.ctx.pop()
+    
     @staticmethod
     def sigmoid(x):
         return 1 / (1 + exp(-x))
@@ -62,52 +67,60 @@ class signDetection:
         image = np.expand_dims(image, axis=0)
         return image
     
-    # def load_engine(self, engine_path):
-    #     TRT_LOGGER = trt.Logger(trt.Logger.WARNING)
-    #     with open(engine_path, "rb") as f, trt.Runtime(TRT_LOGGER) as runtime:
-    #         return runtime.deserialize_cuda_engine(f.read())
+    def load_engine(self, engine_path):
+        TRT_LOGGER = trt.Logger(trt.Logger.WARNING)
+        with open(engine_path, "rb") as f, trt.Runtime(TRT_LOGGER) as runtime:
+            return runtime.deserialize_cuda_engine(f.read())
         
-    # def allocate_buffers(self):
-    #     inputs = []
-    #     outputs = []
-    #     bindings = []
-    #     stream = cuda.Stream()
+    def allocate_buffers(self):
+        inputs = []
+        outputs = []
+        bindings = []
 
-    #     for binding in self.engine:
-    #         size = trt.volume(self.engine.get_tensor_shape(binding))
-    #         dtype = trt.nptype(self.engine.get_tensor_dtype(binding))
-    #         host_mem = cuda.pagelocked_empty(size, dtype)
-    #         device_mem = cuda.mem_alloc(host_mem.nbytes)
-    #         bindings.append(int(device_mem))
-    #         if self.engine.get_tensor_mode(binding) == trt.TensorIOMode.INPUT:
-    #             inputs.append({'host': host_mem, 'device': device_mem})
-    #         else:
-    #             outputs.append({'host': host_mem, 'device': device_mem})
+        for binding in self.engine:
+            size = trt.volume(self.engine.get_tensor_shape(binding))
+            dtype = trt.nptype(self.engine.get_tensor_dtype(binding))
+            
+            host_mem = cuda.pagelocked_empty(size, dtype)
+            device_mem = cuda.mem_alloc(host_mem.nbytes)
+            bindings.append(int(device_mem))
+            
+            if self.engine.get_tensor_mode(binding) == trt.TensorIOMode.INPUT:
+                inputs.append({'host': host_mem, 'device': device_mem})
+            else:
+                outputs.append({'host': host_mem, 'device': device_mem})
 
-    #     return inputs, outputs, bindings, stream
+        return inputs, outputs, bindings
 
-    # def infer(self, image):
-    #     # Preprocess the image
-    #     input_data = self.preprocess_image(image, input_imgW, input_imgH)
+    def infer(self, image):
+        # Preprocess the image
+        self.ctx.push()
 
-    #     # Copy input data to GPU
-    #     np.copyto(self.inputs[0]['host'], input_data.ravel())
-    #     cuda.memcpy_htod_async(self.inputs[0]['device'], self.inputs[0]['host'], self.stream)
+        try:
+            input_data = self.preprocess_image(image, input_imgW, input_imgH)
 
-    #     for i in range(self.engine.num_io_tensors):  # Updated attribute
-    #         tensor_name = self.engine.get_tensor_name(i)  # Get tensor name from index
-    #         self.context.set_tensor_address(tensor_name, self.bindings[i])  # Set address
+            # Copy input data to GPU
+            np.copyto(self.inputs[0]['host'], input_data.ravel())
+            cuda.memcpy_htod_async(self.inputs[0]['device'], self.inputs[0]['host'], self.stream)
 
-    #     # Perform inference
-    #     self.context.execute_async_v3(stream_handle=self.stream.handle)
+            for i in range(self.engine.num_io_tensors):  # Updated attribute
+                tensor_name = self.engine.get_tensor_name(i)  # Get tensor name from index
+                self.context.set_tensor_address(tensor_name, self.bindings[i])  # Set address
+
+            # Perform inference
+            self.context.execute_async_v3(stream_handle=self.stream.handle)
 
 
-    #     # Copy output data from GPU
-    #     cuda.memcpy_dtoh_async(self.outputs[0]['host'], self.outputs[0]['device'], self.stream)
-    #     self.stream.synchronize()
+            # Copy output data from GPU
+            cuda.memcpy_dtoh_async(self.outputs[0]['host'], self.outputs[0]['device'], self.stream)
+            self.stream.synchronize()
 
-    #     # Return the output
-    #     return self.outputs[0]['host']
+            # Return the output
+            return self.outputs[0]['host']
+        except Exception as e:
+            print(e)
+        finally:
+            self.ctx.pop()
 
     def non_max_suppression(self, boxes, scores, class_ids, iou_threshold=0.5):
         """
@@ -152,7 +165,8 @@ class signDetection:
         scale_h = img_h / input_imgH
         scale_w = img_w / input_imgW
 
-        predictions = pred_results[0]  # (1, 19, 8400) → Extract first element
+        #predictions = pred_results[0]  # (1, 19, 8400) → Extract first element #This is for cuda
+        predictions = pred_results  # (1, 19, 8400) → Extract first element
         predictions = predictions.squeeze(0)  # (19, 8400) → Remove batch dimension
 
         boxes = predictions[:4, :].T  # (8400, 4) -> (x, y, w, h)
@@ -191,12 +205,13 @@ class signDetection:
 
         image = self.preprocess_image(orig, input_imgW, input_imgH)
 
-        pred_results = self.detectionModelSession.run(None, {'images': image})
-        #pred_results = self.infer(orig)
+        #pred_results = self.detectionModelSession.run(None, {'images': image})
+        pred_results = self.infer(orig)
+        pred_results = pred_results.reshape(1, 19, 8400)
         valid_boxes, valid_class_ids, valid_class_scores = self.postprocess(pred_results, orig, conf_threshold)
 
-        predictions = pred_results[0]  # (1, 19, 8400) → Extract first element
-        predictions = predictions.squeeze(0)  # (19, 8400) → Remove batch dimension
+        #predictions = pred_results[0]  # (1, 19, 8400) → Extract first element
+        #predictions = predictions.squeeze(0)  # (19, 8400) → Remove batch dimension
         
         #print("++++++++DETECTED+++++++++")
         if showOutput:
@@ -263,20 +278,27 @@ class signDetection:
         return det_img
 
 if __name__ == "__main__":
+
+    #import threading
+    #def worker():
     # Replace '../frontend/' with the actual path to your Angular project
     testDetector = signDetection(conf_thresh=0.5, iou_thresh=0.45)
 
     dir_path = os.path.dirname(os.path.realpath(__file__))
-    image_path = dir_path + "/crosswalk_sign.jpg"
+    image_path = dir_path + "/frame3.jpg"
     #image_path = dir_path + "/pure-black.jpg"
     image = cv2.imread(image_path)
-    filtered_boxes, class_ids, class_scores = testDetector.detect(image)
+    filtered_boxes, class_ids, class_scores = testDetector.detect(image, True)
     detected_image = image
     if class_scores.size != 0:
         detected_image = testDetector.draw_detections(image, filtered_boxes, class_ids, class_scores)
-    cv2.imwrite(dir_path + "/Detected.jpg", detected_image)
-    logging.basicConfig(filename= dir_path + '/signDetection.log', level=logging.INFO)
-    logger = logging.getLogger()
+    cv2.imwrite(dir_path + "/Det_frame3.jpg", detected_image)
+
+    # threads = [threading.Thread(target=worker) for _ in range(2)]
+    # [t.start() for t in threads]
+    # [t.join() for t in threads]
+    #logging.basicConfig(filename= dir_path + '/signDetection.log', level=logging.INFO)
+    #logger = logging.getLogger()
     #msgStr = "Boxes: " + str(boxes)
     #logger.info(msgStr)
     #msgStr = "Confidences: " + str(scores)

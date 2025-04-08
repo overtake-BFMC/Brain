@@ -30,6 +30,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. -->
     <button class="record-button" [style.backgroundColor]="getButtonColor()" (click)="changeState()">
       {{text}}
     </button>
+    <button class="record-button" [style.backgroundColor]="getLaneDetectionButtonColor()" (click)="startLaneDetection()">
+      {{startLaneDetectionText}}
+    </button>
     <button class="record-button" [style.backgroundColor]="getStartButtonColor()" (click)="startRun()">
       {{startRunText}}
     </button>

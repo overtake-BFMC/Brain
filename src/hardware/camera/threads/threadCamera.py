@@ -68,7 +68,9 @@ class threadCamera(ThreadWithStop):
         if self.recording:
             self.video_writer.release()
         super(threadCamera, self).stop()
-        self.shm.close()
+        #self.shm.close()
+        #Does not work because resource tracker deletes it by itself when process is deleted
+        #Fixed in python version 3.13 by adding track = False in shm constructor.. example: self.shm = SharedMemory(name=self.shMemName, track=False)
 
     # =============================== CONFIG ==============================================
     def Configs(self):
