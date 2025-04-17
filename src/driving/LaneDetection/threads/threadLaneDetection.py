@@ -77,7 +77,7 @@ class threadLaneDetection(ThreadWithStop):
         print("dir_path_lane_det: ", dir_path)
         self.ppData, self.maps = pre.loadPPData(dir_path + "/../utils/data")  
 
-        self.pid = PID.PIDController( Kp = 0.12, Ki = 0.05, Kd = 0.003 )
+        self.pid = PID.PIDController( Kp = 0.13, Ki = 0.03, Kd = 0.09 )
 
         self.detector = signDetection(conf_thresh=0.5, iou_thresh=0.45)
         self.noOfDetections = [0] * 15
@@ -190,17 +190,19 @@ class threadLaneDetection(ThreadWithStop):
         if boolDetections[2]: #crosswalk-sign
             isDetected = True
             #self.vehicleState.setSpeed(10)
-            self.isLaneKeeping = True
+            self.isLaneKeeping = False ############################PROMENA
             desiredSpeed = 10
             self.warningSignalSender.send({"WarningName":"Crosswalk Ahead", "WarningID": 4})
         if boolDetections[12][0] and boolDetections[9][1]: #stop-line and pedestrian
             #self.vehicleState.setSpeed(0)
-            self.isLaneKeeping = True
+            self.isLaneKeeping = False ##################PROMENA
             desiredSpeed = 0
             isDetected = True
             self.warningSignalSender.send({"WarningName":"Pedestrian on Crosswalk", "WarningID": 11})
         if boolDetections[3]: #highwayEntry
             desiredSpeed = 40
+            self.isLaneKeeping = True #############################################PROMENA
+
             self.isOnHighway = True
             self.warningSignalSender.send({"WarningName":"Highway Ahead", "WarningID": 6})
         if boolDetections[4]:
@@ -324,19 +326,23 @@ class threadLaneDetection(ThreadWithStop):
                     filtered_boxes, class_ids, class_scores = self.detector.detect(detection_frame, showOutput= False)
                     self.makeDecision(zip(filtered_boxes, class_ids, class_scores), bufferDetections, distanceF, timer)
 
-                    print(self.vehicleState.getPosition())
+                    #print(self.vehicleState.getPosition())
 
                 # frame_lines, lines = CH.CannyEdge( self.frame )
 
                 frame_lines, lines = LANEFOL.CannyEdge( self.frame )
 
-                frame_lines = apply_gamma_on_frame( frame_lines, gamma=0.5 )
+                frame_lines = apply_gamma_on_frame( frame_lines, gamma=0.45 )
 
                 #frame_bev = pre.bev( frame_lines, self.ppData, self.maps )
                 
                 # left_lines, right_lines, lane_center = CH.get_lane_center( lines, frame_lines, prev_lane_center )
 
                 lane_center = LANEFOL.get_lane_center( lines, frame_lines, prev_lane_center)
+
+                if abs( prev_lane_center - lane_center ) < 20:
+                    lane_center = prev_lane_center
+
 
                 prev_lane_center = lane_center
                     
@@ -347,7 +353,6 @@ class threadLaneDetection(ThreadWithStop):
                 compute_error = max( -25, min( compute_error, 25 ))
                 self.kf.correct(compute_error)
                 filtriran = self.kf.get_filtered_error()
-            
 
                 if counter >= counter_max:
                     if self.isLaneKeeping:

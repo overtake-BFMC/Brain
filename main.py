@@ -65,6 +65,7 @@ from src.dashboard.StreamRTC.processStreamRTC import processStreamRTC
 from src.driving.LaneDetection.processLaneDetection import processLaneDetection
 from src.driving.PathFollowing.processPathFollowing import processPathFollowing
 from src.gateway.SharedMemoryGateway.processSharedMemoryGateway import processSharedMemoryGateway
+from src.hardware.canhandler.processCANHandler import processCANHandler
 # ------ New component imports ends here ------#
 # ======================================== SETTING UP ====================================
 allProcesses = list()
@@ -84,13 +85,14 @@ Dashboard = True
 Camera = True
 Semaphores = False
 TrafficCommunication = False
-SerialHandler = True
+SerialHandler = False
 
 # ------ New component flags starts here ------#
 webRTC = False #JS Version
 streamRTC = True
 LaneDetection = True
 PathFollowing = True
+CANHandler = True
 # ------ New component flags ends here ------#
 
 #Log the start of the instance
@@ -150,6 +152,10 @@ if TrafficCommunication:
 if SerialHandler:
     processSerialHandler = processSerialHandler(queueList, logging, debugging = False)
     allProcesses.append(processSerialHandler)
+
+if CANHandler:
+    processCANHandler = processCANHandler(queueList, logging, debugging=True)
+    allProcesses.append(processCANHandler)
 
 # ------ New component runs starts here ------#
 
