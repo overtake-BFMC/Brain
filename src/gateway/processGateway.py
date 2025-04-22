@@ -32,19 +32,23 @@ if __name__ == "__main__":
 
 from src.templates.workerprocess import WorkerProcess
 from src.gateway.threads.threadGateway import threadGateway
-
+import logging
+from src.utils.logger.loggerConfig import setupLogger
 
 class processGateway(WorkerProcess):
     """This process handle all the data distribution\n
     Args:
-        queueList (dictionar of multiprocessing.queues.Queue): Dictionar of queues where the ID is the type of messages.
-        logger (logging object): Made for debugging.
-        debugging (bool, optional): A flag for debugging. Defaults to False.
+        queueList (dict): Dictionary of multiprocessing.queues.Queue where the ID is the type of messages.
+        mainLogLevel (int, optional): Logging level for file (e.g., logging.DEBUG, logging.INFO).
+        consoleLogLevel (int, optional): Logging level for console
+        debugging (bool, optional): Flag to enable or disable debugging behavior.
     """
 
-    def __init__(self, queueList, logger, debugging=False):
-        self.logger = logger
+    def __init__(self, queueList, mainLogLevel = logging.INFO, consoleLogLevel = logging.WARNING, debugging = False):
+        self.mainLogLevel = mainLogLevel
+        self.consoleLogLevel = consoleLogLevel
         self.debugging = debugging
+        self.logger = setupLogger(name=__name__, level=self.mainLogLevel, consoleLevel=self.consoleLogLevel)
         super(processGateway, self).__init__(queueList)
 
     # ===================================== RUN ===========================================
@@ -57,7 +61,7 @@ class processGateway(WorkerProcess):
     def _init_threads(self):
         """Initializes the gateway thread."""
         
-        gatewayThread = threadGateway(self.queuesList, self.logger, self.debugging)
+        gatewayThread = threadGateway(self.queuesList, self.mainLogLevel, self.consoleLogLevel, self.debugging)
         self.threads.append(gatewayThread)
 
 

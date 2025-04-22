@@ -46,9 +46,15 @@ import time
 
 sys.path.append(".")
 from multiprocessing import Queue, Event
+from src.utils.logger.loggerConfig import setupLogger
 import logging
 
-logging.basicConfig(filename='main.log', level=logging.INFO)
+#Change here to see more or less info
+LOG_LEVEL = logging.INFO
+CONSOLE_LOG_LEVEL = logging.WARNING
+
+#logging.basicConfig(filename='main.log', level=logging.INFO)
+logger , mainLogger = setupLogger("Main", "main.log", LOG_LEVEL, CONSOLE_LOG_LEVEL)
 
 # ===================================== PROCESS IMPORTS ==================================
 
@@ -78,10 +84,11 @@ queueList = {
     "Config": Queue(),
     "Video" : Queue(),
 }
-logging = logging.getLogger()
-
+#logging = logging.getLogger()
 
 Dashboard = True
+toRecompileDashboard = False
+
 Camera = True
 Semaphores = False
 TrafficCommunication = False
@@ -96,15 +103,15 @@ CANHandler = True
 # ------ New component flags ends here ------#
 
 #Log the start of the instance
-logging.info(f"Starting Brain instance...")
+mainLogger.info(f"Starting Brain instance...")
 
 # ===================================== SETUP PROCESSES ==================================
 
 # Initializing gateway
-processGateway = processGateway(queueList, logging, debugging = False)
+processGateway = processGateway(queueList, mainLogLevel=LOG_LEVEL, debugging = False)
 processGateway.start()
 
-processSharedMemoryGateway = processSharedMemoryGateway(queueList, logging, debugging= False)
+processSharedMemoryGateway = processSharedMemoryGateway(queueList, mainLogLevel=LOG_LEVEL, debugging = False)
 processSharedMemoryGateway.start()
 
 # Ip replacement
@@ -114,47 +121,47 @@ IpChanger.replace_ip_in_file()
 
 # Initializing dashboard
 if Dashboard:
-    processDashboard = processDashboard( queueList, logging, debugging = False)
+    processDashboard = processDashboard( queueList, toRecompileDashboard, mainLogLevel=LOG_LEVEL, debugging = False)
     allProcesses.append(processDashboard)
 
 # Initializing camera
 if Camera:
-    processCamera = processCamera(queueList, logging , debugging = False)
+    processCamera = processCamera(queueList, mainLogLevel=LOG_LEVEL, debugging = False)
     allProcesses.append(processCamera)
 
 if LaneDetection:
-    processLaneDetection = processLaneDetection(queueList, logging, debugging = False)
+    processLaneDetection = processLaneDetection(queueList, mainLogLevel=LOG_LEVEL, debugging = False)
     allProcesses.append(processLaneDetection)
 
 if PathFollowing:
-    processPathFollowing = processPathFollowing(queueList, logging, debugging = False)
+    processPathFollowing = processPathFollowing(queueList, mainLogLevel=LOG_LEVEL, debugging = False)
     allProcesses.append(processPathFollowing)
 
-if webRTC:
+if webRTC: #JS Version
     processWebRTC = processWebRTC(queueList, logging, debugging= False)
     allProcesses.append(processWebRTC)
 
 if streamRTC:
-    processStreamRTC = processStreamRTC(queueList, logging, debugging= False)
+    processStreamRTC = processStreamRTC(queueList, mainLogLevel=LOG_LEVEL, debugging = False)
     allProcesses.append(processStreamRTC)
 
 # Initializing semaphores
 if Semaphores:
-    processSemaphores = processSemaphores(queueList, logging, debugging = False)
+    processSemaphores = processSemaphores(queueList, mainLogLevel=LOG_LEVEL, debugging = False)
     allProcesses.append(processSemaphores)
 
 # Initializing GPS
 if TrafficCommunication:
-    processTrafficCommunication = processTrafficCommunication(queueList, logging, 3, debugging = False)
+    processTrafficCommunication = processTrafficCommunication(queueList, 3, mainLogLevel=LOG_LEVEL, debugging = False)
     allProcesses.append(processTrafficCommunication)
 
 # Initializing serial connection NUCLEO - > PI
 if SerialHandler:
-    processSerialHandler = processSerialHandler(queueList, logging, debugging = False)
+    processSerialHandler = processSerialHandler(queueList, mainLogLevel=LOG_LEVEL, debugging = False)
     allProcesses.append(processSerialHandler)
 
 if CANHandler:
-    processCANHandler = processCANHandler(queueList, logging, debugging=True)
+    processCANHandler = processCANHandler(queueList, mainLogLevel=LOG_LEVEL, debugging = False)
     allProcesses.append(processCANHandler)
 
 # ------ New component runs starts here ------#
@@ -207,7 +214,7 @@ except KeyboardInterrupt:
     processSharedMemoryGateway.stop()
     print("Process stopped", processGateway)
     processGateway.stop()
-    logging.info("Stopped Brain instance...")
+    mainLogger.info("Stopped Brain instance...")
 
     big_text = """
     PPPP   RRRR   EEEEE  SSSS  SSSS       CCCC  TTTTT RRRR    L          ++      CCCC      !!! 

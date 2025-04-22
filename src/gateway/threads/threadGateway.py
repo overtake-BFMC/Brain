@@ -27,6 +27,8 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE
 
 from src.templates.threadwithstop import ThreadWithStop
+import logging
+from src.utils.logger.loggerConfig import setupLogger
 
 class threadGateway(ThreadWithStop):
     """Thread which will handle processGateway functionalities.\n
@@ -38,10 +40,12 @@ class threadGateway(ThreadWithStop):
 
     # ===================================== INIT =========================================
 
-    def __init__(self, queueList, logger, debugging):
+    def __init__(self, queueList, mainLogLevel = logging.INFO, consoleLogLevel = logging.WARNING, debugging = False):
         super(threadGateway, self).__init__()
-        self.logger = logger
+        self.mainLogLevel = mainLogLevel
+        self.consoleLogLevel = consoleLogLevel
         self.debugging = debugging
+        self.logger = setupLogger(name=__name__, level=self.mainLogLevel, consoleLevel=self.consoleLogLevel)
         self.sendingList = {}
         self.queuesList = queueList
         self.messageApproved = []
@@ -107,7 +111,7 @@ class threadGateway(ThreadWithStop):
                     {"Type": Type, "value": Value, "id": Id, "Owner": Owner}
                 )
                 if self.debugging:
-                    self.logger.warning(message)
+                    self.logger.debug(message)
 
     # ====================================================================================
 
@@ -115,7 +119,7 @@ class threadGateway(ThreadWithStop):
     def printList(self):
         """Made for debugging"""
 
-        self.logger.warning(self.sendingList)
+        self.logger.debug(self.sendingList)
 
     # ==================================== RUN ===========================================
 

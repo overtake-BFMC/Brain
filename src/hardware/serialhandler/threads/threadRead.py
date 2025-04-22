@@ -18,7 +18,8 @@ from src.utils.messages.allMessages import (
 
 )
 from src.utils.messages.messageHandlerSender import messageHandlerSender
-
+import logging
+from src.utils.logger.loggerConfig import setupLogger
 
 class threadRead(ThreadWithStop):
     """This thread reads the data that NUCLEO sends to Raspberry PI.\n
@@ -29,15 +30,17 @@ class threadRead(ThreadWithStop):
     """
 
     # ===================================== INIT =========================================
-    def __init__(self, f_serialCon, f_logFile, queueList, logger, debugger=False):
+    def __init__(self, f_serialCon, f_logFile, queueList, mainLogLevel = logging.INFO, consoleLogLevel = logging.WARNING, debugging = False):
         self.serialCon = f_serialCon
         self.logFile = f_logFile
         self.buff = ""
         self.isResponse = False
         self.queuesList = queueList
         self.acumulator = 0
-        self.logger = logger
-        self.debugger = debugger
+        self.mainLogLevel = mainLogLevel
+        self.consoleLogLevel = consoleLogLevel
+        self.debugging = debugging
+        self.logger = setupLogger(name=__name__, level=self.mainLogLevel, consoleLevel=self.consoleLogLevel)
         self.currentSpeed = 0
         self.currentSteering = 0
 
@@ -107,7 +110,7 @@ class threadRead(ThreadWithStop):
             action = action[1:]
             value = value[:-4]
 
-            if self.debugger:
+            if self.debugging:
                 self.logger.info(buff)
 
             if action == "imu":

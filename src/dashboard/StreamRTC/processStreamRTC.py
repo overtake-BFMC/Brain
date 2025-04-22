@@ -15,13 +15,14 @@ from src.utils.messages.messageHandlerSender import messageHandlerSender
 
 from aiortc import RTCPeerConnection, RTCIceCandidate, RTCConfiguration, RTCIceServer
 from aiortc import RTCSessionDescription
-from src.dashboard.webRTC.threads.trackStream import trackStream
+from src.dashboard.StreamRTC.threads.trackStream import trackStream
 import asyncio
 import logging
 import uuid
 from aiortc import MediaStreamTrack
 from aiortc.contrib.media import  MediaPlayer
 import os
+from src.utils.logger.loggerConfig import setupLogger
 
 class processStreamRTC(WorkerProcess):
     """This process handles processStreamRTC.
@@ -31,10 +32,12 @@ class processStreamRTC(WorkerProcess):
         debugging (bool, optional): A flag for debugging. Defaults to False.
     """
 
-    def __init__(self, queueList, logging, debugging=False):
+    def __init__(self, queueList, mainLogLevel = logging.INFO, consoleLogLevel = logging.WARNING, debugging = False):
         self.queuesList = queueList
-        self.logging = logging
+        self.mainLogLevel = mainLogLevel
+        self.consoleLogLevel = consoleLogLevel
         self.debugging = debugging
+        self.logger = setupLogger(name=__name__, level=self.mainLogLevel, consoleLevel=self.consoleLogLevel)
         super(processStreamRTC, self).__init__(self.queuesList)
 
         self.pcs = set()
@@ -79,20 +82,20 @@ class processStreamRTC(WorkerProcess):
         self.pcs.clear()
 
     async def process_offer(self, RTCoffer):
-        logger = logging.getLogger("stream")
+        #logger = logging.getLogger("stream")
 
         pc = RTCPeerConnection(self.RTCconfig)
         pc_id = "PeerConnection(%s)" % uuid.uuid4()
         self.pcs.add(pc)
 
         def log_info(msg, *args):
-            logger.info(pc_id + " " + msg, *args)
+            self.logger.info(pc_id + " " + msg, *args)
 
         log_info("Created for Angular")
 
 
 
-        pc.addTrack(trackStream(self.queuesList, self.logging, debugging = False))
+        pc.addTrack(trackStream(self.queuesList, self.mainLogLevel, self.consoleLogLevel, self.debugging))
         #player = MediaPlayer(self.dir_path + '/demo-instruct.wav')
         #pc.addTrack(player.audio)
         log_info("Created track stream")
@@ -144,10 +147,11 @@ class processStreamRTC(WorkerProcess):
 
     def _init_threads(self):
         """Create the processStreamRTC Publisher thread and add to the list of threads."""
-        processStreamRTCTh = threadStreamRTC(
-            self.queuesList, self.logging, self.debugging
-        )
-        self.threads.append(processStreamRTCTh)
+        pass
+        # processStreamRTCTh = threadStreamRTC(
+        #     self.queuesList, self.logging, self.debugging
+        # )
+        # self.threads.append(processStreamRTCTh)
 
     def subscribe(self):
         self.WebRTCOfferSubscriber = messageHandlerSubscriber(self.queuesList, WebRTCOffer, "lastOnly", True )

@@ -15,16 +15,20 @@ import asyncio
 from fractions import Fraction
 from multiprocessing.shared_memory import SharedMemory
 import numpy as np
+import logging
+from src.utils.logger.loggerConfig import setupLogger
 class trackStream(MediaStreamTrack):
     
     kind = 'video'
 
-    def __init__(self, queueList, logging, debugging = False):
+    def __init__(self, queueList, mainLogLevel = logging.INFO, consoleLogLevel = logging.WARNING, debugging = False):
         super(trackStream, self).__init__()
 
         self.queueList = queueList
-        self.logger = logging
+        self.mainLogLevel = mainLogLevel
+        self.consoleLogLevel = consoleLogLevel
         self.debugging = debugging
+        self.logger = setupLogger(name=__name__, level=self.mainLogLevel, consoleLevel=self.consoleLogLevel)
         #self.track = track
         self.start_time = time.time()
         self.frame_count = 0

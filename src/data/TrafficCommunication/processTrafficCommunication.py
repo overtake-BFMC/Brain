@@ -37,6 +37,9 @@ from src.templates.workerprocess import WorkerProcess
 from src.data.TrafficCommunication.threads.threadTrafficCommunicaiton import (
     threadTrafficCommunication,
 )
+import logging
+from src.utils.logger.loggerConfig import setupLogger
+
 class processTrafficCommunication(WorkerProcess):
     """This process receives the location of the car and sends it to the processGateway.
     
@@ -48,14 +51,16 @@ class processTrafficCommunication(WorkerProcess):
     """
 
     # ====================================== INIT ==========================================
-    def __init__(self, queueList, logging, deviceID, debugging, frequency=1):
+    def __init__(self, queueList, deviceID, mainLogLevel = logging.INFO, consoleLogLevel = logging.WARNING, debugging = False, frequency=1):
         self.queuesList = queueList
-        self.logging = logging
         self.shared_memory = sharedMem()
         self.filename = "src/data/TrafficCommunication/useful/publickey_server_test.pem"
         self.deviceID = deviceID
         self.frequency = frequency
+        self.mainLogLevel = mainLogLevel
+        self.consoleLogLevel = consoleLogLevel
         self.debugging = debugging
+        self.logger = setupLogger(name=__name__, level=self.mainLogLevel, consoleLevel=self.consoleLogLevel)
         super(processTrafficCommunication, self).__init__(self.queuesList)
 
     # ===================================== STOP ==========================================

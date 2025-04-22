@@ -4,6 +4,8 @@ from src.hardware.serialhandler.threads.filehandler import FileHandler
 from src.hardware.serialhandler.threads.threadRead import threadRead
 from src.hardware.serialhandler.threads.threadWrite import threadWrite
 
+import logging
+from src.utils.logger.loggerConfig import setupLogger
 
 class processSerialHandler(WorkerProcess):
     """This process handles the connection between NUCLEO and Raspberry PI.\n
@@ -15,7 +17,7 @@ class processSerialHandler(WorkerProcess):
     """
 
     # ===================================== INIT =========================================
-    def __init__(self, queueList, logging, debugging=False, example=False):
+    def __init__(self, queueList, mainLogLevel = logging.INFO, consoleLogLevel = logging.WARNING, debugging = False, example=False):
         devFile = "/dev/ttyACM0"
         logFile = "historyFile.txt"
 
@@ -31,8 +33,10 @@ class processSerialHandler(WorkerProcess):
         # log file init
         self.historyFile = FileHandler(logFile)
         self.queuesList = queueList
-        self.logger = logging
+        self.mainLogLevel = mainLogLevel
+        self.consoleLogLevel = consoleLogLevel
         self.debugging = debugging
+        self.logger = setupLogger(name=__name__, level=self.mainLogLevel, consoleLevel=self.consoleLogLevel)
         self.example = example
         super(processSerialHandler, self).__init__(self.queuesList)
 
@@ -46,9 +50,9 @@ class processSerialHandler(WorkerProcess):
     def _init_threads(self):
         """Initializes the read and the write thread."""
         if self.serialCom:
-            readTh = threadRead(self.serialCom, self.historyFile, self.queuesList, self.logger, self.debugging)
+            readTh = threadRead(self.serialCom, self.historyFile, self.queuesList, self.mainLogLevel, self.consoleLogLevel, self.debugging)
             self.threads.append(readTh)
-            writeTh = threadWrite(self.queuesList, self.serialCom, self.historyFile, self.logger, self.debugging, self.example)
+            writeTh = threadWrite(self.queuesList, self.serialCom, self.historyFile, self.mainLogLevel, self.consoleLogLevel, self.debugging, self.example)
             self.threads.append(writeTh)
 
 

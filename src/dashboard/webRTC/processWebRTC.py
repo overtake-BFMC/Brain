@@ -22,7 +22,7 @@ import aiohttp_cors
 from aiortc import MediaStreamTrack, RTCPeerConnection, RTCSessionDescription
 from aiortc.contrib.media import MediaBlackhole, MediaPlayer, MediaRecorder, MediaRelay
 from av import VideoFrame
-from src.dashboard.webRTC.threads.trackStream import trackStream
+from src.dashboard.StreamRTC.threads.trackStream import trackStream
 
 logger = logging.getLogger("pc")
 

@@ -28,6 +28,8 @@ from src.driving.LaneDetection.utils.signDetection import signDetection
 from src.driving.LaneDetection.utils.signDetection import CLASSES
 
 from src.driving.LaneDetection.utils.cannyandhough import LaneFollowing
+import logging
+from src.utils.logger.loggerConfig import setupLogger
 
 CLASSES_ROI = [
     [0, 0, 960, 540], #car 0
@@ -55,10 +57,12 @@ class threadLaneDetection(ThreadWithStop):
         debugging (bool, optional): A flag for debugging. Defaults to False.
     """
 
-    def __init__(self, queueList, logging, debugging=False):
+    def __init__(self, queueList, mainLogLevel = logging.INFO, consoleLogLevel = logging.WARNING, debugging = False):
         self.queuesList = queueList
-        self.logging = logging
+        self.mainLogLevel = mainLogLevel
+        self.consoleLogLevel = consoleLogLevel
         self.debugging = debugging
+        self.logger = setupLogger(name=__name__, level=self.mainLogLevel, consoleLevel=self.consoleLogLevel)
 
         #self.laneVideoSender = messageHandlerSender(self.queuesList, LaneVideo)
 
@@ -74,7 +78,7 @@ class threadLaneDetection(ThreadWithStop):
 
         # kalibrisani podaci
         dir_path = os.path.dirname(os.path.realpath(__file__))
-        print("dir_path_lane_det: ", dir_path)
+
         self.ppData, self.maps = pre.loadPPData(dir_path + "/../utils/data")  
 
         self.pid = PID.PIDController( Kp = 0.13, Ki = 0.03, Kd = 0.09 )
@@ -113,7 +117,7 @@ class threadLaneDetection(ThreadWithStop):
                     self.frameBuffer = np.ndarray((540, 960, 3), dtype=np.uint8, buffer=self.shmMainVideo.buf)
                     isMainVideoMemoryConfigured = True
                     #print("LaneDetection MainVideoShMem Init Success!")
-                    self.logging.info("LaneDetection MainVideoShMem Init Success!")
+                    self.logger.info("LaneDetection MainVideoShMem Init Success!")
                     self.ShMemConfigSender.send({"action": "createShMem", "name": self.shMemNameLaneVideo, "shape": (540, 960, 3), "dtype": "uint8", "owner": self.shMemMsgOwner})
 
             if shMemResp is not None:
@@ -124,7 +128,7 @@ class threadLaneDetection(ThreadWithStop):
                     self.frameLaneBuffer = np.ndarray((540, 960, 3), dtype=np.uint8, buffer=self.shmLaneVideo.buf)
                     isLaneVideoMemoryConfigured = True
                     #print("LaneDetection LaneVideoShMem Init Success!")
-                    self.logging.info("LaneDetection LaneVideoShMem Init Success!")
+                    self.logger.info("LaneDetection LaneVideoShMem Init Success!")
 
     def init_vehicleState(self):
         self.ShMemConfigSender.send({"action": "getVehicleState","owner": self.shMemMsgOwner})
@@ -137,7 +141,7 @@ class threadLaneDetection(ThreadWithStop):
                     self.vehicleState = getVehicleStateResp["vehicleState"]
                     isVehicleStateConfigured = True
                     #print("LaneDetection VehicleState Initialized!")
-                    self.logging.info("LaneDetection VehicleState Initialized!")
+                    self.logger.info("LaneDetection VehicleState Initialized!")
 
     def isInsideROI(self, x, y, ROIBox):
         return ROIBox[0] <= x <= ROIBox[2] and ROIBox[1] <= y <= ROIBox[3]

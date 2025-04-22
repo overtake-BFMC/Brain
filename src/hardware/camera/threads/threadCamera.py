@@ -17,16 +17,20 @@ from src.utils.messages.messageHandlerSubscriber import messageHandlerSubscriber
 from src.templates.threadwithstop import ThreadWithStop
 from multiprocessing.shared_memory import SharedMemory
 import numpy as np
+import logging
+from src.utils.logger.loggerConfig import setupLogger
 
 class threadCamera(ThreadWithStop):
     """Thread which will handle camera functionalities."""
 
     # ================================ INIT ===============================================
-    def __init__(self, queuesList, logger, debugger):
+    def __init__(self, queuesList, mainLogLevel = logging.INFO, consoleLogLevel = logging.WARNING, debugging = False):
         super(threadCamera, self).__init__()
         self.queuesList = queuesList
-        self.logging = logger
-        self.debugger = debugger
+        self.mainLogLevel = mainLogLevel
+        self.consoleLogLevel = consoleLogLevel
+        self.debugging = debugging
+        self.logger = setupLogger(name=__name__, level=self.mainLogLevel, consoleLevel=self.consoleLogLevel)
         self.frame_rate = 20
         self.recording = False
         self.send_fps = 20
@@ -77,13 +81,13 @@ class threadCamera(ThreadWithStop):
         """Callback function for receiving configs on the pipe."""
         if self.brightnessSubscriber.isDataInPipe():
             message = self.brightnessSubscriber.receive()
-            if self.debugger:
-                self.logging.info(str(message))
+            if self.debugging:
+                self.logger.info(str(message))
             self.camera.set(cv2.CAP_PROP_BRIGHTNESS, max(0.0, min(1.0, float(message))))
 
         if self.contrastSubscriber.isDataInPipe():
             message = self.contrastSubscriber.receive()
-            if self.debugger:
+            if self.debugging:
                 self.logging.info(str(message))
             self.camera.set(cv2.CAP_PROP_CONTRAST, max(0.0, min(32.0, float(message))))
 
@@ -104,7 +108,7 @@ class threadCamera(ThreadWithStop):
                     self.frameBuffer = np.ndarray((540, 960, 3), dtype=np.uint8, buffer=self.shm.buf)
                     isMemoryConfigured = True
                     #print("ThreadCamera ShMem Init Success!")
-                    self.logging.info("ThreadCamera ShMem Init Success!")
+                    self.logger.info("ThreadCamera ShMem Init Success!")
 
 
 

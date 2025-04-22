@@ -9,7 +9,7 @@ from src.utils.messages.messageHandlerSender import messageHandlerSender
 
 from aiortc import RTCPeerConnection, RTCIceCandidate, RTCConfiguration, RTCIceServer
 from aiortc import RTCSessionDescription
-from src.dashboard.webRTC.threads.trackStream import trackStream
+from src.dashboard.StreamRTC.threads.trackStream import trackStream
 import asyncio
 
 class threadStreamRTC(ThreadWithStop):

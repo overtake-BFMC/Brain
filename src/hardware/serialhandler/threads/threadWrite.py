@@ -45,7 +45,8 @@ from src.utils.messages.allMessages import (
 )
 from src.utils.messages.messageHandlerSubscriber import messageHandlerSubscriber
 from src.utils.messages.messageHandlerSender import messageHandlerSender
-
+import logging
+from src.utils.logger.loggerConfig import setupLogger
 
 class threadWrite(ThreadWithStop):
     """This thread write the data that Raspberry PI send to NUCLEO.\n
@@ -58,14 +59,16 @@ class threadWrite(ThreadWithStop):
     """
 
     # ===================================== INIT =========================================
-    def __init__(self, queues, serialCom, logFile, logger, debugger = False, example=False):
+    def __init__(self, queues, serialCom, logFile, mainLogLevel = logging.INFO, consoleLogLevel = logging.WARNING, debugging = False, example=False):
         super(threadWrite, self).__init__()
         self.queuesList = queues
         self.serialCom = serialCom
         self.logFile = logFile
         self.exampleFlag = example
-        self.logger = logger
-        self.debugger = debugger
+        self.mainLogLevel = mainLogLevel
+        self.consoleLogLevel = consoleLogLevel
+        self.debugging = debugging
+        self.logger = setupLogger(name=__name__, level=self.mainLogLevel, consoleLevel=self.consoleLogLevel)
 
         self.running = False
         self.engineEnabled = False
@@ -137,7 +140,7 @@ class threadWrite(ThreadWithStop):
             try:
                 klRecv = self.klSubscriber.receive()
                 if klRecv is not None:
-                    if self.debugger:
+                    if self.debugging:
                         self.logger.info(klRecv)
                     if klRecv == "30":
                         self.running = True
@@ -161,28 +164,28 @@ class threadWrite(ThreadWithStop):
                     if self.engineEnabled:
                         brakeRecv = self.brakeSubscriber.receive()
                         if brakeRecv is not None:
-                            if self.debugger:
+                            if self.debugging:
                                 self.logger.info(brakeRecv)
                             command = {"action": "brake", "steerAngle": int(brakeRecv)}
                             self.sendToSerial(command)
 
                         speedRecv = self.speedMotorSubscriber.receive()
                         if speedRecv is not None: 
-                            if self.debugger:
+                            if self.debugging:
                                 self.logger.info(speedRecv)
                             command = {"action": "speed", "speed": int(speedRecv)}
                             self.sendToSerial(command)
 
                         steerRecv = self.steerMotorSubscriber.receive()
                         if steerRecv is not None:
-                            if self.debugger:
+                            if self.debugging:
                                 self.logger.info(steerRecv) 
                             command = {"action": "steer", "steerAngle": int(steerRecv)}
                             self.sendToSerial(command)
 
                         controlRecv = self.controlSubscriber.receive()
                         if controlRecv is not None:
-                            if self.debugger:
+                            if self.debugging:
                                 self.logger.info(controlRecv) 
                             command = {
                                 "action": "vcd",
@@ -194,28 +197,28 @@ class threadWrite(ThreadWithStop):
 
                     instantRecv = self.instantSubscriber.receive()
                     if instantRecv is not None: 
-                        if self.debugger:
+                        if self.debugging:
                             self.logger.info(instantRecv) 
                         command = {"action": "instant", "activate": int(instantRecv)}
                         self.sendToSerial(command)
 
                     batteryRecv = self.batterySubscriber.receive()
                     if batteryRecv is not None: 
-                        if self.debugger:
+                        if self.debugging:
                             self.logger.info(batteryRecv)
                         command = {"action": "battery", "activate": int(batteryRecv)}
                         self.sendToSerial(command)
 
                     resourceMonitorRecv = self.resourceMonitorSubscriber.receive()
                     if resourceMonitorRecv is not None: 
-                        if self.debugger:
+                        if self.debugging:
                             self.logger.info(resourceMonitorRecv)
                         command = {"action": "resourceMonitor", "activate": int(resourceMonitorRecv)}
                         self.sendToSerial(command)
 
                     imuRecv = self.imuSubscriber.receive()
                     if imuRecv is not None: 
-                        if self.debugger:
+                        if self.debugging:
                             self.logger.info(imuRecv)
                         command = {"action": "imu", "activate": int(imuRecv)}
                         self.sendToSerial(command)

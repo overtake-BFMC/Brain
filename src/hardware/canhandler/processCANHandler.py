@@ -8,6 +8,8 @@ from src.hardware.canhandler.threads.threadCANRead import threadCANRead
 from src.hardware.canhandler.threads.threadCANWrite import threadCANWrite
 import can
 from src.hardware.canhandler.threads.filehandler import FileHandler
+import logging
+from src.utils.logger.loggerConfig import setupLogger
 
 class processCANHandler(WorkerProcess):
     """This process handles canhandler.
@@ -17,7 +19,7 @@ class processCANHandler(WorkerProcess):
         debugging (bool, optional): A flag for debugging. Defaults to False.
     """
 
-    def __init__(self, queueList, logging, debugging=False):
+    def __init__(self, queueList, mainLogLevel = logging.INFO, consoleLogLevel = logging.WARNING, debugging = False):
         canName = 'can0'
         logFile = "historyCAN.txt"
 
@@ -30,8 +32,10 @@ class processCANHandler(WorkerProcess):
 
         self.historyFile = FileHandler(logFile)
         self.queuesList = queueList
-        self.logger = logging
+        self.mainLogLevel = mainLogLevel
+        self.consoleLogLevel = consoleLogLevel
         self.debugging = debugging
+        self.logger = setupLogger(name=__name__, level=self.mainLogLevel, consoleLevel=self.consoleLogLevel)
 
         super(processCANHandler, self).__init__(self.queuesList)
 
@@ -45,9 +49,9 @@ class processCANHandler(WorkerProcess):
     
     def _init_threads(self):
         """Create the canhandler Publisher thread and add to the list of threads."""
-        readCANTh = threadCANRead(self.CAN0, self.historyFile, self.queuesList, self.logger, self.debugging)
+        readCANTh = threadCANRead(self.CAN0, self.historyFile, self.queuesList, self.mainLogLevel, self.consoleLogLevel, self.debugging)
         self.threads.append(readCANTh)
-        writeCANTh = threadCANWrite(self.CAN0, self.historyFile, self.queuesList, self.logger, self.debugging)
+        writeCANTh = threadCANWrite(self.CAN0, self.historyFile, self.queuesList, self.mainLogLevel, self.consoleLogLevel, self.debugging)
         self.threads.append(writeCANTh)
 
 if __name__ == "__main__":

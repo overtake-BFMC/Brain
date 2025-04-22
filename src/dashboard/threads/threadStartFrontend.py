@@ -37,12 +37,14 @@ if __name__ == "__main__":
 import subprocess
 import os
 from src.templates.threadwithstop import ThreadWithStop
+import logging
+from src.utils.logger.loggerConfig import setupLogger
 
 class ThreadStartFrontend(ThreadWithStop):
 
     # ================================ INIT ===============================================
 
-    def __init__(self, logger, project_path=os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "frontend")):
+    def __init__(self, toRecompileDashboard, mainLogLevel = logging.INFO, consoleLogLevel = logging.WARNING, debugging = False, project_path=os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "frontend")):
         """Thread for managing an Angular development server.
         
         Args:
@@ -50,7 +52,11 @@ class ThreadStartFrontend(ThreadWithStop):
         """
         
         self.project_path = project_path
-        self.logger= logger
+        self.toRecompileDashboard = toRecompileDashboard
+        self.mainLogLevel = mainLogLevel
+        self.consoleLogLevel = consoleLogLevel
+        self.debugging = debugging
+        self.logger = setupLogger(name=__name__, level=self.mainLogLevel, consoleLevel=self.consoleLogLevel)
         super().__init__()
     
     # ================================= RUN ===============================================
@@ -60,7 +66,8 @@ class ThreadStartFrontend(ThreadWithStop):
 
         try:
             #subprocess.run(f"cd {self.project_path} && npm start", shell=True, check=True)
-            #subprocess.run(f"cd {self.project_path} && ng build --configuration production --base-href ./", shell=True, check=True)
+            if self.toRecompileDashboard:
+                subprocess.run(f"cd {self.project_path} && ng build --configuration production --base-href ./", shell=True, check=True)
             self.project_path = self.project_path + "/dist/dashboard/browser"
             subprocess.run(f"cd {self.project_path} && http-server -p 8090 -a 0.0.0.0 -c-1", shell=True, check=True)
             self.logger.info("Angular server started successfully.")

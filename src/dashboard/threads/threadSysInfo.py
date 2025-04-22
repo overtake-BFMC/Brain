@@ -9,14 +9,17 @@ from jtop import jtop
 import psutil
 from src.dashboard.threads.utils.ina226 import INA226
 import logging
+from src.utils.logger.loggerConfig import setupLogger
 
 class threadSysInfo(ThreadWithStop):
 
-    def __init__(self, queuesList, logger, debugger):
+    def __init__(self, queuesList, mainLogLevel = logging.INFO, consoleLogLevel = logging.WARNING, debugging = False):
         super(threadSysInfo, self).__init__()
         self.queuesList = queuesList
-        self.logger = logger
-        self.debugger = debugger
+        self.mainLogLevel = mainLogLevel
+        self.consoleLogLevel = consoleLogLevel
+        self.debugging = debugging
+        self.logger = setupLogger(name=__name__, level=self.mainLogLevel, consoleLevel=self.consoleLogLevel)
 
         self.checkInterval = 2
 
@@ -32,8 +35,8 @@ class threadSysInfo(ThreadWithStop):
             self.INA226Jetson.set_low_battery(5)
             self.INA226JetsonPresent = 1
         except Exception as e:
-            self.logger.warning("No battery logger attached at I2C bus 7 address 0x40 for jetson")
-            print("No battery logger attached at I2C bus 7 address 0x40 for jetson")
+            self.logger.error("No battery logger attached at I2C bus 7 address 0x40 for jetson")
+            #print("No battery logger attached at I2C bus 7 address 0x40 for jetson")
             
         self.INA226NucleoPresent = 0
         self.nucleoBatt = 0
@@ -43,8 +46,8 @@ class threadSysInfo(ThreadWithStop):
             self.INA226Nucleo.set_low_battery(5)
             self.INA226NucleoPresent = 1
         except Exception as e:
-            self.logger.warning("No battery logger attached at I2C bus 7 address 0x40 for nucleo")
-            print("No battery logger attached at I2C bus 7 address 0x40 for nucleo")
+            self.logger.error("No battery logger attached at I2C bus 7 address 0x40 for nucleo")
+            #print("No battery logger attached at I2C bus 7 address 0x40 for nucleo")
 
         self.cpuChannelSender = messageHandlerSender(self.queuesList, cpu_channel)
         self.memoryChannelSender = messageHandlerSender(self.queuesList, memory_channel)

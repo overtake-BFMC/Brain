@@ -15,6 +15,7 @@ import can
 import struct
 import logging
 import threading
+from src.utils.logger.loggerConfig import setupLogger
 
 class threadCANRead(ThreadWithStop):
     """This thread handles canhandler.
@@ -24,12 +25,14 @@ class threadCANRead(ThreadWithStop):
         debugging (bool, optional): A flag for debugging. Defaults to False.
     """
 
-    def __init__(self, f_CAN0: can.BusABC, f_logFile, queueList, logging: logging.Logger, debugging=False):
+    def __init__(self, f_CAN0: can.BusABC, f_logFile, queueList, mainLogLevel = logging.INFO, consoleLogLevel = logging.WARNING, debugging = False):
         self.CAN0 = f_CAN0
         self.logFile = f_logFile
         self.queuesList = queueList
-        self.logging = logging
+        self.mainLogLevel = mainLogLevel
+        self.consoleLogLevel = consoleLogLevel
         self.debugging = debugging
+        self.logger = setupLogger(name=__name__, level=self.mainLogLevel, consoleLevel=self.consoleLogLevel)
         self.subscribe()
 
         self.enableButtonSender = messageHandlerSender(self.queuesList, EnableButton)
@@ -63,24 +66,24 @@ class threadCANRead(ThreadWithStop):
                         "accely": ogAccelY
                     }
                     if self.debugging:
-                        self.logging.info(f"IMU:(Accel X: {ogAccelX}, Accel Y: {ogAccelY})")
+                        self.logger.info(f"IMU:(Accel X: {ogAccelX}, Accel Y: {ogAccelY})")
                     self.imuDataSender.send(str(data))
                 elif CANResp.arbitration_id == 0x106: #"distanceFront"
                     distanceF = struct.unpack('<i', CANResp.data)[0]
                     if self.debugging:
-                        self.logging.info(f"distance Front : {distanceF}")
+                        self.logger.info(f"distance Front : {distanceF}")
                     self.distanceFrontSender.send(float(distanceF))
                 elif CANResp.arbitration_id == 0x107: #"currentSpeed"
                     currentSpeed = struct.unpack('<i', CANResp.data)[0]
                     print(f"Speed: {CANResp.data}, data: {CANResp.dlc}")
                     if self.debugging:
-                        self.logging.info(f"Speed ACK : {currentSpeed}")
+                        self.logger.info(f"Speed ACK : {currentSpeed}")
                     self.currentSpeedSender.send(float(currentSpeed))
                 elif CANResp.arbitration_id == 0x108: #"currentSteer"
                     currentSteer = struct.unpack('<i', CANResp.data)[0]
                     print(f"Steer: {CANResp.data}, data: {CANResp.dlc}")
                     if self.debugging:
-                        self.logging.info(f"Steer ACK : {currentSteer}")
+                        self.logger.info(f"Steer ACK : {currentSteer}")
                     self.currentSteerSender.send(float(currentSteer))
                 elif CANResp.arbitration_id == 0x109: #"HeapStackUsage"
                     scaledHeapUsage, scaledStackUsage = struct.unpack('<hh', CANResp.data)
@@ -88,7 +91,7 @@ class threadCANRead(ThreadWithStop):
                     ogStackUsage = scaledStackUsage / 100.0
                     message = {"heap": ogHeapUsage, "stack": ogStackUsage}
                     if self.debugging:
-                        self.logging.info(f"Heap and Stack Usage : {str(message)}")
+                        self.logger.info(f"Heap and Stack Usage : {str(message)}")
                     self.resourceMonitorSender.send(message)
                 elif CANResp.arbitration_id == 0x113: #"breakState"
                     breakState = CANResp.data[0] != 0

@@ -13,7 +13,8 @@ from multiprocessing.shared_memory import SharedMemory
 from multiprocessing import Lock, Manager
 import numpy as np
 from typing import Dict, Tuple, Type
-import time
+import logging
+from src.utils.logger.loggerConfig import setupLogger
 
 SharedMemoryBlock = Dict[str, Tuple[SharedMemory, Lock]]
 LockType = Lock
@@ -26,10 +27,12 @@ class threadSharedMemoryGateway(ThreadWithStop):
         debugging (bool, optional): A flag for debugging. Defaults to False.
     """
 
-    def __init__(self, queueList, logging, manager, vehicleManager, debugging=False):
+    def __init__(self, queueList, manager, vehicleManager, mainLogLevel = logging.INFO, consoleLogLevel = logging.WARNING, debugging=False):
         self.queuesList = queueList
-        self.logging = logging
+        self.mainLogLevel = mainLogLevel
+        self.consoleLogLevel = consoleLogLevel
         self.debugging = debugging
+        self.logger = setupLogger(name=__name__, level=self.mainLogLevel, consoleLevel=self.consoleLogLevel)
         self.sharedMemoryBlocks: SharedMemoryBlock = {}
         self.manager = manager
         self.subscribe()
@@ -71,9 +74,9 @@ class threadSharedMemoryGateway(ThreadWithStop):
             shm.unlink()  # ✅ Then remove from system
             del self.sharedMemoryBlocks[name]  # ✅ Remove from dictionary
         except FileNotFoundError:
-            self.logging.warning(f"Shared Memory '{name}' was already removed.")
+            self.logger.warning(f"Shared Memory '{name}' was already removed.")
         except Exception as e:
-            self.logging.warning(f"Error releasing shared memory '{name}': {e}")
+            self.logger.warning(f"Error releasing shared memory '{name}': {e}")
 
     def handleSharedMemoryRequest(self, message: dict):
         pass
@@ -137,7 +140,7 @@ class threadSharedMemoryGateway(ThreadWithStop):
                         shm, lock = self.creteSharedMemory(name, shape, dtype)
                         self.ShMemResponseSender.send({"status": 0 , "name": name, "lock": lock, "dest": dest})
                     except Exception as e:
-                        self.logging.warning(str(e))
+                        self.logger.warning(str(e))
                 elif action == "getShMem":
                     try:
                         name = shMemConfigResp.get("name")
@@ -145,21 +148,21 @@ class threadSharedMemoryGateway(ThreadWithStop):
                         shm, lock = self.getSharedMemory(name)
                         self.ShMemResponseSender.send({"status": 1 , "name": name, "lock": lock, "dest": dest})
                     except Exception as e:
-                        self.logging.warning(str(e))
+                        self.logger.warning(str(e))
                 elif action == "releaseShMem":
                     try:
                         name = shMemConfigResp.get("name")
                         self.releaseSharedMemory(name)
                         self.ShMemResponseSender.send({"status": 2 , "name": name})
                     except Exception as e:
-                        self.logging.warning(str(e))
+                        self.logger.warning(str(e))
                 elif action == "getVehicleState":
                     try:
                         dest = shMemConfigResp.get("owner")
                         self.ShMemResponseSender.send({"status": 3 , "vehicleState": self.vehicleState, "dest": dest})
                         #print(f"SharedMemoryGateway received for dest: {dest}")
                     except Exception as e:
-                        self.logging.warning(str(e))
+                        self.logger.warning(str(e))
 
 
     def stop(self):

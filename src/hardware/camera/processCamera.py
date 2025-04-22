@@ -35,6 +35,7 @@ import base64
 import numpy as np
 from src.templates.workerprocess import WorkerProcess
 from src.hardware.camera.threads.threadCamera import threadCamera
+from src.utils.logger.loggerConfig import setupLogger
 
 class processCamera(WorkerProcess):
     """
@@ -46,32 +47,34 @@ class processCamera(WorkerProcess):
         debugging (bool, optional): A flag for debugging. Defaults to False.
     """
 
-    def __init__(self, queueList, logging, debugging=False):
+    def __init__(self, queueList, mainLogLevel = logging.INFO, consoleLogLevel = logging.WARNING, debugging = False):
         self.queuesList = queueList
-        self.logging = logging
+        self.mainLogLevel = mainLogLevel
+        self.consoleLogLevel = consoleLogLevel
         self.debugging = debugging
+        self.logger = setupLogger(name=__name__, level=self.mainLogLevel, consoleLevel=self.consoleLogLevel)
         super(processCamera, self).__init__(self.queuesList)
 
     def run(self):
         """
         Apply the initializing methods and start the threads.
         """
-        self.logging.info("Starting processCamera...")
+        self.logger.info("Starting processCamera...")
         try:
             super(processCamera, self).run()
         except Exception as e:
-            self.logging.error(f"Error in processCamera run: {e}", exc_info=True)
+            self.logger.critical(f"Error in processCamera run: {e}", exc_info=True)
 
     def _init_threads(self):
         """
         Create the Camera Publisher thread and add it to the list of threads.
         """
         try:
-            camTh = threadCamera(self.queuesList, self.logging, self.debugging)
+            camTh = threadCamera(self.queuesList, self.mainLogLevel, self.consoleLogLevel, self.debugging)
             self.threads.append(camTh)
-            self.logging.info("Camera thread initialized successfully.")
+            self.logger.info("Camera thread initialized successfully.")
         except Exception as e:
-            self.logging.error(f"Error initializing camera thread: {e}", exc_info=True)
+            self.logger.critical(f"Error initializing camera thread: {e}", exc_info=True)
 
 if __name__ == "__main__":
     # Setup logging

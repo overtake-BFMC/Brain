@@ -7,6 +7,8 @@ from src.gateway.SharedMemoryGateway.threads.threadSharedMemoryGateway import th
 from multiprocessing import Manager
 from multiprocessing.managers import BaseManager
 from src.driving.PathFollowing.utils.vehicleState import vehicleState
+import logging
+from src.utils.logger.loggerConfig import setupLogger
 
 class VehicleStateManager(BaseManager):
     pass
@@ -21,10 +23,12 @@ class processSharedMemoryGateway(WorkerProcess):
         debugging (bool, optional): A flag for debugging. Defaults to False.
     """
 
-    def __init__(self, queueList, logging, debugging=False):
+    def __init__(self, queueList, mainLogLevel = logging.INFO, consoleLogLevel = logging.WARNING, debugging = False):
         self.queuesList = queueList
-        self.logging = logging
+        self.mainLogLevel = mainLogLevel
+        self.consoleLogLevel = consoleLogLevel
         self.debugging = debugging
+        self.logger = setupLogger(name=__name__, level=self.mainLogLevel, consoleLevel=self.consoleLogLevel)
         self.manager = Manager()
 
         self.vehicleManager = VehicleStateManager()
@@ -39,6 +43,11 @@ class processSharedMemoryGateway(WorkerProcess):
     def _init_threads(self):
         """Create the SharedMemoryGateway Publisher thread and add to the list of threads."""
         SharedMemoryGatewayTh = threadSharedMemoryGateway(
-            self.queuesList, self.logging, self.manager, self.vehicleManager, self.debugging
+            self.queuesList,
+            self.manager, 
+            self.vehicleManager, 
+            self.mainLogLevel, 
+            self.consoleLogLevel, 
+            self.debugging
         )
         self.threads.append(SharedMemoryGatewayTh)

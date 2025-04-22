@@ -18,6 +18,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import time
 import ast
+import logging
+from src.utils.logger.loggerConfig import setupLogger
 
 class threadPathFollowing(ThreadWithStop):
     """This thread handles pathFollowing.
@@ -27,10 +29,12 @@ class threadPathFollowing(ThreadWithStop):
         debugging (bool, optional): A flag for debugging. Defaults to False.
     """
 
-    def __init__(self, queueList, logging, lookAheadDistance = 1, dt = 0.05, debugging=False):
+    def __init__(self, queueList, lookAheadDistance = 1, dt = 0.05, mainLogLevel = logging.INFO, consoleLogLevel = logging.WARNING, debugging = False):
         self.queuesList = queueList
-        self.logging = logging
+        self.mainLogLevel = mainLogLevel
+        self.consoleLogLevel = consoleLogLevel
         self.debugging = debugging
+        self.logger = setupLogger(name=__name__, level=self.mainLogLevel, consoleLevel=self.consoleLogLevel)
 
         self.nodes = nodesData
         # speed = 20
@@ -81,7 +85,7 @@ class threadPathFollowing(ThreadWithStop):
                     self.vehicle = getVehicleStateResp["vehicleState"]
                     isVehicleStateConfigured = True
                     #print("PathFollowing VehicleState Initialized!")
-                    self.logging.info("PathFollowing VehicleState Initialized!")
+                    self.logger.info("PathFollowing VehicleState Initialized!")
 
     def run(self):
         self.chosenTrack = -1
