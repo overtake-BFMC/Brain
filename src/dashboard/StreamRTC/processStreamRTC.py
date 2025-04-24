@@ -13,16 +13,13 @@ from src.utils.messages.allMessages import (
 from src.utils.messages.messageHandlerSubscriber import messageHandlerSubscriber
 from src.utils.messages.messageHandlerSender import messageHandlerSender
 
-from aiortc import RTCPeerConnection, RTCIceCandidate, RTCConfiguration, RTCIceServer
+from aiortc import RTCPeerConnection, RTCIceCandidate, RTCConfiguration
 from aiortc import RTCSessionDescription
 from src.dashboard.StreamRTC.threads.trackStream import trackStream
 import asyncio
-import logging
 import uuid
-from aiortc import MediaStreamTrack
-from aiortc.contrib.media import  MediaPlayer
 import os
-from src.utils.logger.loggerConfig import setupLogger
+from src.utils.logger.setupLogger import LoggerConfigs, configLogger
 
 class processStreamRTC(WorkerProcess):
     """This process handles processStreamRTC.
@@ -32,12 +29,11 @@ class processStreamRTC(WorkerProcess):
         debugging (bool, optional): A flag for debugging. Defaults to False.
     """
 
-    def __init__(self, queueList, mainLogLevel = logging.INFO, consoleLogLevel = logging.WARNING, debugging = False):
+    def __init__(self, queueList, loggingQueue, debugging = False):
         self.queuesList = queueList
-        self.mainLogLevel = mainLogLevel
-        self.consoleLogLevel = consoleLogLevel
+        self.loggingQueue = loggingQueue
         self.debugging = debugging
-        self.logger = setupLogger(name=__name__, level=self.mainLogLevel, consoleLevel=self.consoleLogLevel)
+        self.logger = configLogger(LoggerConfigs.WORKER, __name__, self.loggingQueue)
         super(processStreamRTC, self).__init__(self.queuesList)
 
         self.pcs = set()
@@ -95,7 +91,7 @@ class processStreamRTC(WorkerProcess):
 
 
 
-        pc.addTrack(trackStream(self.queuesList, self.mainLogLevel, self.consoleLogLevel, self.debugging))
+        pc.addTrack(trackStream(self.queuesList, self.loggingQueue, self.debugging))
         #player = MediaPlayer(self.dir_path + '/demo-instruct.wav')
         #pc.addTrack(player.audio)
         log_info("Created track stream")

@@ -41,8 +41,7 @@ from src.templates.workerprocess import WorkerProcess
 from src.utils.messages.allMessages import Semaphores
 from src.dashboard.threads.threadStartFrontend import ThreadStartFrontend  
 import src.utils.messages.allMessages as allMessages
-from src.utils.logger.loggerConfig import setupLogger
-
+from src.utils.logger.setupLogger import LoggerConfigs, configLogger
 
 from src.dashboard.threads.threadSysInfo import threadSysInfo
 
@@ -54,14 +53,13 @@ class processDashboard(WorkerProcess):
         deviceID (int): The identifier for the specific device.
     """
     # ====================================== INIT ==========================================
-    def __init__(self, queueList, toRecompileDashboard, mainLogLevel = logging.INFO, consoleLogLevel = logging.WARNING, debugging = False):
+    def __init__(self, queueList, toRecompileDashboard, loggingQueue, debugging = False):
         super(processDashboard, self).__init__(queueList)
         self.running = True
         self.queueList = queueList
-        self.mainLogLevel = mainLogLevel
-        self.consoleLogLevel = consoleLogLevel
+        self.loggingQueue = loggingQueue
         self.debugging = debugging
-        self.logger = setupLogger(name=__name__, level=self.mainLogLevel, consoleLevel=self.consoleLogLevel)
+        self.logger = configLogger(LoggerConfigs.WORKER, __name__, self.loggingQueue)
 
         self.toRecompileDashboard = toRecompileDashboard
 
@@ -254,8 +252,8 @@ class processDashboard(WorkerProcess):
     # ===================================== INIT TH ======================================
     def _init_threads(self):
         """Initialize the Dashboard thread."""
-        dashboardThreadFrontend = ThreadStartFrontend(self.toRecompileDashboard, self.mainLogLevel, self.consoleLogLevel, self.debugging)
-        dashboardThreadSysInfo = threadSysInfo(self.queueList, self.mainLogLevel, self.consoleLogLevel, self.debugging)
+        dashboardThreadFrontend = ThreadStartFrontend(self.toRecompileDashboard, self.loggingQueue, self.debugging)
+        dashboardThreadSysInfo = threadSysInfo(self.queueList, self.loggingQueue, self.debugging)
         self.threads.append(dashboardThreadFrontend)
         self.threads.append(dashboardThreadSysInfo)
 

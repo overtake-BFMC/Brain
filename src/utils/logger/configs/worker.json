@@ -1,0 +1,13 @@
+{
+    "version": 1,
+    "disable_existing_loggers": true,
+    "handlers": {
+        "queue": {
+            "class": "logging.handlers.QueueHandler"
+        }
+    },
+    "root": {
+        "handlers": ["queue"],
+        "level": "DEBUG"
+    }
+}

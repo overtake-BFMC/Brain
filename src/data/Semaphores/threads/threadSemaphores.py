@@ -30,8 +30,7 @@ from src.templates.threadwithstop import ThreadWithStop
 from twisted.internet import reactor
 from src.data.Semaphores.threads.udpListener import udpListener
 
-import logging
-from src.utils.logger.loggerConfig import setupLogger
+from src.utils.logger.setupLogger import LoggerConfigs, configLogger
 
 class threadSemaphores(ThreadWithStop):
     """Thread which will handle processCarsAndSemaphores functionalities
@@ -42,15 +41,14 @@ class threadSemaphores(ThreadWithStop):
     """
 
     # ====================================== INIT ==========================================
-    def __init__(self, queueList, mainLogLevel = logging.INFO, consoleLogLevel = logging.WARNING, debugging = False, listenPort=5007):
+    def __init__(self, queueList, loggingQueue, debugging = False, listenPort=5007):
         super(threadSemaphores, self).__init__()
         self.listenPort = listenPort
         self.queueList = queueList
-        self.mainLogLevel = mainLogLevel
-        self.consoleLogLevel = consoleLogLevel
+        self.loggingQueue = loggingQueue
         self.debugging = debugging
-        self.logger = setupLogger(name=__name__, level=self.mainLogLevel, consoleLevel=self.consoleLogLevel)
-        self.udp_factory = udpListener(self.queueList, self.mainLogLevel, self.consoleLogLevel, self.debugging)
+        self.logger = configLogger(LoggerConfigs.WORKER, __name__, self.loggingQueue)
+        self.udp_factory = udpListener(self.queueList, self.loggingQueue, self.debugging)
         self.reactor = reactor
         self.reactor.listenUDP(self.listenPort, self.udp_factory)
 

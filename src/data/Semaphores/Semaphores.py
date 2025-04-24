@@ -34,9 +34,7 @@ from src.templates.workerprocess import WorkerProcess
 from src.data.Semaphores.threads.threadSemaphores import (
     threadSemaphores,
 )
-
-import logging
-from src.utils.logger.loggerConfig import setupLogger
+from src.utils.logger.setupLogger import LoggerConfigs, configLogger
 
 class processSemaphores(WorkerProcess):
     """This process will receive the location of the other cars and the location and the state of the semaphores.
@@ -46,12 +44,11 @@ class processSemaphores(WorkerProcess):
     """
 
     # ====================================== INIT ==========================================
-    def __init__(self, queueList, mainLogLevel = logging.INFO, consoleLogLevel = logging.WARNING, debugging = False):
+    def __init__(self, queueList, loggingQueue, debugging = False):
         self.queuesList = queueList
-        self.mainLogLevel = mainLogLevel
-        self.consoleLogLevel = consoleLogLevel
+        self.loggingQueue = loggingQueue
         self.debugging = debugging
-        self.logger = setupLogger(name=__name__, level=self.mainLogLevel, consoleLevel=self.consoleLogLevel)
+        self.logger = configLogger(LoggerConfigs.WORKER, __name__, self.loggingQueue)
         super(processSemaphores, self).__init__(self.queuesList)
 
     # ===================================== STOP ==========================================
@@ -73,7 +70,7 @@ class processSemaphores(WorkerProcess):
     def _init_threads(self):
         """Create the thread and add to the list of threads."""
 
-        CarsSemTh = threadSemaphores(self.queuesList, self.mainLogLevel, self.consoleLogLevel, self.debugging)
+        CarsSemTh = threadSemaphores(self.queuesList, self.loggingQueue, self.debugging)
         self.threads.append(CarsSemTh)
 
 

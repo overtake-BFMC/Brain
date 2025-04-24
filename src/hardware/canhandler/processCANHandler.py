@@ -8,8 +8,7 @@ from src.hardware.canhandler.threads.threadCANRead import threadCANRead
 from src.hardware.canhandler.threads.threadCANWrite import threadCANWrite
 import can
 from src.hardware.canhandler.threads.filehandler import FileHandler
-import logging
-from src.utils.logger.loggerConfig import setupLogger
+from src.utils.logger.setupLogger import LoggerConfigs, configLogger
 import subprocess
 from typing import List
 
@@ -34,17 +33,16 @@ class processCANHandler(WorkerProcess):
         debugging (bool, optional): A flag for debugging. Defaults to False.
     """
 
-    def __init__(self, queueList, mainLogLevel = logging.INFO, consoleLogLevel = logging.WARNING, debugging = False):
+    def __init__(self, queueList, loggingQueue, debugging = False):
         self.interfaceName = 'can0'
         self.interfaceBitrate = 500000
         self.logFile = "historyCAN.txt"
 
         self.historyFile = FileHandler(self.logFile)
         self.queuesList = queueList
-        self.mainLogLevel = mainLogLevel
-        self.consoleLogLevel = consoleLogLevel
+        self.loggingQueue = loggingQueue
         self.debugging = debugging
-        self.logger = setupLogger(name=__name__, level=self.mainLogLevel, consoleLevel=self.consoleLogLevel)
+        self.logger = configLogger(LoggerConfigs.WORKER, __name__, self.loggingQueue)
         
         try:
             self.CAN0 = can.interface.Bus(channel=self.interfaceName, interface='socketcan')
@@ -111,9 +109,9 @@ class processCANHandler(WorkerProcess):
     
     def _init_threads(self):
         """Create the canhandler Publisher thread and add to the list of threads."""
-        readCANTh = threadCANRead(self.CAN0, self.historyFile, self.queuesList, self.mainLogLevel, self.consoleLogLevel, self.debugging)
+        readCANTh = threadCANRead(self.CAN0, self.historyFile, self.queuesList, self.loggingQueue, self.debugging)
         self.threads.append(readCANTh)
-        writeCANTh = threadCANWrite(self.CAN0, self.historyFile, self.queuesList, self.mainLogLevel, self.consoleLogLevel, self.debugging)
+        writeCANTh = threadCANWrite(self.CAN0, self.historyFile, self.queuesList, self.loggingQueue, self.debugging)
         self.threads.append(writeCANTh)
 
 if __name__ == "__main__":
@@ -131,7 +129,7 @@ if __name__ == "__main__":
         "Config": Queue(),
     }
 
-    logger, mainLogger = setupLogger("Main", "main.log", logging.DEBUG, logging.DEBUG )
+    #logger, mainLogger = setupLogger("Main", "main.log", logging.DEBUG, logging.DEBUG )
     pipeRecv, pipeSend = Pipe(duplex=False)
 
     process = processCANHandler(queueList, logging.DEBUG, logging.DEBUG, debug)

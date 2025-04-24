@@ -37,14 +37,13 @@ if __name__ == "__main__":
 import subprocess
 import os
 from src.templates.threadwithstop import ThreadWithStop
-import logging
-from src.utils.logger.loggerConfig import setupLogger
+from src.utils.logger.setupLogger import LoggerConfigs, configLogger
 
 class ThreadStartFrontend(ThreadWithStop):
 
     # ================================ INIT ===============================================
 
-    def __init__(self, toRecompileDashboard, mainLogLevel = logging.INFO, consoleLogLevel = logging.WARNING, debugging = False, project_path=os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "frontend")):
+    def __init__(self, toRecompileDashboard, loggingQueue, debugging = False, project_path=os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "frontend")):
         """Thread for managing an Angular development server.
         
         Args:
@@ -53,10 +52,9 @@ class ThreadStartFrontend(ThreadWithStop):
         
         self.project_path = project_path
         self.toRecompileDashboard = toRecompileDashboard
-        self.mainLogLevel = mainLogLevel
-        self.consoleLogLevel = consoleLogLevel
+        self.loggingQueue = loggingQueue
         self.debugging = debugging
-        self.logger = setupLogger(name=__name__, level=self.mainLogLevel, consoleLevel=self.consoleLogLevel)
+        self.logger = configLogger(LoggerConfigs.WORKER, __name__, self.loggingQueue)
         super().__init__()
     
     # ================================= RUN ===============================================

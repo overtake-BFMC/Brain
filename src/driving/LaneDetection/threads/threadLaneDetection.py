@@ -28,8 +28,7 @@ from src.driving.LaneDetection.utils.signDetection import signDetection
 from src.driving.LaneDetection.utils.signDetection import CLASSES
 
 from src.driving.LaneDetection.utils.cannyandhough import LaneFollowing
-import logging
-from src.utils.logger.loggerConfig import setupLogger
+from src.utils.logger.setupLogger import LoggerConfigs, configLogger
 
 CLASSES_ROI = [
     [0, 0, 960, 540], #car 0
@@ -57,12 +56,11 @@ class threadLaneDetection(ThreadWithStop):
         debugging (bool, optional): A flag for debugging. Defaults to False.
     """
 
-    def __init__(self, queueList, mainLogLevel = logging.INFO, consoleLogLevel = logging.WARNING, debugging = False):
+    def __init__(self, queueList, loggingQueue, debugging = False):
         self.queuesList = queueList
-        self.mainLogLevel = mainLogLevel
-        self.consoleLogLevel = consoleLogLevel
+        self.loggingQueue = loggingQueue
         self.debugging = debugging
-        self.logger = setupLogger(name=__name__, level=self.mainLogLevel, consoleLevel=self.consoleLogLevel)
+        self.logger = configLogger(LoggerConfigs.WORKER, __name__, self.loggingQueue)
 
         #self.laneVideoSender = messageHandlerSender(self.queuesList, LaneVideo)
 

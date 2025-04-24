@@ -7,8 +7,7 @@ from src.gateway.SharedMemoryGateway.threads.threadSharedMemoryGateway import th
 from multiprocessing import Manager
 from multiprocessing.managers import BaseManager
 from src.driving.PathFollowing.utils.vehicleState import vehicleState
-import logging
-from src.utils.logger.loggerConfig import setupLogger
+from src.utils.logger.setupLogger import LoggerConfigs, configLogger
 
 class VehicleStateManager(BaseManager):
     pass
@@ -23,12 +22,11 @@ class processSharedMemoryGateway(WorkerProcess):
         debugging (bool, optional): A flag for debugging. Defaults to False.
     """
 
-    def __init__(self, queueList, mainLogLevel = logging.INFO, consoleLogLevel = logging.WARNING, debugging = False):
+    def __init__(self, queueList, loggingQueue, debugging = False):
         self.queuesList = queueList
-        self.mainLogLevel = mainLogLevel
-        self.consoleLogLevel = consoleLogLevel
+        self.loggingQueue = loggingQueue
         self.debugging = debugging
-        self.logger = setupLogger(name=__name__, level=self.mainLogLevel, consoleLevel=self.consoleLogLevel)
+        self.logger = configLogger(LoggerConfigs.WORKER, __name__, self.loggingQueue)
         self.manager = Manager()
 
         self.vehicleManager = VehicleStateManager()
@@ -46,8 +44,7 @@ class processSharedMemoryGateway(WorkerProcess):
             self.queuesList,
             self.manager, 
             self.vehicleManager, 
-            self.mainLogLevel, 
-            self.consoleLogLevel, 
+            self.loggingQueue,
             self.debugging
         )
         self.threads.append(SharedMemoryGatewayTh)

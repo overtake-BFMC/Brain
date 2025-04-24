@@ -4,8 +4,7 @@ if __name__ == "__main__":
 
 from src.templates.workerprocess import WorkerProcess
 from src.driving.LaneDetection.threads.threadLaneDetection import threadLaneDetection
-import logging
-from src.utils.logger.loggerConfig import setupLogger
+from src.utils.logger.setupLogger import LoggerConfigs, configLogger
 
 class processLaneDetection(WorkerProcess):
     """This process handles laneDetection.
@@ -15,12 +14,11 @@ class processLaneDetection(WorkerProcess):
         debugging (bool, optional): A flag for debugging. Defaults to False.
     """
 
-    def __init__(self, queueList, mainLogLevel = logging.INFO, consoleLogLevel = logging.WARNING, debugging = False):
+    def __init__(self, queueList, loggingQueue, debugging = False):
         self.queuesList = queueList
-        self.mainLogLevel = mainLogLevel
-        self.consoleLogLevel = consoleLogLevel
+        self.loggingQueue = loggingQueue
         self.debugging = debugging
-        self.logger = setupLogger(name=__name__, level=self.mainLogLevel, consoleLevel=self.consoleLogLevel)
+        self.logger = configLogger(LoggerConfigs.WORKER, __name__, self.loggingQueue)
         super(processLaneDetection, self).__init__(self.queuesList)
 
     def run(self):
@@ -31,8 +29,7 @@ class processLaneDetection(WorkerProcess):
         """Create the laneDetection Publisher thread and add to the list of threads."""
         laneDetectionTh = threadLaneDetection(
             self.queuesList,
-            self.mainLogLevel, 
-            self.consoleLogLevel, 
+            self.loggingQueue,
             self.debugging
         )
         self.threads.append(laneDetectionTh)

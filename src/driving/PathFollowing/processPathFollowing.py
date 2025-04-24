@@ -4,8 +4,7 @@ if __name__ == "__main__":
 
 from src.templates.workerprocess import WorkerProcess
 from src.driving.PathFollowing.threads.threadPathFollowing import threadPathFollowing
-import logging
-from src.utils.logger.loggerConfig import setupLogger
+from src.utils.logger.setupLogger import LoggerConfigs, configLogger
 
 class processPathFollowing(WorkerProcess):
     """This process handles pathFollowing.
@@ -15,12 +14,11 @@ class processPathFollowing(WorkerProcess):
         debugging (bool, optional): A flag for debugging. Defaults to False.
     """
 
-    def __init__(self, queueList, mainLogLevel = logging.INFO, consoleLogLevel = logging.WARNING, debugging = False):
+    def __init__(self, queueList, loggingQueue, debugging = False):
         self.queuesList = queueList
-        self.mainLogLevel = mainLogLevel
-        self.consoleLogLevel = consoleLogLevel
+        self.loggingQueue = loggingQueue
         self.debugging = debugging
-        self.logger = setupLogger(name=__name__, level=self.mainLogLevel, consoleLevel=self.consoleLogLevel)
+        self.logger = configLogger(LoggerConfigs.WORKER, __name__, self.loggingQueue)
         super(processPathFollowing, self).__init__(self.queuesList)
 
         self.lookAheadDistance = 1
@@ -34,10 +32,9 @@ class processPathFollowing(WorkerProcess):
         """Create the pathFollowing Publisher thread and add to the list of threads."""
         pathFollowingTh = threadPathFollowing(
             self.queuesList, 
+            self.loggingQueue,
             self.lookAheadDistance, 
             self.dt, 
-            self.mainLogLevel, 
-            self.consoleLogLevel, 
             self.debugging
         )
         self.threads.append(pathFollowingTh)

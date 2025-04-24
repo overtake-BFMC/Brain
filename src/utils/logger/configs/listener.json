@@ -1,0 +1,45 @@
+{
+    "version": 1,
+    "disable_existing_loggers": true,
+    "formatters": {
+        "detailed": {
+            "class": "logging.Formatter",
+            "format": "%(asctime)s:%(name)-20s:%(levelname)-8s -> %(message)s",
+            "datefmt": "%Y-%m-%d %H:%M:%S"
+        },
+        "simple": {
+            "class": "logging.Formatter",
+            "format": "%(name)-20s:%(levelname)-8s -> %(message)s"
+        }
+    },
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+            "formatter": "simple",
+            "level": "INFO"
+        },
+        "file": {
+            "class": "logging.handlers.RotatingFileHandler",
+            "filename": "logs/brain.log",
+            "mode": "a",
+            "formatter": "detailed",
+            "maxBytes": 1048576,
+            "backupCount": 5,
+            "encoding": "utf8"
+        },
+        "errors": {
+            "class": "logging.handlers.RotatingFileHandler",
+            "filename": "logs/brain-errors.log",
+            "mode": "a",
+            "formatter": "detailed",
+            "level": "ERROR",
+            "maxBytes": 1048576,
+            "backupCount": 5,
+            "encoding": "utf8"
+        }
+    },
+    "root": {
+        "handlers": ["console", "file", "errors"],
+        "level": "DEBUG"
+    }
+}

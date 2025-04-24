@@ -31,8 +31,7 @@ from src.utils.messages.allMessages import Semaphores
 from twisted.internet import protocol
 from src.utils.messages.messageHandlerSender import messageHandlerSender
 
-import logging
-from src.utils.logger.loggerConfig import setupLogger
+from src.utils.logger.setupLogger import LoggerConfigs, configLogger
 
 class udpListener(protocol.DatagramProtocol):
     """This class is used to receive the information from the servers.
@@ -41,12 +40,11 @@ class udpListener(protocol.DatagramProtocol):
         queue (multiprocessing.queues.Queue): the queue to send the info
     """
 
-    def __init__(self, queuesList, mainLogLevel = logging.INFO, consoleLogLevel = logging.WARNING, debugging = False):
+    def __init__(self, queuesList, loggingQueue, debugging = False):
         self.semaphoresSender = messageHandlerSender(queuesList, Semaphores)
-        self.mainLogLevel = mainLogLevel
-        self.consoleLogLevel = consoleLogLevel
+        self.loggingQueue = loggingQueue
         self.debugging = debugging
-        self.logger = setupLogger(name=__name__, level=self.mainLogLevel, consoleLevel=self.consoleLogLevel)
+        self.logger = configLogger(LoggerConfigs.WORKER, __name__, self.loggingQueue)
 
     def datagramReceived(self, datagram, addr):
         """Specific function for receiving the information. It will select and create different dictionary for each type of data we receive(car or semaphore)

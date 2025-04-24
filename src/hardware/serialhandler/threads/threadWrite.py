@@ -45,8 +45,7 @@ from src.utils.messages.allMessages import (
 )
 from src.utils.messages.messageHandlerSubscriber import messageHandlerSubscriber
 from src.utils.messages.messageHandlerSender import messageHandlerSender
-import logging
-from src.utils.logger.loggerConfig import setupLogger
+from src.utils.logger.setupLogger import LoggerConfigs, configLogger
 
 class threadWrite(ThreadWithStop):
     """This thread write the data that Raspberry PI send to NUCLEO.\n
@@ -59,16 +58,15 @@ class threadWrite(ThreadWithStop):
     """
 
     # ===================================== INIT =========================================
-    def __init__(self, queues, serialCom, logFile, mainLogLevel = logging.INFO, consoleLogLevel = logging.WARNING, debugging = False, example=False):
+    def __init__(self, queues, serialCom, logFile, loggingQueue, debugging = False, example=False):
         super(threadWrite, self).__init__()
         self.queuesList = queues
         self.serialCom = serialCom
         self.logFile = logFile
         self.exampleFlag = example
-        self.mainLogLevel = mainLogLevel
-        self.consoleLogLevel = consoleLogLevel
+        self.loggingQueue = loggingQueue
         self.debugging = debugging
-        self.logger = setupLogger(name=__name__, level=self.mainLogLevel, consoleLevel=self.consoleLogLevel)
+        self.logger = configLogger(LoggerConfigs.WORKER, __name__, self.loggingQueue)
 
         self.running = False
         self.engineEnabled = False

@@ -18,8 +18,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import time
 import ast
-import logging
-from src.utils.logger.loggerConfig import setupLogger
+from src.utils.logger.setupLogger import LoggerConfigs, configLogger
 
 class threadPathFollowing(ThreadWithStop):
     """This thread handles pathFollowing.
@@ -29,12 +28,11 @@ class threadPathFollowing(ThreadWithStop):
         debugging (bool, optional): A flag for debugging. Defaults to False.
     """
 
-    def __init__(self, queueList, lookAheadDistance = 1, dt = 0.05, mainLogLevel = logging.INFO, consoleLogLevel = logging.WARNING, debugging = False):
+    def __init__(self, queueList, loggingQueue, lookAheadDistance = 1, dt = 0.05, debugging = False):
         self.queuesList = queueList
-        self.mainLogLevel = mainLogLevel
-        self.consoleLogLevel = consoleLogLevel
+        self.loggingQueue = loggingQueue
         self.debugging = debugging
-        self.logger = setupLogger(name=__name__, level=self.mainLogLevel, consoleLevel=self.consoleLogLevel)
+        self.logger = configLogger(LoggerConfigs.WORKER, __name__, self.loggingQueue)
 
         self.nodes = nodesData
         # speed = 20

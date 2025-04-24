@@ -13,8 +13,7 @@ from multiprocessing.shared_memory import SharedMemory
 from multiprocessing import Lock, Manager
 import numpy as np
 from typing import Dict, Tuple, Type
-import logging
-from src.utils.logger.loggerConfig import setupLogger
+from src.utils.logger.setupLogger import LoggerConfigs, configLogger
 
 SharedMemoryBlock = Dict[str, Tuple[SharedMemory, Lock]]
 LockType = Lock
@@ -27,12 +26,11 @@ class threadSharedMemoryGateway(ThreadWithStop):
         debugging (bool, optional): A flag for debugging. Defaults to False.
     """
 
-    def __init__(self, queueList, manager, vehicleManager, mainLogLevel = logging.INFO, consoleLogLevel = logging.WARNING, debugging=False):
+    def __init__(self, queueList, manager, vehicleManager, loggingQueue, debugging=False):
         self.queuesList = queueList
-        self.mainLogLevel = mainLogLevel
-        self.consoleLogLevel = consoleLogLevel
+        self.loggingQueue = loggingQueue
         self.debugging = debugging
-        self.logger = setupLogger(name=__name__, level=self.mainLogLevel, consoleLevel=self.consoleLogLevel)
+        self.logger = configLogger(LoggerConfigs.WORKER, __name__, self.loggingQueue)
         self.sharedMemoryBlocks: SharedMemoryBlock = {}
         self.manager = manager
         self.subscribe()
