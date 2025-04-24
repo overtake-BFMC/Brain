@@ -74,32 +74,32 @@ class threadCANWrite(ThreadWithStop):
                         breakRecv = self.brakeSubscriber.receive()
                         if breakRecv is not None:
                             command = struct.pack("<B", 1)
-                            self.sendToCAN(0x101, command)
+                            self.sendToCAN(0x105, command)
 
                         speedRecv = self.speedMotorSubscriber.receive()
                         if speedRecv is not None:
                             command = struct.pack("<i", int(speedRecv))
-                            self.sendToCAN(0x102, command)
+                            self.sendToCAN(0x10A, command)
 
                         steerRecv = self.steerMotorSubscriber.receive()
                         if steerRecv is not None:
                             command = struct.pack("<i", int(steerRecv))
-                            self.sendToCAN(0x103, command)
+                            self.sendToCAN(0x10F, command)
 
                         controlRecv = self.controlSubscriber.receive()
                         if controlRecv is not None:
                             command = struct.pack("<hhh", int(controlRecv["Time"]), int(controlRecv["Speed"]), int(controlRecv["Steer"]))
-                            self.sendToCAN(0x104, command)
+                            self.sendToCAN(0x114, command)
 
                     resourceMonitorRecv = self.resourceMonitorSubscriber.receive()
                     if resourceMonitorRecv is not None:
                         command = struct.pack("<B", int(resourceMonitorRecv))
-                        self.sendToCAN(0x110, command)
+                        self.sendToCAN(0x132, command)
                     
                     imuRecv = self.imuSubscriber.receive()
                     if imuRecv is not None:
                         command = struct.pack("<B", int(imuRecv))
-                        self.sendToCAN(0x111, command)
+                        self.sendToCAN(0x137, command)
                     
                     #Distance sensor on off 0x112
             except Exception as e:

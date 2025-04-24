@@ -10,6 +10,21 @@ import can
 from src.hardware.canhandler.threads.filehandler import FileHandler
 import logging
 from src.utils.logger.loggerConfig import setupLogger
+import subprocess
+from typing import List
+
+class CANOSCommands:
+    @staticmethod
+    def up(interface: str = 'can0') -> List[str]:
+        return ['sudo', 'ip', 'link', 'set', interface, 'up']
+    
+    @staticmethod
+    def down(interface: str = 'can0') -> List[str]:
+        return ['sudo', 'ip', 'link', 'set', interface, 'down']
+    
+    @staticmethod
+    def set_bitrate(interface: str = 'can0', bitrate: int = 500000) -> List[str]:
+        return ['sudo', 'ip', 'link', 'set', interface, 'type', 'can', 'bitrate', str(bitrate)]
 
 class processCANHandler(WorkerProcess):
     """This process handles canhandler.
@@ -20,31 +35,78 @@ class processCANHandler(WorkerProcess):
     """
 
     def __init__(self, queueList, mainLogLevel = logging.INFO, consoleLogLevel = logging.WARNING, debugging = False):
-        canName = 'can0'
-        logFile = "historyCAN.txt"
+        self.interfaceName = 'can0'
+        self.interfaceBitrate = 500000
+        self.logFile = "historyCAN.txt"
 
-        try:
-            self.CAN0 = can.interface.Bus(channel=canName, interface='socketcan')
-        except can.exceptions.CanInitializationError as e:
-            print("Error")
-            logging.error(f"Failed to initialize CAN Bus communication: {e}")
-            self.CAN0 = None
-
-        self.historyFile = FileHandler(logFile)
+        self.historyFile = FileHandler(self.logFile)
         self.queuesList = queueList
         self.mainLogLevel = mainLogLevel
         self.consoleLogLevel = consoleLogLevel
         self.debugging = debugging
         self.logger = setupLogger(name=__name__, level=self.mainLogLevel, consoleLevel=self.consoleLogLevel)
+        
+        try:
+            self.CAN0 = can.interface.Bus(channel=self.interfaceName, interface='socketcan')
+        except can.exceptions.CanInitializationError as e:
+            self.logger.error(f"Failed to initialize CAN Bus Interface! Setting CAN0 to None!")
+            self.CAN0 = None
+
+        # Check if CAN network is down
+        self.isCANUp = self.checkCANStatus()
+
+        if not self.isCANUp and self.CAN0 is not None:
+            self.logger.warning("CAN Interface is down, trying to get it up!")
+            self.runCANOSCommand(CANOSCommands.set_bitrate(self.interfaceName, self.interfaceBitrate))
+            time.sleep(0.1)
+            self.runCANOSCommand(CANOSCommands.up(self.interfaceName))
+            time.sleep(0.1)
+            self.isCANUp = self.checkCANStatus()
+            if self.isCANUp:
+                self.logger.info("CAN Interface brought up sucessfully!")
+            else:
+                self.logger.critical("Failed to start CAN Interface!")
 
         super(processCANHandler, self).__init__(self.queuesList)
 
+    def checkCANStatus(self):
+        try:
+            self.CAN0.recv(timeout=0.001)
+            status = True
+        except can.exceptions.CanOperationError as e:
+            if e.error_code == 100:
+                self.logger.warning("CAN network is down!")
+                status = False
+        return status
+
+    def runCANOSCommand(self, command):
+        try:
+            result = subprocess.run(
+                command,
+                check=True,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                text=True
+                )
+            status = True
+        except subprocess.CalledProcessError as e:
+            self.logger.error("Running CAN OS command failed!")
+            status = False
+        return status
+        
     def run(self):
         """Apply the initializing methods and start the threads."""
-        super(processCANHandler, self).run()
+        if self.isCANUp and self.CAN0 is not None:
+            self.logger.info("CAN Network Initiated Sucessfully.")
+            super(processCANHandler, self).run()
+        else:
+            if self.CAN0 is not None:
+                self.CAN0.shutdown()
+            self.logger.critical("CAN Read and Write threads not starting, CAN NETWORK IS DOWN!")
 
     def stop(self):
-        self.CAN0.shutdown()
+        if self.CAN0 is not None:
+            self.CAN0.shutdown()
         super(processCANHandler, self).stop()
     
     def _init_threads(self):
@@ -69,10 +131,10 @@ if __name__ == "__main__":
         "Config": Queue(),
     }
 
-    logger = logging.getLogger()
+    logger, mainLogger = setupLogger("Main", "main.log", logging.DEBUG, logging.DEBUG )
     pipeRecv, pipeSend = Pipe(duplex=False)
 
-    process = processCANHandler(queueList, logger, debug)
+    process = processCANHandler(queueList, logging.DEBUG, logging.DEBUG, debug)
     process.daemon = True
     process.start()
     time.sleep(20)

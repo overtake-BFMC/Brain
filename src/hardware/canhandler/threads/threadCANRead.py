@@ -57,7 +57,7 @@ class threadCANRead(ThreadWithStop):
         while self._running:
             CANResp = self.CAN0.recv(timeout= 0.001)
             if CANResp is not None:
-                if CANResp.arbitration_id == 0x105: #"imu"
+                if CANResp.arbitration_id == 0x119: #"imu"
                     scaledAccelX, scaledAccelY = struct.unpack('<ii', CANResp.data)
                     ogAccelX = scaledAccelX / 1000.0
                     ogAccelY = scaledAccelY / 1000.0
@@ -68,24 +68,24 @@ class threadCANRead(ThreadWithStop):
                     if self.debugging:
                         self.logger.info(f"IMU:(Accel X: {ogAccelX}, Accel Y: {ogAccelY})")
                     self.imuDataSender.send(str(data))
-                elif CANResp.arbitration_id == 0x106: #"distanceFront"
+                elif CANResp.arbitration_id == 0x11E: #"distanceFront"
                     distanceF = struct.unpack('<i', CANResp.data)[0]
                     if self.debugging:
                         self.logger.info(f"distance Front : {distanceF}")
                     self.distanceFrontSender.send(float(distanceF))
-                elif CANResp.arbitration_id == 0x107: #"currentSpeed"
+                elif CANResp.arbitration_id == 0x123: #"currentSpeed"
                     currentSpeed = struct.unpack('<i', CANResp.data)[0]
                     print(f"Speed: {CANResp.data}, data: {CANResp.dlc}")
                     if self.debugging:
                         self.logger.info(f"Speed ACK : {currentSpeed}")
                     self.currentSpeedSender.send(float(currentSpeed))
-                elif CANResp.arbitration_id == 0x108: #"currentSteer"
+                elif CANResp.arbitration_id == 0x128: #"currentSteer"
                     currentSteer = struct.unpack('<i', CANResp.data)[0]
                     print(f"Steer: {CANResp.data}, data: {CANResp.dlc}")
                     if self.debugging:
                         self.logger.info(f"Steer ACK : {currentSteer}")
                     self.currentSteerSender.send(float(currentSteer))
-                elif CANResp.arbitration_id == 0x109: #"HeapStackUsage"
+                elif CANResp.arbitration_id == 0x12D: #"HeapStackUsage"
                     scaledHeapUsage, scaledStackUsage = struct.unpack('<hh', CANResp.data)
                     ogHeapUsage = scaledHeapUsage / 100.0
                     ogStackUsage = scaledStackUsage / 100.0
@@ -93,9 +93,9 @@ class threadCANRead(ThreadWithStop):
                     if self.debugging:
                         self.logger.info(f"Heap and Stack Usage : {str(message)}")
                     self.resourceMonitorSender.send(message)
-                elif CANResp.arbitration_id == 0x113: #"breakState"
+                elif CANResp.arbitration_id == 0x141: #"breakState"
                     breakState = CANResp.data[0] != 0
-                elif CANResp.arbitration_id == 0x114: #"vcdEnd"
+                elif CANResp.arbitration_id == 0x146: #"vcdEnd"
                     vcdState = CANResp.data[0] != 0
 
     
