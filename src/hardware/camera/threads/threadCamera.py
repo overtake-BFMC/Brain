@@ -17,18 +17,19 @@ from src.utils.messages.messageHandlerSubscriber import messageHandlerSubscriber
 from src.templates.threadwithstop import ThreadWithStop
 from multiprocessing.shared_memory import SharedMemory
 import numpy as np
-from src.utils.logger.setupLogger import LoggerConfigs, configLogger
+#from src.utils.logger.setupLogger import LoggerConfigs, configLogger
 
 class threadCamera(ThreadWithStop):
     """Thread which will handle camera functionalities."""
 
     # ================================ INIT ===============================================
-    def __init__(self, queuesList, loggingQueue, debugging = False):
+    def __init__(self, queuesList, logger, debugging = False):
         super(threadCamera, self).__init__()
         self.queuesList = queuesList
-        self.loggingQueue = loggingQueue
+        #self.loggingQueue = loggingQueue
+        self.logger = logger
         self.debugging = debugging
-        self.logger = configLogger(LoggerConfigs.WORKER, __name__, self.loggingQueue)
+        #self.logger = configLogger(LoggerConfigs.WORKER, __name__, self.loggingQueue)
         self.frame_rate = 20
         self.recording = False
         self.send_fps = 20
@@ -153,17 +154,19 @@ class threadCamera(ThreadWithStop):
                 if ret:
                     self.latest_frame = frame
 
-                    _, encoded_frame = cv2.imencode(".jpg", frame, [cv2.IMWRITE_JPEG_QUALITY, 50])
-                    decoded_frame = cv2.imdecode(encoded_frame, cv2.IMREAD_COLOR)
+                    #_, encoded_frame = cv2.imencode(".jpg", frame, [cv2.IMWRITE_JPEG_QUALITY, 50])
+                    #decoded_frame = cv2.imdecode(encoded_frame, cv2.IMREAD_COLOR)
 
                     current_time = time.time()
                     if current_time - self.last_sent_time >= self.frame_interval:
                         if self.recording:
-                            self.video_writer.write(decoded_frame)
+                            #self.video_writer.write(decoded_frame)
+                            self.video_writer.write(frame)
                         self.last_sent_time = current_time
                         #self.mainVideoSender.send(decoded_frame)
                         with self.lock:
-                            np.copyto(self.frameBuffer, decoded_frame)
+                            #np.copyto(self.frameBuffer, decoded_frame)
+                            np.copyto(self.frameBuffer, frame)
                             #self.frameBuffer[:] = frame
 
         send = not send

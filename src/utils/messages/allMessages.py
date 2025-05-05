@@ -86,25 +86,25 @@ class Semaphores(Enum):
 
 ################################# From Dashboard ##################################
 class SpeedMotor(Enum):
-    Queue = "General"
+    Queue = "Critical"
     Owner = "Dashboard"
     msgID = 1
     msgType = "str"
 
 class SteerMotor(Enum):
-    Queue = "General"
+    Queue = "Critical"
     Owner = "Dashboard"
     msgID = 2
     msgType = "str"
 
 class Control(Enum):
-    Queue = "General"
+    Queue = "Critical"
     Owner = "Dashboard"
     msgID = 3
     msgType = "dict"
 
 class Brake(Enum):
-    Queue = "General"
+    Queue = "Critical"
     Owner = "Dashboard"
     msgID = 4
     msgType = "float"
@@ -356,3 +356,10 @@ class WarningSignal(Enum):
     msgType = "dict"
 
 ### It will have this format: {"WarningName":"name1", "WarningID": 1}
+
+######################    From processPathFollowing  ###########################
+class CurrentPos(Enum):
+    Queue = "General"
+    Owner = "threadPathFollowing"
+    msgID = 1
+    msgType = "str"

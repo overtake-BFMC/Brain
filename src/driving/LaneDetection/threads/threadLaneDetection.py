@@ -9,12 +9,12 @@ from src.utils.messages.allMessages import (
     ShMemResponse,
     DistanceFront,
     WarningSignal,
+    Semaphores,
 )
 from src.utils.messages.messageHandlerSubscriber import messageHandlerSubscriber
 from src.utils.messages.messageHandlerSender import messageHandlerSender
 from src.driving.LaneDetection.utils import preprocessing as pre
 from src.driving.LaneDetection.utils import PID
-from src.driving.LaneDetection.utils import cannyandhough as CH
 from src.driving.LaneDetection.utils.gamma import apply_gamma_on_frame
 from src.driving.LaneDetection.utils.kalman_filter import KalmanFilter_LANE
 from multiprocessing.shared_memory import SharedMemory
@@ -28,7 +28,8 @@ from src.driving.LaneDetection.utils.signDetection import signDetection
 from src.driving.LaneDetection.utils.signDetection import CLASSES
 
 from src.driving.LaneDetection.utils.cannyandhough import LaneFollowing
-from src.utils.logger.setupLogger import LoggerConfigs, configLogger
+#from src.utils.logger.setupLogger import LoggerConfigs, configLogger
+
 
 CLASSES_ROI = [
     [0, 0, 960, 540], #car 0
@@ -36,7 +37,7 @@ CLASSES_ROI = [
     [690, 90, 900, 220], #crosswalk-sign 2
     [700, 90, 900, 220], #highway-entry-sign 3
     [700, 90, 900, 220], #highway-exit-sign 4
-    [700, 90, 900, 220], #no-entry-road-sign 5 
+    [700, 90, 900, 220], #no-entry-road-sign 5 #this is traffic-light for now
     [700, 90, 900, 220], #one-way-road-sign 6
     [690, 70, 920, 220], #parking-sign 7
     [0, 0, 960, 540], #parking-spot 8
@@ -45,7 +46,7 @@ CLASSES_ROI = [
     [700, 90, 900, 220], #round-about-sign 11
     [[300, 400, 660, 540], [300, 200, 660, 540]],#[400, 400, 550, 540], #stop-line 12
     [480, 0, 960, 540], #stop-sign 13 
-    [0, 0, 960, 540], #traffic-light 14
+    [0, 0, 960, 540], #traffic-light 14 #this does not work
 ]
 
 class threadLaneDetection(ThreadWithStop):
@@ -56,11 +57,12 @@ class threadLaneDetection(ThreadWithStop):
         debugging (bool, optional): A flag for debugging. Defaults to False.
     """
 
-    def __init__(self, queueList, loggingQueue, debugging = False):
+    def __init__(self, queueList, logger, debugging = False):
         self.queuesList = queueList
-        self.loggingQueue = loggingQueue
+        #self.loggingQueue = loggingQueue
+        self.logger = logger
         self.debugging = debugging
-        self.logger = configLogger(LoggerConfigs.WORKER, __name__, self.loggingQueue)
+        #self.logger = configLogger(LoggerConfigs.WORKER, __name__, self.loggingQueue)
 
         #self.laneVideoSender = messageHandlerSender(self.queuesList, LaneVideo)
 
@@ -93,6 +95,7 @@ class threadLaneDetection(ThreadWithStop):
 
         self.isOnHighway = False
         self.isStop = False
+        self.semaphoresState = {}
 
         self.init_shMem()
 
@@ -144,7 +147,7 @@ class threadLaneDetection(ThreadWithStop):
     def isInsideROI(self, x, y, ROIBox):
         return ROIBox[0] <= x <= ROIBox[2] and ROIBox[1] <= y <= ROIBox[3]
 
-    def makeDecision(self, detections, bufferDetections, distanceF, timer):
+    def makeDecision(self, detections, bufferDetections, distanceF, timer ):
         
         isDetected = False
         desiredSpeed = self.vehicleState.getSpeed()
@@ -248,6 +251,36 @@ class threadLaneDetection(ThreadWithStop):
         #print("Timer0 : ", timer[0])
         #print("Timer1 : ", timer[1])
         #print("Timer2 : ", timer[2])
+        
+        ######### THIS IS TRAFFIC-LIGHT FOR TESTING ########
+        if boolDetections[5]: #no-entry-sign ##THIS IS TEST TRAFFIC-LIGHT
+            # self.vehicleState.getPosition()
+            if len(self.semaphoresState) > 0:
+                x, y, _ = self.vehicleState.getPosition()
+
+                min_distance = 1e+5
+                min_distance_state = None
+
+                for id_, semaphoreState in self.semaphoresState.items():
+                    #print(f"Len: {len(self.semaphoresState)}, Semaphores: {str(semaphoreState)}")
+                    x_s = semaphoreState["x"]
+                    y_s = semaphoreState["y"]
+
+                    distance = np.sqrt((x - x_s)**2 + (y - y_s)**2)
+
+                    if distance < min_distance:
+                        min_distance = distance
+                        min_distance_state = semaphoreState["state"]
+
+                if min_distance_state in("red", "yellow"):
+                    print("SHOULD STOP ON TRAFFIC!")
+                    desiredSpeed = 0
+                    isDetected = True
+
+                self.warningSignalSender.send({"WarningName":"Traffic Light Detected", "WarningID": 21})
+                    
+                self.isLaneKeeping = True
+
 
         if timer[1][0]:
             elapsed = time.perf_counter() - timer[1][1]
@@ -298,7 +331,10 @@ class threadLaneDetection(ThreadWithStop):
 
         distanceF = 99
 
-        LANEFOL = LaneFollowing()
+        region_curve = np.array( [[ ( 80, 540, ), ( 200, 330), ( 760, 330 ), ( 900, 540 ) ]] ) #mali roi
+        region_straight = np.array( [[ ( 80, 540, ), ( 330, 170 ), ( 620, 170 ), ( 900, 540 ) ]] ) #za snimak u raskrsnici
+
+        LANEFOL = LaneFollowing( region_straight )
 
         while self._running:
             #frame = self.MainVideoSubscriber.receive()
@@ -318,6 +354,15 @@ class threadLaneDetection(ThreadWithStop):
             if distanceFRecv is not None:
                 distanceF = distanceFRecv
 
+            ##########################
+            #semaphoreState = None
+
+            semaphoreState = self.semaphoresSubscriber.receive()
+            if semaphoreState is not None:
+                #print(f"Semaphore: {semaphoreState}")
+                self.semaphoresState[semaphoreState["id"]] = semaphoreState
+
+
             if self.frame is not None:
                 frame_width = self.frame.shape[1] 
 
@@ -330,16 +375,11 @@ class threadLaneDetection(ThreadWithStop):
 
                     #print(self.vehicleState.getPosition())
 
-                # frame_lines, lines = CH.CannyEdge( self.frame )
-
                 frame_lines, lines = LANEFOL.CannyEdge( self.frame )
 
                 frame_lines = apply_gamma_on_frame( frame_lines, gamma=0.45 )
 
-                #frame_bev = pre.bev( frame_lines, self.ppData, self.maps )
-                
-                # left_lines, right_lines, lane_center = CH.get_lane_center( lines, frame_lines, prev_lane_center )
-
+              
                 lane_center = LANEFOL.get_lane_center( lines, frame_lines, prev_lane_center)
 
                 if abs( prev_lane_center - lane_center ) < 20:
@@ -372,6 +412,8 @@ class threadLaneDetection(ThreadWithStop):
                     #self.frameLaneBuffer[:] = frame_lines
                     #self.frameLaneBuffer[:] = detection_frame
 
+ 
+
 
     def stop(self):
         super(threadLaneDetection, self).stop()
@@ -385,3 +427,6 @@ class threadLaneDetection(ThreadWithStop):
         self.LaneDetectionStartSubscriber = messageHandlerSubscriber(self.queuesList, startLaneDetection, "lastOnly", True)
         self.shMemResponseSubscriber = messageHandlerSubscriber(self.queuesList, ShMemResponse, "lastOnly", True)
         self.distanceFrontSubscriber = messageHandlerSubscriber(self.queuesList, DistanceFront, "lastOnly", True)
+
+        ###########
+        self.semaphoresSubscriber = messageHandlerSubscriber( self.queuesList, Semaphores, "fifo", True )

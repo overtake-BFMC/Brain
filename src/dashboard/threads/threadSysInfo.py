@@ -8,16 +8,17 @@ from src.utils.messages.messageHandlerSender import messageHandlerSender
 from jtop import jtop
 import psutil
 from src.dashboard.threads.utils.ina226 import INA226
-from src.utils.logger.setupLogger import LoggerConfigs, configLogger
+#from src.utils.logger.setupLogger import LoggerConfigs, configLogger
 
 class threadSysInfo(ThreadWithStop):
 
-    def __init__(self, queuesList, loggingQueue, debugging = False):
+    def __init__(self, queuesList, logger, debugging = False):
         super(threadSysInfo, self).__init__()
         self.queuesList = queuesList
-        self.loggingQueue = loggingQueue
+        #self.loggingQueue = loggingQueue
+        self.logger = logger
         self.debugging = debugging
-        self.logger = configLogger(LoggerConfigs.WORKER, __name__, self.loggingQueue)
+        #self.logger = configLogger(LoggerConfigs.WORKER, __name__, self.loggingQueue)
 
         self.checkInterval = 2
 

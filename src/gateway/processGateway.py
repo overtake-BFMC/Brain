@@ -32,7 +32,7 @@ if __name__ == "__main__":
 
 from src.templates.workerprocess import WorkerProcess
 from src.gateway.threads.threadGateway import threadGateway
-from src.utils.logger.setupLogger import LoggerConfigs, configLogger
+#from src.utils.logger.setupLogger import LoggerConfigs, configLogger
 
 class processGateway(WorkerProcess):
     """This process handle all the data distribution\n
@@ -43,10 +43,11 @@ class processGateway(WorkerProcess):
         debugging (bool, optional): Flag to enable or disable debugging behavior.
     """
 
-    def __init__(self, queueList, loggingQueue, debugging = False):
-        self.loggingQueue = loggingQueue
+    def __init__(self, queueList, logger, debugging = False):
+        #self.loggingQueue = loggingQueue
         self.debugging = debugging
-        self.logger = configLogger(LoggerConfigs.WORKER, __name__, self.loggingQueue)
+        #self.logger = configLogger(LoggerConfigs.WORKER, __name__, self.loggingQueue)
+        self.logger = logger
         super(processGateway, self).__init__(queueList)
 
     # ===================================== RUN ===========================================
@@ -59,7 +60,7 @@ class processGateway(WorkerProcess):
     def _init_threads(self):
         """Initializes the gateway thread."""
         
-        gatewayThread = threadGateway(self.queuesList, self.loggingQueue, self.debugging)
+        gatewayThread = threadGateway(self.queuesList, self.logger, self.debugging)
         self.threads.append(gatewayThread)
 
 

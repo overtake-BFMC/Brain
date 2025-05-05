@@ -19,7 +19,8 @@ from src.dashboard.StreamRTC.threads.trackStream import trackStream
 import asyncio
 import uuid
 import os
-from src.utils.logger.setupLogger import LoggerConfigs, configLogger
+import setproctitle
+#from src.utils.logger.setupLogger import LoggerConfigs, configLogger
 
 class processStreamRTC(WorkerProcess):
     """This process handles processStreamRTC.
@@ -29,11 +30,13 @@ class processStreamRTC(WorkerProcess):
         debugging (bool, optional): A flag for debugging. Defaults to False.
     """
 
-    def __init__(self, queueList, loggingQueue, debugging = False):
+    def __init__(self, queueList, logger, debugging = False):
+        setproctitle.setproctitle("processStreamRTC")
         self.queuesList = queueList
-        self.loggingQueue = loggingQueue
+        #self.loggingQueue = loggingQueue
+        self.logger = logger
         self.debugging = debugging
-        self.logger = configLogger(LoggerConfigs.WORKER, __name__, self.loggingQueue)
+        #self.logger = configLogger(LoggerConfigs.WORKER, __name__, self.loggingQueue)
         super(processStreamRTC, self).__init__(self.queuesList)
 
         self.pcs = set()
@@ -91,7 +94,7 @@ class processStreamRTC(WorkerProcess):
 
 
 
-        pc.addTrack(trackStream(self.queuesList, self.loggingQueue, self.debugging))
+        pc.addTrack(trackStream(self.queuesList, self.logger, self.debugging))
         #player = MediaPlayer(self.dir_path + '/demo-instruct.wav')
         #pc.addTrack(player.audio)
         log_info("Created track stream")
@@ -145,7 +148,7 @@ class processStreamRTC(WorkerProcess):
         """Create the processStreamRTC Publisher thread and add to the list of threads."""
         pass
         # processStreamRTCTh = threadStreamRTC(
-        #     self.queuesList, self.logging, self.debugging
+        #     self.queuesList, self.logger, self.debugging
         # )
         # self.threads.append(processStreamRTCTh)
 

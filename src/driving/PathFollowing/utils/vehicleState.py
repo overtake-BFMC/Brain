@@ -25,11 +25,18 @@ class vehicleState:
         self.y = y
         self.yaw = yaw
     
+    
     def setSpeed(self, speed):
         self.speed = speed
 
     def getSpeed(self):
         return self.speed
+    
+    def getWheelbase(self):
+        return self.wheelbase
+    
+    def getSteeringAngle(self):
+        return self.steeringAngle
 
     def setSteeringAngle(self, steer):
         self.steeringAngle = steer

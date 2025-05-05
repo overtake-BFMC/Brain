@@ -13,7 +13,7 @@ from src.utils.messages.messageHandlerSender import messageHandlerSender
 import can
 import struct
 import time
-from src.utils.logger.setupLogger import LoggerConfigs, configLogger
+#from src.utils.logger.setupLogger import LoggerConfigs, configLogger
 
 class threadCANWrite(ThreadWithStop):
     """This thread handles canhandler.
@@ -23,13 +23,14 @@ class threadCANWrite(ThreadWithStop):
         debugging (bool, optional): A flag for debugging. Defaults to False.
     """
 
-    def __init__(self, f_CAN0: can.BusABC, f_logFile, queueList, loggingQueue, debugging = False):
+    def __init__(self, f_CAN0: can.BusABC, f_logFile, queueList, logger, debugging = False):
         self.CAN0 = f_CAN0
         self.logFile = f_logFile
         self.queuesList = queueList
-        self.loggingQueue = loggingQueue
+        #self.loggingQueue = loggingQueue
+        self.logger = logger
         self.debugging = debugging
-        self.logger = configLogger(LoggerConfigs.WORKER, __name__, self.loggingQueue)
+        #self.logger = configLogger(LoggerConfigs.WORKER, __name__, self.loggingQueue)
 
         self.running = False
         self.engineEnabled = False

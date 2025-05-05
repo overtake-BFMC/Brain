@@ -29,7 +29,7 @@
 from src.templates.threadwithstop import ThreadWithStop
 #import logging
 #from src.utils.logger.loggerConfig import setupLogger
-from src.utils.logger.setupLogger import LoggerConfigs, configLogger
+#from src.utils.logger.setupLogger import LoggerConfigs, configLogger
 
 class threadGateway(ThreadWithStop):
     """Thread which will handle processGateway functionalities.\n
@@ -41,11 +41,12 @@ class threadGateway(ThreadWithStop):
 
     # ===================================== INIT =========================================
 
-    def __init__(self, queueList, loggingQueue, debugging = False):
+    def __init__(self, queueList, logger, debugging = False):
         super(threadGateway, self).__init__()
-        self.loggingQueue = loggingQueue
+        #self.loggingQueue = loggingQueue
         self.debugging = debugging
-        self.logger = configLogger(LoggerConfigs.WORKER, loggerName=__name__, queue=self.loggingQueue)
+        #self.logger = configLogger(LoggerConfigs.WORKER, loggerName=__name__, queue=self.loggingQueue)
+        self.logger = logger
         self.sendingList = {}
         self.queuesList = queueList
         self.messageApproved = []
@@ -100,18 +101,40 @@ class threadGateway(ThreadWithStop):
             message(dictionary): Dictionary received from the multiprocessing queues ( the config one).
         """
 
-        Owner = message["Owner"]
-        Id = message["msgID"]
-        Type = message["msgType"]
-        Value = message["msgValue"]
-        if (Owner, Id) in self.messageApproved:
-            for element in self.sendingList[Owner][Id]:
-                # We send a dictionary that contain the type of the message and message
-                self.sendingList[Owner][Id][element].send(
-                    {"Type": Type, "value": Value, "id": Id, "Owner": Owner}
-                )
-                if self.debugging:
-                    self.logger.debug(message)
+        # Owner = message["Owner"]
+        # Id = message["msgID"]
+        # Type = message["msgType"]
+        # Value = message["msgValue"]
+        # if (Owner, Id) in self.messageApproved:
+        #     for element in self.sendingList[Owner][Id]:
+        #         # We send a dictionary that contain the type of the message and message
+        #         self.sendingList[Owner][Id][element].send(
+        #             {"Type": Type, "value": Value, "id": Id, "Owner": Owner}
+        #         )
+        #         if self.debugging:
+        #             self.logger.debug(message)
+        try:
+            Owner = message["Owner"]
+            Id = message["msgID"]
+            Type = message["msgType"]
+            Value = message["msgValue"]
+
+            if (Owner, Id) in self.messageApproved:
+                for receiver, pipe in self.sendingList[Owner][Id].items():
+                    try:
+                        pipe.send({"Type": Type, "value": Value, "id": Id, "Owner": Owner})
+
+                        if self.debugging:
+                            self.logger.debug(f"Sent to {receiver}: {message}")
+                    except BrokenPipeError:
+                        self.logger.error(f"Broken pipe for receiver {receiver}. Should remove and check...")
+                        self.logger.error(f"Message is: Type: {Type}, value: {Value}, id: {Id}, Owner: {Owner}")
+                        print(f"Broken pipe for receiver {receiver}. Should remove and check...")
+                        print(f"Message is: Type: {Type}, value: {Value}, id: {Id}, Owner: {Owner}")
+        except KeyError as e:
+            self.logger.error(f"Invalid message format: {e}")
+        except Exception as e:
+            self.logger.error(f"Unexpected error in send(): {e}")
 
     # ====================================================================================
 
@@ -145,7 +168,10 @@ class threadGateway(ThreadWithStop):
             elif not self.queuesList["ShMemConfig"].empty():
                 message = self.queuesList["ShMemConfig"].get()
             if message is not None:
-                self.send(message)
+                try:
+                    self.send(message)
+                except Exception as e:
+                    print(f"Message sending error:\n Owner: {message['Owner']}\n Type: {message['msgType']}\n ID: {message['msgID']}")
             if not self.queuesList["Config"].empty():
                 message2 = self.queuesList["Config"].get()
                 if str.lower(message2["Subscribe/Unsubscribe"]) == "subscribe":

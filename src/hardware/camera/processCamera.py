@@ -35,7 +35,7 @@ import base64
 import numpy as np
 from src.templates.workerprocess import WorkerProcess
 from src.hardware.camera.threads.threadCamera import threadCamera
-from src.utils.logger.setupLogger import LoggerConfigs, configLogger
+#from src.utils.logger.setupLogger import LoggerConfigs, configLogger
 
 class processCamera(WorkerProcess):
     """
@@ -47,11 +47,12 @@ class processCamera(WorkerProcess):
         debugging (bool, optional): A flag for debugging. Defaults to False.
     """
 
-    def __init__(self, queueList, loggingQueue, debugging = False):
+    def __init__(self, queueList, logger, debugging = False):
         self.queuesList = queueList
-        self.loggingQueue = loggingQueue
+        #self.loggingQueue = loggingQueue
+        self.logger = logger
         self.debugging = debugging
-        self.logger = configLogger(LoggerConfigs.WORKER, __name__, self.loggingQueue)
+        #self.logger = configLogger(LoggerConfigs.WORKER, __name__, self.loggingQueue)
         super(processCamera, self).__init__(self.queuesList)
 
     def run(self):
@@ -69,7 +70,7 @@ class processCamera(WorkerProcess):
         Create the Camera Publisher thread and add it to the list of threads.
         """
         try:
-            camTh = threadCamera(self.queuesList, self.loggingQueue, self.debugging)
+            camTh = threadCamera(self.queuesList, self.logger, self.debugging)
             self.threads.append(camTh)
             self.logger.info("Camera thread initialized successfully.")
         except Exception as e:

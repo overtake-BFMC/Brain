@@ -8,9 +8,10 @@ from src.hardware.canhandler.threads.threadCANRead import threadCANRead
 from src.hardware.canhandler.threads.threadCANWrite import threadCANWrite
 import can
 from src.hardware.canhandler.threads.filehandler import FileHandler
-from src.utils.logger.setupLogger import LoggerConfigs, configLogger
+#from src.utils.logger.setupLogger import LoggerConfigs, configLogger
 import subprocess
 from typing import List
+import time
 
 class CANOSCommands:
     @staticmethod
@@ -33,16 +34,17 @@ class processCANHandler(WorkerProcess):
         debugging (bool, optional): A flag for debugging. Defaults to False.
     """
 
-    def __init__(self, queueList, loggingQueue, debugging = False):
+    def __init__(self, queueList, logger, debugging = False):
         self.interfaceName = 'can0'
         self.interfaceBitrate = 500000
         self.logFile = "historyCAN.txt"
 
         self.historyFile = FileHandler(self.logFile)
         self.queuesList = queueList
-        self.loggingQueue = loggingQueue
+        #self.loggingQueue = loggingQueue
+        self.logger = logger
         self.debugging = debugging
-        self.logger = configLogger(LoggerConfigs.WORKER, __name__, self.loggingQueue)
+        #self.logger = configLogger(LoggerConfigs.WORKER, __name__, self.loggingQueue)
         
         try:
             self.CAN0 = can.interface.Bus(channel=self.interfaceName, interface='socketcan')
@@ -109,9 +111,9 @@ class processCANHandler(WorkerProcess):
     
     def _init_threads(self):
         """Create the canhandler Publisher thread and add to the list of threads."""
-        readCANTh = threadCANRead(self.CAN0, self.historyFile, self.queuesList, self.loggingQueue, self.debugging)
+        readCANTh = threadCANRead(self.CAN0, self.historyFile, self.queuesList, self.logger, self.debugging)
         self.threads.append(readCANTh)
-        writeCANTh = threadCANWrite(self.CAN0, self.historyFile, self.queuesList, self.loggingQueue, self.debugging)
+        writeCANTh = threadCANWrite(self.CAN0, self.historyFile, self.queuesList, self.logger, self.debugging)
         self.threads.append(writeCANTh)
 
 if __name__ == "__main__":

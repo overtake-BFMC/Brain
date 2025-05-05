@@ -7,6 +7,7 @@ from src.utils.messages.allMessages import (
     ShMemConfig,
     ShMemResponse,
     SelectTrackNo,
+    CurrentPos
 )
 from src.utils.messages.messageHandlerSubscriber import messageHandlerSubscriber
 from src.utils.messages.messageHandlerSender import messageHandlerSender
@@ -18,7 +19,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import time
 import ast
-from src.utils.logger.setupLogger import LoggerConfigs, configLogger
+#from src.utils.logger.setupLogger import LoggerConfigs, configLogger
 
 class threadPathFollowing(ThreadWithStop):
     """This thread handles pathFollowing.
@@ -28,11 +29,12 @@ class threadPathFollowing(ThreadWithStop):
         debugging (bool, optional): A flag for debugging. Defaults to False.
     """
 
-    def __init__(self, queueList, loggingQueue, lookAheadDistance = 1, dt = 0.05, debugging = False):
+    def __init__(self, queueList, logger, lookAheadDistance = 1, dt = 0.05, debugging = False):
         self.queuesList = queueList
-        self.loggingQueue = loggingQueue
+        #self.loggingQueue = loggingQueue
+        self.logger = logger
         self.debugging = debugging
-        self.logger = configLogger(LoggerConfigs.WORKER, __name__, self.loggingQueue)
+        #self.logger = configLogger(LoggerConfigs.WORKER, __name__, self.loggingQueue)
 
         self.nodes = nodesData
         # speed = 20
@@ -52,6 +54,7 @@ class threadPathFollowing(ThreadWithStop):
         self.steerMotorSender = messageHandlerSender(self.queuesList, SteerMotor)
         self.speedMotorSender = messageHandlerSender(self.queuesList, SpeedMotor)
         self.ShMemConfigSender = messageHandlerSender(self.queuesList, ShMemConfig)
+        self.currentPosSender = messageHandlerSender(self.queuesList, CurrentPos)
 
         self.lookAheadDistance = lookAheadDistance #*speed
         self.timeStep = dt
@@ -159,6 +162,8 @@ class threadPathFollowing(ThreadWithStop):
 
                     self.vehicle.updateVehicleState(speed, self.nodes[self.waypoints[0]][0], self.nodes[self.waypoints[0]][1], np.deg2rad(yaw))
 
+                self.currentPosSender.send(str(self.vehicle.getPosition()))
+
             startRun = self.startRunSubscriber.receive()
             if startRun is not None:
                 if startRun == 'false':
@@ -246,6 +251,29 @@ class threadPathFollowing(ThreadWithStop):
         vehicleY = vehicleY + vehicleSpeed * np.sin(vehicleYaw) * elapsedTime
 
         self.vehicle.setPosition(vehicleX, vehicleY, vehicleYaw)
+
+    def kinematicBicycleDynamics(self, state):
+        vehicleX, vehicleY, yaw = state
+
+        speed = self.vehicle.getSpeed()
+        steeringAngle = self.vehicle.getSteeringAngle()
+
+        dx = speed * np.cos(yaw)
+        dy = speed * np.sin(yaw)  
+        dyaw = speed * np.tan(steeringAngle) / self.vehicle.getWheelbase()
+    
+        return np.array([dx, dy, dyaw])
+    
+    def rk4_step(self, elapsedTime = 1):
+
+        state = self.vehicle.getPosition()
+        k1 = self.kinematicBicycleDynamics(state) * elapsedTime
+        k2 = self.kinematicBicycleDynamics(state + 0.5 * k1) * elapsedTime
+        k3 = self.kinematicBicycleDynamics(state + 0.5 * k2) * elapsedTime
+        k4 = self.kinematicBicycleDynamics(state + k3) * elapsedTime
+
+        newX, newY, newYaw = state + (1/6) * (k1 + 2*k2 + 2*k3 + k4)
+        self.vehicle.setPosition(newX, newY, newYaw)
     
     def findLookAheadPoint(self, lastPathPointId):
         
@@ -312,7 +340,7 @@ class threadPathFollowing(ThreadWithStop):
             self.vehicle.setSteeringAngle(vehicleSteeringAngle)
 
             elapsedTime = time.time() - startTime
-            self.kinematicBicycleModel(elapsedTime)
+            self.rk4_step(elapsedTime)
             startTime = time.time()
  
             self.steerMotorSender.send(str(round(np.rad2deg(np.clip(-vehicleSteeringAngle, -0.4363, 0.4363)))*10))
@@ -353,6 +381,6 @@ class threadPathFollowing(ThreadWithStop):
     def subscribe(self):
         """Subscribes to the messages you are interested in"""
         self.startRunSubscriber = messageHandlerSubscriber(self.queuesList, startRun, "lastOnly", True)
-        self.IMUDataSubscriber = messageHandlerSubscriber(self.queuesList, ImuData, "lastOnly", True)
+        #self.IMUDataSubscriber = messageHandlerSubscriber(self.queuesList, ImuData, "lastOnly", True)
         self.shMemResponseSubscriber = messageHandlerSubscriber(self.queuesList, ShMemResponse, "lastOnly", True)
         self.selectTrackSubscriber = messageHandlerSubscriber(self.queuesList, SelectTrackNo, "lastOnly", True)

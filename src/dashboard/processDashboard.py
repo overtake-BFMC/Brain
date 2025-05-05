@@ -41,7 +41,7 @@ from src.templates.workerprocess import WorkerProcess
 from src.utils.messages.allMessages import Semaphores
 from src.dashboard.threads.threadStartFrontend import ThreadStartFrontend  
 import src.utils.messages.allMessages as allMessages
-from src.utils.logger.setupLogger import LoggerConfigs, configLogger
+#from src.utils.logger.setupLogger import LoggerConfigs, configLogger
 
 from src.dashboard.threads.threadSysInfo import threadSysInfo
 
@@ -53,13 +53,14 @@ class processDashboard(WorkerProcess):
         deviceID (int): The identifier for the specific device.
     """
     # ====================================== INIT ==========================================
-    def __init__(self, queueList, toRecompileDashboard, loggingQueue, debugging = False):
+    def __init__(self, queueList, toRecompileDashboard, logger, debugging = False):
         super(processDashboard, self).__init__(queueList)
         self.running = True
         self.queueList = queueList
-        self.loggingQueue = loggingQueue
+        #self.loggingQueue = loggingQueue
+        self.logger = logger
         self.debugging = debugging
-        self.logger = configLogger(LoggerConfigs.WORKER, __name__, self.loggingQueue)
+        #self.logger = configLogger(LoggerConfigs.WORKER, __name__, self.loggingQueue)
 
         self.toRecompileDashboard = toRecompileDashboard
 
@@ -80,6 +81,7 @@ class processDashboard(WorkerProcess):
         self.getNamesAndVals()
         self.messagesAndVals.pop("mainCamera", None)
         self.messagesAndVals.pop("Semaphores", None)
+        self.messagesAndVals.pop("serialCamera", None)
         #self.messagesAndVals.pop("MainVideo", None)
         #self.messagesAndVals.pop("LaneVideo", None)
         #self.messagesAndVals.pop("createShMem", None)
@@ -252,8 +254,8 @@ class processDashboard(WorkerProcess):
     # ===================================== INIT TH ======================================
     def _init_threads(self):
         """Initialize the Dashboard thread."""
-        dashboardThreadFrontend = ThreadStartFrontend(self.toRecompileDashboard, self.loggingQueue, self.debugging)
-        dashboardThreadSysInfo = threadSysInfo(self.queueList, self.loggingQueue, self.debugging)
+        dashboardThreadFrontend = ThreadStartFrontend(self.toRecompileDashboard, self.logger, self.debugging)
+        dashboardThreadSysInfo = threadSysInfo(self.queueList, self.logger, self.debugging)
         self.threads.append(dashboardThreadFrontend)
         self.threads.append(dashboardThreadSysInfo)
 

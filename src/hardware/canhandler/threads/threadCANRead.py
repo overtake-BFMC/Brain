@@ -14,7 +14,7 @@ from src.utils.messages.messageHandlerSender import messageHandlerSender
 import can
 import struct
 import threading
-from src.utils.logger.setupLogger import LoggerConfigs, configLogger
+#from src.utils.logger.setupLogger import LoggerConfigs, configLogger
 
 class threadCANRead(ThreadWithStop):
     """This thread handles canhandler.
@@ -24,13 +24,14 @@ class threadCANRead(ThreadWithStop):
         debugging (bool, optional): A flag for debugging. Defaults to False.
     """
 
-    def __init__(self, f_CAN0: can.BusABC, f_logFile, queueList, loggingQueue, debugging = False):
+    def __init__(self, f_CAN0: can.BusABC, f_logFile, queueList, logger, debugging = False):
         self.CAN0 = f_CAN0
         self.logFile = f_logFile
         self.queuesList = queueList
-        self.loggingQueue = loggingQueue
+        #self.loggingQueue = loggingQueue
+        self.logger = logger
         self.debugging = debugging
-        self.logger = configLogger(LoggerConfigs.WORKER, __name__, self.loggingQueue)
+        #self.logger = configLogger(LoggerConfigs.WORKER, __name__, self.loggingQueue)
         self.subscribe()
 
         self.enableButtonSender = messageHandlerSender(self.queuesList, EnableButton)
@@ -65,6 +66,7 @@ class threadCANRead(ThreadWithStop):
                     }
                     if self.debugging:
                         self.logger.info(f"IMU:(Accel X: {ogAccelX}, Accel Y: {ogAccelY})")
+                    #print(f"IMU: {str(data)}")
                     self.imuDataSender.send(str(data))
                 elif CANResp.arbitration_id == 0x11E: #"distanceFront"
                     distanceF = struct.unpack('<i', CANResp.data)[0]
@@ -73,13 +75,13 @@ class threadCANRead(ThreadWithStop):
                     self.distanceFrontSender.send(float(distanceF))
                 elif CANResp.arbitration_id == 0x123: #"currentSpeed"
                     currentSpeed = struct.unpack('<i', CANResp.data)[0]
-                    print(f"Speed: {CANResp.data}, data: {CANResp.dlc}")
+                    #print(f"Speed: {CANResp.data}, data: {CANResp.dlc}")
                     if self.debugging:
                         self.logger.info(f"Speed ACK : {currentSpeed}")
                     self.currentSpeedSender.send(float(currentSpeed))
                 elif CANResp.arbitration_id == 0x128: #"currentSteer"
                     currentSteer = struct.unpack('<i', CANResp.data)[0]
-                    print(f"Steer: {CANResp.data}, data: {CANResp.dlc}")
+                    #print(f"Steer: {CANResp.data}, data: {CANResp.dlc}")
                     if self.debugging:
                         self.logger.info(f"Steer ACK : {currentSteer}")
                     self.currentSteerSender.send(float(currentSteer))

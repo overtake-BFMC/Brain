@@ -20,9 +20,9 @@ class threadStreamRTC(ThreadWithStop):
         debugging (bool, optional): A flag for debugging. Defaults to False.
     """
 
-    def __init__(self, queueList, logging, debugging=False):
+    def __init__(self, queueList, logger, debugging=False):
         self.queuesList = queueList
-        self.logging = logging
+        self.logger = logger
         self.debugging = debugging
 
         #self.pcs = set()
