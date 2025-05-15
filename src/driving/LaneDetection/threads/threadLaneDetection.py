@@ -291,17 +291,19 @@ class threadLaneDetection(ThreadWithStop):
 
                 if min_distance_state in("red", "yellow"):
                     print("SHOULD STOP ON TRAFFIC!")
-                    self.vehicleState.setSpeed(0)
+                    #self.vehicleState.setSpeed(0)
 
-                    print(f"desired: {self.vehicleState.getSpeed()}")
-                    # isDetected = True
+                    #print(f"desired: {self.vehicleState.getSpeed()}")
+                    isDetected = True
                     self.redLightFlag = True
                          
-                    return 
+                    desiredSpeed = 0
                 
                 else:
                     self.redLightFlag = False
                     self.semaphoreID = None
+                    isDetected = False
+                    desiredSpeed = 20
 
                 self.warningSignalSender.send({"WarningName":"Traffic Light Detected", "WarningID": 21})
                     
@@ -329,7 +331,7 @@ class threadLaneDetection(ThreadWithStop):
 
         #print(f"DesiredSpeed: {desiredSpeed}, isDetected {isDetected}")
 
-        if not isDetected and not self.isOnHighway:
+        if not isDetected and not self.isOnHighway and not self.redLightFlag:
             self.vehicleState.setSpeed(20)
             #desiredSpeed = 20
         else:
