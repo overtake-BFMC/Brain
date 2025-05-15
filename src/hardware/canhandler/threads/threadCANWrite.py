@@ -115,8 +115,8 @@ class threadCANWrite(ThreadWithStop):
         """Subscribes to the messages you are interested in"""
         self.klSubscriber = messageHandlerSubscriber(self.queuesList, Klem, "lastOnly", True)
         self.controlSubscriber = messageHandlerSubscriber(self.queuesList, Control, "lastOnly", True)
-        self.steerMotorSubscriber = messageHandlerSubscriber(self.queuesList, SteerMotor, "lastOnly", True)
-        self.speedMotorSubscriber = messageHandlerSubscriber(self.queuesList, SpeedMotor, "lastOnly", True)
+        self.steerMotorSubscriber = messageHandlerSubscriber(self.queuesList, SteerMotor, "fifo", True)
+        self.speedMotorSubscriber = messageHandlerSubscriber(self.queuesList, SpeedMotor, "fifo", True)
         self.brakeSubscriber = messageHandlerSubscriber(self.queuesList, Brake, "lastOnly", True)
         self.resourceMonitorSubscriber = messageHandlerSubscriber(self.queuesList, ToggleResourceMonitor, "lastOnly", True)
         self.imuSubscriber = messageHandlerSubscriber(self.queuesList, ToggleImuData, "lastOnly", True)

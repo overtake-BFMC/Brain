@@ -29,7 +29,7 @@ class threadSysInfo(ThreadWithStop):
         self.INA226JetsonPresent = 0
         self.jetsonBatt = 0
         try:
-            self.INA226Jetson = INA226(busnum=7, address=0x40, max_expected_amps=0.5, shunt_ohms=0.1)
+            self.INA226Jetson = INA226(busnum=7, address=0x40, max_expected_amps=20.0, shunt_ohms=0.003)
             self.INA226Jetson.configure()
             self.INA226Jetson.set_low_battery(5)
             self.INA226JetsonPresent = 1
@@ -40,7 +40,7 @@ class threadSysInfo(ThreadWithStop):
         self.INA226NucleoPresent = 0
         self.nucleoBatt = 0
         try:
-            self.INA226Nucleo = INA226(busnum=7, address=0x41, max_expected_amps=0.5, shunt_ohms=0.1)
+            self.INA226Nucleo = INA226(busnum=7, address=0x41, max_expected_amps=20.0, shunt_ohms=0.003)
             self.INA226Nucleo.configure()
             self.INA226Nucleo.set_low_battery(5)
             self.INA226NucleoPresent = 1
@@ -89,11 +89,13 @@ class threadSysInfo(ThreadWithStop):
 
     def readJetsonVolt(self):
         self.jetsonBatt = self.INA226Jetson.voltage()
+        #print("Jetson Power : %.3f mW" % self.INA226Jetson.power())
         #print("Jetson Bus Voltage    : %.3f V" % self.INA226Jetson.voltage())
         #print("Jetson Supply Voltage : %.3f V" % self.INA226Jetson.supply_voltage())
 
     def readNucleoVolt(self):
         self.nucleoBatt = self.INA226Nucleo.voltage()
+        #print("Nucleo Power : %.3f mW" % self.INA226Nucleo.power())
         #print("Nucleo Bus Voltage    : %.3f V" % self.INA226Nucleo.voltage())
         #print("Nucleo Supply Voltage : %.3f V" % self.INA226Nucleo.supply_voltage())
 

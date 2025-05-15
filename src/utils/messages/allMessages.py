@@ -332,8 +332,14 @@ class WarningSignal(Enum):
 class DistanceFront(Enum):
     Queue = "General"
     Owner = "threadRead"
-    msgID = 8
+    msgID = 9
     msgType = "float"
+
+class WhiteLine(Enum):
+    Queue = "General"
+    Owner = "threadRead"
+    msgID = 10
+    msgType = "bool"
 
 ################################# From Locsys ##################################
 class Location(Enum):

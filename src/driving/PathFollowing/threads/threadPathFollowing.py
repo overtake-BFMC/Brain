@@ -7,18 +7,16 @@ from src.utils.messages.allMessages import (
     ShMemConfig,
     ShMemResponse,
     SelectTrackNo,
-    CurrentPos
+    CurrentPos,
+    WhiteLine
 )
 from src.utils.messages.messageHandlerSubscriber import messageHandlerSubscriber
 from src.utils.messages.messageHandlerSender import messageHandlerSender
 
 from src.driving.PathFollowing.utils.nodes import nodes as nodesData
-from src.driving.PathFollowing.utils.vehicleState import vehicleState
 
 import numpy as np
-import matplotlib.pyplot as plt
 import time
-import ast
 #from src.utils.logger.setupLogger import LoggerConfigs, configLogger
 
 class threadPathFollowing(ThreadWithStop):
@@ -29,7 +27,7 @@ class threadPathFollowing(ThreadWithStop):
         debugging (bool, optional): A flag for debugging. Defaults to False.
     """
 
-    def __init__(self, queueList, logger, lookAheadDistance = 1, dt = 0.05, debugging = False):
+    def __init__(self, queueList, logger, lookAheadDistance = 1, dt = 0.02, debugging = False):
         self.queuesList = queueList
         #self.loggingQueue = loggingQueue
         self.logger = logger
@@ -110,13 +108,13 @@ class threadPathFollowing(ThreadWithStop):
                     if self.waypoints:
                         self.waypoints.clear() 
 
-                    self.waypoints.extend(range(1, 7))
+                    self.waypoints.extend(range(1, 9))
 
                     if len(self.path):
                         self.path = np.array([])
 
                     self.path = [(self.nodes[pointId][0], self.nodes[pointId][1]) for pointId in self.waypoints]
-                    self.path = self.createAdditionalNodesInThePath(times = 2)
+                    self.path = self.createAdditionalNodesInThePath(times = 1)
                     #self.path = self.pathSmoother(weightData=0.85)
 
                     self.vehicle.updateVehicleState(speed, self.nodes[self.waypoints[0]][0], self.nodes[self.waypoints[0]][1], np.deg2rad(yaw))
@@ -251,29 +249,6 @@ class threadPathFollowing(ThreadWithStop):
         vehicleY = vehicleY + vehicleSpeed * np.sin(vehicleYaw) * elapsedTime
 
         self.vehicle.setPosition(vehicleX, vehicleY, vehicleYaw)
-
-    def kinematicBicycleDynamics(self, state):
-        vehicleX, vehicleY, yaw = state
-
-        speed = self.vehicle.getSpeed()
-        steeringAngle = self.vehicle.getSteeringAngle()
-
-        dx = speed * np.cos(yaw)
-        dy = speed * np.sin(yaw)  
-        dyaw = speed * np.tan(steeringAngle) / self.vehicle.getWheelbase()
-    
-        return np.array([dx, dy, dyaw])
-    
-    def rk4_step(self, elapsedTime = 1):
-
-        state = self.vehicle.getPosition()
-        k1 = self.kinematicBicycleDynamics(state) * elapsedTime
-        k2 = self.kinematicBicycleDynamics(state + 0.5 * k1) * elapsedTime
-        k3 = self.kinematicBicycleDynamics(state + 0.5 * k2) * elapsedTime
-        k4 = self.kinematicBicycleDynamics(state + k3) * elapsedTime
-
-        newX, newY, newYaw = state + (1/6) * (k1 + 2*k2 + 2*k3 + k4)
-        self.vehicle.setPosition(newX, newY, newYaw)
     
     def findLookAheadPoint(self, lastPathPointId):
         
@@ -294,6 +269,9 @@ class threadPathFollowing(ThreadWithStop):
 
     def purePursuit(self):
 
+        isWhiteDetected = False
+        self.whiteLineSubscriber.subscribe()
+
         vehicleX, vehicleY, vehicleYaw = self.vehicle.getPosition()
         vehicleSpeed, vehicleSteeringAngle, vehicleWheelbase = self.vehicle.getSpeedSteerWheelbase()
 
@@ -305,15 +283,20 @@ class threadPathFollowing(ThreadWithStop):
         self.speedMotorSender.send(str(np.clip(vehicleSpeed*10, -500, 500)))
         targetX, targetY = self.findLookAheadPoint(lastPathPointId)
 
-        startX = vehicleX
-        starty = vehicleY
-        velocity = 0
 
+        startX, startY, _ = self.vehicle.getPosition()
         while targetX and targetY:
-            print(f"{targetX}  {targetY}")
 
-            vehicleSpeed = self.vehicle.getSpeed()
-            
+            # currX, _, _ = self.vehicle.getPosition()
+            # vehicleSpeed = self.vehicle.getSpeed()
+            # if abs(startX-currX) >=250:
+            #     break
+            whiteLine = self.whiteLineSubscriber.receive()
+            if whiteLine is not None and whiteLine and not isWhiteDetected:
+                isWhiteDetected = True
+                self.vehicle.setPosition(347.5, 80.0, 0.0)
+                print(f"x = {a} y = {b}")  
+
             self.speedMotorSender.send(str(np.clip(vehicleSpeed*10, -500, 500)))
             # while(not velocity):
             #     IMUData = self.IMUDataSubscriber.receive()
@@ -324,9 +307,9 @@ class threadPathFollowing(ThreadWithStop):
             #         velocityX = abs(float(FormattedIMUData["accelx"]))
             #         velocityY = abs(float(FormattedIMUData["accely"]))
             #         velocity = int(np.sqrt(velocityX**2 + velocityY**2) * 100)
-                    
+            a, b, _ = self.vehicle.getPosition()
 
-            if self.calculateDistanceToTarget(self.path[lastPathPointId][0], self.path[lastPathPointId][1]) < vehicleWheelbase:
+            if self.calculateDistanceToTarget(self.path[lastPathPointId][0], self.path[lastPathPointId][1]) < 15:
                 lastPathPointId += 1
 
             distanceToTarget = self.calculateDistanceToTarget(targetX, targetY)
@@ -340,11 +323,12 @@ class threadPathFollowing(ThreadWithStop):
             self.vehicle.setSteeringAngle(vehicleSteeringAngle)
 
             elapsedTime = time.time() - startTime
-            self.rk4_step(elapsedTime)
+            # self.rk4_step(elapsedTime)
+            self.kinematicBicycleModel(elapsedTime)
             startTime = time.time()
  
             self.steerMotorSender.send(str(round(np.rad2deg(np.clip(-vehicleSteeringAngle, -0.4363, 0.4363)))*10))
-            
+
             targetX, targetY = self.findLookAheadPoint(lastPathPointId)
                             
             vehicleX, vehicleY, _ = self.vehicle.getPosition()
@@ -354,7 +338,7 @@ class threadPathFollowing(ThreadWithStop):
             # time.sleep(self.timeStep)
 
             start_time = time.perf_counter()
-            while time.perf_counter() - start_time < self.timeStep:  # Waits for 2 seconds
+            while time.perf_counter() - start_time < self.timeStep:
                 pass
                 
             self.last_sent_time = time.time()
@@ -362,19 +346,8 @@ class threadPathFollowing(ThreadWithStop):
         self.steerMotorSender.send(str(0))
         time.sleep(0.3)
         self.speedMotorSender.send(str(0))
-        
-        # plt.plot(path_x, path_y, label="Robot Path")
-        # plt.scatter(*zip(*self.nodes.values()), color="red", label="Waypoints")  # Mark the nodes/waypoints
-        # plt.scatter(*zip(*self.path), color="yellow", label="Path")  # Mark the nodes/waypoints
-        # plt.title("Path Following with Pure Pursuit")
-        # plt.xlabel("X (cm)")
-        # plt.ylabel("Y (cm)")
-        # plt.gca().invert_yaxis()
 
-        # plt.legend()
-        # plt.grid(True)
-        # #plt.show()
-        # plt.savefig("path_following.pdf")  
+        self.whiteLineSubscriber.unsubscribe()
 
         return path_x, path_y, self.path
 
@@ -384,3 +357,4 @@ class threadPathFollowing(ThreadWithStop):
         #self.IMUDataSubscriber = messageHandlerSubscriber(self.queuesList, ImuData, "lastOnly", True)
         self.shMemResponseSubscriber = messageHandlerSubscriber(self.queuesList, ShMemResponse, "lastOnly", True)
         self.selectTrackSubscriber = messageHandlerSubscriber(self.queuesList, SelectTrackNo, "lastOnly", True)
+        self.whiteLineSubscriber = messageHandlerSubscriber(self.queuesList, WhiteLine, "lastOnly", False)

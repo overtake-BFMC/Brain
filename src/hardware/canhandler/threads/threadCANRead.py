@@ -7,7 +7,7 @@ from src.utils.messages.allMessages import (
     CurrentSpeed,
     CurrentSteer,
     DistanceFront,
-
+    WhiteLine,
 )
 from src.utils.messages.messageHandlerSubscriber import messageHandlerSubscriber
 from src.utils.messages.messageHandlerSender import messageHandlerSender
@@ -41,6 +41,7 @@ class threadCANRead(ThreadWithStop):
         self.currentSpeedSender = messageHandlerSender(self.queuesList, CurrentSpeed)
         self.currentSteerSender = messageHandlerSender(self.queuesList, CurrentSteer)
         self.distanceFrontSender = messageHandlerSender(self.queuesList, DistanceFront)
+        self.whiteLineSender = messageHandlerSender(self.queuesList, WhiteLine)
 
 
         self.Queue_Sending()
@@ -93,6 +94,11 @@ class threadCANRead(ThreadWithStop):
                     if self.debugging:
                         self.logger.info(f"Heap and Stack Usage : {str(message)}")
                     self.resourceMonitorSender.send(message)
+                elif CANResp.arbitration_id == 0x11D: #"WhiteLine Detected"
+                    whiteLine = not struct.unpack('<?', CANResp.data)[0]
+                    if self.debugging:
+                        self.logger.info(f"WhiteLineDetected: {str(whiteLine)}")
+                    self.whiteLineSender.send(whiteLine)
                 elif CANResp.arbitration_id == 0x141: #"breakState"
                     breakState = CANResp.data[0] != 0
                 elif CANResp.arbitration_id == 0x146: #"vcdEnd"
