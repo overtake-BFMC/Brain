@@ -217,6 +217,42 @@ class SelectTrackNo(Enum):
     msgID = 22
     msgType = "int"
 
+class ToggleDistanceSensor(Enum):
+    Queue = "General"
+    Owner = "Dashboard"
+    msgID = 23
+    msgType = "str"
+
+class ToggleWhiteLineSensor(Enum):
+    Queue = "General"
+    Owner = "Dashboard"
+    msgID = 24
+    msgType = "str"
+
+class SetCalibrationSpeed(Enum):
+    Queue = "General"
+    Owner = "Dashboard"
+    msgID = 25
+    msgType = "int"
+
+class SetCalibrationTime(Enum):
+    Queue = "General"
+    Owner = "Dashboard"
+    msgID = 26
+    msgType = "int"
+
+class ManualPWMSpeedMotor(Enum):
+    Queue = "Critical"
+    Owner = "Dashboard"
+    msgID = 27
+    msgType = "int"
+
+class SetManualPWMSpeed(Enum):
+    Queue = "General"
+    Owner = "Dashboard"
+    msgID = 28
+    msgType = "int"
+
 ################################# From WebRTC(Video Stream) ##################################
 class WebRTCAnswer(Enum):
     Queue = "General"
@@ -340,6 +376,18 @@ class WhiteLine(Enum):
     Owner = "threadRead"
     msgID = 10
     msgType = "bool"
+
+class MsgACK(Enum):
+    Queue = "Warning"
+    Owner = "threadRead"
+    msgID = 11
+    msgType = "int"
+
+class VCDTicks(Enum):
+    Queue = "General"
+    Owner = "threadRead"
+    msgID = 12
+    msgType = "int"
 
 ################################# From Locsys ##################################
 class Location(Enum):

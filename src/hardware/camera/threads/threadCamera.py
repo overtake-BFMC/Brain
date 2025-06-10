@@ -209,7 +209,7 @@ class threadCamera(ThreadWithStop):
         """This function will initialize the camera object with GStreamer pipeline."""
         #self.show_camera()
         # Use GStreamer for CSI camera on Jetson
-        gst_pipeline = self.gstreamer_pipeline(flip_method=0, framerate=self.frame_rate)
+        gst_pipeline = self.gstreamer_pipeline(flip_method=2, framerate=self.frame_rate)
 
         self.camera = cv2.VideoCapture(gst_pipeline, cv2.CAP_GSTREAMER)
         cv2.setUseOptimized(True)

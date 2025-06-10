@@ -67,6 +67,17 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.  -->
             />
             <div class="layer-back">{{ item.values[1] / 100 }}</div>
           </div>
+          <div *ngSwitchCase="'number'" class="slider-wrapper">
+            <div class="layer-front">{{ item.values[0] }}</div>
+            <input 
+              type="number" 
+              [min]="item.values[0]" 
+              [max]="item.values[1]" 
+              [(ngModel)]="item.value" 
+              (change)="item.hasChanged = item.value !== item.initialValue" 
+            />
+            <div class="layer-back">{{ item.values[1] }}</div>
+          </div>
         </ng-container>
       </td>
       <td class="cell" *ngIf="item.type !== 'Config' && item.type !== 'default'">

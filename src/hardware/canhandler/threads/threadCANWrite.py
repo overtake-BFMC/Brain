@@ -6,7 +6,11 @@ from src.utils.messages.allMessages import (
     SpeedMotor,
     Brake,
     ToggleImuData,
-    ToggleResourceMonitor
+    ToggleResourceMonitor,
+    MsgACK,
+    ToggleWhiteLineSensor,
+    ToggleDistanceSensor,
+    ManualPWMSpeedMotor,
 )
 from src.utils.messages.messageHandlerSubscriber import messageHandlerSubscriber
 from src.utils.messages.messageHandlerSender import messageHandlerSender
@@ -47,6 +51,9 @@ class threadCANWrite(ThreadWithStop):
             self.CAN0.send(canMsg)
         except can.exceptions.CanError as e:
             print(f"Can transm failed: {e}")
+            self.CAN0.flush_tx_buffer()
+            self.logger.warning(f"Can transm failed: {str(canMsg)}")
+            self.logger.warning(f"CAN0 Tx buffer cleared!")
 
     def run(self):
         while self._running:
@@ -80,28 +87,48 @@ class threadCANWrite(ThreadWithStop):
                         if speedRecv is not None:
                             command = struct.pack("<i", int(speedRecv))
                             self.sendToCAN(0x10A, command)
+                            if self.debugging:
+                                self.logger.info(f"Speed CMD: {speedRecv}")
 
                         steerRecv = self.steerMotorSubscriber.receive()
                         if steerRecv is not None:
                             command = struct.pack("<i", int(steerRecv))
                             self.sendToCAN(0x10F, command)
+                            if self.debugging:
+                                self.logger.info(f"Steer CMD: {steerRecv}")
 
                         controlRecv = self.controlSubscriber.receive()
                         if controlRecv is not None:
                             command = struct.pack("<hhh", int(controlRecv["Time"]), int(controlRecv["Speed"]), int(controlRecv["Steer"]))
                             self.sendToCAN(0x114, command)
 
-                    resourceMonitorRecv = self.resourceMonitorSubscriber.receive()
-                    if resourceMonitorRecv is not None:
-                        command = struct.pack("<B", int(resourceMonitorRecv))
+                        PWMSpeedRecv = self.manualPWMSpeedMotorSubscriber.receive()
+                        if PWMSpeedRecv is not None:
+                            command = struct.pack("<i", PWMSpeedRecv)
+                            self.sendToCAN(0x091, command)
+                            if self.debugging:
+                                self.logger.info(f"ManualPWMSpeed CMD: {PWMSpeedRecv}")
+
+                    resourceMonitorToggleRecv = self.resourceMonitorToggleSubscriber.receive()
+                    if resourceMonitorToggleRecv is not None:
+                        command = struct.pack("<B", int(resourceMonitorToggleRecv))
                         self.sendToCAN(0x132, command)
                     
-                    imuRecv = self.imuSubscriber.receive()
-                    if imuRecv is not None:
-                        command = struct.pack("<B", int(imuRecv))
+                    imuToggleRecv = self.imuToggleSubscriber.receive()
+                    if imuToggleRecv is not None:
+                        command = struct.pack("<B", int(imuToggleRecv))
                         self.sendToCAN(0x137, command)
+
+                    distanceToggleRecv = self.distanceToggleSubscriber.receive()
+                    if distanceToggleRecv is not None:
+                        command = struct.pack("<B", int(distanceToggleRecv))
+                        self.sendToCAN(0x13C, command)
+
+                    whiteLineToggleRecv = self.whiteLineToggleSubscriber.receive()
+                    if whiteLineToggleRecv is not None:
+                        command = struct.pack("<B", int(whiteLineToggleRecv))
+                        self.sendToCAN(0x13E, command)
                     
-                    #Distance sensor on off 0x112
             except Exception as e:
                 pass
 
@@ -118,5 +145,9 @@ class threadCANWrite(ThreadWithStop):
         self.steerMotorSubscriber = messageHandlerSubscriber(self.queuesList, SteerMotor, "fifo", True)
         self.speedMotorSubscriber = messageHandlerSubscriber(self.queuesList, SpeedMotor, "fifo", True)
         self.brakeSubscriber = messageHandlerSubscriber(self.queuesList, Brake, "lastOnly", True)
-        self.resourceMonitorSubscriber = messageHandlerSubscriber(self.queuesList, ToggleResourceMonitor, "lastOnly", True)
-        self.imuSubscriber = messageHandlerSubscriber(self.queuesList, ToggleImuData, "lastOnly", True)
+        self.resourceMonitorToggleSubscriber = messageHandlerSubscriber(self.queuesList, ToggleResourceMonitor, "lastOnly", True)
+        self.imuToggleSubscriber = messageHandlerSubscriber(self.queuesList, ToggleImuData, "lastOnly", True)
+        self.messageACKSubscriber = messageHandlerSubscriber(self.queuesList, MsgACK, "fifo", False)
+        self.distanceToggleSubscriber = messageHandlerSubscriber(self.queuesList, ToggleDistanceSensor, "lastOnly", True)
+        self.whiteLineToggleSubscriber = messageHandlerSubscriber(self.queuesList, ToggleWhiteLineSensor, "lastOnly", True)
+        self.manualPWMSpeedMotorSubscriber = messageHandlerSubscriber(self.queuesList, ManualPWMSpeedMotor, "lastOnly", True)

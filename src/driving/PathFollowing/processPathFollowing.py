@@ -22,7 +22,7 @@ class processPathFollowing(WorkerProcess):
         super(processPathFollowing, self).__init__(self.queuesList)
 
         self.lookAheadDistance = 1
-        self.dt = 0.2
+        self.dt = 0.1
 
     def run(self):
         """Apply the initializing methods and start the threads."""

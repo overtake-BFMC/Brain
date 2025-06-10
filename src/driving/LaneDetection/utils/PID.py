@@ -12,6 +12,11 @@ class PIDController:
         self.last_time = time.time()
 
 
+    def setParameters( self, Kp, Ki, Kd):
+        self.Kp = Kp
+        self.Ki = Ki
+        self.Kd = Kd
+
     def pid_formula( self, error ):
 
         current_time = time.time()

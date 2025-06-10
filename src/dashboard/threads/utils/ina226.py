@@ -140,6 +140,7 @@ class INA226:
     def configure(self, avg_mode=AVG_1BIT, bus_ct=VCT_8244us_BIT, shunt_ct=VCT_8244us_BIT):
         """Configure and calibrate how the INA226 will take measurements.
         """
+        #self.logger.info(f"Calculated min device Current LSB: {self._min_device_current_lsb}")
 
         self.logger.debug(
             self.__LOG_MSG_1 %

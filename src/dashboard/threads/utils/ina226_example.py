@@ -13,7 +13,7 @@ def read():
 
 
 if __name__ == "__main__":
-    ina = INA226(busnum=7, address=0x41, max_expected_amps=0.5, shunt_ohms=0.1, log_level=logging.INFO)
+    ina = INA226(busnum=7, address=0x40, max_expected_amps=20, shunt_ohms=0.003, log_level=logging.INFO)
     ina.configure()
     ina.set_low_battery(5)
     sleep(3)

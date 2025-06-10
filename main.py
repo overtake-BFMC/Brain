@@ -148,10 +148,6 @@ if webRTC: #JS Version
     processWebRTC = processWebRTC(queueList, logger, debugging= False)
     allProcesses.append(processWebRTC)
 
-if streamRTC:
-    processStreamRTC = processStreamRTC(queueList, logger, debugging = False)
-    allProcesses.append(processStreamRTC)
-
 # Initializing semaphores
 if Semaphores:
     processSemaphores = processSemaphores(queueList, logger, debugging = False)
@@ -161,6 +157,10 @@ if Semaphores:
 if TrafficCommunication:
     processTrafficCommunication = processTrafficCommunication(queueList, 3, logger, debugging = False)
     allProcesses.append(processTrafficCommunication)
+
+if streamRTC:
+    processStreamRTC = processStreamRTC(queueList, logger, debugging = False)
+    allProcesses.append(processStreamRTC)
 
 # Initializing serial connection NUCLEO - > PI
 if SerialHandler:

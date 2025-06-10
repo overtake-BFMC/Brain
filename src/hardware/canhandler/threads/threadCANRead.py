@@ -8,6 +8,8 @@ from src.utils.messages.allMessages import (
     CurrentSteer,
     DistanceFront,
     WhiteLine,
+    MsgACK,
+    VCDTicks
 )
 from src.utils.messages.messageHandlerSubscriber import messageHandlerSubscriber
 from src.utils.messages.messageHandlerSender import messageHandlerSender
@@ -42,6 +44,8 @@ class threadCANRead(ThreadWithStop):
         self.currentSteerSender = messageHandlerSender(self.queuesList, CurrentSteer)
         self.distanceFrontSender = messageHandlerSender(self.queuesList, DistanceFront)
         self.whiteLineSender = messageHandlerSender(self.queuesList, WhiteLine)
+        self.messageACKSender = messageHandlerSender(self.queuesList, MsgACK)
+        self.VCDTicksSender = messageHandlerSender(self.queuesList, VCDTicks)
 
 
         self.Queue_Sending()
@@ -102,10 +106,17 @@ class threadCANRead(ThreadWithStop):
                 elif CANResp.arbitration_id == 0x141: #"breakState"
                     breakState = CANResp.data[0] != 0
                 elif CANResp.arbitration_id == 0x146: #"vcdEnd"
-                    vcdState = CANResp.data[0] != 0
-
-    
-
+                    #vcdState = CANResp.data[0] != 0
+                    VCDTicks = struct.unpack("<H", CANResp.data)[0]
+                    if self.debugging:
+                        self.logger.info(f"VCD Exec Time: {VCDTicks}")
+                    self.VCDTicksSender.send(VCDTicks)
+                elif CANResp.arbitration_id == 0x99:
+                    MsgACK = int.from_bytes(CANResp.data, byteorder='little')
+                    if self.debugging:
+                        self.logger.info(f"MsgACK: {str(MsgACK)}")
+                    self.messageACKSender.send(MsgACK)
+                    
 
     def subscribe(self):
         """Subscribes to the messages you are interested in"""

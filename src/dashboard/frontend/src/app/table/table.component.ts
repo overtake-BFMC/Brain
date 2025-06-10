@@ -132,6 +132,12 @@ export class TableComponent implements OnInit {
           value = 1
         else if(item.value == "Track3")
           value = 2
+        else if(item.value == "Track4")
+          value = 3
+        else if(item.value == "SpeedCalibration")
+          value = 99
+        else if(item.value == "ManualPWMSpeedCalibration")
+          value = 98
       } else {
         value = 1
         if (item.value == "False")
@@ -147,6 +153,12 @@ export class TableComponent implements OnInit {
       }
       //console.log("Value: ", value)
       this.webSocketService.sendMessageToFlask(message);
+    });
+    const NumberItems = this.items.filter(item => item.type == 'number' && item.checked == true);
+    NumberItems.forEach(item => {
+      let value = item.value
+      let channel = item.channel
+      this.webSocketService.sendMessageToFlask(`{"Name": "${channel}", "Value": ${value}}`);
     });
   }
   getFontSize(value: string): string {

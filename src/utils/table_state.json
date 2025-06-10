@@ -1,33 +1,5 @@
 [
     {
-        "channel": "ToggleInstant",
-        "value": "True",
-        "initialValue": "True",
-        "interval": 0,
-        "type": "dropdown",
-        "values": [
-            "True",
-            "False"
-        ],
-        "command": "instant",
-        "checked": false,
-        "hasChanged": false
-    },
-    {
-        "channel": "ToggleBatteryLvl",
-        "value": "True",
-        "initialValue": "True",
-        "interval": 0,
-        "type": "dropdown",
-        "values": [
-            "True",
-            "False"
-        ],
-        "command": "battery",
-        "checked": false,
-        "hasChanged": false
-    },
-    {
         "channel": "ToggleImuData",
         "value": "True",
         "initialValue": "True",
@@ -38,6 +10,34 @@
             "False"
         ],
         "command": "imu",
+        "checked": false,
+        "hasChanged": false
+    },
+        {
+        "channel": "ToggleDistanceSensor",
+        "value": "True",
+        "initialValue": "True",
+        "interval": 0,
+        "type": "dropdown",
+        "values": [
+            "True",
+            "False"
+        ],
+        "command": "distanceF",
+        "checked": false,
+        "hasChanged": false
+    },
+    {
+        "channel": "ToggleWhiteLineSensor",
+        "value": "True",
+        "initialValue": "True",
+        "interval": 0,
+        "type": "dropdown",
+        "values": [
+            "True",
+            "False"
+        ],
+        "command": "whiteLine",
         "checked": false,
         "hasChanged": false
     },
@@ -91,7 +91,49 @@
             "None",
             "Track1",
             "Track2",
-            "Track3"
+            "Track3",
+            "Track4",
+            "SpeedCalibration",
+            "ManualPWMSpeedCalibration"
+        ],
+        "checked": true,
+        "hasChanged": false
+    },
+    {
+        "channel": "SetCalibrationTime",
+        "value": 0,
+        "initialValue": 0,
+        "interval": 0,
+        "type": "number",
+        "values": [
+            0,
+            30
+        ],
+        "checked": true,
+        "hasChanged": false
+    },
+    {
+        "channel": "SetCalibrationSpeed",
+        "value": 0,
+        "initialValue": 0,
+        "interval": 0,
+        "type": "number",
+        "values": [
+            -50,
+            50
+        ],
+        "checked": true,
+        "hasChanged": false
+    },
+    {
+        "channel": "SetManualPWMSpeed",
+        "value": 1500,
+        "initialValue": 1500,
+        "interval": 0,
+        "type": "number",
+        "values": [
+            1660,
+            1330
         ],
         "checked": true,
         "hasChanged": false

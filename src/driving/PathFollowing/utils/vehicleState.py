@@ -1,3 +1,10 @@
+from enum import Enum
+
+class stateSignalType(Enum):
+        APROACHING_INTERSECTION = 0
+        IN_INTERSECION = 1
+        INTERSECTION_LEFT = 2
+        INTERSECTION_RIGHT = 3
 
 class vehicleState:
 
@@ -10,6 +17,10 @@ class vehicleState:
     y = 0
 
     yaw = 0
+
+    #turnSignal = False
+    #aproachingIntersection = False
+    vehicleStateSignals = [False] * 5
 
     def __init__(self, speed = 0, x = 0, y = 0, yaw = 0):
         self.speed = speed
@@ -24,7 +35,6 @@ class vehicleState:
         self.x = x
         self.y = y
         self.yaw = yaw
-    
     
     def setSpeed(self, speed):
         self.speed = speed
@@ -51,3 +61,15 @@ class vehicleState:
 
     def getSpeedSteerWheelbase(self):
         return self.speed, self.steeringAngle, self.wheelbase
+    
+    # def setTurnSignal(self, signalState):
+    #     self.turnSignal = signalState
+
+    # def getTurnSignal(self):
+    #     return self.turnSignal
+
+    def setStateSignal(self, signalType: stateSignalType, signalState):
+        self.vehicleStateSignals[signalType.value] = signalState
+
+    def getStateSignal(self, signalType: stateSignalType):
+        return self.vehicleStateSignals[signalType.value]

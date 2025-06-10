@@ -31,7 +31,6 @@ class processStreamRTC(WorkerProcess):
     """
 
     def __init__(self, queueList, logger, debugging = False):
-        setproctitle.setproctitle("processStreamRTC")
         self.queuesList = queueList
         #self.loggingQueue = loggingQueue
         self.logger = logger
@@ -46,9 +45,13 @@ class processStreamRTC(WorkerProcess):
 
         self.subscribe()
 
-        self.running = True
+        #self.running = True
 
         self.dir_path = os.path.dirname(os.path.realpath(__file__))
+
+    def start(self):
+        self.running = True
+        super(processStreamRTC, self).start()
     
     def stop(self):
         self.running = False  # Stop the main loop
