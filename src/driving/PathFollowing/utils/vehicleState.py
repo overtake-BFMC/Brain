@@ -5,6 +5,8 @@ class stateSignalType(Enum):
         IN_INTERSECION = 1
         INTERSECTION_LEFT = 2
         INTERSECTION_RIGHT = 3
+        APROACHING_ROADBLOCK = 4
+        ROADBLOCK_MANEUVER = 5
 
 class vehicleState:
 
@@ -20,7 +22,7 @@ class vehicleState:
 
     #turnSignal = False
     #aproachingIntersection = False
-    vehicleStateSignals = [False] * 5
+    vehicleStateSignals = [False] * 10
 
     def __init__(self, speed = 0, x = 0, y = 0, yaw = 0):
         self.speed = speed
@@ -73,3 +75,6 @@ class vehicleState:
 
     def getStateSignal(self, signalType: stateSignalType):
         return self.vehicleStateSignals[signalType.value]
+    
+    def resetStateFlags(self):
+        self.vehicleStateSignals = [False] * 5

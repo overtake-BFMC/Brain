@@ -32,6 +32,7 @@ from src.driving.PathFollowing.utils.vehicleState import stateSignalType
 
 CLASSES_ROI = [
     [0, 0, 960, 540], #car 0
+    #ovde treba odvojiti car roi za parking i za prepreku
     [0, 0, 960, 540], #closed-road-stand 1
     [700, 90, 900, 220], #crosswalk-sign 2
     [700, 90, 900, 220], #highway-entry-sign 3
@@ -39,7 +40,7 @@ CLASSES_ROI = [
     [720, 0, 960, 540 ], #nov
     # [700, 90, 900, 220], #no-entry-road-sign 5 #this is traffic-light for now
     [700, 90, 900, 220], #one-way-road-sign 6
-    [690, 70, 920, 220], #parking-sign 7
+    [0, 130, 960, 410], #parking-sign 7
     [0, 0, 960, 540], #parking-spot 8
     [[150, 150, 650, 400],[50, 150, 900, 400]], #pedestrian 9
     [700, 90, 900, 220], #priority-sign 10
@@ -108,6 +109,11 @@ class threadLaneDetection(ThreadWithStop):
         self.semaphoreID = None
 
         self.isInRoundabout = False
+        self.parkingSignFlag = False
+
+        self.distanceF = 99
+        self.distanceR = 99
+        self.distanceL = 99
 
         self.init_shMem()
         self.init_vehicleState()
@@ -158,7 +164,7 @@ class threadLaneDetection(ThreadWithStop):
     def isInsideROI(self, x, y, ROIBox):
         return ROIBox[0] <= x <= ROIBox[2] and ROIBox[1] <= y <= ROIBox[3]
 
-    def makeDecision(self, detections, bufferDetections, distanceF, timer ):
+    def makeDecision(self, detections, bufferDetections, timer ):
         
         isDetected = False
         desiredSpeed = self.vehicleState.getSpeed()
@@ -166,7 +172,6 @@ class threadLaneDetection(ThreadWithStop):
         boolDetections[9] = [False] * 2
         boolDetections[12] = [False] * 2
         #print(f"Disntace FR: {distanceF}")
-
         
         for box, class_id, class_score in detections:
             x, y, w, h = box
@@ -203,7 +208,18 @@ class threadLaneDetection(ThreadWithStop):
                 else:
                     boolDetections[i] = True
 
+        if boolDetections[1] and not self.vehicleState.getStateSignal(stateSignalType.APROACHING_ROADBLOCK):
+            self.vehicleState.setStateSignal(stateSignalType.APROACHING_ROADBLOCK, True)
+        if self.vehicleState.getStateSignal(stateSignalType.APROACHING_ROADBLOCK):
+            if self.distanceF < 60: # 40-60
+                desiredSpeed = 10
+            if self.distanceF < 25:
+                self.vehicleState.setStateSignal(stateSignalType.ROADBLOCK_MANEUVER, True)
+                desiredSpeed = 10
+                self.vehicleState.setStateSignal(stateSignalType.APROACHING_ROADBLOCK, False)
+
         if boolDetections[2]: #crosswalk-sign
+            #trafficComunicationID = 4 
             print("crosswalk detected")
             isDetected = True
             #self.vehicleState.setSpeed(10)
@@ -216,26 +232,36 @@ class threadLaneDetection(ThreadWithStop):
                 timer[2][2] = 10.0
             self.warningSignalSender.send({"WarningName":"Crosswalk Ahead", "WarningID": 4})
         if boolDetections[12][0] and boolDetections[9][1]: #stop-line and pedestrian
+            #THIS NEEDS TO BE CHANGED
+            print("pedestrian on crosswalk")
+            #trafficComunicationID = 11 
             #self.vehicleState.setSpeed(0)
             self.isLaneKeeping = True ##################PROMENA
             desiredSpeed = 0
             isDetected = True
             self.warningSignalSender.send({"WarningName":"Pedestrian on Crosswalk", "WarningID": 11})
         if boolDetections[3]: #highwayEntry
+            #trafficComunicationID = 5 
             desiredSpeed = 40
             self.isLaneKeeping = True #############################################PROMENA
 
             self.isOnHighway = True
             self.warningSignalSender.send({"WarningName":"Highway Ahead", "WarningID": 6})
         if boolDetections[4]:  #highwayExit
+            #trafficComunicationID = 6 
             self.isOnHighway = False
             self.warningSignalSender.send({"WarningName":"Highway Exit", "WarningID": 7})
-        if boolDetections[9][0]: #pedestrian
+        if boolDetections[9][0]: #pedestrian on road
+
+            print( "pedestrian on road" )
+            #trafficComunicationID = 12
             desiredSpeed = 0
             isDetected = True
 
             self.warningSignalSender.send({"WarningName":"Pedestrian On Road", "WarningID": 12})
         if boolDetections[12][1] and boolDetections[13]: #stop-sign and stop line
+            #trafficComunicationID = 1 
+            
             self.isLaneKeeping = True
             if not timer[0][0] and not timer[1][0]:
                 timer[0][0] = 1
@@ -254,16 +280,23 @@ class threadLaneDetection(ThreadWithStop):
             self.warningSignalSender.send({"WarningName":"Stop Sign", "WarningID": 20})
             isDetected = True 
 
+        # if boolDetections[6]: #one way road sign
+            #trafficComunicationID = 8
+            # print( "one way road" ) 
+
         if boolDetections[10]: #priority
+            #trafficComunicationID = 4 
             self.warningSignalSender.send({"WarningName":"Priority Ahead", "WarningID": 13})
 
             #self.LANEFOL.priority_active = True
             self.vehicleState.setStateSignal(stateSignalType.APROACHING_INTERSECTION, True)
-
+            desiredSpeed = 20
             # timer[2][0] = 1
             # timer[2][1] = time.perf_counter()
             # timer[2][2] = 6.0
         if boolDetections[11]: #roundabout
+            #trafficComunicationID = 7
+
             self.isLaneKeeping = False
             self.isInRoundabout = True
             self.warningSignalSender.send({"WarningName":"Roundabout Ahead", "WarningID": 15})
@@ -278,6 +311,9 @@ class threadLaneDetection(ThreadWithStop):
         #         self.vehicleState.setPosition(415.0, 115.0, np.deg2rad(180))
 
         if boolDetections[7]: #Parking Sign
+            #trafficComunicationID = 3 
+            self.parkingSignFlag = True
+
             self.warningSignalSender.send({"WarningName":"Parking Ahead", "WarningID": 10})
             self.isLaneKeeping = True
         if boolDetections[8]: #Parking Spot
@@ -287,11 +323,21 @@ class threadLaneDetection(ThreadWithStop):
         #print("Timer2 : ", timer[2])
 
         if boolDetections[5]: #real no entry sign implementation
+            #trafficComunicationID = 9
+
             self.warningSignalSender.send({"WarningName":"No Entry Sign", "WarningID": 12})
             desiredSpeed = 0
+
+        if boolDetections[0]:
+            if self.parkingSignFlag:
+                print("static car on parking spot")
+
+            # print("car")
         
         ######### THIS IS TRAFFIC-LIGHT FOR TESTING ########
         if boolDetections[14] or self.redLightFlag: #THIS IS TRAFIC LIGHT
+            #trafficComunicationID = 14 
+
             self.isLaneKeeping = True #PRIVREMENO
             # self.vehicleState.getPosition()
             if len(self.semaphoresState) > 0:
@@ -361,8 +407,13 @@ class threadLaneDetection(ThreadWithStop):
 
         #print(f"DesiredSpeed: {desiredSpeed}, isDetected {isDetected}")
 
-        if not isDetected and not self.isOnHighway and not self.redLightFlag:
-            self.vehicleState.setSpeed(20)
+        if not isDetected and \
+            not self.isOnHighway and \
+            not self.redLightFlag and \
+            not self.vehicleState.getStateSignal(stateSignalType.IN_INTERSECION) and \
+            not self.vehicleState.getStateSignal(stateSignalType.APROACHING_ROADBLOCK) and \
+            not self.vehicleState.getStateSignal(stateSignalType.ROADBLOCK_MANEUVER):
+                self.vehicleState.setSpeed(25)
             #desiredSpeed = 20
         else:
             self.vehicleState.setSpeed(desiredSpeed)
@@ -388,7 +439,7 @@ class threadLaneDetection(ThreadWithStop):
         timer[1] = [0.0] * 3
         timer[2] = [0.0] * 3
 
-        distanceF = 99
+        #distanceF = 99
 
         # region_curve = np.array( [[ ( 80, 540, ), ( 200, 320), ( 760, 320 ), ( 900, 540 ) ]] ) 
         # region_straight = np.array( [[ ( 90, 540, ), ( 330, 170 ), ( 620, 170 ), ( 890, 540 ) ]] ) 
@@ -418,7 +469,7 @@ class threadLaneDetection(ThreadWithStop):
 
             distanceFRecv = self.distanceFrontSubscriber.receive()
             if distanceFRecv is not None:
-                distanceF = distanceFRecv
+                self.distanceF = distanceFRecv
 
             ##########################
             #semaphoreState = None
@@ -437,7 +488,7 @@ class threadLaneDetection(ThreadWithStop):
 
                 if counter >= counter_max:
                     filtered_boxes, class_ids, class_scores = self.detector.detect(detection_frame, showOutput= False)
-                    self.makeDecision(zip(filtered_boxes, class_ids, class_scores), bufferDetections, distanceF, timer)
+                    self.makeDecision(zip(filtered_boxes, class_ids, class_scores), bufferDetections, timer)
 
                     #print(self.vehicleState.getPosition())
 

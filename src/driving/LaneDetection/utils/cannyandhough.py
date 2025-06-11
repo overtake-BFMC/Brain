@@ -94,9 +94,9 @@ class LaneFollowing:
         mask = np.zeros_like(binary_warped)
         
         #test
-        # outer_vertices = np.array([[(80, 540), (80, 400), (880, 400), (880, 540)]])  
+        outer_vertices = np.array([[(0, 540), (150, 400), (810, 400), (960, 540)]])  
 
-        outer_vertices = np.array([[(0, 540), (0, 400), (960, 400), (960, 540)]])  
+        # outer_vertices = np.array([[(0, 540), (0, 400), (960, 400), (960, 540)]])  
         cv2.fillPoly(mask, outer_vertices, 255)
 
         if self.crosswalk_active:

@@ -9646,3 +9646,1140 @@ INFO:aioice.ice:Connection(0) ICE completed
 WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
 WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
 INFO:root:Stopped Brain instance...
+INFO:root:Starting brain instance...
+INFO:can.interfaces.socketcan.socketcan:Created a socket
+WARNING:root:CAN network is down!
+WARNING:root:CAN Interface is down, trying to get it up!
+INFO:root:CAN Interface brought up sucessfully!
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:root:CAN Network Initiated Sucessfully.
+INFO:root:PeerConnection(37e36548-c362-4711-91cc-84e28530f046) Created for Angular
+INFO:root:trackStream LaneVideoShMem Init Success!
+INFO:root:PeerConnection(37e36548-c362-4711-91cc-84e28530f046) Created track stream
+INFO:root:PeerConnection(37e36548-c362-4711-91cc-84e28530f046) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(5i7vIAhxki 1 udp 1845501695 192.168.66.234 49428 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 46429) -> ('192.168.66.234', 49428)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 46429) -> ('192.168.66.234', 49428)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting brain instance...
+INFO:can.interfaces.socketcan.socketcan:Created a socket
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:root:CAN Network Initiated Sucessfully.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 INFO:root:Starting brain instance...
+INFO:can.interfaces.socketcan.socketcan:Created a socket
+WARNING:root:CAN network is down!
+WARNING:root:CAN Interface is down, trying to get it up!
+INFO:root:CAN Interface brought up sucessfully!
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+INFO:root:Starting processCamera...
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+INFO:root:PathFollowing VehicleState Initialized!
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+INFO:root:CAN Network Initiated Sucessfully.
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+INFO:root:PeerConnection(fdd56027-3930-4744-9fb9-7c0b95c886b1) Created for Angular
+INFO:root:trackStream LaneVideoShMem Init Success!
+INFO:root:PeerConnection(fdd56027-3930-4744-9fb9-7c0b95c886b1) Created track stream
+INFO:root:PeerConnection(fdd56027-3930-4744-9fb9-7c0b95c886b1) Connection state is new
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(71ykP1r68L 1 udp 1845501695 192.168.66.234 48019 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 53984) -> ('192.168.66.234', 48019)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 53984) -> ('192.168.66.234', 48019)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0 -c-1' died with <Signals.SIGINT: 2>.
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting brain instance...
+INFO:can.interfaces.socketcan.socketcan:Created a socket
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+INFO:root:Starting processCamera...
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+INFO:root:PathFollowing VehicleState Initialized!
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+INFO:root:CAN Network Initiated Sucessfully.
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+INFO:root:PeerConnection(e8f02737-29ad-4353-937f-2152024814a9) Created for Angular
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+INFO:root:trackStream LaneVideoShMem Init Success!
+INFO:root:PeerConnection(e8f02737-29ad-4353-937f-2152024814a9) Created track stream
+INFO:root:PeerConnection(e8f02737-29ad-4353-937f-2152024814a9) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(dEcv0o8q5d 1 udp 1845501695 192.168.66.234 42026 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 53247) -> ('192.168.66.234', 42026)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 53247) -> ('192.168.66.234', 42026)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting brain instance...
+INFO:can.interfaces.socketcan.socketcan:Created a socket
+WARNING:root:CAN network is down!
+WARNING:root:CAN Interface is down, trying to get it up!
+INFO:root:CAN Interface brought up sucessfully!
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:root:CAN Network Initiated Sucessfully.
+INFO:root:PeerConnection(4a3598b3-2efe-4d70-9481-8b438927b229) Created for Angular
+INFO:root:trackStream LaneVideoShMem Init Success!
+INFO:root:PeerConnection(4a3598b3-2efe-4d70-9481-8b438927b229) Created track stream
+INFO:root:PeerConnection(4a3598b3-2efe-4d70-9481-8b438927b229) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(skjByCdfQB 1 udp 1845501695 192.168.66.234 51769 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 41496) -> ('192.168.66.234', 51769)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 41496) -> ('192.168.66.234', 51769)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0 -c-1' died with <Signals.SIGINT: 2>.
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Starting brain instance...
+INFO:can.interfaces.socketcan.socketcan:Created a socket
+WARNING:root:CAN network is down!
+WARNING:root:CAN Interface is down, trying to get it up!
+INFO:root:CAN Interface brought up sucessfully!
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:root:CAN Network Initiated Sucessfully.
+INFO:root:PeerConnection(d533468d-d6af-47c4-81dd-a85e1a3e8781) Created for Angular
+INFO:root:trackStream LaneVideoShMem Init Success!
+INFO:root:PeerConnection(d533468d-d6af-47c4-81dd-a85e1a3e8781) Created track stream
+INFO:root:PeerConnection(d533468d-d6af-47c4-81dd-a85e1a3e8781) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(P3N2nlwWDx 1 udp 1845501695 192.168.66.162 54240 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 36552) -> ('192.168.66.162', 54240)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 36552) -> ('192.168.66.162', 54240)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:aioice.ice:Connection(0) Consent to send expired
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0 -c-1' died with <Signals.SIGINT: 2>.
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting brain instance...
+INFO:can.interfaces.socketcan.socketcan:Created a socket
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:root:CAN Network Initiated Sucessfully.
+INFO:root:PeerConnection(4a86fa0d-803a-4682-9803-77289f6faeba) Created for Angular
+INFO:root:trackStream LaneVideoShMem Init Success!
+INFO:root:PeerConnection(4a86fa0d-803a-4682-9803-77289f6faeba) Created track stream
+INFO:root:PeerConnection(4a86fa0d-803a-4682-9803-77289f6faeba) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(YxMNipn9CG 1 udp 1845501695 192.168.66.162 64752 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 40677) -> ('192.168.66.162', 64752)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 40677) -> ('192.168.66.162', 64752)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting brain instance...
+INFO:can.interfaces.socketcan.socketcan:Created a socket
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:root:CAN Network Initiated Sucessfully.
+INFO:root:PeerConnection(a8a81c77-51e7-4888-a355-2fe91604c6e4) Created for Angular
+INFO:root:trackStream LaneVideoShMem Init Success!
+INFO:root:PeerConnection(a8a81c77-51e7-4888-a355-2fe91604c6e4) Created track stream
+INFO:root:PeerConnection(a8a81c77-51e7-4888-a355-2fe91604c6e4) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(3VvrtUPEPN 1 udp 1845501695 192.168.66.162 57720 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 46350) -> ('192.168.66.162', 57720)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 46350) -> ('192.168.66.162', 57720)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting brain instance...
+INFO:can.interfaces.socketcan.socketcan:Created a socket
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:root:CAN Network Initiated Sucessfully.
+INFO:root:PeerConnection(4d94c7e4-78b0-4695-9f39-a74fa03f37a3) Created for Angular
+INFO:root:trackStream LaneVideoShMem Init Success!
+INFO:root:PeerConnection(4d94c7e4-78b0-4695-9f39-a74fa03f37a3) Created track stream
+INFO:root:PeerConnection(4d94c7e4-78b0-4695-9f39-a74fa03f37a3) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(ScTIsnC16S 1 udp 1845501695 192.168.66.162 50329 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 40969) -> ('192.168.66.162', 50329)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 40969) -> ('192.168.66.162', 50329)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0 -c-1' died with <Signals.SIGINT: 2>.
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting brain instance...
+INFO:can.interfaces.socketcan.socketcan:Created a socket
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:root:CAN Network Initiated Sucessfully.
+INFO:root:PeerConnection(c9a62e76-77e9-4214-91ab-b3364de40702) Created for Angular
+INFO:root:trackStream LaneVideoShMem Init Success!
+INFO:root:PeerConnection(c9a62e76-77e9-4214-91ab-b3364de40702) Created track stream
+INFO:root:PeerConnection(c9a62e76-77e9-4214-91ab-b3364de40702) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(9yrEsxylRC 1 udp 1845501695 192.168.66.162 55950 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 59674) -> ('192.168.66.162', 55950)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 59674) -> ('192.168.66.162', 55950)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting brain instance...
+INFO:can.interfaces.socketcan.socketcan:Created a socket
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:root:CAN Network Initiated Sucessfully.
+INFO:root:PeerConnection(1f26d2b5-deff-4ded-8013-59764a6dbfc3) Created for Angular
+INFO:root:trackStream LaneVideoShMem Init Success!
+INFO:root:PeerConnection(1f26d2b5-deff-4ded-8013-59764a6dbfc3) Created track stream
+INFO:root:PeerConnection(1f26d2b5-deff-4ded-8013-59764a6dbfc3) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(dlmgWcezN5 1 udp 1845501695 192.168.66.162 59515 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 43054) -> ('192.168.66.162', 59515)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 43054) -> ('192.168.66.162', 59515)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting brain instance...
+INFO:can.interfaces.socketcan.socketcan:Created a socket
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:root:CAN Network Initiated Sucessfully.
+INFO:root:PeerConnection(684d7590-7f0b-4782-a688-d5a348603820) Created for Angular
+INFO:root:trackStream LaneVideoShMem Init Success!
+INFO:root:PeerConnection(684d7590-7f0b-4782-a688-d5a348603820) Created track stream
+INFO:root:PeerConnection(684d7590-7f0b-4782-a688-d5a348603820) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(UAsrVLHFs1 1 udp 1845501695 192.168.66.162 61403 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 42564) -> ('192.168.66.162', 61403)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 42564) -> ('192.168.66.162', 61403)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting brain instance...
+INFO:can.interfaces.socketcan.socketcan:Created a socket
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:root:CAN Network Initiated Sucessfully.
+INFO:root:PeerConnection(6687430c-17bb-4c14-ac7c-37e2a5f8162b) Created for Angular
+INFO:root:trackStream LaneVideoShMem Init Success!
+INFO:root:PeerConnection(6687430c-17bb-4c14-ac7c-37e2a5f8162b) Created track stream
+INFO:root:PeerConnection(6687430c-17bb-4c14-ac7c-37e2a5f8162b) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(Pb7CJcw1fh 1 udp 1845501695 192.168.66.162 59015 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 41503) -> ('192.168.66.162', 59015)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 41503) -> ('192.168.66.162', 59015)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting brain instance...
+INFO:can.interfaces.socketcan.socketcan:Created a socket
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:root:CAN Network Initiated Sucessfully.
+INFO:root:PeerConnection(3c325232-763e-4df5-9a54-46243fc1cf49) Created for Angular
+INFO:root:trackStream LaneVideoShMem Init Success!
+INFO:root:PeerConnection(3c325232-763e-4df5-9a54-46243fc1cf49) Created track stream
+INFO:root:PeerConnection(3c325232-763e-4df5-9a54-46243fc1cf49) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(ViFV9rZCy7 1 udp 1845501695 192.168.66.162 58129 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 38089) -> ('192.168.66.162', 58129)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 38089) -> ('192.168.66.162', 58129)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting brain instance...
+INFO:can.interfaces.socketcan.socketcan:Created a socket
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:root:CAN Network Initiated Sucessfully.
+INFO:root:PeerConnection(1f3d13d0-aa15-4e52-b971-91905db486eb) Created for Angular
+INFO:root:trackStream LaneVideoShMem Init Success!
+INFO:root:PeerConnection(1f3d13d0-aa15-4e52-b971-91905db486eb) Created track stream
+INFO:root:PeerConnection(1f3d13d0-aa15-4e52-b971-91905db486eb) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(DotJVB7Se3 1 udp 1845501695 192.168.66.162 51298 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 53406) -> ('192.168.66.162', 51298)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 53406) -> ('192.168.66.162', 51298)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0 -c-1' died with <Signals.SIGINT: 2>.
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting brain instance...
+INFO:can.interfaces.socketcan.socketcan:Created a socket
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:root:CAN Network Initiated Sucessfully.
+INFO:root:PeerConnection(badc4ac2-7cac-4801-ac14-95bc7177ed21) Created for Angular
+INFO:root:trackStream LaneVideoShMem Init Success!
+INFO:root:PeerConnection(badc4ac2-7cac-4801-ac14-95bc7177ed21) Created track stream
+INFO:root:PeerConnection(badc4ac2-7cac-4801-ac14-95bc7177ed21) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(DLWXDWUjNa 1 udp 1845501695 192.168.66.162 64746 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 52578) -> ('192.168.66.162', 64746)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 52578) -> ('192.168.66.162', 64746)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0 -c-1' died with <Signals.SIGINT: 2>.
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting brain instance...
+INFO:can.interfaces.socketcan.socketcan:Created a socket
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:root:CAN Network Initiated Sucessfully.
+INFO:root:PeerConnection(e4eaeab1-5a6c-49c8-861b-241d3e780c1f) Created for Angular
+INFO:root:trackStream LaneVideoShMem Init Success!
+INFO:root:PeerConnection(e4eaeab1-5a6c-49c8-861b-241d3e780c1f) Created track stream
+INFO:root:PeerConnection(e4eaeab1-5a6c-49c8-861b-241d3e780c1f) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(itpqzkhBtC 1 udp 1845501695 192.168.66.162 59515 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 41004) -> ('192.168.66.162', 59515)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 41004) -> ('192.168.66.162', 59515)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0 -c-1' died with <Signals.SIGINT: 2>.
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting brain instance...
+INFO:can.interfaces.socketcan.socketcan:Created a socket
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:root:CAN Network Initiated Sucessfully.
+WARNING:can.bus:SocketcanBus was not properly shut down
+INFO:root:Starting brain instance...
+INFO:can.interfaces.socketcan.socketcan:Created a socket
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:root:CAN Network Initiated Sucessfully.
+INFO:root:PeerConnection(684f76b9-5a1d-49b8-8176-b6b82e73f91b) Created for Angular
+INFO:root:trackStream LaneVideoShMem Init Success!
+INFO:root:PeerConnection(684f76b9-5a1d-49b8-8176-b6b82e73f91b) Created track stream
+INFO:root:PeerConnection(684f76b9-5a1d-49b8-8176-b6b82e73f91b) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(DOdevEt43s 1 udp 1845501695 192.168.66.162 58009 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 52871) -> ('192.168.66.162', 58009)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 52871) -> ('192.168.66.162', 58009)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting brain instance...
+INFO:can.interfaces.socketcan.socketcan:Created a socket
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:root:CAN Network Initiated Sucessfully.
+INFO:root:PeerConnection(cacc8560-a857-4890-881c-f8b03aff9b7c) Created for Angular
+INFO:root:trackStream LaneVideoShMem Init Success!
+INFO:root:PeerConnection(cacc8560-a857-4890-881c-f8b03aff9b7c) Created track stream
+INFO:root:PeerConnection(cacc8560-a857-4890-881c-f8b03aff9b7c) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(8pmpTzZH9z 1 udp 1845501695 192.168.66.162 65494 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 43437) -> ('192.168.66.162', 65494)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 43437) -> ('192.168.66.162', 65494)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0 -c-1' died with <Signals.SIGINT: 2>.
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting brain instance...
+INFO:can.interfaces.socketcan.socketcan:Created a socket
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:root:CAN Network Initiated Sucessfully.
+INFO:root:PeerConnection(965256cb-a012-476d-bffa-d9cdbba6a2ab) Created for Angular
+INFO:root:trackStream LaneVideoShMem Init Success!
+INFO:root:PeerConnection(965256cb-a012-476d-bffa-d9cdbba6a2ab) Created track stream
+INFO:root:PeerConnection(965256cb-a012-476d-bffa-d9cdbba6a2ab) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(q2CALXt5jv 1 udp 1845501695 192.168.66.162 61979 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 57142) -> ('192.168.66.162', 61979)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 57142) -> ('192.168.66.162', 61979)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0 -c-1' died with <Signals.SIGINT: 2>.
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting brain instance...
+INFO:can.interfaces.socketcan.socketcan:Created a socket
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:root:CAN Network Initiated Sucessfully.
+INFO:root:PeerConnection(d5aeb6b2-97a9-44b8-a1b4-7898ca2ff5e8) Created for Angular
+INFO:root:trackStream LaneVideoShMem Init Success!
+INFO:root:PeerConnection(d5aeb6b2-97a9-44b8-a1b4-7898ca2ff5e8) Created track stream
+INFO:root:PeerConnection(d5aeb6b2-97a9-44b8-a1b4-7898ca2ff5e8) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(Yg0SVD9wlv 1 udp 1845501695 192.168.66.162 54238 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 60907) -> ('192.168.66.162', 54238)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 60907) -> ('192.168.66.162', 54238)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting brain instance...
+INFO:can.interfaces.socketcan.socketcan:Created a socket
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:root:CAN Network Initiated Sucessfully.
+INFO:root:PeerConnection(56450d06-cf97-4390-bf64-fd9ff809640c) Created for Angular
+INFO:root:trackStream LaneVideoShMem Init Success!
+INFO:root:PeerConnection(56450d06-cf97-4390-bf64-fd9ff809640c) Created track stream
+INFO:root:PeerConnection(56450d06-cf97-4390-bf64-fd9ff809640c) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(n7NG31mniq 1 udp 1845501695 192.168.66.162 56685 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 38326) -> ('192.168.66.162', 56685)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 38326) -> ('192.168.66.162', 56685)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0 -c-1' died with <Signals.SIGINT: 2>.
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting brain instance...
+INFO:can.interfaces.socketcan.socketcan:Created a socket
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:root:CAN Network Initiated Sucessfully.
+INFO:root:PeerConnection(66bd1b86-ceba-483d-8621-89fa5d9e2ca8) Created for Angular
+INFO:root:trackStream LaneVideoShMem Init Success!
+INFO:root:PeerConnection(66bd1b86-ceba-483d-8621-89fa5d9e2ca8) Created track stream
+INFO:root:PeerConnection(66bd1b86-ceba-483d-8621-89fa5d9e2ca8) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(3Sd92lXG32 1 udp 1845501695 192.168.66.162 60181 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 38244) -> ('192.168.66.162', 60181)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 38244) -> ('192.168.66.162', 60181)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting brain instance...
+INFO:can.interfaces.socketcan.socketcan:Created a socket
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:root:CAN Network Initiated Sucessfully.
+INFO:root:PeerConnection(88136c89-302b-47d7-8b9d-d1062c6f45fc) Created for Angular
+INFO:root:trackStream LaneVideoShMem Init Success!
+INFO:root:PeerConnection(88136c89-302b-47d7-8b9d-d1062c6f45fc) Created track stream
+INFO:root:PeerConnection(88136c89-302b-47d7-8b9d-d1062c6f45fc) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(yVCFmfEoSD 1 udp 1845501695 192.168.66.162 54237 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 56298) -> ('192.168.66.162', 54237)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 56298) -> ('192.168.66.162', 54237)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting brain instance...
+INFO:can.interfaces.socketcan.socketcan:Created a socket
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:root:CAN Network Initiated Sucessfully.
+INFO:root:PeerConnection(7db67644-e07f-431e-9545-62565c8cc552) Created for Angular
+INFO:root:trackStream LaneVideoShMem Init Success!
+INFO:root:PeerConnection(7db67644-e07f-431e-9545-62565c8cc552) Created track stream
+INFO:root:PeerConnection(7db67644-e07f-431e-9545-62565c8cc552) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(5FG1VYl20P 1 udp 1845501695 192.168.66.162 62530 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 39398) -> ('192.168.66.162', 62530)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 39398) -> ('192.168.66.162', 62530)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting brain instance...
+INFO:can.interfaces.socketcan.socketcan:Created a socket
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:root:CAN Network Initiated Sucessfully.
+INFO:root:PeerConnection(3c88e2ca-c093-4c9d-be84-dbef3eb82df9) Created for Angular
+INFO:root:trackStream LaneVideoShMem Init Success!
+INFO:root:PeerConnection(3c88e2ca-c093-4c9d-be84-dbef3eb82df9) Created track stream
+INFO:root:PeerConnection(3c88e2ca-c093-4c9d-be84-dbef3eb82df9) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(da7ulTXuYV 1 udp 1845501695 192.168.66.162 62151 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 49978) -> ('192.168.66.162', 62151)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 49978) -> ('192.168.66.162', 62151)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting brain instance...
+INFO:can.interfaces.socketcan.socketcan:Created a socket
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:root:CAN Network Initiated Sucessfully.
+INFO:root:PeerConnection(5118ae25-ab19-423f-90be-a1ec926c965c) Created for Angular
+INFO:root:trackStream LaneVideoShMem Init Success!
+INFO:root:PeerConnection(5118ae25-ab19-423f-90be-a1ec926c965c) Created track stream
+INFO:root:PeerConnection(5118ae25-ab19-423f-90be-a1ec926c965c) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(g03aUT94zI 1 udp 1845501695 192.168.66.162 55172 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 49389) -> ('192.168.66.162', 55172)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 49389) -> ('192.168.66.162', 55172)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0 -c-1' died with <Signals.SIGINT: 2>.
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting brain instance...
+INFO:can.interfaces.socketcan.socketcan:Created a socket
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:root:CAN Network Initiated Sucessfully.
+INFO:root:PeerConnection(134b9d4e-110d-4c3e-b937-f4eff5b4db87) Created for Angular
+INFO:root:trackStream LaneVideoShMem Init Success!
+INFO:root:PeerConnection(134b9d4e-110d-4c3e-b937-f4eff5b4db87) Created track stream
+INFO:root:PeerConnection(134b9d4e-110d-4c3e-b937-f4eff5b4db87) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(uQCuqek40t 1 udp 1845501695 192.168.66.162 54237 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 49639) -> ('192.168.66.162', 54237)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 49639) -> ('192.168.66.162', 54237)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:aioice.ice:Connection(0) Consent to send expired
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting brain instance...
+INFO:can.interfaces.socketcan.socketcan:Created a socket
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:root:CAN Network Initiated Sucessfully.
+INFO:root:PeerConnection(2fb6e398-0cfb-4529-aa14-5730dfd1552f) Created for Angular
+INFO:root:trackStream LaneVideoShMem Init Success!
+INFO:root:PeerConnection(2fb6e398-0cfb-4529-aa14-5730dfd1552f) Created track stream
+INFO:root:PeerConnection(2fb6e398-0cfb-4529-aa14-5730dfd1552f) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(JnsMSSQqi2 1 udp 1845501695 192.168.66.234 37180 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 40577) -> ('192.168.66.234', 37180)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 40577) -> ('192.168.66.234', 37180)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting brain instance...
+INFO:can.interfaces.socketcan.socketcan:Created a socket
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:root:CAN Network Initiated Sucessfully.
+INFO:root:PeerConnection(ad2f1647-3a82-4a20-82ba-0070c4114cff) Created for Angular
+INFO:root:trackStream LaneVideoShMem Init Success!
+INFO:root:PeerConnection(ad2f1647-3a82-4a20-82ba-0070c4114cff) Created track stream
+INFO:root:PeerConnection(ad2f1647-3a82-4a20-82ba-0070c4114cff) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(mIy9p3S2nj 1 udp 1845501695 192.168.66.234 45694 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 36183) -> ('192.168.66.234', 45694)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 36183) -> ('192.168.66.234', 45694)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting brain instance...
+INFO:can.interfaces.socketcan.socketcan:Created a socket
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:root:CAN Network Initiated Sucessfully.
+INFO:root:PeerConnection(4a9c1404-41eb-4249-8372-dd6b786d362a) Created for Angular
+INFO:root:trackStream LaneVideoShMem Init Success!
+INFO:root:PeerConnection(4a9c1404-41eb-4249-8372-dd6b786d362a) Created track stream
+INFO:root:PeerConnection(4a9c1404-41eb-4249-8372-dd6b786d362a) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(On4aTU6mJE 1 udp 1845501695 192.168.66.234 38044 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 59971) -> ('192.168.66.234', 38044)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 59971) -> ('192.168.66.234', 38044)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0 -c-1' died with <Signals.SIGINT: 2>.
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting brain instance...
+INFO:can.interfaces.socketcan.socketcan:Created a socket
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:root:CAN Network Initiated Sucessfully.
+INFO:root:PeerConnection(92735b56-c14f-49dd-9a5c-9473292ccf15) Created for Angular
+INFO:root:trackStream LaneVideoShMem Init Success!
+INFO:root:PeerConnection(92735b56-c14f-49dd-9a5c-9473292ccf15) Created track stream
+INFO:root:PeerConnection(92735b56-c14f-49dd-9a5c-9473292ccf15) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(X81e1LTCvc 1 udp 1845501695 192.168.66.234 54904 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 54938) -> ('192.168.66.234', 54904)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 54938) -> ('192.168.66.234', 54904)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0 -c-1' died with <Signals.SIGINT: 2>.
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting brain instance...
+INFO:can.interfaces.socketcan.socketcan:Created a socket
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:root:CAN Network Initiated Sucessfully.
+INFO:root:PeerConnection(88062be3-1ef1-4766-888f-61baa7c1ea97) Created for Angular
+INFO:root:trackStream LaneVideoShMem Init Success!
+INFO:root:PeerConnection(88062be3-1ef1-4766-888f-61baa7c1ea97) Created track stream
+INFO:root:PeerConnection(88062be3-1ef1-4766-888f-61baa7c1ea97) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(P8fVHs1QlJ 1 udp 1845501695 192.168.66.234 51588 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 35636) -> ('192.168.66.234', 51588)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 35636) -> ('192.168.66.234', 51588)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Starting brain instance...
+INFO:can.interfaces.socketcan.socketcan:Created a socket
+WARNING:root:CAN network is down!
+WARNING:root:CAN Interface is down, trying to get it up!
+INFO:root:CAN Interface brought up sucessfully!
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:root:CAN Network Initiated Sucessfully.
+INFO:root:PeerConnection(1720bd45-cf91-4ae3-98f5-169ad57740bb) Created for Angular
+INFO:root:trackStream LaneVideoShMem Init Success!
+INFO:root:PeerConnection(1720bd45-cf91-4ae3-98f5-169ad57740bb) Created track stream
+INFO:root:PeerConnection(1720bd45-cf91-4ae3-98f5-169ad57740bb) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(gndFuadGFi 1 udp 1845501695 192.168.66.234 39615 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 57216) -> ('192.168.66.234', 39615)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 57216) -> ('192.168.66.234', 39615)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting brain instance...
+INFO:can.interfaces.socketcan.socketcan:Created a socket
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:root:CAN Network Initiated Sucessfully.
+INFO:root:PeerConnection(7d14cc55-5a85-4240-99ed-85e342233e87) Created for Angular
+INFO:root:trackStream LaneVideoShMem Init Success!
+INFO:root:PeerConnection(7d14cc55-5a85-4240-99ed-85e342233e87) Created track stream
+INFO:root:PeerConnection(7d14cc55-5a85-4240-99ed-85e342233e87) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(mX6lOpYFGB 1 udp 1845501695 192.168.66.234 33866 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 40610) -> ('192.168.66.234', 33866)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 40610) -> ('192.168.66.234', 33866)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:PeerConnection(0be5c229-008c-4d30-b3f4-0d091905e3d1) Created for Angular
+ERROR:root:Broken pipe for receiver trackStream. Should remove and check...
+ERROR:root:Message is: Type: dict, value: {'status': 1, 'name': 'laneVideoFrames', 'lock': <AcquirerProxy object, typeid 'Lock' at 0xfffebca2c850>, 'dest': 'trackStream'}, id: 2, Owner: threadSharedMemoryGateway
+INFO:root:PeerConnection(1569bd39-4093-41bd-bb6e-7abf9dbf457a) Created for Angular
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0 -c-1' died with <Signals.SIGINT: 2>.
+ERROR:root:Broken pipe for receiver trackStream. Should remove and check...
+ERROR:root:Message is: Type: dict, value: {'status': 1, 'name': 'laneVideoFrames', 'lock': <AcquirerProxy object, typeid 'Lock' at 0xfffebca2cb80>, 'dest': 'trackStream'}, id: 2, Owner: threadSharedMemoryGateway
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting brain instance...
+INFO:can.interfaces.socketcan.socketcan:Created a socket
+INFO:root:Starting processCamera...
+INFO:root:PeerConnection(a4374b8e-10cd-4ef8-8146-74983046d7b6) Created for Angular
+INFO:root:CAN Network Initiated Sucessfully.
+INFO:root:PeerConnection(eac015ae-75e8-4194-86fc-62d8b651f455) Created for Angular
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0 -c-1' died with <Signals.SIGINT: 2>.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting brain instance...
+INFO:can.interfaces.socketcan.socketcan:Created a socket
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:root:CAN Network Initiated Sucessfully.
+INFO:root:PeerConnection(e3e19db2-d647-4f6d-8df0-b93254fec932) Created for Angular
+INFO:root:trackStream LaneVideoShMem Init Success!
+INFO:root:PeerConnection(e3e19db2-d647-4f6d-8df0-b93254fec932) Created track stream
+INFO:root:PeerConnection(e3e19db2-d647-4f6d-8df0-b93254fec932) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(ih8FtVh1gn 1 udp 1845501695 192.168.66.234 45704 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 40949) -> ('192.168.66.234', 45704)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 40949) -> ('192.168.66.234', 45704)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting brain instance...
+INFO:can.interfaces.socketcan.socketcan:Created a socket
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:root:CAN Network Initiated Sucessfully.
+INFO:root:PeerConnection(70411644-ce0b-4b36-a446-f0805a0a6ad0) Created for Angular
+INFO:root:trackStream LaneVideoShMem Init Success!
+INFO:root:PeerConnection(70411644-ce0b-4b36-a446-f0805a0a6ad0) Created track stream
+INFO:root:PeerConnection(70411644-ce0b-4b36-a446-f0805a0a6ad0) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(R1XVZ2b79S 1 udp 1845501695 192.168.66.234 48425 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 33408) -> ('192.168.66.234', 48425)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 33408) -> ('192.168.66.234', 48425)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0 -c-1' died with <Signals.SIGINT: 2>.
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting brain instance...
+INFO:can.interfaces.socketcan.socketcan:Created a socket
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:root:CAN Network Initiated Sucessfully.
+INFO:root:PeerConnection(d6c7ec7e-b66e-4c07-876b-39451b4705ee) Created for Angular
+INFO:root:trackStream LaneVideoShMem Init Success!
+INFO:root:PeerConnection(d6c7ec7e-b66e-4c07-876b-39451b4705ee) Created track stream
+INFO:root:PeerConnection(d6c7ec7e-b66e-4c07-876b-39451b4705ee) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(mb375jMalz 1 udp 1845501695 192.168.66.234 44132 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 52085) -> ('192.168.66.234', 44132)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 52085) -> ('192.168.66.234', 44132)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting brain instance...
+INFO:can.interfaces.socketcan.socketcan:Created a socket
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:root:CAN Network Initiated Sucessfully.
+INFO:root:PeerConnection(1c0cdad9-7f62-4aa6-9dfe-da32886c2fe2) Created for Angular
+INFO:root:trackStream LaneVideoShMem Init Success!
+INFO:root:PeerConnection(1c0cdad9-7f62-4aa6-9dfe-da32886c2fe2) Created track stream
+INFO:root:PeerConnection(1c0cdad9-7f62-4aa6-9dfe-da32886c2fe2) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(xdq9bQlATr 1 udp 1845501695 192.168.66.234 58407 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 55134) -> ('192.168.66.234', 58407)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 55134) -> ('192.168.66.234', 58407)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0 -c-1' died with <Signals.SIGINT: 2>.
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting brain instance...
+INFO:can.interfaces.socketcan.socketcan:Created a socket
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:root:CAN Network Initiated Sucessfully.
+INFO:root:PeerConnection(52101cce-350f-46af-bd62-261ad9c122d5) Created for Angular
+INFO:root:trackStream LaneVideoShMem Init Success!
+INFO:root:PeerConnection(52101cce-350f-46af-bd62-261ad9c122d5) Created track stream
+INFO:root:PeerConnection(52101cce-350f-46af-bd62-261ad9c122d5) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(X35Y6O8E1x 1 udp 1845501695 192.168.66.234 49506 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 37514) -> ('192.168.66.234', 49506)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 37514) -> ('192.168.66.234', 49506)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting brain instance...
+INFO:can.interfaces.socketcan.socketcan:Created a socket
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:root:CAN Network Initiated Sucessfully.
+INFO:root:PeerConnection(9f7cf7fd-6bcc-4fce-bbf8-453bfd058102) Created for Angular
+INFO:root:trackStream LaneVideoShMem Init Success!
+INFO:root:PeerConnection(9f7cf7fd-6bcc-4fce-bbf8-453bfd058102) Created track stream
+INFO:root:PeerConnection(9f7cf7fd-6bcc-4fce-bbf8-453bfd058102) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(ezB8nkjvJY 1 udp 1845501695 192.168.66.234 51975 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 36209) -> ('192.168.66.234', 51975)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 36209) -> ('192.168.66.234', 51975)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting brain instance...
+INFO:can.interfaces.socketcan.socketcan:Created a socket
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:root:CAN Network Initiated Sucessfully.
+INFO:root:PeerConnection(600945dc-8dba-47b0-96f0-d393a0f48106) Created for Angular
+INFO:root:trackStream LaneVideoShMem Init Success!
+INFO:root:PeerConnection(600945dc-8dba-47b0-96f0-d393a0f48106) Created track stream
+INFO:root:PeerConnection(600945dc-8dba-47b0-96f0-d393a0f48106) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(GMTbh6Vwvc 1 udp 1845501695 192.168.66.234 44529 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 55460) -> ('192.168.66.234', 44529)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 55460) -> ('192.168.66.234', 44529)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0 -c-1' died with <Signals.SIGINT: 2>.
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting brain instance...
+INFO:can.interfaces.socketcan.socketcan:Created a socket
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:root:CAN Network Initiated Sucessfully.
+INFO:root:PeerConnection(d4ac0e1b-4634-43f7-aa15-a965427e3e82) Created for Angular
+INFO:root:trackStream LaneVideoShMem Init Success!
+INFO:root:PeerConnection(d4ac0e1b-4634-43f7-aa15-a965427e3e82) Created track stream
+INFO:root:PeerConnection(d4ac0e1b-4634-43f7-aa15-a965427e3e82) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(cpEuIUTzYj 1 udp 1845501695 192.168.66.234 56089 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 42085) -> ('192.168.66.234', 56089)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 42085) -> ('192.168.66.234', 56089)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+ERROR:root:Error reading JSON file: [Errno 2] No such file or directory: '/run/batteryMonitor/status.json'
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting brain instance...
+INFO:can.interfaces.socketcan.socketcan:Created a socket
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:root:CAN Network Initiated Sucessfully.
+INFO:root:PeerConnection(8ec1ee96-cfa0-432b-92ea-767f4d40b198) Created for Angular
+INFO:root:trackStream LaneVideoShMem Init Success!
+INFO:root:PeerConnection(8ec1ee96-cfa0-432b-92ea-767f4d40b198) Created track stream
+INFO:root:PeerConnection(8ec1ee96-cfa0-432b-92ea-767f4d40b198) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(WBgU2BkI1a 1 udp 1845501695 192.168.66.234 60964 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 53571) -> ('192.168.66.234', 60964)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 53571) -> ('192.168.66.234', 60964)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
