@@ -22,6 +22,7 @@ class vehicleState:
 
     #turnSignal = False
     #aproachingIntersection = False
+    #change this to a variable 10
     vehicleStateSignals = [False] * 10
 
     def __init__(self, speed = 0, x = 0, y = 0, yaw = 0):
@@ -77,4 +78,4 @@ class vehicleState:
         return self.vehicleStateSignals[signalType.value]
     
     def resetStateFlags(self):
-        self.vehicleStateSignals = [False] * 5
+        self.vehicleStateSignals = [False] * 10

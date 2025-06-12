@@ -266,18 +266,52 @@ class threadPathFollowing(ThreadWithStop):
         return self.normalize_angle(angleToTarget - vehicleYaw)
 
 
+    def integrate_arc(self, x, y, theta, v, delta, dt, L):
+    
+        max_steering_rad = np.deg2rad(25)
+        delta = np.clip(delta, -max_steering_rad, max_steering_rad)
+        if abs(delta) < 1e-6:
+            x += v * np.cos(theta) * dt
+            y += v * np.sin(theta) * dt
+        else:
+            R = L / np.tan(delta)
+            dtheta = v / R * dt
+            theta += dtheta
+            x += v * np.cos(theta - dtheta) * dt
+            y += v * np.sin(theta - dtheta) * dt
+
+        theta = (theta + np.pi) % (2 * np.pi) - np.pi
+        return x, y, theta
+
     def kinematicBicycleModel(self, elapsedTime):
         
         vehicleX, vehicleY, vehicleYaw = self.vehicle.getPosition()
         vehicleSpeed, vehicleSteeringAngle, vehicleWheelbase = self.vehicle.getSpeedSteerWheelbase()
 
-        rotationRate = vehicleSpeed * np.tan(vehicleSteeringAngle) / vehicleWheelbase
-        vehicleYaw = vehicleYaw + rotationRate * elapsedTime
-        
-        vehicleX = vehicleX + vehicleSpeed * np.cos(vehicleYaw) * elapsedTime
-        vehicleY = vehicleY + vehicleSpeed * np.sin(vehicleYaw) * elapsedTime
+        vehicleX, vehicleY, vehicleYaw = self.integrate_arc(
+            vehicleX,
+            vehicleY,
+            vehicleYaw,
+            vehicleSpeed,
+            vehicleSteeringAngle,
+            elapsedTime,
+            vehicleWheelbase
+        )
 
         self.vehicle.setPosition(vehicleX, vehicleY, vehicleYaw)
+
+    # def kinematicBicycleModel(self, elapsedTime):
+        
+    #     vehicleX, vehicleY, vehicleYaw = self.vehicle.getPosition()
+    #     vehicleSpeed, vehicleSteeringAngle, vehicleWheelbase = self.vehicle.getSpeedSteerWheelbase()
+
+    #     rotationRate = vehicleSpeed * np.tan(vehicleSteeringAngle) / vehicleWheelbase
+    #     vehicleYaw = vehicleYaw + rotationRate * elapsedTime
+        
+    #     vehicleX = vehicleX + vehicleSpeed * np.cos(vehicleYaw) * elapsedTime
+    #     vehicleY = vehicleY + vehicleSpeed * np.sin(vehicleYaw) * elapsedTime
+
+    #     self.vehicle.setPosition(vehicleX, vehicleY, vehicleYaw)
 
     # def kinematicBicycleModel(self, elapsedTime):
         
@@ -322,14 +356,14 @@ class threadPathFollowing(ThreadWithStop):
 
         self.startLaneDetectionSender.send("false")
         self.steerMotorSender.send(str(-250))
-        while time.perf_counter() - startTime < 2.0:
+        while time.perf_counter() - startTime < 5.0:
                 pass
         self.startLaneDetectionSender.send("true")
-        while time.perf_counter() - startTime < 4.0:
+        while time.perf_counter() - startTime < 8.0:
                 pass
         self.startLaneDetectionSender.send("false")
         self.steerMotorSender.send(str(250))
-        while time.perf_counter() - startTime < 6.0:
+        while time.perf_counter() - startTime < 13.0:
                 pass
         self.startLaneDetectionSender.send("true")
         return time.perf_counter() - startTime
@@ -345,7 +379,7 @@ class threadPathFollowing(ThreadWithStop):
 
         self.startLaneDetectionSender.send("true")
 
-        startTime = time.time()
+        lastTime = time.time()
         
         path_x, path_y = [], []
         lastPathPointId = 1
@@ -356,6 +390,12 @@ class threadPathFollowing(ThreadWithStop):
         isTurning = False
 
         while targetX and targetY: 
+
+            nowTime = time.time()
+            dt = nowTime - lastTime
+
+            lastTime = nowTime
+
             vehicleSpeed = self.vehicle.getSpeed()
 
             while lastPathPointId < len(self.path) and self.hasPassedWaypoint(self.path[lastPathPointId][0], self.path[lastPathPointId][1]):
@@ -366,11 +406,6 @@ class threadPathFollowing(ThreadWithStop):
             
 
             self.speedMotorSender.send(str(vehicleSpeed * 10))
-            # if vehicleSteeringAngle > 1e-5:
-            #     self.vehicle.setSpeed(10)
-            # else:
-            #     self.vehicle.setSpeed(20)
-
             
             g1, g2, g3 = self.vehicle.getPosition()
             print(f"{g1} {g2} {np.rad2deg(g3)}")
@@ -381,12 +416,10 @@ class threadPathFollowing(ThreadWithStop):
             alpha = self.calculateAlphaSteer(angleToTarget)
 
             vehicleSteeringAngle = np.arctan2(2 * vehicleWheelbase * np.sin(alpha), distanceToTarget)
-            #vehicleSteeringAngle = np.clip(vehicleSteeringAngle, -0.4363, 0.4363)
             self.vehicle.setSteeringAngle(vehicleSteeringAngle)
 
-            elapsedTime = time.time() - startTime
 
-            self.kinematicBicycleModel(elapsedTime)
+            self.kinematicBicycleModel(dt)
 
             startTime = time.time()
 
@@ -408,26 +441,28 @@ class threadPathFollowing(ThreadWithStop):
                 self.vehicle.setStateSignal(stateSignalType.APROACHING_INTERSECTION, False)
 
             steeringAngleSend = round(np.rad2deg(-vehicleSteeringAngle)) * 10
+            self.steerMotorSender.send(str(steeringAngleSend))
 
-            if self.vehicle.getStateSignal(stateSignalType.IN_INTERSECION):
-                self.startLaneDetectionSender.send("false")
-                print(f"Send steering angle: {steeringAngleSend}")
-                if steeringAngleSend > 100:
-                    isTurning = True
-                    steeringAngleSend = 250
-                    self.steerMotorSender.send(str(steeringAngleSend))
-                elif steeringAngleSend < -100:
-                    isTurning = True
-                    steeringAngleSend = -180
-                    self.steerMotorSender.send(str(steeringAngleSend))
-                elif isTurning and steeringAngleSend < 100 and steeringAngleSend > -100:
-                    self.vehicle.setStateSignal(stateSignalType.IN_INTERSECION, False)
-                    isTurning = False
-                    self.startLaneDetectionSender.send("true")
+            # if self.vehicle.getStateSignal(stateSignalType.IN_INTERSECION):
+            #     self.startLaneDetectionSender.send("false")
+            #     print(f"Send steering angle: {steeringAngleSend}")
+            #     if steeringAngleSend > 100:
+            #         isTurning = True
+            #         steeringAngleSend = 250
+            #         self.steerMotorSender.send(str(steeringAngleSend))
+            #     elif steeringAngleSend < -100:
+            #         isTurning = True
+            #         steeringAngleSend = -180
+            #         self.steerMotorSender.send(str(steeringAngleSend))
+            #     elif isTurning and steeringAngleSend < 100 and steeringAngleSend > -100:
+            #         self.vehicle.setStateSignal(stateSignalType.IN_INTERSECION, False)
+            #         isTurning = False
+            #         self.startLaneDetectionSender.send("true")
 
-            if self.vehicle.getStateSignal(stateSignalType.ROADBLOCK_MANEUVER):
-                manueverTime = self.roadblockManeuver()
-                startTime -= manueverTime
+            # if self.vehicle.getStateSignal(stateSignalType.ROADBLOCK_MANEUVER):
+            #     manueverTime = self.roadblockManeuver()
+            #     startTime += manueverTime
+            #     print(f"StartTime: {startTime}")
 
             # print(f"Steering: {str(round(np.rad2deg(np.clip(-vehicleSteeringAngle, -0.4363, 0.4363)))*10)}")
             #self.steerMotorSender.send(str(round(np.rad2deg(np.clip(-vehicleSteeringAngle, -0.4363, 0.4363)))*10))

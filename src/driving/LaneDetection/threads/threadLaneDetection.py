@@ -211,11 +211,11 @@ class threadLaneDetection(ThreadWithStop):
         if boolDetections[1] and not self.vehicleState.getStateSignal(stateSignalType.APROACHING_ROADBLOCK):
             self.vehicleState.setStateSignal(stateSignalType.APROACHING_ROADBLOCK, True)
         if self.vehicleState.getStateSignal(stateSignalType.APROACHING_ROADBLOCK):
-            if self.distanceF < 60: # 40-60
-                desiredSpeed = 10
+            if self.distanceF < 50: # 40-60
+                desiredSpeed = 15
             if self.distanceF < 25:
                 self.vehicleState.setStateSignal(stateSignalType.ROADBLOCK_MANEUVER, True)
-                desiredSpeed = 10
+                desiredSpeed = 15
                 self.vehicleState.setStateSignal(stateSignalType.APROACHING_ROADBLOCK, False)
 
         if boolDetections[2]: #crosswalk-sign
