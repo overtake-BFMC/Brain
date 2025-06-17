@@ -495,7 +495,7 @@ class threadLaneDetection(ThreadWithStop):
                 frame_lines, _, _, _, thresh = self.LANEFOL.CannyEdge( self.frame )
     
 
-                frame_lines = apply_gamma_on_frame(frame_lines, gamma=0.55)
+                frame_lines = apply_gamma_on_frame(frame_lines, gamma=0.75)
 
                 # LANEFOL.perspectiveWarp( frame_lines )
 

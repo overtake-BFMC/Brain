@@ -50,10 +50,12 @@ class LaneFollowing:
 
         return self
     
-    def draw_ROI( self, frame ):
+    def draw_ROI( self, frame, region ):
 
         overlay = frame.copy()  
-        cv2.fillPoly(overlay, [self.region], (0, 255, 0))  
+        cv2.polylines(overlay, [region], isClosed=True, color=(0, 255, 0), thickness=2)
+
+        # cv2.fillPoly(overlay, [self.region], (0, 255, 0))  
         
         alpha = 0.3  
         frame = cv2.addWeighted(overlay, alpha, frame, 1 - alpha, 0)  
@@ -98,6 +100,9 @@ class LaneFollowing:
 
         # outer_vertices = np.array([[(0, 540), (0, 400), (960, 400), (960, 540)]])  
         cv2.fillPoly(mask, outer_vertices, 255)
+
+        inner_vertices = np.array([[(350, 540), (350, 430), (610, 430), (610, 540)]], dtype=np.int32)
+        cv2.fillPoly(mask, inner_vertices, 0)
 
         if self.crosswalk_active:
 
@@ -181,7 +186,9 @@ class LaneFollowing:
         mean_left = 0
         mean_right = 960
 
-        if len(leftx) > 0:
+        # print( len( leftx ))
+
+        if len(leftx) > 50:
             m_left = np.mean(leftx)
             if not math.isnan(m_left):
                 mean_left = m_left
@@ -189,7 +196,7 @@ class LaneFollowing:
             mean_left = self.last_left_line
 
 
-        if len(rightx) > 0:
+        if len(rightx) > 50:
             m_right = np.mean(rightx)
             if not math.isnan(m_right):
                 mean_right = m_right
@@ -222,9 +229,8 @@ class LaneFollowing:
         cv2.line( out_img, ( 400, 0), ( 400, 540), (0,0,255), 5 )
         cv2.line( out_img, ( 560, 0), ( 560, 540), (0,0,255), 5 )
 
-        # print(f"MEAN LEFT {mean_left}")
-        # print(f"MEAN RIGHT {mean_right}")
-        # print("* * * *  *")
+        # print( f"mean left {mean_left}")
+        # print( f"mean right {mean_right}")
 
         self.lane_center = ( mean_left + mean_right ) // 2
         # self.lane_center = 500
@@ -233,15 +239,163 @@ class LaneFollowing:
         # print("***")
         # print( self.lane_center )
 
-        self.last_left_line = mean_left
-        self.last_right_line = mean_right
+        self.last_left_line = mean_left 
+        self.last_right_line = mean_right 
+
 
         if np.isnan(self.lane_center):
             self.lane_center = 960 // 2  # Postavi u sredinu slike ako je NaN
+
+        out_img = self.draw_ROI( out_img, outer_vertices )
+        out_img = self.draw_ROI( out_img, inner_vertices )
 
         cv2.line( out_img, (int(self.lane_center), 540), (int(self.lane_center), 340), (0,255,0), 10)
 
         # print( left_lane_inds )
         # print( right_lane_inds )
+
+        return out_img, original_frame
+
+
+def sliding_window_search___( self, thresh_frame, original_frame ):
+
+        mask = np.zeros_like( thresh_frame )
+        
+        #test
+        outer_vertices = np.array([[(0, 540), (150, 400), (810, 400), (960, 540)]])  
+        # outer_vertices = np.array([[(0, 540), (0, 400), (960, 400), (960, 540)]])  
+        cv2.fillPoly(mask, outer_vertices, 255)
+
+        #sasija roi
+        inner_vertices = np.array([[(350, 540), (350, 430), (610, 430), (610, 540)]], dtype=np.int32)
+        cv2.fillPoly(mask, inner_vertices, 0)
+
+        if self.crosswalk_active:
+
+            inner_vertices = np.array([[(200, 540), (340, 400), (600, 400), (760, 540)]], dtype=np.int32)
+            cv2.fillPoly(mask, inner_vertices, 0)        
+
+        thresh_frame = cv2.bitwise_and( thresh_frame, mask )
+
+        histogram = np.sum( thresh_frame[thresh_frame.shape[0]//2:, :], axis=0 )
+        midpoint = int( histogram.shape[0] // 2 )
+        leftx_base = np.argmax( histogram[:midpoint] )
+        rightx_base = np.argmax( histogram[midpoint:] ) + midpoint
+
+        window_num = 15
+        margin = 50
+        minpix = 100
+
+        window_height = int( thresh_frame.shape[0] // window_num )
+        nonzero = thresh_frame.nonzero()
+        WHITE_Y = np.array( nonzero[0] )
+        WHITE_X = np.array( nonzero[1] )
+
+        leftx_current = leftx_base
+        rightx_current = rightx_base
+
+        left_lane_inds = []
+        right_lane_inds = []
+
+        out_img = np.dstack(( thresh_frame, thresh_frame, thresh_frame ))
+
+
+        for window in range(window_num):
+            
+            win_y_low = thresh_frame.shape[0] - (window + 1) * window_height
+            win_y_high = thresh_frame.shape[0] - window * window_height
+
+            left_x_L = leftx_current - margin
+            left_x_H =  leftx_current + margin
+
+            right_x_L = rightx_current - margin
+            right_x_H = rightx_current + margin
+
+            #BW
+            # cv2.rectangle(out_img, (win_xleft_low, win_y_low), (win_xleft_high, win_y_high),
+            # (0,255,0), 2)
+            # cv2.rectangle(out_img, (win_xright_low,win_y_low), (win_xright_high,win_y_high),
+            # (0,255,0), 2)
+
+            # out_img = cv2.rectangle(original_frame, (left_x_L, win_y_low), (left_x_H, win_y_high),
+            # (0,255,0), 2)
+            # out_img = cv2.rectangle(original_frame, (right_x_L,win_y_low), (right_x_H,win_y_high),
+            # (0,255,0), 2)
+
+            left_inds = (
+                ( WHITE_Y >= win_y_low ) & ( WHITE_Y < win_y_high ) &
+                ( WHITE_X >= left_x_L ) & ( WHITE_X < left_x_H )
+            ).nonzero()[0]
+
+            right_inds = (
+                ( WHITE_Y >= win_y_low ) & ( WHITE_Y < win_y_high ) &
+                ( WHITE_X >= right_x_L ) & ( WHITE_X < right_x_H )
+            ).nonzero()[0]
+
+            left_lane_inds.append( left_inds )
+            right_lane_inds.append( right_inds )
+
+            if len( left_inds ) > minpix:
+                leftx_current = int( np.mean(WHITE_X[left_inds]) )
+            if len( right_inds ) > minpix:
+                rightx_current = int( np.mean(WHITE_X[right_inds]) )
+
+        left_lane_inds = np.concatenate( left_lane_inds )
+        right_lane_inds = np.concatenate( right_lane_inds )
+
+        leftx  = WHITE_X[ left_lane_inds ]
+        lefty  = WHITE_Y[ left_lane_inds ]
+        rightx = WHITE_X[ right_lane_inds]
+        righty = WHITE_Y[ right_lane_inds]  
+
+        left_points = np.vstack(( leftx, lefty )).T.reshape((-1, 1, 2))
+        right_points = np.vstack(( rightx, righty )).T.reshape((-1, 1, 2))
+
+        out_img = cv2.polylines( original_frame, [left_points], 0, (100,255,0), 2)
+        out_img = cv2.polylines( original_frame, [right_points], 0, (100,255,0), 2)
+
+        mean_left = 0
+        mean_right = 960
+
+        if len(leftx) > 50:
+            m_left = np.mean(leftx)
+            if not math.isnan(m_left):
+                mean_left = m_left
+        else:
+            mean_left = self.last_left_line
+
+
+        if len(rightx) > 50:
+            m_right = np.mean(rightx)
+            if not math.isnan(m_right):
+                mean_right = m_right
+        else:
+            mean_right = self.last_right_line
+
+        #near center values, center: 480, 60+-
+        if mean_left > 400:
+            mean_left -= 50
+        # print(f"left: {mean_left}")
+
+        if mean_right < 560:
+            mean_right += 50
+        # print(f"left: {mean_right}")
+
+        cv2.line( out_img, ( 400, 0), ( 400, 540), (0,0,255), 5 )
+        cv2.line( out_img, ( 560, 0), ( 560, 540), (0,0,255), 5 )
+
+        self.lane_center = ( mean_left + mean_right ) // 2
+
+        self.last_left_line = mean_left 
+        self.last_right_line = mean_right 
+
+
+        if np.isnan(self.lane_center):
+            self.lane_center = 960 // 2  # Postavi u sredinu slike ako je NaN
+
+        out_img = self.draw_ROI( out_img, outer_vertices )
+        out_img = self.draw_ROI( out_img, inner_vertices )
+
+        cv2.line( out_img, (int(self.lane_center), 540), (int(self.lane_center), 340), (0,255,0), 10)
 
         return out_img, original_frame

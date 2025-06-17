@@ -21,6 +21,8 @@ from src.utils.messages.messageHandlerSender import messageHandlerSender
 from src.driving.PathFollowing.utils.nodes import nodes as nodesData
 
 import numpy as np
+import matplotlib.pyplot as plt
+
 import time
 #from src.utils.logger.setupLogger import LoggerConfigs, configLogger
 from src.driving.PathFollowing.utils.kalmanFilterLocalization import kalmanFilterLocalization
@@ -109,8 +111,11 @@ class threadPathFollowing(ThreadWithStop):
                     if self.waypoints:
                         self.waypoints.clear() 
 
-                    self.waypoints.extend(range(1, 9))
-                    #self.waypoints.extend(range(3,11))
+                    #old map
+                    self.waypoints.extend(range(198, 231))
+
+
+                    # self.waypoints.extend(range(3,11))
 
                     if len(self.path):
                         self.path = np.array([])
@@ -123,13 +128,21 @@ class threadPathFollowing(ThreadWithStop):
                 elif self.chosenTrack == 1:
                     #HIGHWAY RUN
 
-                    speed = 20
-                    yaw = 90
+                    speed = 25
+                    # yaw = 90
+
+                    #old map
+                    yaw = 0
 
                     if self.waypoints:
                         self.waypoints.clear() 
 
-                    self.waypoints.extend(range(10, 26))
+                    # self.waypoints.extend(range(10, 26))
+
+                    #old map
+                    self.waypoints.extend(range(296, 302))
+                    self.waypoints.extend(range(303, 307))
+                    self.waypoints.extend(range(231, 233))
 
                     if len(self.path):
                         self.path = np.array([])
@@ -141,13 +154,32 @@ class threadPathFollowing(ThreadWithStop):
                 elif self.chosenTrack == 2:
                     #INTERSECTION RUN
                     
-                    speed = 20
-                    yaw = 180
+                    speed = 25
+                    # yaw = 180
+
+                    #old map right
+                    yaw = 0
+
+                    #old map left
+                    yaw = 270
 
                     if self.waypoints:
                         self.waypoints.clear() 
 
-                    self.waypoints.extend(range(30, 51))
+                    # self.waypoints.extend(range(30, 51))
+
+                    #old map right turn
+                    # self.waypoints.extend(range(17, 18))
+                    # self.waypoints.extend(range(146, 147))
+                    # self.waypoints.extend(range(25, 27))
+                    # self.waypoints.extend(range(119, 120))
+
+                    #old map left turn
+                    self.waypoints.extend(range(118, 119))
+                    self.waypoints.extend(range(27, 28))
+                    self.waypoints.extend(range(24, 25))
+
+                    
 
                     if len(self.path):
                         self.path = np.array([])
@@ -168,7 +200,7 @@ class threadPathFollowing(ThreadWithStop):
                     #self.waypoints.extend(range(267, 274))
 
                     #RIGHT TURN
-                    self.waypoints.extend(range(51, 61))
+                    self.waypoints.extend(range(51, 72))
                     #LEFT TURN
                     #yaw = 90
                     #self.waypoints.extend(range(62, 67))
@@ -300,35 +332,6 @@ class threadPathFollowing(ThreadWithStop):
 
         self.vehicle.setPosition(vehicleX, vehicleY, vehicleYaw)
 
-    # def kinematicBicycleModel(self, elapsedTime):
-        
-    #     vehicleX, vehicleY, vehicleYaw = self.vehicle.getPosition()
-    #     vehicleSpeed, vehicleSteeringAngle, vehicleWheelbase = self.vehicle.getSpeedSteerWheelbase()
-
-    #     rotationRate = vehicleSpeed * np.tan(vehicleSteeringAngle) / vehicleWheelbase
-    #     vehicleYaw = vehicleYaw + rotationRate * elapsedTime
-        
-    #     vehicleX = vehicleX + vehicleSpeed * np.cos(vehicleYaw) * elapsedTime
-    #     vehicleY = vehicleY + vehicleSpeed * np.sin(vehicleYaw) * elapsedTime
-
-    #     self.vehicle.setPosition(vehicleX, vehicleY, vehicleYaw)
-
-    # def kinematicBicycleModel(self, elapsedTime):
-        
-    #     vehicleX, vehicleY, vehicleYaw = self.vehicle.getPosition()
-    #     vehicleSpeed, vehicleSteeringAngle, vehicleWheelbase = self.vehicle.getSpeedSteerWheelbase()
-
-    #     beta = np.arctan2(16 * np.tan(vehicleSteeringAngle), vehicleWheelbase)
-        
-    #     vehicleX += vehicleSpeed * np.cos(vehicleYaw + beta) * elapsedTime
-    #     vehicleY += vehicleSpeed * np.sin(vehicleYaw + beta) * elapsedTime
-        
-    #     yaw_rate = (vehicleSpeed * np.tan(vehicleSteeringAngle)) / vehicleWheelbase
-    #     vehicleYaw += yaw_rate * elapsedTime
-        
-    #     vehicleYaw = np.arctan2(np.sin(vehicleYaw), np.cos(vehicleYaw))
-
-    #     self.vehicle.setPosition(vehicleX, vehicleY, vehicleYaw)
     
     def findLookAheadPoint(self, lastPathPointId):
         if lastPathPointId == len(self.path) - 1:
@@ -349,7 +352,7 @@ class threadPathFollowing(ThreadWithStop):
         dot_product = dx * forward_x + dy * forward_y
         
         distance = np.hypot(dx, dy)
-        return distance < 5 or dot_product < 0
+        return distance < 10 or dot_product < 0
     
     def roadblockManeuver(self):
         startTime = time.perf_counter()
@@ -369,6 +372,11 @@ class threadPathFollowing(ThreadWithStop):
         return time.perf_counter() - startTime
     
     def purePursuit(self):
+
+        refSpeed = 25.0
+        minDt = 0.03
+        maxDt = 0.08
+
 
         lastPointSignal = False
         self.whiteLineSubscriber.subscribe()
@@ -391,6 +399,9 @@ class threadPathFollowing(ThreadWithStop):
 
         while targetX and targetY: 
 
+            currSpeed, _, _ = self.vehicle.getSpeedSteerWheelbase()
+            self.timeStep = np.clip((refSpeed / (currSpeed + 1e-6)) / 10, minDt, maxDt)
+
             nowTime = time.time()
             dt = nowTime - lastTime
 
@@ -399,16 +410,13 @@ class threadPathFollowing(ThreadWithStop):
             vehicleSpeed = self.vehicle.getSpeed()
 
             while lastPathPointId < len(self.path) and self.hasPassedWaypoint(self.path[lastPathPointId][0], self.path[lastPathPointId][1]):
-                # if lastPathPointId == len(self.path) - 1:
-                    # lastPathPointId = len(self.path) - 1
-                # else:
                 lastPathPointId += 1
             
 
             self.speedMotorSender.send(str(vehicleSpeed * 10))
             
             g1, g2, g3 = self.vehicle.getPosition()
-            print(f"{g1} {g2} {np.rad2deg(g3)}")
+            print(f"{g1} {g2} {np.rad2deg(g3)}  {np.rad2deg(vehicleSteeringAngle)}")
 
             distanceToTarget = self.calculateDistanceToTarget(targetX, targetY)
             angleToTarget = self.calculateAngleToTarget(targetX, targetY)
@@ -416,8 +424,11 @@ class threadPathFollowing(ThreadWithStop):
             alpha = self.calculateAlphaSteer(angleToTarget)
 
             vehicleSteeringAngle = np.arctan2(2 * vehicleWheelbase * np.sin(alpha), distanceToTarget)
+            vehicleSteeringAngle = np.clip(vehicleSteeringAngle, -0.4363, 0.4363)
             self.vehicle.setSteeringAngle(vehicleSteeringAngle)
 
+            if np.abs(np.rad2deg(vehicleSteeringAngle)) >= 5:
+                self.timeStep = 0.03
 
             self.kinematicBicycleModel(dt)
 
@@ -429,7 +440,7 @@ class threadPathFollowing(ThreadWithStop):
             whiteLine = self.whiteLineSubscriber.receive()
             if whiteLine is not None and whiteLine and self.vehicle.getStateSignal(stateSignalType.APROACHING_INTERSECTION):
                 #RIGHT TURN
-                self.vehicle.setPosition(520.0, 260.0, vehicleYaw)
+                # self.vehicle.setPosition(520.0, 260.0, vehicleYaw)
                 #LEFT TURN
                 #self.vehicle.setPosition(662.0, 217.0, vehicleYaw)
                 #INTERSECTION
@@ -440,7 +451,7 @@ class threadPathFollowing(ThreadWithStop):
                 self.vehicle.setStateSignal(stateSignalType.IN_INTERSECION, True)
                 self.vehicle.setStateSignal(stateSignalType.APROACHING_INTERSECTION, False)
 
-            steeringAngleSend = round(np.rad2deg(-vehicleSteeringAngle)) * 10
+            steeringAngleSend = round(np.rad2deg(vehicleSteeringAngle)) * 10
             self.steerMotorSender.send(str(steeringAngleSend))
 
             # if self.vehicle.getStateSignal(stateSignalType.IN_INTERSECION):
@@ -492,6 +503,20 @@ class threadPathFollowing(ThreadWithStop):
         self.whiteLineSubscriber.unsubscribe()
 
         self.startLaneDetectionSender.send("false")
+
+        plt.plot(path_x, path_y, label="Robot Path", color="orange")
+        plt.scatter(*zip(*self.nodes.values()), color="red", label="Waypoints")  # Mark the nodes/waypoints
+        plt.scatter(*zip(*self.path), color="green", label="Additional Nodes")
+        
+        plt.title("Path Following with Pure Pursuit")
+        plt.xlabel("X (cm)")
+        plt.ylabel("Y (cm)")
+        plt.gca().invert_yaxis()
+
+        plt.legend()
+        plt.grid(True)
+        plt.show()
+        plt.savefig("path_following.svg", format = 'svg')
 
         return path_x, path_y, self.path
 

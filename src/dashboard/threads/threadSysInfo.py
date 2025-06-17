@@ -28,6 +28,9 @@ class threadSysInfo(ThreadWithStop):
         self.core_usage = 0
         self.cpu_temp = 0
         self.batteryDataFilePath = "/run/batteryMonitor/status.json"
+        self.isBatteryDataFileAvailable = True
+        self.fileCheckCount = 0
+        self.maxFileCheck = 5
 
         # self.INA226JetsonPresent = 0
         # self.jetsonBatt = 0
@@ -101,27 +104,34 @@ class threadSysInfo(ThreadWithStop):
 
     def readBatteryStatus(self):
         try:
-            with open(self.batteryDataFilePath, 'r') as f:
-                batteryData = json.load(f)
+            if(self.isBatteryDataFileAvailable):
+                with open(self.batteryDataFilePath, 'r') as f:
+                    batteryData = json.load(f)
 
-                jetsonBattery = batteryData.get('JetsonBattery', {})
-                jetsonVoltageStr = jetsonBattery.get('voltage', None)
-                if jetsonVoltageStr is not None:
-                    self.jetsonBattVoltage = float(jetsonVoltageStr)
-                else:
-                    self.jetsonBattVoltage = 0
+                    jetsonBattery = batteryData.get('JetsonBattery', {})
+                    jetsonVoltageStr = jetsonBattery.get('voltage', None)
+                    if jetsonVoltageStr is not None:
+                        self.jetsonBattVoltage = float(jetsonVoltageStr)
+                    else:
+                        self.jetsonBattVoltage = 0
 
-                nucleoBattery = batteryData.get('NucleoBattery', {})
-                nucleoVoltageStr = nucleoBattery.get('voltage', None)
-                if nucleoVoltageStr is not None:
-                    self.nucleoBattVoltage = float(nucleoVoltageStr)
-                else:
-                    self.nucleoBattVoltage = 0
+                    nucleoBattery = batteryData.get('NucleoBattery', {})
+                    nucleoVoltageStr = nucleoBattery.get('voltage', None)
+                    if nucleoVoltageStr is not None:
+                        self.nucleoBattVoltage = float(nucleoVoltageStr)
+                    else:
+                        self.nucleoBattVoltage = 0
         except json.JSONDecodeError:
             self.logger.warn("Cannot decode battery status json!")
         except Exception as e:
-            self.logger.error(f"Error reading JSON file: {e}")
-            print(f"Error reading JSON file: {e}")
+            self.fileCheckCount += 1
+            if(self.fileCheckCount > self.maxFileCheck):
+                self.isBatteryDataFileAvailable = False
+                self.logger.error(f"Error reading JSON file {self.fileCheckCount}/{self.maxFileCheck}, will not retry!: {e}")
+                print(f"Error reading JSON file {self.fileCheckCount}/{self.maxFileCheck}, will not retry!: {e}")
+            else:
+                self.logger.warn(f"Error reading JSON file {self.fileCheckCount}/{self.maxFileCheck}: {e}")
+                print(f"Error reading JSON file {self.fileCheckCount}/{self.maxFileCheck}: {e}")
 
 
     #def readNucleoVolt(self):
