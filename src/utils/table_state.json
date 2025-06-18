@@ -1,7 +1,7 @@
 [
     {
         "channel": "ToggleImuData",
-        "value": "True",
+        "value": "False",
         "initialValue": "True",
         "interval": 0,
         "type": "dropdown",
@@ -15,7 +15,7 @@
     },
         {
         "channel": "ToggleDistanceSensor",
-        "value": "True",
+        "value": "False",
         "initialValue": "True",
         "interval": 0,
         "type": "dropdown",
@@ -29,7 +29,7 @@
     },
     {
         "channel": "ToggleWhiteLineSensor",
-        "value": "True",
+        "value": "False",
         "initialValue": "True",
         "interval": 0,
         "type": "dropdown",
@@ -43,7 +43,7 @@
     },
     {
         "channel": "ToggleResourceMonitor",
-        "value": "True",
+        "value": "False",
         "initialValue": "True",
         "interval": 0,
         "type": "dropdown",
@@ -94,19 +94,21 @@
             "Track3",
             "Track4",
             "SpeedCalibration",
-            "ManualPWMSpeedCalibration"
+            "ManualPWMSpeedCalibration",
+            "SteerCalibration",
+            "ManualPWMSteerCalibration"
         ],
         "checked": true,
         "hasChanged": false
     },
     {
         "channel": "SetCalibrationTime",
-        "value": 0,
-        "initialValue": 0,
+        "value": -1,
+        "initialValue": -1,
         "interval": 0,
         "type": "number",
         "values": [
-            0,
+            -1,
             30
         ],
         "checked": true,
@@ -134,6 +136,32 @@
         "values": [
             1660,
             1330
+        ],
+        "checked": true,
+        "hasChanged": false
+    },
+    {
+        "channel": "SetCalibrationSteer",
+        "value": 0,
+        "initialValue": 0,
+        "interval": 0,
+        "type": "number",
+        "values": [
+            -25,
+            25
+        ],
+        "checked": true,
+        "hasChanged": false
+    },
+    {
+        "channel": "SetManualPWMSteer",
+        "value": 1524,
+        "initialValue": 1524,
+        "interval": 0,
+        "type": "number",
+        "values": [
+            2000,
+            1000
         ],
         "checked": true,
         "hasChanged": false

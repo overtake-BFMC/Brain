@@ -25,6 +25,10 @@ class vehicleState:
     #change this to a variable 10
     vehicleStateSignals = [False] * 10
 
+    frontDistanceSensorValue = -1
+    rightDistanceSensorValue = -1
+    
+
     def __init__(self, speed = 0, x = 0, y = 0, yaw = 0):
         self.speed = speed
         
@@ -44,6 +48,9 @@ class vehicleState:
 
     def getSpeed(self):
         return self.speed
+    
+    def getYaw(self):
+        return self.yaw
     
     def getWheelbase(self):
         return self.wheelbase
@@ -79,3 +86,16 @@ class vehicleState:
     
     def resetStateFlags(self):
         self.vehicleStateSignals = [False] * 10
+
+    def setFrontDistanceSensorValue(self, value):
+        self.frontDistanceSensorValue = value
+    
+    def getFrontDistanceSensorValue(self):
+        return self.frontDistanceSensorValue
+    
+    def setRightDistanceSensorValue(self, value):
+        self.rightDistanceSensorValue = value
+    
+    def getRightDistanceSensorValue(self):
+        return self.rightDistanceSensorValue
+        

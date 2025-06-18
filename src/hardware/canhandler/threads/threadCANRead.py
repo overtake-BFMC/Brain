@@ -9,7 +9,8 @@ from src.utils.messages.allMessages import (
     DistanceFront,
     WhiteLine,
     MsgACK,
-    VCDTicks
+    VCDTicks,
+    DistanceRight
 )
 from src.utils.messages.messageHandlerSubscriber import messageHandlerSubscriber
 from src.utils.messages.messageHandlerSender import messageHandlerSender
@@ -46,7 +47,7 @@ class threadCANRead(ThreadWithStop):
         self.whiteLineSender = messageHandlerSender(self.queuesList, WhiteLine)
         self.messageACKSender = messageHandlerSender(self.queuesList, MsgACK)
         self.VCDTicksSender = messageHandlerSender(self.queuesList, VCDTicks)
-
+        self.distanceRightSender = messageHandlerSender(self.queuesList, DistanceRight)
 
         self.Queue_Sending()
         
@@ -78,6 +79,11 @@ class threadCANRead(ThreadWithStop):
                     if self.debugging:
                         self.logger.info(f"distance Front : {distanceF}")
                     self.distanceFrontSender.send(float(distanceF))
+                elif CANResp.arbitration_id == 0x120: #"distanceRight"
+                    distanceR = struct.unpack('<i', CANResp.data)[0]
+                    if self.debugging:
+                        self.logger.info(f"distance Right : {distanceR}")
+                    self.distanceRightSender.send(float(distanceR))
                 elif CANResp.arbitration_id == 0x123: #"currentSpeed"
                     currentSpeed = struct.unpack('<i', CANResp.data)[0]
                     #print(f"Speed: {CANResp.data}, data: {CANResp.dlc}")

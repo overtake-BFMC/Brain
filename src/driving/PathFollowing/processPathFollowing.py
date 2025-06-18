@@ -21,7 +21,7 @@ class processPathFollowing(WorkerProcess):
         #self.logger = configLogger(LoggerConfigs.WORKER, __name__, self.loggingQueue)
         super(processPathFollowing, self).__init__(self.queuesList)
 
-        self.lookAheadDistance = 1
+        self.lookAheadDistance = 2
         self.dt = 0.08
 
     def run(self):

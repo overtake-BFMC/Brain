@@ -253,6 +253,35 @@ class SetManualPWMSpeed(Enum):
     msgID = 28
     msgType = "int"
 
+class SetCalibrationSteer(Enum):
+    Queue = "General"
+    Owner = "Dashboard"
+    msgID = 29
+    msgType = "int"
+
+class ManualPWMSteerMotor(Enum):
+    Queue = "Critical"
+    Owner = "Dashboard"
+    msgID = 30
+    msgType = "int"
+
+class SetManualPWMSteer(Enum):
+    Queue = "General"
+    Owner = "Dashboard"
+    msgID = 31
+    msgType = "int"
+
+class FillHeadlights(Enum):
+    Queue = "General"
+    Owner = "Dashboard"
+    msgID = 32
+    msgType = "dict"
+
+class SetHeadlight(Enum):
+    Queue = "General"
+    Owner = "Dashboard"
+    msgID = 33
+    msgType = "dict"
 ################################# From WebRTC(Video Stream) ##################################
 class WebRTCAnswer(Enum):
     Queue = "General"
@@ -388,6 +417,12 @@ class VCDTicks(Enum):
     Owner = "threadRead"
     msgID = 12
     msgType = "int"
+
+class DistanceRight(Enum):
+    Queue = "General"
+    Owner = "threadRead"
+    msgID = 13
+    msgType = "float"
 
 ################################# From Locsys ##################################
 class Location(Enum):

@@ -11,6 +11,9 @@ from src.utils.messages.allMessages import (
     ToggleWhiteLineSensor,
     ToggleDistanceSensor,
     ManualPWMSpeedMotor,
+    ManualPWMSteerMotor,
+    FillHeadlights,
+    SetHeadlight
 )
 from src.utils.messages.messageHandlerSubscriber import messageHandlerSubscriber
 from src.utils.messages.messageHandlerSender import messageHandlerSender
@@ -109,6 +112,13 @@ class threadCANWrite(ThreadWithStop):
                             if self.debugging:
                                 self.logger.info(f"ManualPWMSpeed CMD: {PWMSpeedRecv}")
 
+                        PWMSteerRecv = self.manualPWMSteerMotorSubscriber.receive()
+                        if PWMSteerRecv is not None:
+                            command = struct.pack("<i", PWMSteerRecv)
+                            self.sendToCAN(0x93, command)
+                            if self.debugging:
+                                self.logger.info(f"ManualPWMSteer CMD: {PWMSteerRecv}")
+
                     resourceMonitorToggleRecv = self.resourceMonitorToggleSubscriber.receive()
                     if resourceMonitorToggleRecv is not None:
                         command = struct.pack("<B", int(resourceMonitorToggleRecv))
@@ -128,7 +138,17 @@ class threadCANWrite(ThreadWithStop):
                     if whiteLineToggleRecv is not None:
                         command = struct.pack("<B", int(whiteLineToggleRecv))
                         self.sendToCAN(0x13E, command)
-                    
+
+                    fillHeadlightsRecv = self.fillHeadlightsSubsciber.receive()
+                    if fillHeadlightsRecv is not None:
+                        command = struct.pack("<BBBB", int(fillHeadlightsRecv["Red"]), int(fillHeadlightsRecv["Green"]), int(fillHeadlightsRecv["Blue"]), int(fillHeadlightsRecv["Brightness"]))
+                        self.sendToCAN(0x140, command)
+
+                    setHeadlightRecv = self.setHeadlightSubscriber.receive()
+                    if setHeadlightRecv is not None:
+                        commad = struct.pack("<BBBBB", int(setHeadlightRecv["LEDPos"]), int(setHeadlightRecv["Red"]), int(setHeadlightRecv["Green"]), int(setHeadlightRecv["Blue"]), int(setHeadlightRecv["Brightness"]))
+                        self.sendToCAN(0x141, command)
+                        
             except Exception as e:
                 pass
 
@@ -151,3 +171,6 @@ class threadCANWrite(ThreadWithStop):
         self.distanceToggleSubscriber = messageHandlerSubscriber(self.queuesList, ToggleDistanceSensor, "lastOnly", True)
         self.whiteLineToggleSubscriber = messageHandlerSubscriber(self.queuesList, ToggleWhiteLineSensor, "lastOnly", True)
         self.manualPWMSpeedMotorSubscriber = messageHandlerSubscriber(self.queuesList, ManualPWMSpeedMotor, "lastOnly", True)
+        self.manualPWMSteerMotorSubscriber = messageHandlerSubscriber(self.queuesList, ManualPWMSteerMotor, "lastOnly", True)
+        self.fillHeadlightsSubsciber = messageHandlerSubscriber(self.queuesList, FillHeadlights, "lastOnly", True)
+        self.setHeadlightSubscriber = messageHandlerSubscriber(self.queuesList, SetHeadlight, "lastOnly", True)

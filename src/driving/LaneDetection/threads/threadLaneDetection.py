@@ -33,8 +33,14 @@ from src.driving.PathFollowing.utils.vehicleState import stateSignalType
 CLASSES_ROI = [
     [0, 0, 960, 540], #car 0
     #ovde treba odvojiti car roi za parking i za prepreku
-    [0, 0, 960, 540], #closed-road-stand 1
-    [700, 90, 900, 220], #crosswalk-sign 2
+
+    # [0, 0, 960, 540], #closed-road-stand 1
+    [300, 0, 650, 370], #closed-road-stand NEW
+
+
+    [700, 90, 900, 220], #crosswalk-sign 
+    # [700, 90, 850, 220], #crosswalk-sign NEW
+
     [700, 90, 900, 220], #highway-entry-sign 3
     [700, 90, 900, 220], #highway-exit-sign 4
     [720, 0, 960, 540 ], #nov
@@ -42,12 +48,18 @@ CLASSES_ROI = [
     [700, 90, 900, 220], #one-way-road-sign 6
     [0, 130, 960, 410], #parking-sign 7
     [0, 0, 960, 540], #parking-spot 8
-    [[150, 150, 650, 400],[50, 150, 900, 400]], #pedestrian 9
+
+    # [[150, 150, 650, 400],[50, 150, 900, 400]], #pedestrian 9
+    [[250, 170, 710, 350], [250, 150, 710, 350]], #pedestrian NEW 9
+    
     [700, 90, 900, 220], #priority-sign 10
     [700, 90, 900, 220], #round-about-sign 11
     [[300, 400, 660, 540], [300, 335, 660, 540]],#[400, 400, 550, 540], #stop-line 12
     [720, 0, 960, 540], #stop-sign 13 
-    [720, 0, 960, 500 ], #traffic-light 14 #this does not work
+
+    # [720, 0, 960, 500 ], #traffic-light 14 #this does not work
+    [720, 100, 900, 540 ], #traffic-light 14 #this does not work NEW
+
 ]
 
 class threadLaneDetection(ThreadWithStop):
@@ -162,7 +174,11 @@ class threadLaneDetection(ThreadWithStop):
                     self.logger.info("LaneDetection VehicleState Initialized!")
 
     def isInsideROI(self, x, y, ROIBox):
-        return ROIBox[0] <= x <= ROIBox[2] and ROIBox[1] <= y <= ROIBox[3]
+        if (ROIBox[0] <= x <= ROIBox[2] and ROIBox[1] <= y <= ROIBox[3]):
+            print(f"In roi x,y: {x}, {y}")
+            return True
+        return False
+        #return ROIBox[0] <= x <= ROIBox[2] and ROIBox[1] <= y <= ROIBox[3]
 
     def makeDecision(self, detections, bufferDetections, timer ):
         
@@ -208,22 +224,28 @@ class threadLaneDetection(ThreadWithStop):
                 else:
                     boolDetections[i] = True
 
+
+        boolDetections[1] = True
+        if boolDetections[1]:
+            print("CLOSED ROAD STAND")
+
+    
         if boolDetections[1] and not self.vehicleState.getStateSignal(stateSignalType.APROACHING_ROADBLOCK):
-            self.vehicleState.setStateSignal(stateSignalType.APROACHING_ROADBLOCK, True)
-        if self.vehicleState.getStateSignal(stateSignalType.APROACHING_ROADBLOCK):
-            if self.distanceF < 50: # 40-60
-                desiredSpeed = 15
-            if self.distanceF < 25:
+            # self.vehicleState.setStateSignal(stateSignalType.APROACHING_ROADBLOCK, True)
+
+            if self.distanceF < 80:
+                boolDetections[1] = False
+                self.vehicleState.setStateSignal(stateSignalType.APROACHING_ROADBLOCK, True)
                 self.vehicleState.setStateSignal(stateSignalType.ROADBLOCK_MANEUVER, True)
-                desiredSpeed = 15
-                self.vehicleState.setStateSignal(stateSignalType.APROACHING_ROADBLOCK, False)
+                desiredSpeed = 0
+
+                # self.vehicleState.setStateSignal(stateSignalType.APROACHING_ROADBLOCK, False)
 
         if boolDetections[2]: #crosswalk-sign
             #trafficComunicationID = 4 
             print("crosswalk detected")
             isDetected = True
             #self.vehicleState.setSpeed(10)
-            self.isLaneKeeping = True ############################PROMENA
             desiredSpeed = 10
             self.LANEFOL.crosswalk_active = True
             if not timer[2][0]:
@@ -236,14 +258,14 @@ class threadLaneDetection(ThreadWithStop):
             print("pedestrian on crosswalk")
             #trafficComunicationID = 11 
             #self.vehicleState.setSpeed(0)
-            self.isLaneKeeping = True ##################PROMENA
+            # self.isLaneKeeping = True ##################PROMENA
             desiredSpeed = 0
             isDetected = True
             self.warningSignalSender.send({"WarningName":"Pedestrian on Crosswalk", "WarningID": 11})
         if boolDetections[3]: #highwayEntry
             #trafficComunicationID = 5 
             desiredSpeed = 40
-            self.isLaneKeeping = True #############################################PROMENA
+            # self.isLaneKeeping = True #############################################PROMENA
 
             self.isOnHighway = True
             self.warningSignalSender.send({"WarningName":"Highway Ahead", "WarningID": 6})
@@ -315,7 +337,7 @@ class threadLaneDetection(ThreadWithStop):
             self.parkingSignFlag = True
 
             self.warningSignalSender.send({"WarningName":"Parking Ahead", "WarningID": 10})
-            self.isLaneKeeping = True
+            # self.isLaneKeeping = True
         if boolDetections[8]: #Parking Spot
             self.warningSignalSender.send({"WarningName":"Parking Spot Ahead", "WarningID": 3})
         #print("Timer0 : ", timer[0])
@@ -337,6 +359,9 @@ class threadLaneDetection(ThreadWithStop):
         ######### THIS IS TRAFFIC-LIGHT FOR TESTING ########
         if boolDetections[14] or self.redLightFlag: #THIS IS TRAFIC LIGHT
             #trafficComunicationID = 14 
+
+            print("semaphore detected")
+
 
             self.isLaneKeeping = True #PRIVREMENO
             # self.vehicleState.getPosition()
@@ -470,6 +495,7 @@ class threadLaneDetection(ThreadWithStop):
             distanceFRecv = self.distanceFrontSubscriber.receive()
             if distanceFRecv is not None:
                 self.distanceF = distanceFRecv
+                self.vehicleState.setFrontDistanceSensorValue(self.distanceF)                
 
             ##########################
             #semaphoreState = None
@@ -495,7 +521,7 @@ class threadLaneDetection(ThreadWithStop):
                 frame_lines, _, _, _, thresh = self.LANEFOL.CannyEdge( self.frame )
     
 
-                frame_lines = apply_gamma_on_frame(frame_lines, gamma=0.75)
+                frame_lines = apply_gamma_on_frame(frame_lines, gamma=0.5)
 
                 # LANEFOL.perspectiveWarp( frame_lines )
 
@@ -540,7 +566,7 @@ class threadLaneDetection(ThreadWithStop):
                 if class_scores.size != 0:
                         frame_lines = self.detector.draw_detections(frame_lines, filtered_boxes, class_ids, class_scores)
 
-                cv2.line( frame_lines, (frame_width // 2,0), (frame_width // 2, 540), (255,0,0),3  )
+                cv2.line(frame_lines, (frame_width // 2, 400), (frame_width // 2, 540), (0, 0, 255), 5)
 
                 with self.LaneVideolock:
                     np.copyto(self.frameLaneBuffer, frame_lines)

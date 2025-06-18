@@ -138,6 +138,10 @@ export class TableComponent implements OnInit {
           value = 99
         else if(item.value == "ManualPWMSpeedCalibration")
           value = 98
+        else if(item.value == "SteerCalibration")
+          value = 97
+        else if(item.value == "ManualPWMSteerCalibration")
+          value = 96
       } else {
         value = 1
         if (item.value == "False")

@@ -8,24 +8,24 @@ class LaneFollowing:
 
     def __init__( self ):
         
-        self.left_lines = None
-        self.right_lines = None
+        # self.left_lines = None
+        # self.right_lines = None
 
-        self.arr_left = [] #ili prazno ili da mi prvi element bude pretpostavka pocetka linije
-        self.arr_right = []
+        # self.arr_left = [] #ili prazno ili da mi prvi element bude pretpostavka pocetka linije
+        # self.arr_right = []
 
-        self.prev_lane_center = None
+        # self.prev_lane_center = None
         self.lane_center = None
         self.masked_img = None
         self.frame_width = 960
-        self.frame_counter_right = 0
-        self.frame_counter_left = 0
-        self.max_frame_counter = 5
+        # self.frame_counter_right = 0
+        # self.frame_counter_left = 0
+        # self.max_frame_counter = 5
 
-        self.left_slope = None     
-        self.right_slope = None     
+        # self.left_slope = None     
+        # self.right_slope = None     
 
-        self.lane_len = 430 #
+        # self.lane_len = 430 #
         
         self.histogram = None
         self.leftxBase = None
@@ -91,7 +91,7 @@ class LaneFollowing:
         return frame, lines, edges, hls_result, thresh
         
 
-    def sliding_window_search( self, binary_warped, original_frame ):
+    def sliding_window_search___( self, binary_warped, original_frame ):
 
         mask = np.zeros_like(binary_warped)
         
@@ -132,7 +132,6 @@ class LaneFollowing:
         right_lane_inds = []
 
         out_img = np.dstack((binary_warped, binary_warped, binary_warped))
-
 
         for window in range(nwindows):
             win_y_low = binary_warped.shape[0] - (window + 1) * window_height
@@ -257,10 +256,9 @@ class LaneFollowing:
         return out_img, original_frame
 
 
-def sliding_window_search___( self, thresh_frame, original_frame ):
+    def sliding_window_search( self, thresh_frame, original_frame ):
 
         mask = np.zeros_like( thresh_frame )
-        
         #test
         outer_vertices = np.array([[(0, 540), (150, 400), (810, 400), (960, 540)]])  
         # outer_vertices = np.array([[(0, 540), (0, 400), (960, 400), (960, 540)]])  
@@ -381,8 +379,8 @@ def sliding_window_search___( self, thresh_frame, original_frame ):
             mean_right += 50
         # print(f"left: {mean_right}")
 
-        cv2.line( out_img, ( 400, 0), ( 400, 540), (0,0,255), 5 )
-        cv2.line( out_img, ( 560, 0), ( 560, 540), (0,0,255), 5 )
+        # cv2.line( out_img, ( 400, 0), ( 400, 540), (0,0,255), 5 )
+        # cv2.line( out_img, ( 560, 0), ( 560, 540), (0,0,255), 5 )
 
         self.lane_center = ( mean_left + mean_right ) // 2
 
@@ -396,6 +394,7 @@ def sliding_window_search___( self, thresh_frame, original_frame ):
         out_img = self.draw_ROI( out_img, outer_vertices )
         out_img = self.draw_ROI( out_img, inner_vertices )
 
-        cv2.line( out_img, (int(self.lane_center), 540), (int(self.lane_center), 340), (0,255,0), 10)
+        # cv2.line( out_img, (int(self.lane_center), 540), (int(self.lane_center), 340), (0,255,0), 10)
+        cv2.circle( out_img, (int(self.lane_center), 450), radius=5, color=(0, 255, 0), thickness=10 )
 
         return out_img, original_frame
