@@ -10,6 +10,7 @@ from src.utils.messages.allMessages import (
     DistanceFront,
     WarningSignal,
     Semaphores,
+    DistanceRight
 )
 from src.utils.messages.messageHandlerSubscriber import messageHandlerSubscriber
 from src.utils.messages.messageHandlerSender import messageHandlerSender
@@ -125,7 +126,6 @@ class threadLaneDetection(ThreadWithStop):
 
         self.distanceF = 99
         self.distanceR = 99
-        self.distanceL = 99
 
         self.init_shMem()
         self.init_vehicleState()
@@ -495,7 +495,12 @@ class threadLaneDetection(ThreadWithStop):
             distanceFRecv = self.distanceFrontSubscriber.receive()
             if distanceFRecv is not None:
                 self.distanceF = distanceFRecv
-                self.vehicleState.setFrontDistanceSensorValue(self.distanceF)                
+                self.vehicleState.setFrontDistanceSensorValue(self.distanceF)
+
+            #DISTANCE_RIGHT
+            distanceRRecv = self.distanceRightSubscriber.receive()
+            if distanceRRecv is not None:
+                self.distanceR = distanceRRecv    
 
             ##########################
             #semaphoreState = None
@@ -584,6 +589,7 @@ class threadLaneDetection(ThreadWithStop):
         self.LaneDetectionStartSubscriber = messageHandlerSubscriber(self.queuesList, startLaneDetection, "lastOnly", True)
         self.shMemResponseSubscriber = messageHandlerSubscriber(self.queuesList, ShMemResponse, "lastOnly", True)
         self.distanceFrontSubscriber = messageHandlerSubscriber(self.queuesList, DistanceFront, "lastOnly", True)
+        self.distanceRightSubscriber = messageHandlerSubscriber(self.queuesList, DistanceRight, "lastOnly", True)
 
         ###########
         self.semaphoresSubscriber = messageHandlerSubscriber( self.queuesList, Semaphores, "fifo", True )

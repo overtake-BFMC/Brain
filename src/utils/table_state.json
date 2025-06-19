@@ -13,8 +13,8 @@
         "checked": false,
         "hasChanged": false
     },
-        {
-        "channel": "ToggleDistanceSensor",
+    {
+        "channel": "ToggleDistanceSensorFront",
         "value": "False",
         "initialValue": "True",
         "interval": 0,
@@ -24,6 +24,20 @@
             "False"
         ],
         "command": "distanceF",
+        "checked": false,
+        "hasChanged": false
+    },
+    {
+        "channel": "ToggleDistanceSensorRight",
+        "value": "False",
+        "initialValue": "True",
+        "interval": 0,
+        "type": "dropdown",
+        "values": [
+            "True",
+            "False"
+        ],
+        "command": "distanceR",
         "checked": false,
         "hasChanged": false
     },

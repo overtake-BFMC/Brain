@@ -93,7 +93,7 @@ logger = logging.getLogger()
 #loglistenerThread.start()
 
 Dashboard = True
-toRecompileDashboard = False
+toRecompileDashboard = True
 
 Camera = True
 Semaphores = True

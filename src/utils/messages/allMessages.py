@@ -217,7 +217,7 @@ class SelectTrackNo(Enum):
     msgID = 22
     msgType = "int"
 
-class ToggleDistanceSensor(Enum):
+class ToggleDistanceSensorFront(Enum):
     Queue = "General"
     Owner = "Dashboard"
     msgID = 23
@@ -282,6 +282,13 @@ class SetHeadlight(Enum):
     Owner = "Dashboard"
     msgID = 33
     msgType = "dict"
+
+class ToggleDistanceSensorRight(Enum):
+    Queue = "General"
+    Owner = "Dashboard"
+    msgID = 34
+    msgType = "str"
+
 ################################# From WebRTC(Video Stream) ##################################
 class WebRTCAnswer(Enum):
     Queue = "General"

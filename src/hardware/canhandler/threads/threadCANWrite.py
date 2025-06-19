@@ -9,7 +9,8 @@ from src.utils.messages.allMessages import (
     ToggleResourceMonitor,
     MsgACK,
     ToggleWhiteLineSensor,
-    ToggleDistanceSensor,
+    ToggleDistanceSensorFront,
+    ToggleDistanceSensorRight,
     ManualPWMSpeedMotor,
     ManualPWMSteerMotor,
     FillHeadlights,
@@ -68,6 +69,7 @@ class threadCANWrite(ThreadWithStop):
                         self.engineEnabled = True
                         command = struct.pack("<i", 30)
                         self.sendToCAN(0x100, command)
+                        self.turnOnHeadlights()
                     elif klRecv == "15":
                         self.running = True
                         self.engineEnabled = False
@@ -78,6 +80,7 @@ class threadCANWrite(ThreadWithStop):
                         self.engineEnabled = False
                         command = struct.pack("<i", 0)
                         self.sendToCAN(0x100, command)
+                        self.turnOffHeadlights()
 
                 if self.running:
                     if self.engineEnabled:
@@ -129,10 +132,15 @@ class threadCANWrite(ThreadWithStop):
                         command = struct.pack("<B", int(imuToggleRecv))
                         self.sendToCAN(0x137, command)
 
-                    distanceToggleRecv = self.distanceToggleSubscriber.receive()
-                    if distanceToggleRecv is not None:
-                        command = struct.pack("<B", int(distanceToggleRecv))
+                    distanceFrontToggleRecv = self.distanceToggleFrontSubscriber.receive()
+                    if distanceFrontToggleRecv is not None:
+                        command = struct.pack("<B", int(distanceFrontToggleRecv))
                         self.sendToCAN(0x13C, command)
+
+                    distanceRightToggleRecv = self.distanceToggleRightSubscriber.receive()
+                    if distanceFrontToggleRecv is not None:
+                        command = struct.pack("<B", int(distanceRightToggleRecv))
+                        self.sendToCAN(0x13D, command)
 
                     whiteLineToggleRecv = self.whiteLineToggleSubscriber.receive()
                     if whiteLineToggleRecv is not None:
@@ -146,11 +154,42 @@ class threadCANWrite(ThreadWithStop):
 
                     setHeadlightRecv = self.setHeadlightSubscriber.receive()
                     if setHeadlightRecv is not None:
-                        commad = struct.pack("<BBBBB", int(setHeadlightRecv["LEDPos"]), int(setHeadlightRecv["Red"]), int(setHeadlightRecv["Green"]), int(setHeadlightRecv["Blue"]), int(setHeadlightRecv["Brightness"]))
+                        command = struct.pack("<BBBBB", int(setHeadlightRecv["LEDPos"]), int(setHeadlightRecv["Red"]), int(setHeadlightRecv["Green"]), int(setHeadlightRecv["Blue"]), int(setHeadlightRecv["Brightness"]))
                         self.sendToCAN(0x141, command)
                         
             except Exception as e:
                 pass
+
+    def turnOnHeadlights(self):
+        command = struct.pack("<BBBBB", int(0), int(255), int(255), int(255), int(255))
+        self.sendToCAN(0x141, command)
+        command = struct.pack("<BBBBB", int(1), int(255), int(255), int(255), int(255))
+        self.sendToCAN(0x141, command)
+        command = struct.pack("<BBBBB", int(2), int(255), int(255), int(255), int(255))
+        self.sendToCAN(0x141, command)
+        command = struct.pack("<BBBBB", int(3), int(255), int(255), int(255), int(255))
+        self.sendToCAN(0x141, command)
+        command = struct.pack("<BBBBB", int(17), int(255), int(255), int(255), int(255))
+        self.sendToCAN(0x141, command)
+        command = struct.pack("<BBBBB", int(16), int(255), int(255), int(255), int(255))
+        self.sendToCAN(0x141, command)
+        command = struct.pack("<BBBBB", int(15), int(255), int(255), int(255), int(255))
+        self.sendToCAN(0x141, command)
+        command = struct.pack("<BBBBB", int(14), int(255), int(255), int(255), int(255))
+        self.sendToCAN(0x141, command)
+
+    def turnOffHeadlights(self):
+        command = struct.pack("<BBBB", int(0), int(0), int(0), int(0))
+        self.sendToCAN(0x140, command)
+        command = struct.pack("<BBBB", int(0), int(0), int(0), int(0))
+        self.sendToCAN(0x140, command)
+
+    def start(self):
+        command = struct.pack("<i", 0)
+        self.sendToCAN(0x100, command)
+        self.turnOffHeadlights()
+        time.sleep(1)
+        super(threadCANWrite, self).start()
 
     def stop(self):
         command = struct.pack("<i", 0)
@@ -168,7 +207,8 @@ class threadCANWrite(ThreadWithStop):
         self.resourceMonitorToggleSubscriber = messageHandlerSubscriber(self.queuesList, ToggleResourceMonitor, "lastOnly", True)
         self.imuToggleSubscriber = messageHandlerSubscriber(self.queuesList, ToggleImuData, "lastOnly", True)
         self.messageACKSubscriber = messageHandlerSubscriber(self.queuesList, MsgACK, "fifo", False)
-        self.distanceToggleSubscriber = messageHandlerSubscriber(self.queuesList, ToggleDistanceSensor, "lastOnly", True)
+        self.distanceToggleFrontSubscriber = messageHandlerSubscriber(self.queuesList, ToggleDistanceSensorFront, "lastOnly", True)
+        self.distanceToggleRightSubscriber = messageHandlerSubscriber(self.queuesList, ToggleDistanceSensorRight, "lastOnly", True)
         self.whiteLineToggleSubscriber = messageHandlerSubscriber(self.queuesList, ToggleWhiteLineSensor, "lastOnly", True)
         self.manualPWMSpeedMotorSubscriber = messageHandlerSubscriber(self.queuesList, ManualPWMSpeedMotor, "lastOnly", True)
         self.manualPWMSteerMotorSubscriber = messageHandlerSubscriber(self.queuesList, ManualPWMSteerMotor, "lastOnly", True)
