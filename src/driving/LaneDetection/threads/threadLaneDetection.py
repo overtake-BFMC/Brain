@@ -39,7 +39,7 @@ CLASSES_ROI = [
     [300, 0, 650, 370], #closed-road-stand NEW
 
 
-    [700, 90, 900, 220], #crosswalk-sign 
+    [650, 50, 900, 220], #crosswalk-sign 
     # [700, 90, 850, 220], #crosswalk-sign NEW
 
     [700, 90, 900, 220], #highway-entry-sign 3
@@ -98,7 +98,8 @@ class threadLaneDetection(ThreadWithStop):
 
         # self.pid = PID.PIDController( Kp = 0.15, Ki = 0.05, Kd = 0.09 ) #40cms
 
-        self.Kp = 0.2
+        self.Kp = 0.15
+        # self.Kp = 0.2
         self.Ki = 0.03
         self.Kd = 0.09
 
@@ -174,11 +175,11 @@ class threadLaneDetection(ThreadWithStop):
                     self.logger.info("LaneDetection VehicleState Initialized!")
 
     def isInsideROI(self, x, y, ROIBox):
-        if (ROIBox[0] <= x <= ROIBox[2] and ROIBox[1] <= y <= ROIBox[3]):
-            print(f"In roi x,y: {x}, {y}")
-            return True
-        return False
-        #return ROIBox[0] <= x <= ROIBox[2] and ROIBox[1] <= y <= ROIBox[3]
+    #     if (ROIBox[0] <= x <= ROIBox[2] and ROIBox[1] <= y <= ROIBox[3]):
+    #         print(f"In roi x,y: {x}, {y}")
+    #         return True
+    #     return False
+        return ROIBox[0] <= x <= ROIBox[2] and ROIBox[1] <= y <= ROIBox[3]
 
     def makeDecision(self, detections, bufferDetections, timer ):
         
@@ -225,15 +226,11 @@ class threadLaneDetection(ThreadWithStop):
                     boolDetections[i] = True
 
 
-        boolDetections[1] = True
-        if boolDetections[1]:
-            print("CLOSED ROAD STAND")
-
     
         if boolDetections[1] and not self.vehicleState.getStateSignal(stateSignalType.APROACHING_ROADBLOCK):
             # self.vehicleState.setStateSignal(stateSignalType.APROACHING_ROADBLOCK, True)
 
-            if self.distanceF < 80:
+            if self.distanceF < 99:
                 boolDetections[1] = False
                 self.vehicleState.setStateSignal(stateSignalType.APROACHING_ROADBLOCK, True)
                 self.vehicleState.setStateSignal(stateSignalType.ROADBLOCK_MANEUVER, True)
@@ -545,11 +542,14 @@ class threadLaneDetection(ThreadWithStop):
 
                 speedDiff = np.abs(self.vehicleState.getSpeed() - self.initialSpeed)
                 if 5 < speedDiff <= 15:
-                    self.Kp = 0.19
+                    # self.Kp = 0.19
+                    self.Kp = 0.15
                 elif  15 < speedDiff <= 25:
-                    self.Kp = 0.18
+                    # self.Kp = 0.18
+                    self.Kp = 0.15
                 else:
-                    self.Kp = 0.2
+                    # self.Kp = 0.20
+                    self.Kp = 0.15
 
                 # print(f"speed;: {self.vehicleState.getSpeed()}  KP: {self.Kp}")
                         
