@@ -89,6 +89,7 @@ class processDashboard(WorkerProcess):
         #self.messagesAndVals.pop("releaseShMem", None)
         self.messagesAndVals.pop("ShMemConfig", None)
         self.messagesAndVals.pop("ShMemResponse", None)
+        self.messagesAndVals.pop("TrafficComInternal", None) #####TEST
         self.subscribe()
 
         # define WebSocket event handlers

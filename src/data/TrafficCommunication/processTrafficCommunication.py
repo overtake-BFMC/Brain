@@ -37,6 +37,7 @@ from src.templates.workerprocess import WorkerProcess
 from src.data.TrafficCommunication.threads.threadTrafficCommunicaiton import (
     threadTrafficCommunication,
 )
+from src.data.TrafficCommunication.threads.threadTrafficComInternal import threadTrafficCOmInternal
 #from src.utils.logger.setupLogger import LoggerConfigs, configLogger
 
 class processTrafficCommunication(WorkerProcess):
@@ -53,10 +54,11 @@ class processTrafficCommunication(WorkerProcess):
     def __init__(self, queueList, deviceID, logger, debugging = False, frequency=1):
         self.queuesList = queueList
         self.shared_memory = sharedMem()
-        self.filename = "src/data/TrafficCommunication/useful/publickey_server_test.pem"
+        #self.filename = "src/data/TrafficCommunication/useful/publickey_server_test.pem"
+        self.filename = "src/data/TrafficCommunication/useful/publickey_server.pem"
         self.deviceID = deviceID
         self.frequency = frequency
-        #self.loggingQueue = loggingQueue
+        self.logger = logger
         self.debugging = debugging
         #self.logger = configLogger(LoggerConfigs.WORKER, __name__, self.loggingQueue)
         super(processTrafficCommunication, self).__init__(self.queuesList)
@@ -83,7 +85,11 @@ class processTrafficCommunication(WorkerProcess):
         TrafficComTh = threadTrafficCommunication(
             self.shared_memory, self.queuesList, self.deviceID, self.frequency, self.filename
         )
+        # TrafficComIntTh = threadTrafficCOmInternal(
+        #     self.shared_memory, self.queuesList, self.debugging
+        # )
         self.threads.append(TrafficComTh)
+        #self.threads.append(TrafficComIntTh)
 
 
 # =================================== EXAMPLE =========================================
