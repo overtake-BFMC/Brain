@@ -96,7 +96,7 @@ Dashboard = True
 toRecompileDashboard = False
 
 Camera = True
-Semaphores = True
+Semaphores = False
 TrafficCommunication = False
 SerialHandler = False
 
@@ -122,9 +122,10 @@ processSharedMemoryGateway = processSharedMemoryGateway(queueList, logger, debug
 processSharedMemoryGateway.start()
 
 # Ip replacement
-path = './src/dashboard/frontend/src/app/webSocket/web-socket.service.ts'
-IpChanger = IPManager(path)
-IpChanger.replace_ip_in_file()
+# path = './src/dashboard/frontend/src/app/webSocket/web-socket.service.ts'
+# IpChanger = IPManager(path)
+# IpChanger.replace_ip_in_file()
+#http://192.168.50.115:5005
 
 # Initializing dashboard
 if Dashboard:

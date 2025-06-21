@@ -115,20 +115,20 @@ class threadPathFollowing(ThreadWithStop):
                 self.chosenTrack = trackChoice
                 
                 if self.chosenTrack == 0:
-                    #ROUNDABOUT RUN
+                    #ROUNDABOUT RUN desno skretanje
 
-                    speed = 20
+                    self.WhitelinePosition = (1622.1, 952.7)
+
+                    speed = 15
                     self.lookAheadDistance = speed * self.lookAheadValue
-                    yaw = 0
+                    yaw = 90
 
                     if self.waypoints:
                         self.waypoints.clear() 
 
-                    #old map
-                    self.waypoints.extend(range(198, 231))
-
-
-                    # self.waypoints.extend(range(3,11))
+                    self.waypoints.extend(range(315, 318))
+                    self.waypoints.extend(range(332, 333))
+                    self.waypoints.extend(range(368, 370))
 
                     if len(self.path):
                         self.path = np.array([])
@@ -168,39 +168,38 @@ class threadPathFollowing(ThreadWithStop):
                     self.vehicle.updateVehicleState(speed, self.nodes[self.waypoints[0]][0], self.nodes[self.waypoints[0]][1], np.deg2rad(yaw))
 
                 elif self.chosenTrack == 2:
-                    #INTERSECTION RUN
-                    
-                    speed = 25
-                    self.lookAheadDistance = speed * self.lookAheadValue
-                    # yaw = 180
+                    #right turn
 
-                    #old map right
-                    yaw = 180
+                    self.WhitelinePosition = (288.0, 599.6)
+                    
+                    speed = 15
+                    self.lookAheadDistance = speed * self.lookAheadValue
+
+                    yaw = 90
 
                     if self.waypoints:
                         self.waypoints.clear() 
 
-                    self.waypoints.extend(range(44, 45))
-                    self.waypoints.extend(range(89, 90))
-                    self.waypoints.extend(range(79, 80))
-                    self.waypoints.extend(range(92, 95))
-                    self.waypoints.extend(range(88, 89))
-                    
+                    self.waypoints.extend(range(135, 138))
+                    self.waypoints.extend(range(16, 17))
+                    self.waypoints.extend(range(2000, 2001))
+                    self.waypoints.extend(range(17, 18))
+                    self.waypoints.extend(range(149, 150))
 
 
                     if len(self.path):
                         self.path = np.array([])
 
                     self.path = [(self.nodes[pointId][0], self.nodes[pointId][1]) for pointId in self.waypoints]
-                    # self.path = self.densify_path(self.path, 15.0)
-                    
                     self.pathLength = len(self.path)
 
                     self.vehicle.updateVehicleState(speed, self.nodes[self.waypoints[0]][0], self.nodes[self.waypoints[0]][1], np.deg2rad(yaw))
                 elif self.chosenTrack == 3:
-                    ##CURVE RUN
+                    ##left turn
 
-                    speed = 20
+                    self.WhitelinePosition = (288.0, 599.6)
+
+                    speed = 15
                     self.lookAheadDistance = speed * self.lookAheadValue
 
                     yaw = 90
@@ -208,11 +207,11 @@ class threadPathFollowing(ThreadWithStop):
                     if self.waypoints:
                         self.waypoints.clear()
 
-                    self.waypoints.extend(range(96, 98))
-                    self.waypoints.extend(range(81, 82))
-                    self.waypoints.extend(range(78, 79))
-                    self.waypoints.extend(range(87, 89))
-                    self.waypoints.extend(range(40, 41))
+                    self.waypoints.extend(range(135, 138))
+                    self.waypoints.extend(range(16, 7))
+                    self.waypoints.extend(range(13, 14))
+                    self.waypoints.extend(range(148, 149))
+
 
                     if len(self.path):
                         self.path = np.array([])
@@ -503,6 +502,31 @@ class threadPathFollowing(ThreadWithStop):
 
         self.path = new_path + remaining_path[index:]
         self.pathLength = len(self.path)
+
+    def computeSteer(self, target_x, target_y):
+
+        vehicleX, vehicleY, vehicleYaw = self.vehicle.getPosition()
+        _, _, wheelbase = self.vehicle.getSpeedSteerWheelbase()
+
+        dx = target_x - vehicleX
+        dy = target_y - vehicleY
+        distance = np.hypot(dx, dy)
+
+        heading_vec = (np.cos(vehicleYaw), np.sin(vehicleYaw))
+        target_vec = (dx, dy)
+
+        dot = heading_vec[0] * target_vec[0] + heading_vec[1] * target_vec[1]
+        det = heading_vec[0] * target_vec[1] - heading_vec[1] * target_vec[0]
+        theta = np.arctan2(det, dot)
+
+        if abs(np.sin(theta)) < 1e-6:
+            return 0.0
+
+        R = distance / (2 * np.sin(theta))
+        delta = np.arctan(wheelbase / R)
+        
+        return np.clip(delta, -self.maxSteeringRadians, self.maxSteeringRadians)
+    
     
     def purePursuit(self):
 
@@ -529,6 +553,8 @@ class threadPathFollowing(ThreadWithStop):
 
         # self.speedMotorSender.send(str(np.clip(vehicleSpeed*10, -500, 500)))
 
+
+        flagWhiteline = False
         targetX, targetY = self.findLookAheadPoint(lastPathPointId)
         while targetX and targetY: 
 
@@ -552,10 +578,7 @@ class threadPathFollowing(ThreadWithStop):
             # print(f"{g1} {g2} {np.rad2deg(g3)}  {np.rad2deg(vehicleSteeringAngle)}")
 
             distanceToTarget = self.calculateDistanceToTarget(targetX, targetY)
-            alpha = self.calculateAlphaSteer(targetX, targetY)
-
-            vehicleSteeringAngle = np.arctan2( 2 * vehicleWheelbase * np.sin(alpha), distanceToTarget)
-            vehicleSteeringAngle = np.clip(vehicleSteeringAngle, -self.maxSteeringRadians, self.maxSteeringRadians)
+            vehicleSteeringAngle = self.computeSteer(targetX, targetY)
             self.vehicle.setSteeringAngle(vehicleSteeringAngle)
 
             if np.abs(np.rad2deg(vehicleSteeringAngle)) >= 5:
@@ -567,19 +590,23 @@ class threadPathFollowing(ThreadWithStop):
             # self.KFLocalization.prediction([vehicleX, vehicleY, vehicleYaw], vehicleSpeed, vehicleSteeringAngle, vehicleWheelbase )
 
             whiteLine = self.whiteLineSubscriber.receive()
-            if whiteLine is not None and whiteLine and self.vehicle.getStateSignal(stateSignalType.APROACHING_INTERSECTION):
-                self.vehicle.setStateSignal(stateSignalType.IN_INTERSECION, True)
-                self.vehicle.setStateSignal(stateSignalType.APROACHING_INTERSECTION, False)
+            # if whiteLine is not None and whiteLine and self.vehicle.getStateSignal(stateSignalType.APROACHING_INTERSECTION):
+            #     self.vehicle.setStateSignal(stateSignalType.IN_INTERSECION, True)
+            #     self.vehicle.setStateSignal(stateSignalType.APROACHING_INTERSECTION, False)
                 # g1, g2, g3 = self.vehicle.getPosition()
                 # print(f"{g1} {g2} {np.rad2deg(g3)}  {np.rad2deg(vehicleSteeringAngle)}")
                 # # break
                 # # self.vehicle.setPosition(156.0, 1336.0, vehicleYaw)
                 # g1, g2, g3 = self.vehicle.getPosition()
                 # print(f"{g1} {g2} {np.rad2deg(g3)}  {np.rad2deg(vehicleSteeringAngle)}")
+            
+           
 
-
-            # if whiteLine is not None and whiteLine:
-
+            if whiteLine is not None and whiteLine and not flagWhiteline:
+                x, y = self.WhitelinePosition
+                self.vehicle.setPosition(x, y, vehicleYaw)
+                flagWhiteline = True
+                
                 # self.startLaneDetectionSender.send("false")
                 # self.vehicle.setStateSignal(stateSignalType.IN_INTERSECION, True)
                 # self.vehicle.setStateSignal(stateSignalType.APROACHING_INTERSECTION, False)
@@ -587,15 +614,18 @@ class threadPathFollowing(ThreadWithStop):
                 # self.vehicle.setPosition(156.0, 1336.0, vehicleYaw)
                 # print(f"{self.vehicle.getPosition()} correction")
 
-                
-
             steeringAngleSend = round(np.rad2deg(vehicleSteeringAngle)) * 10
-            print(f"Send steering angle: {steeringAngleSend}")
-            # self.steerMotorSender.send(str(steeringAngleSend))
 
-            if self.vehicle.getStateSignal(stateSignalType.IN_INTERSECION):
+            if flagWhiteline:
+                self.steerMotorSender.send(str(-steeringAngleSend))
+                print(f"Send steering angle: {steeringAngleSend}")
+
+
+            # self.steerMotorSender.send(str(-steeringAngleSend))
+
+            # if self.vehicle.getStateSignal(stateSignalType.IN_INTERSECION):
                 # self.startLaneDetectionSender.send("false")
-                self.steerMotorSender.send(str(steeringAngleSend))
+                # self.steerMotorSender.send(str(-steeringAngleSend))
                 # 
                 # if steeringAngleSend > 100:
                     # isTurning = True
@@ -678,7 +708,7 @@ class threadPathFollowing(ThreadWithStop):
         plt.title("Path Following with Pure Pursuit")
         plt.xlabel("X (cm)")
         plt.ylabel("Y (cm)")
-        plt.gca().invert_yaxis()
+        # plt.gca().invert_yaxis()
 
         plt.legend()
         plt.grid(True)

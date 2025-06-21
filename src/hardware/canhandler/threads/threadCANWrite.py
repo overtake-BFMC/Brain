@@ -69,7 +69,7 @@ class threadCANWrite(ThreadWithStop):
                         self.engineEnabled = True
                         command = struct.pack("<i", 30)
                         self.sendToCAN(0x100, command)
-                        self.turnOnHeadlights()
+                        #self.turnOnHeadlights()
                     elif klRecv == "15":
                         self.running = True
                         self.engineEnabled = False
@@ -80,7 +80,7 @@ class threadCANWrite(ThreadWithStop):
                         self.engineEnabled = False
                         command = struct.pack("<i", 0)
                         self.sendToCAN(0x100, command)
-                        self.turnOffHeadlights()
+                        #self.turnOffHeadlights()
 
                 if self.running:
                     if self.engineEnabled:
@@ -187,7 +187,7 @@ class threadCANWrite(ThreadWithStop):
     def start(self):
         command = struct.pack("<i", 0)
         self.sendToCAN(0x100, command)
-        self.turnOffHeadlights()
+        #self.turnOffHeadlights()
         time.sleep(1)
         super(threadCANWrite, self).start()
 
