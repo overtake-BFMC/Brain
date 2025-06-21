@@ -10,7 +10,8 @@ from src.utils.messages.allMessages import (
     DistanceFront,
     WarningSignal,
     Semaphores,
-    DistanceRight
+    DistanceRight,
+    TrafficComInternal
 )
 from src.utils.messages.messageHandlerSubscriber import messageHandlerSubscriber
 from src.utils.messages.messageHandlerSender import messageHandlerSender
@@ -88,6 +89,9 @@ class threadLaneDetection(ThreadWithStop):
         self.steerMotorSender = messageHandlerSender(self.queuesList, SteerMotor)
         self.speedMotorSender = messageHandlerSender(self.queuesList, SpeedMotor)
         self.warningSignalSender = messageHandlerSender(self.queuesList, WarningSignal)
+        self.trafficCommInternalSender = messageHandlerSender(self.queuesList, TrafficComInternal) ## SEND THROUGH HERE
+        #IN FORMAT
+        #["devicePos" , "val1", "val2", "val3"]
 
         self.kf = KalmanFilter_LANE()
 

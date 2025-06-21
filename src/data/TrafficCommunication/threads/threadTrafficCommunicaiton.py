@@ -32,6 +32,11 @@ from src.templates.threadwithstop import ThreadWithStop
 from src.data.TrafficCommunication.threads.udpListener import udpListener
 from src.data.TrafficCommunication.threads.tcpClient import tcpClient
 from src.data.TrafficCommunication.useful.periodicTask import periodicTask
+from src.utils.messages.messageHandlerSubscriber import messageHandlerSubscriber
+from src.utils.messages.allMessages import (
+    TrafficComInternal
+)
+import time
 
 
 class threadTrafficCommunication(ThreadWithStop):
@@ -59,6 +64,8 @@ class threadTrafficCommunication(ThreadWithStop):
         self.reactor = reactor
         self.reactor.listenUDP(self.listenPort, self.udp_factory)
 
+        self.subscribe()
+
     # =================================== CONNECTION =======================================
     def serverLost(self):
         """If the server disconnects, we stop the factory listening and start the reactor listening"""
@@ -80,7 +87,16 @@ class threadTrafficCommunication(ThreadWithStop):
     def run(self):
         self.reactor.run(installSignalHandlers=False)
 
+        trafficRecv = self.trafficComInternalSubscriber.receive()
+        if trafficRecv is not None:
+            self.sharedMemory.insert(trafficRecv[0], trafficRecv[1:3])
+
+            time.sleep(0.05)
+
     # ====================================== STOP ==========================================
     def stop(self):
         self.reactor.stop()
         super(threadTrafficCommunication, self).stop()
+
+    def subscribe(self):
+        self.trafficComInternalSubscriber = messageHandlerSubscriber(self.queueslist, TrafficComInternal, "fifo", True)

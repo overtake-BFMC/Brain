@@ -289,6 +289,12 @@ class ToggleDistanceSensorRight(Enum):
     msgID = 34
     msgType = "str"
 
+class TrafficComInternal(Enum):
+    Queue = "General"
+    Owner = "Dashboard"
+    msgID = 35
+    msgType = "dict"
+
 ################################# From WebRTC(Video Stream) ##################################
 class WebRTCAnswer(Enum):
     Queue = "General"
