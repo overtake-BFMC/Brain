@@ -131,6 +131,14 @@ class threadLaneDetection(ThreadWithStop):
         self.isInRoundabout = False
         self.parkingSignFlag = False
 
+        self.aproachingSign = False
+        self.aproachingSignID = None
+        self.atSign = False
+
+        self.aproachingObsticle = False
+        self.aproachingObsticleID = None
+        self.detectedObsticle = False
+
         self.distanceF = 99
         self.distanceR = 99
 
@@ -245,6 +253,8 @@ class threadLaneDetection(ThreadWithStop):
                 # self.vehicleState.setStateSignal(stateSignalType.APROACHING_ROADBLOCK, False)
 
         if boolDetections[2]: #crosswalk-sign
+            self.aproachingSign = True
+            self.aproachingSignID = 4
             #trafficComunicationID = 4 
             print("crosswalk detected")
             isDetected = True
@@ -257,6 +267,8 @@ class threadLaneDetection(ThreadWithStop):
                 timer[2][2] = 10.0
             self.warningSignalSender.send({"WarningName":"Crosswalk Ahead", "WarningID": 4})
         if boolDetections[12][0] and boolDetections[9][1]: #stop-line and pedestrian
+            self.aproachingObsticle = True
+            self.aproachingObsticleID = 11
             #THIS NEEDS TO BE CHANGED
             print("pedestrian on crosswalk")
             #trafficComunicationID = 11 
@@ -265,17 +277,22 @@ class threadLaneDetection(ThreadWithStop):
             isDetected = True
             self.warningSignalSender.send({"WarningName":"Pedestrian on Crosswalk", "WarningID": 11})
         if boolDetections[3]: #highwayEntry
+            self.aproachingSign = True
+            self.aproachingSignID = 5
             #trafficComunicationID = 5 
             desiredSpeed = 40
 
             self.isOnHighway = True
             self.warningSignalSender.send({"WarningName":"Highway Ahead", "WarningID": 6})
         if boolDetections[4]:  #highwayExit
+            self.aproachingSign = True
+            self.aproachingSignID = 6
             #trafficComunicationID = 6 
             self.isOnHighway = False
             self.warningSignalSender.send({"WarningName":"Highway Exit", "WarningID": 7})
         if boolDetections[9][0]: #pedestrian on road
-
+            self.aproachingObsticle = True
+            self.aproachingObsticleID = 12
             print( "pedestrian on road" )
             #trafficComunicationID = 12
             desiredSpeed = 0
@@ -283,7 +300,9 @@ class threadLaneDetection(ThreadWithStop):
 
             self.warningSignalSender.send({"WarningName":"Pedestrian On Road", "WarningID": 12})
 
-        if boolDetections[13]:
+        if boolDetections[13]: #alone stop sign
+            self.aproachingSign = True
+            self.aproachingSignID = 1
             self.vehicleState.setStateSignal(stateSignalType.APROACHING_INTERSECTION, True)
             
         if boolDetections[12][1] and boolDetections[13]: #stop-sign and stop line
@@ -311,6 +330,8 @@ class threadLaneDetection(ThreadWithStop):
             # print( "one way road" ) 
 
         if boolDetections[10]: #priority
+            self.aproachingSign = True
+            self.aproachingSignID = 2
             #trafficComunicationID = 4 
             self.warningSignalSender.send({"WarningName":"Priority Ahead", "WarningID": 13})
 
@@ -321,6 +342,8 @@ class threadLaneDetection(ThreadWithStop):
             # timer[2][1] = time.perf_counter()
             # timer[2][2] = 6.0
         if boolDetections[11]: #roundabout
+            self.aproachingSign = True
+            self.aproachingSignID = 7
             #trafficComunicationID = 7
             self.vehicleState.setStateSignal(stateSignalType.APROACHING_INTERSECTION, True)
 
@@ -328,6 +351,8 @@ class threadLaneDetection(ThreadWithStop):
             self.warningSignalSender.send({"WarningName":"Roundabout Ahead", "WarningID": 15})
 
         if boolDetections[7]: #Parking Sign
+            self.aproachingSign = True
+            self.aproachingSignID = 3
             #trafficComunicationID = 3 
             self.parkingSignFlag = True
 
@@ -339,13 +364,15 @@ class threadLaneDetection(ThreadWithStop):
         #print("Timer2 : ", timer[2])
 
         if boolDetections[5]: #real no entry sign implementation
+            self.aproachingSign = True
+            self.aproachingSignID = 9
             #trafficComunicationID = 9
 
             self.warningSignalSender.send({"WarningName":"No Entry Sign", "WarningID": 12})
             desiredSpeed = 0
 
-        if boolDetections[0]:
-            if self.parkingSignFlag:
+        if boolDetections[0]:   
+            if self.parkingSignFlag: #add aproaching parking kad prvi put vidi parking, in parking kad izgubi sign 
                 print("static car on parking spot")
 
             # print("car")
@@ -353,6 +380,8 @@ class threadLaneDetection(ThreadWithStop):
         ######### THIS IS TRAFFIC-LIGHT FOR TESTING ########
         if boolDetections[14] or self.redLightFlag: #THIS IS TRAFIC LIGHT
             #trafficComunicationID = 14 
+            self.aproachingSign = True
+            self.aproachingSignID = 14
 
             print("semaphore detected")
 
@@ -420,17 +449,47 @@ class threadLaneDetection(ThreadWithStop):
                 timer[2][2] = 0
                 self.LANEFOL.crosswalk_active = False
 
+        if not self.atSign and self.aproachingSign and self.distanceR < 25 and self.aproachingSignID is not None:
+            #At sign flag should be while distanceR is less than 25 to not have duplicate sendings
+            x, y, yaw = self.vehicleState.getPosition()
+            signX = x + np.cos(yaw) + self.distanceR
+            signY = y + np.sin(yaw) + self.distanceR
+            #poslati na tcsystem
+            self.trafficCommInternalSender.send({"dataType": "historyData", "vals": [signX, signY, self.aproachingSignID]})
+            self.aproachingSignID = None
+            self.aproachingSign = False
+            self.atSign = True
+
+        if self.atSign and self.distanceR > 25:
+            self.atSign = False
+
+        if not self.detectedObsticle and self.aproachingObsticle and self.distanceF < 50 and self.aproachingObsticleID is not None:
+            x, y, yaw = self.vehicleState.getPosition()
+            obsticleX = x + np.cos(yaw) + self.distanceF
+            obsitcleY = y + np.sin(yaw) + self.distanceF
+
+            self.trafficCommInternalSender.send({"dataType": "historyData", "vals": [obsticleX, obsitcleY, self.aproachingObsticleID]})
+            self.aproachingObsticleID = None
+            self.aproachingObsticle = False
+            self.detectedObsticle = True
+
+        if self.detectedObsticle and self.distanceF > 50:
+            self.detectedObsticle = False
+
+
         if not isDetected and \
             not self.isOnHighway and \
             not self.redLightFlag and \
             not self.vehicleState.getStateSignal(stateSignalType.IN_INTERSECION) and \
             not self.vehicleState.getStateSignal(stateSignalType.APROACHING_ROADBLOCK) and \
             not self.vehicleState.getStateSignal(stateSignalType.ROADBLOCK_MANEUVER):
-                self.vehicleState.setSpeed(25)
+                desiredSpeed = 25
+                self.vehicleState.setSpeed(desiredSpeed) #25
             #desiredSpeed = 20
         else:
             self.vehicleState.setSpeed(desiredSpeed)
             
+        self.trafficCommInternalSender.send({"dataType": "deviceSpeed", "vals": [desiredSpeed]})
 
     def run(self):
         PIDStepValue = 0.01

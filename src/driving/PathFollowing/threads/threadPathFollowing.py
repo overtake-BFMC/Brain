@@ -16,7 +16,8 @@ from src.utils.messages.allMessages import (
     SetManualPWMSpeed,
     SetCalibrationSteer,
     SetManualPWMSteer,
-    ManualPWMSteerMotor
+    ManualPWMSteerMotor,
+    TrafficComInternal
 )
 from src.utils.messages.messageHandlerSubscriber import messageHandlerSubscriber
 from src.utils.messages.messageHandlerSender import messageHandlerSender
@@ -63,6 +64,7 @@ class threadPathFollowing(ThreadWithStop):
         self.startLaneDetectionSender = messageHandlerSender(self.queuesList, startLaneDetection)
         self.manualPWMSpeedSender = messageHandlerSender(self.queuesList, ManualPWMSpeedMotor)
         self.manualPWMSteerSender = messageHandlerSender(self.queuesList, ManualPWMSteerMotor)
+        self.trafficCommInternalSender = messageHandlerSender(self.queuesList, TrafficComInternal)
 
         self.lookAheadValue = lookAheadValue
         self.lookAheadDistance =  15
@@ -598,6 +600,9 @@ class threadPathFollowing(ThreadWithStop):
             vehicleX, vehicleY, vehicleYaw = self.vehicle.getPosition()
 
             # self.KFLocalization.prediction([vehicleX, vehicleY, vehicleYaw], vehicleSpeed, vehicleSteeringAngle, vehicleWheelbase )
+            ###DATA SENDIING
+            self.trafficCommInternalSender.send({"dataType": "devicePos", "vals": [vehicleX, vehicleY]})
+            self.trafficCommInternalSender.send({"dataType": "deviceRot", "vals": [vehicleYaw]})
 
             whiteLine = self.whiteLineSubscriber.receive()
             if whiteLine is not None and whiteLine and self.vehicle.getStateSignal(stateSignalType.APROACHING_INTERSECTION):

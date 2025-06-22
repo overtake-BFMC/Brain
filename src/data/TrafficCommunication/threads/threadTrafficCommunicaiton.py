@@ -89,8 +89,15 @@ class threadTrafficCommunication(ThreadWithStop):
 
         trafficRecv = self.trafficComInternalSubscriber.receive()
         if trafficRecv is not None:
-            self.sharedMemory.insert(trafficRecv[0], trafficRecv[1:3])
+            self.sharedMemory.insert(trafficRecv["dataType"], trafficRecv["vals"])
+            #In form of:
+            #["dataType": "devicePos", "vals": [val1, val2, val3]]
+            #devicePos, [v_x, v_y]
+            #deviceRot, [v_yaw]
+            #deviceSpeed, [v_spd]
+            #historyData, [o_x, o_y, o_id]
 
+            #check this sleep
             time.sleep(0.05)
 
     # ====================================== STOP ==========================================
