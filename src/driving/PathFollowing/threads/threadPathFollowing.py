@@ -532,7 +532,7 @@ class threadPathFollowing(ThreadWithStop):
 
         self.whiteLineSubscriber.subscribe()
         self.vehicle.resetStateFlags()
-        # self.startLaneDetectionSender.send("true")
+        self.startLaneDetectionSender.send("true")
 
         isTurning = False
 
@@ -554,7 +554,7 @@ class threadPathFollowing(ThreadWithStop):
         # self.speedMotorSender.send(str(np.clip(vehicleSpeed*10, -500, 500)))
 
 
-        flagWhiteline = False
+        flagZeroAngle = False
         targetX, targetY = self.findLookAheadPoint(lastPathPointId)
         while targetX and targetY: 
 
@@ -584,79 +584,40 @@ class threadPathFollowing(ThreadWithStop):
             if np.abs(np.rad2deg(vehicleSteeringAngle)) >= 5:
                 self.setTimeStep(0.03)
 
+
+            if self.vehicle.getStateSignal(stateSignalType.APROACHING_INTERSECTION):
+                 vehicleSteeringAngle = 0
+
+            steeringAngleSend = round(np.rad2deg(vehicleSteeringAngle)) * 10
+
+
             self.kinematicBicycleModel(elapsedTime)
             vehicleX, vehicleY, vehicleYaw = self.vehicle.getPosition()
 
             # self.KFLocalization.prediction([vehicleX, vehicleY, vehicleYaw], vehicleSpeed, vehicleSteeringAngle, vehicleWheelbase )
 
             whiteLine = self.whiteLineSubscriber.receive()
-            # if whiteLine is not None and whiteLine and self.vehicle.getStateSignal(stateSignalType.APROACHING_INTERSECTION):
-            #     self.vehicle.setStateSignal(stateSignalType.IN_INTERSECION, True)
-            #     self.vehicle.setStateSignal(stateSignalType.APROACHING_INTERSECTION, False)
-                # g1, g2, g3 = self.vehicle.getPosition()
-                # print(f"{g1} {g2} {np.rad2deg(g3)}  {np.rad2deg(vehicleSteeringAngle)}")
-                # # break
-                # # self.vehicle.setPosition(156.0, 1336.0, vehicleYaw)
-                # g1, g2, g3 = self.vehicle.getPosition()
-                # print(f"{g1} {g2} {np.rad2deg(g3)}  {np.rad2deg(vehicleSteeringAngle)}")
+            if whiteLine is not None and whiteLine and self.vehicle.getStateSignal(stateSignalType.APROACHING_INTERSECTION):
+                self.vehicle.setStateSignal(stateSignalType.IN_INTERSECION, True)
+                self.vehicle.setStateSignal(stateSignalType.APROACHING_INTERSECTION, False)
+                flagZeroAngle = False
             
-           
 
-            if whiteLine is not None and whiteLine and not flagWhiteline:
-                x, y = self.WhitelinePosition
-                self.vehicle.setPosition(x, y, vehicleYaw)
-                flagWhiteline = True
-                
-                # self.startLaneDetectionSender.send("false")
-                # self.vehicle.setStateSignal(stateSignalType.IN_INTERSECION, True)
-                # self.vehicle.setStateSignal(stateSignalType.APROACHING_INTERSECTION, False)
-
-                # self.vehicle.setPosition(156.0, 1336.0, vehicleYaw)
-                # print(f"{self.vehicle.getPosition()} correction")
-
-            steeringAngleSend = round(np.rad2deg(vehicleSteeringAngle)) * 10
-
-            if flagWhiteline:
+            if self.vehicle.getStateSignal(stateSignalType.IN_INTERSECION):
+                self.startLaneDetectionSender.send("false")
                 self.steerMotorSender.send(str(-steeringAngleSend))
-                print(f"Send steering angle: {steeringAngleSend}")
+
+                if np.abs(steeringAngleSend) < 70 and not flagZeroAngle:
+                    self.startLaneDetectionSender.send("true")
+                    self.vehicle.setStateSignal(stateSignalType.IN_INTERSECION, False)
+                    flagZeroAngle = True
+    
+            
 
 
-            # self.steerMotorSender.send(str(-steeringAngleSend))
+                # x, y = self.WhitelinePosition
+                # self.vehicle.setPosition(x, y, vehicleYaw)
 
-            # if self.vehicle.getStateSignal(stateSignalType.IN_INTERSECION):
-                # self.startLaneDetectionSender.send("false")
-                # self.steerMotorSender.send(str(-steeringAngleSend))
-                # 
-                # if steeringAngleSend > 100:
-                    # isTurning = True
-                    # steeringAngleSend = 220
-                    # self.steerMotorSender.send(str(steeringAngleSend))
-                # elif steeringAngleSend < -100:
-                    # isTurning = True
-                    # steeringAngleSend = -180
-                    # self.steerMotorSender.send(str(steeringAngleSend))
-                # elif isTurning and steeringAngleSend < 100 and steeringAngleSend > -100:
-                    # self.vehicle.setStateSignal(stateSignalType.IN_INTERSECION, False)
-                    # isTurning = False
-                    # self.startLaneDetectionSender.send("true")
-
-
-
-
-            # print(f"{steeringAngleSend}")
-            # self.steerMotorSender.send(str(steeringAngleSend))
-
-            # if self.vehicle.getStateSignal(stateSignalType.IN_INTERSECION):
-            #     # self.startLaneDetectionSender.send("false")
-            #     self.steerMotorSender.send(str(steeringAngleSend))
-
-            #     if np.abs(steeringAngleSend) > 90:
-            #         self.max_intersection_angle = True
-
-            #     if (np.abs(steeringAngleSend) < 50) and self.max_intersection_angle:
-            #         self.vehicle.setStateSignal(stateSignalType.IN_INTERSECION, False)
-            #         # self.startLaneDetectionSender.send("true")
-            #         self.max_intersection_angle = False
 
             # if self.vehicle.getStateSignal(stateSignalType.ROADBLOCK_MANEUVER):
 

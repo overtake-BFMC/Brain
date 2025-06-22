@@ -14,7 +14,8 @@ from src.utils.messages.allMessages import (
     ManualPWMSpeedMotor,
     ManualPWMSteerMotor,
     FillHeadlights,
-    SetHeadlight
+    SetHeadlight,
+    ToggleHeadlight
 )
 from src.utils.messages.messageHandlerSubscriber import messageHandlerSubscriber
 from src.utils.messages.messageHandlerSender import messageHandlerSender
@@ -39,6 +40,7 @@ class threadCANWrite(ThreadWithStop):
         self.logger = logger
         self.debugging = debugging
         #self.logger = configLogger(LoggerConfigs.WORKER, __name__, self.loggingQueue)
+        self.headlightState = [False] * 18
 
         self.running = False
         self.engineEnabled = False
@@ -156,9 +158,20 @@ class threadCANWrite(ThreadWithStop):
                     if setHeadlightRecv is not None:
                         command = struct.pack("<BBBBB", int(setHeadlightRecv["LEDPos"]), int(setHeadlightRecv["Red"]), int(setHeadlightRecv["Green"]), int(setHeadlightRecv["Blue"]), int(setHeadlightRecv["Brightness"]))
                         self.sendToCAN(0x141, command)
+
+                    toggleHeadlightRecv = self.toggleHeadlightSubscriber.receive()
+                    if toggleHeadlightRecv is not None:
+                        self.ToggleSpecificHeadlight(int(toggleHeadlightRecv))
                         
             except Exception as e:
                 pass
+
+    def ToggleSpecificHeadlight(self, LEDPos):
+        if(LEDPos < 0 and LEDPos > 18):
+            return
+        self.headlightState[LEDPos-1] = not self.headlightState[LEDPos-1]
+        command = struct.pack("<BBBBB", int(1 if self.headlightState[LEDPos-1] else 0), int(255), int(255), int(255), int(255))
+        self.sendToCAN(0x141, command)
 
     def turnOnHeadlights(self):
         command = struct.pack("<BBBBB", int(0), int(255), int(255), int(255), int(255))
@@ -214,3 +227,4 @@ class threadCANWrite(ThreadWithStop):
         self.manualPWMSteerMotorSubscriber = messageHandlerSubscriber(self.queuesList, ManualPWMSteerMotor, "lastOnly", True)
         self.fillHeadlightsSubsciber = messageHandlerSubscriber(self.queuesList, FillHeadlights, "lastOnly", True)
         self.setHeadlightSubscriber = messageHandlerSubscriber(self.queuesList, SetHeadlight, "lastOnly", True)
+        self.toggleHeadlightSubscriber = messageHandlerSubscriber(self.queuesList, ToggleHeadlight, "lastOnly", True)

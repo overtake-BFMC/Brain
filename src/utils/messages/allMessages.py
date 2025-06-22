@@ -295,6 +295,12 @@ class TrafficComInternal(Enum):
     msgID = 35
     msgType = "dict"
 
+class ToggleHeadlight(Enum):
+    Queue = "General"
+    Owner = "Dashnoard"
+    msgID = 36
+    msgType = "int"
+
 ################################# From WebRTC(Video Stream) ##################################
 class WebRTCAnswer(Enum):
     Queue = "General"

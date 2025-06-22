@@ -66,7 +66,8 @@ class LaneFollowing:
         
         #white pixels
         hls = cv2.cvtColor(frame, cv2.COLOR_BGR2HLS)
-        lower_white = np.array([0, 160, 10])
+        lower_white = np.array([0, 200, 0])
+        # lower_white = np.array([0, 160, 10])
         upper_white = np.array([255, 255, 255])
         mask = cv2.inRange(frame, lower_white, upper_white)
         hls_result = cv2.bitwise_and(frame, frame, mask = mask)
@@ -187,7 +188,7 @@ class LaneFollowing:
 
         # print( len( leftx ))
 
-        if len(leftx) > 50:
+        if len(leftx) > 100:
             m_left = np.mean(leftx)
             if not math.isnan(m_left):
                 mean_left = m_left

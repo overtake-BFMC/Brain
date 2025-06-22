@@ -43,12 +43,12 @@ class IPManager:
             print("Could not retrieve IP address.")
             return None
 
-    def replace_ip_in_file(self):
+    def replace_ip_in_file(self, specificIP = None):
         """Replace the IP address in the specified file if it differs from the current IP."""
         new_ip = self.get_ip_address()
         if not new_ip:
             print("Failed to retrieve IP address.")
-            return
+            return False
 
         # Regular expression pattern to match IP addresses
         ip_pattern = r'\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b'
@@ -59,20 +59,25 @@ class IPManager:
                 content = file.read()
         except FileNotFoundError:
             print(f"File {self.file_path} not found.")
-            return
+            return False
 
         # Search for the current IP address in the file
         current_ip_match = re.search(ip_pattern, content)
         
         if current_ip_match:
             current_ip = current_ip_match.group()
+
+            if specificIP is not None:
+                    print(f"There is a specific IP to be set {specificIP}. Changing...")
+                    new_ip = specificIP
             
             # Check if the current IP is different from the new IP
             if current_ip == new_ip:
                 print(f"The IP address in {self.file_path} is already {new_ip}. No changes made.")
-                return
+                return False
             else:
                 # Replace the old IP address with the new one
+
                 updated_content = re.sub(ip_pattern, new_ip, content)
                 
                 # Write the updated content back to the file
@@ -80,7 +85,11 @@ class IPManager:
                     file.write(updated_content)
                 
                 print(f"Replaced IP address in {self.file_path} with {new_ip}")
+
+                return True
         else:
             print(f"No IP address found in {self.file_path}.")
+
+            return False
 
 

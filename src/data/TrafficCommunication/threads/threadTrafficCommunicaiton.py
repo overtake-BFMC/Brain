@@ -99,4 +99,4 @@ class threadTrafficCommunication(ThreadWithStop):
         super(threadTrafficCommunication, self).stop()
 
     def subscribe(self):
-        self.trafficComInternalSubscriber = messageHandlerSubscriber(self.queueslist, TrafficComInternal, "fifo", True)
+        self.trafficComInternalSubscriber = messageHandlerSubscriber(self.queue, TrafficComInternal, "fifo", True)

@@ -94,10 +94,11 @@ logger = logging.getLogger()
 
 Dashboard = True
 toRecompileDashboard = False
+isOnBFMCTrack = True
 
 Camera = True
 Semaphores = False
-TrafficCommunication = False
+TrafficCommunication = True
 SerialHandler = False
 
 # ------ New component flags starts here ------#
@@ -122,9 +123,9 @@ processSharedMemoryGateway = processSharedMemoryGateway(queueList, logger, debug
 processSharedMemoryGateway.start()
 
 # Ip replacement
-# path = './src/dashboard/frontend/src/app/webSocket/web-socket.service.ts'
-# IpChanger = IPManager(path)
-# IpChanger.replace_ip_in_file()
+path = './src/dashboard/frontend/src/app/webSocket/web-socket.service.ts'
+IpChanger = IPManager(path)
+toRecompileDashboard = IpChanger.replace_ip_in_file("192.168.50.115" if isOnBFMCTrack else None)
 #http://192.168.50.115:5005
 
 # Initializing dashboard

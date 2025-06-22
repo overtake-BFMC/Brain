@@ -70,6 +70,20 @@
         "hasChanged": false
     },
     {
+        "channel": "ToggleHeadlight",
+        "value": 1,
+        "initialValue": 1,
+        "interval": 1,
+        "type": "number",
+        "values": [
+            1,
+            18
+        ],
+        "command": "toggleHeadlight",
+        "checked": false,
+        "hasChanged": false
+    },
+    {
         "channel": "Brightness",
         "value": 50,
         "initialValue": 50,

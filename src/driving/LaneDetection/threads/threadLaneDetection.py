@@ -102,13 +102,13 @@ class threadLaneDetection(ThreadWithStop):
 
         # self.pid = PID.PIDController( Kp = 0.15, Ki = 0.05, Kd = 0.09 ) #40cms
 
-        self.Kp = 0.15
+        self.Kp = 0.20 # trenutly
         # self.Kp = 0.2
         self.Ki = 0.03
         self.Kd = 0.09
 
         self.initialSpeed = 20
-        self.pid = PID.PIDController( self.Kp, self.Ki, self.Kd ) #20cms
+        self.pid = PID.PIDController( self.Kp, self.Ki, self.Kd )
 
         self.detector = signDetection(conf_thresh=0.5, iou_thresh=0.45)
         self.noOfDetections = [0] * 15
@@ -259,14 +259,12 @@ class threadLaneDetection(ThreadWithStop):
             print("pedestrian on crosswalk")
             #trafficComunicationID = 11 
             #self.vehicleState.setSpeed(0)
-            # self.isLaneKeeping = True ##################PROMENA
             desiredSpeed = 0
             isDetected = True
             self.warningSignalSender.send({"WarningName":"Pedestrian on Crosswalk", "WarningID": 11})
         if boolDetections[3]: #highwayEntry
             #trafficComunicationID = 5 
             desiredSpeed = 40
-            # self.isLaneKeeping = True #############################################PROMENA
 
             self.isOnHighway = True
             self.warningSignalSender.send({"WarningName":"Highway Ahead", "WarningID": 6})
@@ -282,10 +280,13 @@ class threadLaneDetection(ThreadWithStop):
             isDetected = True
 
             self.warningSignalSender.send({"WarningName":"Pedestrian On Road", "WarningID": 12})
+
+        if boolDetections[13]:
+            self.vehicleState.setStateSignal(stateSignalType.APROACHING_INTERSECTION, True)
+            
         if boolDetections[12][1] and boolDetections[13]: #stop-sign and stop line
             #trafficComunicationID = 1 
             
-            self.isLaneKeeping = True
             if not timer[0][0] and not timer[1][0]:
                 timer[0][0] = 1
                 timer[0][1] = time.perf_counter()
@@ -313,32 +314,22 @@ class threadLaneDetection(ThreadWithStop):
 
             #self.LANEFOL.priority_active = True
             self.vehicleState.setStateSignal(stateSignalType.APROACHING_INTERSECTION, True)
-            desiredSpeed = 20
+            desiredSpeed = 25
             # timer[2][0] = 1
             # timer[2][1] = time.perf_counter()
             # timer[2][2] = 6.0
         if boolDetections[11]: #roundabout
             #trafficComunicationID = 7
+            self.vehicleState.setStateSignal(stateSignalType.APROACHING_INTERSECTION, True)
 
-            self.isLaneKeeping = False
             self.isInRoundabout = True
             self.warningSignalSender.send({"WarningName":"Roundabout Ahead", "WarningID": 15})
-        # if self.isInRoundabout:
-        #     x, y, _ = self.vehicleState.getPosition()
-
-        #     distance = np.sqrt((x - 415.0)**2 + (y - 115.0)**2)
-
-        #     if distance < 10:
-        #         self.isLaneKeeping = True
-        #         self.isInRoundabout = False
-        #         self.vehicleState.setPosition(415.0, 115.0, np.deg2rad(180))
 
         if boolDetections[7]: #Parking Sign
             #trafficComunicationID = 3 
             self.parkingSignFlag = True
 
             self.warningSignalSender.send({"WarningName":"Parking Ahead", "WarningID": 10})
-            # self.isLaneKeeping = True
         if boolDetections[8]: #Parking Spot
             self.warningSignalSender.send({"WarningName":"Parking Spot Ahead", "WarningID": 3})
         #print("Timer0 : ", timer[0])
@@ -364,7 +355,6 @@ class threadLaneDetection(ThreadWithStop):
             print("semaphore detected")
 
 
-            self.isLaneKeeping = True #PRIVREMENO
             # self.vehicleState.getPosition()
             if len(self.semaphoresState) > 0:
                 if self.semaphoreID is not None:
@@ -406,8 +396,6 @@ class threadLaneDetection(ThreadWithStop):
 
                 self.warningSignalSender.send({"WarningName":"Traffic Light Detected", "WarningID": 21})
                     
-                #self.isLaneKeeping = True #PRIVREMENO
-
         if timer[1][0]:
             elapsed = time.perf_counter() - timer[1][1]
             if elapsed >= timer[1][2]:
@@ -429,9 +417,6 @@ class threadLaneDetection(ThreadWithStop):
                 timer[2][1] = 0
                 timer[2][2] = 0
                 self.LANEFOL.crosswalk_active = False
-                #self.isLaneKeeping = True
-
-        #print(f"DesiredSpeed: {desiredSpeed}, isDetected {isDetected}")
 
         if not isDetected and \
             not self.isOnHighway and \
@@ -546,14 +531,14 @@ class threadLaneDetection(ThreadWithStop):
 
                 speedDiff = np.abs(self.vehicleState.getSpeed() - self.initialSpeed)
                 if 5 < speedDiff <= 15:
-                    # self.Kp = 0.19
-                    self.Kp = 0.15
+                    self.Kp = 0.19
+                    # self.Kp = 0.x
                 elif  15 < speedDiff <= 25:
-                    # self.Kp = 0.18
-                    self.Kp = 0.15
+                    self.Kp = 0.18
+                    # self.Kp = 0.15
                 else:
-                    # self.Kp = 0.20
-                    self.Kp = 0.15
+                    self.Kp = 0.20
+                    # self.Kp = 0.15
 
                 # print(f"speed;: {self.vehicleState.getSpeed()}  KP: {self.Kp}")
                         

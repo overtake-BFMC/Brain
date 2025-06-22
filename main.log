@@ -24650,3 +24650,46 @@ WARNING:root:Failed to start the Angular development server: Command 'cd /home/j
 WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
 WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
 INFO:root:Stopped Brain instance...
+INFO:root:Starting brain instance...
+INFO:can.interfaces.socketcan.socketcan:Created a socket
+WARNING:root:CAN network is down!
+WARNING:root:CAN Interface is down, trying to get it up!
+INFO:root:CAN Interface brought up sucessfully!
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:root:CAN Network Initiated Sucessfully.
+WARNING:root:Failed to start the Angular development server: Command 'cd /home/jetson/Documents/Brain/src/dashboard/frontend/dist/dashboard/browser && http-server -p 8090 -a 0.0.0.0 -c-1' died with <Signals.SIGINT: 2>.
+WARNING:root:Shared Memory 'mainVideoFrames' was already removed.
+WARNING:root:Shared Memory 'laneVideoFrames' was already removed.
+INFO:root:Stopped Brain instance...
+INFO:root:Starting brain instance...
+INFO:can.interfaces.socketcan.socketcan:Created a socket
+INFO:root:Starting processCamera...
+INFO:root:ThreadCamera ShMem Init Success!
+INFO:root:Camera thread initialized successfully.
+INFO:root:LaneDetection MainVideoShMem Init Success!
+INFO:root:LaneDetection LaneVideoShMem Init Success!
+INFO:root:LaneDetection VehicleState Initialized!
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:root:CAN Network Initiated Sucessfully.
+INFO:root:PeerConnection(79df842a-bdb8-4967-958e-50bf3055c384) Created for Angular
+INFO:root:trackStream LaneVideoShMem Init Success!
+INFO:root:PeerConnection(79df842a-bdb8-4967-958e-50bf3055c384) Created track stream
+INFO:root:PeerConnection(79df842a-bdb8-4967-958e-50bf3055c384) Connection state is new
+INFO:aioice.ice:Connection(0) Discovered peer reflexive candidate Candidate(DKiCtvfQSu 1 udp 1845501695 192.168.66.162 61703 typ prflx)
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 36481) -> ('192.168.66.162', 61703)) State.WAITING -> State.IN_PROGRESS
+INFO:aioice.ice:Connection(0) Check CandidatePair(('192.168.66.155', 36481) -> ('192.168.66.162', 61703)) State.IN_PROGRESS -> State.SUCCEEDED
+INFO:aioice.ice:Connection(0) ICE completed
+INFO:root:Starting brain instance...
+INFO:can.interfaces.socketcan.socketcan:Created a socket
+INFO:root:Starting processCamera...
+WARNING:root:[Errno 17] File exists: '/mainVideoFrames'
+WARNING:root:Shared Memory Block 'mainVideoFrames' does not exist.
+INFO:root:PathFollowing VehicleState Initialized!
+INFO:root:CAN Network Initiated Sucessfully.
+                                    
