@@ -15,7 +15,8 @@ from src.utils.messages.allMessages import (
     ManualPWMSteerMotor,
     FillHeadlights,
     SetHeadlight,
-    ToggleHeadlight
+    ToggleHeadlight,
+    ToggleFullHeadlights
 )
 from src.utils.messages.messageHandlerSubscriber import messageHandlerSubscriber
 from src.utils.messages.messageHandlerSender import messageHandlerSender
@@ -40,7 +41,8 @@ class threadCANWrite(ThreadWithStop):
         self.logger = logger
         self.debugging = debugging
         #self.logger = configLogger(LoggerConfigs.WORKER, __name__, self.loggingQueue)
-        self.headlightState = [False] * 18
+        self.LEDNum = 24
+        self.headlightState = [False] * self.LEDNum
 
         self.running = False
         self.engineEnabled = False
@@ -162,15 +164,26 @@ class threadCANWrite(ThreadWithStop):
                     toggleHeadlightRecv = self.toggleHeadlightSubscriber.receive()
                     if toggleHeadlightRecv is not None:
                         self.ToggleSpecificHeadlight(int(toggleHeadlightRecv))
+
+                    ToggleFullHeadlights = self.toggleFullHeadlightsSubscriber.receive()
+                    if ToggleFullHeadlights is not None:
+                        self.ToggleFullHeadlights(int(ToggleFullHeadlights))
                         
             except Exception as e:
                 pass
 
+    def ToggleFullHeadlights(self, state):
+        self.headlightState[bool(state)] * self.LEDNum
+        command = struct.pack("<BBBB", int(255), int(255), int(255), int(45 if state else 0))
+        self.sendToCAN(0x140, command)
+        
+
     def ToggleSpecificHeadlight(self, LEDPos):
-        if(LEDPos < 0 and LEDPos > 18):
+        if(LEDPos < 1 and LEDPos > 24):
             return
         self.headlightState[LEDPos-1] = not self.headlightState[LEDPos-1]
-        command = struct.pack("<BBBBB", int(1 if self.headlightState[LEDPos-1] else 0), int(255), int(255), int(255), int(255))
+        print(f"State: {self.headlightState[0]}")
+        command = struct.pack("<BBBBB", int(LEDPos-1), int(255), int(255), int(255), int(45 if self.headlightState[LEDPos-1] else 0))
         self.sendToCAN(0x141, command)
 
     def turnOnHeadlights(self):
@@ -228,3 +241,4 @@ class threadCANWrite(ThreadWithStop):
         self.fillHeadlightsSubsciber = messageHandlerSubscriber(self.queuesList, FillHeadlights, "lastOnly", True)
         self.setHeadlightSubscriber = messageHandlerSubscriber(self.queuesList, SetHeadlight, "lastOnly", True)
         self.toggleHeadlightSubscriber = messageHandlerSubscriber(self.queuesList, ToggleHeadlight, "lastOnly", True)
+        self.toggleFullHeadlightsSubscriber = messageHandlerSubscriber(self.queuesList, ToggleFullHeadlights, "lastOnly", True)

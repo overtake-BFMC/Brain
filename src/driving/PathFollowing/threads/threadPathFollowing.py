@@ -532,7 +532,7 @@ class threadPathFollowing(ThreadWithStop):
 
         self.whiteLineSubscriber.subscribe()
         self.vehicle.resetStateFlags()
-        self.startLaneDetectionSender.send("true")
+        # self.startLaneDetectionSender.send("true")
 
         isTurning = False
 
@@ -541,7 +541,6 @@ class threadPathFollowing(ThreadWithStop):
         maxDt = 0.08
 
         manueverNodeId = -1
-        laneDet = True
 
         vehicleX, vehicleY, vehicleYaw = self.vehicle.getPosition()
         vehicleSpeed, vehicleSteeringAngle, vehicleWheelbase = self.vehicle.getSpeedSteerWheelbase()
@@ -550,6 +549,8 @@ class threadPathFollowing(ThreadWithStop):
 
         lastTime = time.time()        
         lastPathPointId = 1
+
+        self.vehicle.setStateSignal(stateSignalType.APROACHING_INTERSECTION, True)
 
         # self.speedMotorSender.send(str(np.clip(vehicleSpeed*10, -500, 500)))
 
@@ -575,7 +576,9 @@ class threadPathFollowing(ThreadWithStop):
                 lastPathPointId += 1
 
             # g1, g2, g3 = self.vehicle.getPosition()
-            # print(f"{g1} {g2} {np.rad2deg(g3)}  {np.rad2deg(vehicleSteeringAngle)}")
+
+            # {g1} {g2} {np.rad2deg(g3)}  
+            print(f"{np.rad2deg(vehicleSteeringAngle)}")
 
             distanceToTarget = self.calculateDistanceToTarget(targetX, targetY)
             vehicleSteeringAngle = self.computeSteer(targetX, targetY)

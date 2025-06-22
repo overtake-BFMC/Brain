@@ -73,13 +73,69 @@
         "channel": "ToggleHeadlight",
         "value": 1,
         "initialValue": 1,
-        "interval": 1,
+        "interval": 0,
         "type": "number",
         "values": [
             1,
-            18
+            24
         ],
-        "command": "toggleHeadlight",
+        "command": "ToggleHeadlight",
+        "checked": false,
+        "hasChanged": false
+    },
+    {
+        "channel": "ToggleFullHeadlights",
+        "value": "False",
+        "initialValue": "True",
+        "interval": 0,
+        "type": "dropdown",
+        "values": [
+            "True",
+            "False"
+        ],
+        "command": "ToggleFullHeadlights",
+        "checked": false,
+        "hasChanged": false
+    },
+    {
+        "channel": "SetLaneKP",
+        "value": 1,
+        "initialValue": 1,
+        "interval": 0,
+        "type": "number",
+        "values": [
+            1,
+            100
+        ],
+        "command": "SetLaneKP",
+        "checked": false,
+        "hasChanged": false
+    },
+    {
+        "channel": "SetLaneKD",
+        "value": 1,
+        "initialValue": 1,
+        "interval": 0,
+        "type": "number",
+        "values": [
+            1,
+            100
+        ],
+        "command": "SetLaneKD",
+        "checked": false,
+        "hasChanged": false
+    },
+    {
+        "channel": "SetLaneKI",
+        "value": 1,
+        "initialValue": 1,
+        "interval": 0,
+        "type": "number",
+        "values": [
+            1,
+            100
+        ],
+        "command": "SetLaneKI",
         "checked": false,
         "hasChanged": false
     },

@@ -162,6 +162,7 @@ export class TableComponent implements OnInit {
     NumberItems.forEach(item => {
       let value = item.value
       let channel = item.channel
+      //console.log("Channel: %s Value: %d",channel, value)
       this.webSocketService.sendMessageToFlask(`{"Name": "${channel}", "Value": ${value}}`);
     });
   }

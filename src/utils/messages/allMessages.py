@@ -297,8 +297,32 @@ class TrafficComInternal(Enum):
 
 class ToggleHeadlight(Enum):
     Queue = "General"
-    Owner = "Dashnoard"
+    Owner = "Dashboard"
     msgID = 36
+    msgType = "int"
+
+class ToggleFullHeadlights(Enum):
+    Queue = "General"
+    Owner = "Dashboard"
+    msgID = 37
+    msgType = "str"
+
+class SetLaneKP(Enum):
+    Queue = "General"
+    Owner = "Dashboard"
+    msgID = 38
+    msgType = "int"
+
+class SetLaneKD(Enum):
+    Queue = "General"
+    Owner = "Dashboard"
+    msgID = 39
+    msgType = "int"
+
+class SetLaneKI(Enum):
+    Queue = "General"
+    Owner = "Dashboard"
+    msgID = 40
     msgType = "int"
 
 ################################# From WebRTC(Video Stream) ##################################

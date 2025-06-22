@@ -47,7 +47,6 @@ sys.path.append(".")
 from multiprocessing import Queue, Event
 #from src.utils.logger.loggerConfig import setupLogger
 #from src.utils.logger.setupLogger import LoggerConfigs, configLogger
-from src.utils.logger.threadLogListener import threadLogListener
 import logging
 
 # #Change here to see more or less info
@@ -94,11 +93,12 @@ logger = logging.getLogger()
 
 Dashboard = True
 toRecompileDashboard = False
-isOnBFMCTrack = True
+isOnBFMCTrack = False
 
 Camera = True
 Semaphores = False
-TrafficCommunication = True
+TrafficCommunication = False
+LocSYSID = 8
 SerialHandler = False
 
 # ------ New component flags starts here ------#
@@ -125,7 +125,9 @@ processSharedMemoryGateway.start()
 # Ip replacement
 path = './src/dashboard/frontend/src/app/webSocket/web-socket.service.ts'
 IpChanger = IPManager(path)
-toRecompileDashboard = IpChanger.replace_ip_in_file("192.168.50.115" if isOnBFMCTrack else None)
+toIPRecompile = IpChanger.replace_ip_in_file("192.168.50.115" if isOnBFMCTrack else None)
+if toIPRecompile:
+    toRecompileDashboard = toIPRecompile
 #http://192.168.50.115:5005
 
 # Initializing dashboard
@@ -157,7 +159,7 @@ if Semaphores:
 
 # Initializing GPS
 if TrafficCommunication:
-    processTrafficCommunication = processTrafficCommunication(queueList, 3, logger, debugging = False)
+    processTrafficCommunication = processTrafficCommunication(queueList, LocSYSID, logger, debugging = False)
     allProcesses.append(processTrafficCommunication)
 
 if streamRTC:

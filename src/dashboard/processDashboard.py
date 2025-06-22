@@ -79,6 +79,7 @@ class processDashboard(WorkerProcess):
         self.pcs = set()
 
         self.getNamesAndVals()
+        #print(f"Msgs and vals: {self.messagesAndVals}")
         self.messagesAndVals.pop("mainCamera", None)
         self.messagesAndVals.pop("Semaphores", None)
         self.messagesAndVals.pop("serialCamera", None)
@@ -142,6 +143,8 @@ class processDashboard(WorkerProcess):
     def sendMessageToBackend(self, dataName, dataDict):
         """Send messages to the backend."""
         if dataName in self.sendMessages:
+            if self.debugging:
+                self.logger.info("Sending message to backend:" + str(dataDict))    
             self.sendMessages[dataName]["obj"].send(dataDict.get("Value"))
 
     def handleMessage(self, data):

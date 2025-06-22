@@ -11,7 +11,10 @@ from src.utils.messages.allMessages import (
     WarningSignal,
     Semaphores,
     DistanceRight,
-    TrafficComInternal
+    TrafficComInternal,
+    SetLaneKP,
+    SetLaneKD,
+    SetLaneKI
 )
 from src.utils.messages.messageHandlerSubscriber import messageHandlerSubscriber
 from src.utils.messages.messageHandlerSender import messageHandlerSender
@@ -103,7 +106,6 @@ class threadLaneDetection(ThreadWithStop):
         # self.pid = PID.PIDController( Kp = 0.15, Ki = 0.05, Kd = 0.09 ) #40cms
 
         self.Kp = 0.20 # trenutly
-        # self.Kp = 0.2
         self.Ki = 0.03
         self.Kd = 0.09
 
@@ -530,17 +532,32 @@ class threadLaneDetection(ThreadWithStop):
                     error = 0
 
                 speedDiff = np.abs(self.vehicleState.getSpeed() - self.initialSpeed)
-                if 5 < speedDiff <= 15:
-                    self.Kp = 0.19
-                    # self.Kp = 0.x
-                elif  15 < speedDiff <= 25:
-                    self.Kp = 0.18
-                    # self.Kp = 0.15
-                else:
-                    self.Kp = 0.20
+                # if 5 < speedDiff <= 15:
+                #     self.Kp = 0.19
+                #     # self.Kp = 0.x
+                # elif  15 < speedDiff <= 25:
+                #     self.Kp = 0.18
+                #     # self.Kp = 0.15
+                # else:
+                #     self.Kp = 0.20
                     # self.Kp = 0.15
 
                 # print(f"speed;: {self.vehicleState.getSpeed()}  KP: {self.Kp}")
+
+                setKDrecv = self.setKDSubscriber.receive()
+                if setKDrecv is not None:
+                    self.Kd = int(setKDrecv) / 100
+                    print(f"New KD: {self.Kd}")
+
+                setKPRecv = self.setKPSubscriber.receive()
+                if setKPRecv is not None:
+                    self.Kp = int(setKPRecv) / 100
+                    print(f"New KP: {self.Kp}")
+
+                setKIRecv = self.setKISubscriber.receive()
+                if setKIRecv is not None:
+                    self.Ki = int(setKIRecv) / 100
+                    print(f"New Ki: {self.Ki}")
                         
                 self.pid.setParameters( self.Kp, self.Ki, self.Kd )
                 compute_error = self.pid.pid_formula( error )
@@ -564,6 +581,7 @@ class threadLaneDetection(ThreadWithStop):
 
                 with self.LaneVideolock:
                     np.copyto(self.frameLaneBuffer, frame_lines)
+                    #np.copyto(self.frameLaneBuffer, detection_frame)
 
 
     def stop(self):
@@ -581,4 +599,7 @@ class threadLaneDetection(ThreadWithStop):
         self.distanceRightSubscriber = messageHandlerSubscriber(self.queuesList, DistanceRight, "lastOnly", True)
 
         ###########
-        self.semaphoresSubscriber = messageHandlerSubscriber( self.queuesList, Semaphores, "fifo", True )
+        self.semaphoresSubscriber = messageHandlerSubscriber( self.queuesList, Semaphores, "fifo", True)
+        self.setKDSubscriber = messageHandlerSubscriber(self.queuesList, SetLaneKD, "lastOnly", True)
+        self.setKPSubscriber = messageHandlerSubscriber(self.queuesList, SetLaneKP, "lastOnly", True)
+        self.setKISubscriber = messageHandlerSubscriber(self.queuesList, SetLaneKI, "lastOnly", True)

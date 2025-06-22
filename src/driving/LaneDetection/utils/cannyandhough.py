@@ -66,7 +66,7 @@ class LaneFollowing:
         
         #white pixels
         hls = cv2.cvtColor(frame, cv2.COLOR_BGR2HLS)
-        lower_white = np.array([0, 200, 0])
+        lower_white = np.array([0, 160, 10])
         # lower_white = np.array([0, 160, 10])
         upper_white = np.array([255, 255, 255])
         mask = cv2.inRange(frame, lower_white, upper_white)
@@ -92,181 +92,18 @@ class LaneFollowing:
         return frame, lines, edges, hls_result, thresh
         
 
-    def sliding_window_search___( self, binary_warped, original_frame ):
-
-        mask = np.zeros_like(binary_warped)
-        
-        #test
-        outer_vertices = np.array([[(0, 540), (150, 400), (810, 400), (960, 540)]])  
-
-        # outer_vertices = np.array([[(0, 540), (0, 400), (960, 400), (960, 540)]])  
-        cv2.fillPoly(mask, outer_vertices, 255)
-
-        inner_vertices = np.array([[(350, 540), (350, 430), (610, 430), (610, 540)]], dtype=np.int32)
-        cv2.fillPoly(mask, inner_vertices, 0)
-
-        if self.crosswalk_active:
-
-            inner_vertices = np.array([[(200, 540), (340, 400), (600, 400), (760, 540)]], dtype=np.int32)
-            cv2.fillPoly(mask, inner_vertices, 0)        
-
-        binary_warped = cv2.bitwise_and( self.binary_warped, mask )
-
-        histogram = np.sum(binary_warped[binary_warped.shape[0]//2:, :], axis=0)
-        midpoint = int(histogram.shape[0] // 2)
-        leftx_base = np.argmax(histogram[:midpoint])
-        rightx_base = np.argmax(histogram[midpoint:]) + midpoint
-
-        nwindows = 15
-        window_height = int(binary_warped.shape[0] // nwindows)
-        nonzero = binary_warped.nonzero()
-        nonzeroy = np.array(nonzero[0])
-        nonzerox = np.array(nonzero[1])
-
-        leftx_current = leftx_base
-        rightx_current = rightx_base
-
-        margin = 50
-        minpix = 100
-
-        left_lane_inds = []
-        right_lane_inds = []
-
-        out_img = np.dstack((binary_warped, binary_warped, binary_warped))
-
-        for window in range(nwindows):
-            win_y_low = binary_warped.shape[0] - (window + 1) * window_height
-            win_y_high = binary_warped.shape[0] - window * window_height
-
-            win_xleft_low = leftx_current - margin
-            win_xleft_high = leftx_current + margin
-            win_xright_low = rightx_current - margin
-            win_xright_high = rightx_current + margin
-
-            #BW
-            # cv2.rectangle(out_img, (win_xleft_low, win_y_low), (win_xleft_high, win_y_high),
-            # (0,255,0), 2)
-            # cv2.rectangle(out_img, (win_xright_low,win_y_low), (win_xright_high,win_y_high),
-            # (0,255,0), 2)
-
-            out_img = cv2.rectangle(original_frame, (win_xleft_low, win_y_low), (win_xleft_high, win_y_high),
-            (0,0,255), 2)
-            out_img = cv2.rectangle(original_frame, (win_xright_low,win_y_low), (win_xright_high,win_y_high),
-            (0,0,255), 2)
-
-            good_left_inds = ((nonzeroy >= win_y_low) & (nonzeroy < win_y_high) &
-                            (nonzerox >= win_xleft_low) & (nonzerox < win_xleft_high)).nonzero()[0]
-
-            good_right_inds = ((nonzeroy >= win_y_low) & (nonzeroy < win_y_high) &
-                            (nonzerox >= win_xright_low) & (nonzerox < win_xright_high)).nonzero()[0]
-            
-            left_lane_inds.append(good_left_inds)
-            right_lane_inds.append(good_right_inds)
-
-            if len(good_left_inds) > minpix:
-                leftx_current = int(np.mean(nonzerox[good_left_inds]))
-            if len(good_right_inds) > minpix:
-                rightx_current = int(np.mean(nonzerox[good_right_inds]))
-
-        left_lane_inds = np.concatenate(left_lane_inds)
-        right_lane_inds = np.concatenate(right_lane_inds)
-
-        leftx = nonzerox[left_lane_inds]
-        lefty = nonzeroy[left_lane_inds]
-        rightx = nonzerox[right_lane_inds]
-        righty = nonzeroy[right_lane_inds]  
-
-
-        left_points = np.vstack((leftx, lefty)).T.reshape((-1, 1, 2))
-        right_points = np.vstack((rightx, righty)).T.reshape((-1, 1, 2))
-
-        out_img = cv2.polylines( out_img, [left_points], 0, (100,255,0), 2)
-        out_img = cv2.polylines( out_img, [right_points], 0, (100,255,0), 2)
-
-        mean_left = 0
-        mean_right = 960
-
-        # print( len( leftx ))
-
-        if len(leftx) > 100:
-            m_left = np.mean(leftx)
-            if not math.isnan(m_left):
-                mean_left = m_left
-        else:
-            mean_left = self.last_left_line
-
-
-        if len(rightx) > 50:
-            m_right = np.mean(rightx)
-            if not math.isnan(m_right):
-                mean_right = m_right
-        else:
-            mean_right = self.last_right_line
-
-           #near center values, center: 480, 60+-
-        if mean_left > 400:
-            mean_left -= 50
-        # print(f"left: {mean_left}")
-
-        if mean_right < 560:
-            mean_right += 50
-        # print(f"left: {mean_right}")
-
-        #raskrsnica pravac
-        # if self.priority_active:
-
-        #     left = mean_left
-        #     right = 960 - mean_right
-
-        #     if left > right and right - left > 10: 
-        #         # print("mora desno")
-        #         self.angle = -1
-
-        #     else:
-        #         # print("mora levo")
-
-
-        cv2.line( out_img, ( 400, 0), ( 400, 540), (0,0,255), 5 )
-        cv2.line( out_img, ( 560, 0), ( 560, 540), (0,0,255), 5 )
-
-        # print( f"mean left {mean_left}")
-        # print( f"mean right {mean_right}")
-
-        self.lane_center = ( mean_left + mean_right ) // 2
-        # self.lane_center = 500
-
-        # print("left line", mean_left)
-        # print("***")
-        # print( self.lane_center )
-
-        self.last_left_line = mean_left 
-        self.last_right_line = mean_right 
-
-
-        if np.isnan(self.lane_center):
-            self.lane_center = 960 // 2  # Postavi u sredinu slike ako je NaN
-
-        out_img = self.draw_ROI( out_img, outer_vertices )
-        out_img = self.draw_ROI( out_img, inner_vertices )
-
-        cv2.line( out_img, (int(self.lane_center), 540), (int(self.lane_center), 340), (0,255,0), 10)
-
-        # print( left_lane_inds )
-        # print( right_lane_inds )
-
-        return out_img, original_frame
-
-
     def sliding_window_search( self, thresh_frame, original_frame ):
 
         mask = np.zeros_like( thresh_frame )
         #test
-        outer_vertices = np.array([[(0, 540), (150, 400), (810, 400), (960, 540)]])  
+        outer_vertices = np.array([[(0, 540), (150, 350), (810, 350), (960, 540)]])    
+        # outer_vertices = np.array([[(0, 540), (150, 400), (810, 400), (960, 540)]])    trnutly
         # outer_vertices = np.array([[(0, 540), (0, 400), (960, 400), (960, 540)]])  
         cv2.fillPoly(mask, outer_vertices, 255)
 
         #sasija roi
-        inner_vertices = np.array([[(350, 540), (350, 430), (610, 430), (610, 540)]], dtype=np.int32)
+        # inner_vertices = np.array([[(350, 540), (350, 430), (610, 430), (610, 540)]], dtype=np.int32)
+        inner_vertices = np.array([[(200, 540), (350, 430), (610, 430), (660, 540)]], dtype=np.int32)
         cv2.fillPoly(mask, inner_vertices, 0)
 
         if self.crosswalk_active:
@@ -356,7 +193,7 @@ class LaneFollowing:
         mean_left = 0
         mean_right = 960
 
-        if len(leftx) > 50:
+        if len(leftx) > 100:
             m_left = np.mean(leftx)
             if not math.isnan(m_left):
                 mean_left = m_left
