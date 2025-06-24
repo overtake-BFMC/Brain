@@ -173,7 +173,7 @@ class threadPathFollowing(ThreadWithStop):
                     # self.WhitelinePosition.append((93.9, 688.6, np.deg2rad(180)))
                     #TUNNEL ENTRY
                     self.WhitelinePosition.append((34.5, 1080.6, np.deg2rad(270)))
-                    self.WhitelinePosition.append((93.2, 921.1, np.deg2rad(0)))
+                    self.WhitelinePosition.append((93.2, 921.1, 9999))
                     #TUNNEL PASS
                     #self.WhitelinePosition.append((71.9, 909.9, np.deg2rad(90)))
                     speed = 25
@@ -201,8 +201,8 @@ class threadPathFollowing(ThreadWithStop):
                     #TUNNEL ENTRY
                     self.waypoints.extend(range(442, 444))
                     self.waypoints.extend(range(84, 85))
-                    self.waypoints.extend(range(10001, 10002))
-                    self.waypoints.extend(range(81, 82))
+                    # self.waypoints.extend(range(10001, 10002))
+                    # self.waypoints.extend(range(81, 82))
                     self.waypoints.extend(range(165, 169))
                     #TUNNEL PASS
                     # self.waypoints.extend(range(178, 181))
@@ -221,7 +221,10 @@ class threadPathFollowing(ThreadWithStop):
                 elif self.chosenTrack == 2:
                     #right turn
 
-                    self.WhitelinePosition = (288.0, 599.6)
+                    self.waypoints = []
+
+                    self.WhitelinePosition = []
+                    self.WhitelinePosition.append((288.0, 599.6, 9999.0))
                     
                     speed = 25
                     # self.lookAheadDistance = speed * self.lookAheadValue
@@ -248,8 +251,10 @@ class threadPathFollowing(ThreadWithStop):
                     self.vehicle.updateVehicleState(speed, self.nodes[self.waypoints[0]][0], self.nodes[self.waypoints[0]][1], np.deg2rad(yaw))
                 elif self.chosenTrack == 3:
                     ##left turn
+                    self.waypoints = []
 
-                    self.WhitelinePosition = (288.0, 599.6)
+                    self.WhitelinePosition = []
+                    self.WhitelinePosition.append((288.0, 599.6, 9999.0))
 
                     speed = 25
                     # self.lookAheadDistance = speed * self.lookAheadValue
@@ -582,7 +587,7 @@ class threadPathFollowing(ThreadWithStop):
                 self.setTimeStep(0.03)
 
 
-            if self.vehicle.getStateSignal(stateSignalType.APROACHING_INTERSECTION):
+            if self.vehicle.getStateSignal(stateSignalType.APROACHING_INTERSECTION) and tmpSteer < 90:
                  vehicleSteeringAngle = 0
 
             steeringAngleSend = round(np.rad2deg(vehicleSteeringAngle)) * 10
@@ -594,13 +599,15 @@ class threadPathFollowing(ThreadWithStop):
             whiteLine = self.whiteLineSubscriber.receive()
             if whiteLine is not None and whiteLine and self.vehicle.getStateSignal(stateSignalType.APROACHING_INTERSECTION):
 
-                tmpSteer = 90
+                tmpSteer = 120
                 self.vehicle.setStateSignal(stateSignalType.IN_INTERSECTION, True)
                 self.vehicle.setStateSignal(stateSignalType.APROACHING_INTERSECTION, False)
                 self.startLaneDetectionSender.send("false")
 
                 
                 x, y, yaw = self.WhitelinePosition[whitelineCounter]
+                if yaw == 9999:
+                    yaw = vehicleYaw
                 self.vehicle.setPosition(x, y, yaw)
                 # g1, g2, g3 = self.vehicle.getPosition()
                 # print(f"{np.rad2deg(g3)}")
@@ -611,9 +618,9 @@ class threadPathFollowing(ThreadWithStop):
             if self.vehicle.getStateSignal(stateSignalType.IN_INTERSECTION):
                 self.steerMotorSender.send(str(-steeringAngleSend))
                 
-                if tmpSteer < 90:
-                    self.startLaneDetectionSender.send("true")
+                if tmpSteer < 110:
                     self.vehicle.setStateSignal(stateSignalType.IN_INTERSECTION, False)
+                    self.startLaneDetectionSender.send("true")
 
                     
                     
