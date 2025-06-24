@@ -113,25 +113,6 @@ class threadPathFollowing(ThreadWithStop):
         self.KFLocalization = kalmanFilterLocalization(dt = self.timeStep)
 
 
-        #code by MS
-        #white lines to be added to final run
-        # self.WhitelinePosition.append(( 1706.9, 205, np.deg2rad(90) )) #2
-        # self.WhitelinePosition.append(( 1646.8, 401.1, np.deg2rad(180) )) #3
-        # self.WhitelinePosition.append(( 1622.1, 932.7, np.deg2rad( 90) )) #4
-        # self.WhitelinePosition.append(( 1587.5, 1190.2, np.deg2rad( 270) )) #5
-        # self.WhitelinePosition.append(( 34.5, 1080.6, np.deg2rad( 270) )) #6
-        # self.WhitelinePosition.append(( 93.2, 951.1, np.deg2rad( 0) )) #7
-        # self.WhitelinePosition.append(( 475.6, 816.3, np.deg2rad( 2700) )) #8
-        # self.WhitelinePosition.append(( 339.4, 688.6, np.deg2rad( 180) )) #9
-        # self.WhitelinePosition.append(( 123.9, 688.6, np.deg2rad( 180) )) #10
-        # self.WhitelinePosition.append(( 71.9, 909.9, np.deg2rad( 90) )) #11
-        # self.WhitelinePosition.append(( 1499.6, 1039.4, np.deg2rad( 0) )) #12
-        # self.WhitelinePosition.append(( 1527.3, 451.7, np.deg2rad( 270) )) #13
-        # self.WhitelinePosition.append(( 1527.3, 294.2, np.deg2rad( 270) )) #14
-        # self.WhitelinePosition.append(( 1527.3, 143.5, np.deg2rad( 270) )) #15 NAPOMENA cilj je pre poslednje stop linije
-
-
-
         while self._running:
 
             trackChoice = self.selectTrackSubscriber.receive()    
@@ -169,48 +150,71 @@ class threadPathFollowing(ThreadWithStop):
                     #HIGHWAY RUN
 
                     self.WhitelinePosition = []
-                    # self.WhitelinePosition.append((475.6, 756.3, np.deg2rad(270)))
-                    #TUNNEL EXIT
-                    # self.WhitelinePosition.append((309.4, 688.6, np.deg2rad(180)))
-                    # self.WhitelinePosition.append((93.9, 688.6, np.deg2rad(180)))
-                    #TUNNEL ENTRY
-                    self.WhitelinePosition.append((34.5, 1080.6, np.deg2rad(270)))
-                    self.WhitelinePosition.append((93.2, 921.1, 9999))
-                    #TUNNEL PASS
-                    #self.WhitelinePosition.append((71.9, 909.9, np.deg2rad(90)))
+                    self.WhitelinePosition.append(( 1706.9, 205, np.deg2rad(90) )) #2
+                    self.WhitelinePosition.append(( 1646.8, 401.1, np.deg2rad(180) )) #3
+                    self.WhitelinePosition.append(( 1622.1, 932.7, np.deg2rad( 90) )) #4
+                    self.WhitelinePosition.append(( 1587.5, 1190.2, np.deg2rad( 270) )) #5
+                    self.WhitelinePosition.append(( 34.5, 1080.6, np.deg2rad( 270) )) #6
+                    self.WhitelinePosition.append(( 93.2, 951.1, 9999 )) #7
+                    self.WhitelinePosition.append(( 475.6, 816.3, np.deg2rad( 270) )) #8
+                    self.WhitelinePosition.append(( 369.4, 688.6, np.deg2rad( 180) )) #9
+                    self.WhitelinePosition.append(( 153.9, 688.6, np.deg2rad( 180) )) #10
+                    self.WhitelinePosition.append(( 71.9, 879.9, np.deg2rad( 90) )) #11
+                    self.WhitelinePosition.append(( 1469.6, 1039.4, np.deg2rad( 0) )) #12
+                    self.WhitelinePosition.append(( 1527.3, 481.7, np.deg2rad( 270) )) #13
+                    self.WhitelinePosition.append(( 1527.3, 324.2, np.deg2rad( 270) )) #14
+                    self.WhitelinePosition.append(( 1527.3, 113.5, np.deg2rad( 270) )) #15 
+                    
                     speed = 25
-                    # self.lookAheadDistance = speed * self.lookAheadValue
-                    #TUNNEL EXIT
-                    #yaw = 275
-                    #TUNNEL ENTRY
-                    yaw = 270
-                    #TUNEL PASS
-                    #yaw = 90
-                    if self.waypoints:
-                        self.waypoints.clear() 
+                    yaw = 0
 
-                    #TUNNEL EXIT
-                    # self.waypoints.extend(range(175, 178))
-                    # self.waypoints.extend(range(8, 9))
-                    # self.waypoints.extend(range(2002, 2006))
-                    # self.waypoints.extend(range(1, 2))
-                    # self.waypoints.extend(range(150, 151))
-                    # self.waypoints.extend(range(18, 19))
-                    # self.waypoints.extend(range(13, 14))
-                    # self.waypoints.extend(range(148, 149))
-                    # self.waypoints.extend(range(91, 93))
-                    # self.waypoints.extend(range(178, 179))
-                    #TUNNEL ENTRY
-                    self.waypoints.extend(range(442, 444))
+                    if self.waypoints:
+                        self.waypoints.clear()
+
+                    self.waypoints.extend(range(263, 271))
+                    self.waypoints.extend(range(243, 258))
+                    self.waypoints.extend(range(54, 56))
+                    self.waypoints.extend(range(305, 318))
+                    self.waypoints.extend(range(332, 333))
+                    self.waypoints.extend(range(368, 398))
+
+                    self.waypoints.extend(range(337, 338))
+                    self.waypoints.extend(range(398, 402))
+                    self.waypoints.extend(range(483, 502))
+                    self.waypoints.extend(range(425, 444))
                     self.waypoints.extend(range(84, 85))
-                    # self.waypoints.extend(range(10001, 10002))
-                    # self.waypoints.extend(range(81, 82))
-                    self.waypoints.extend(range(165, 169))
-                    #TUNNEL PASS
-                    # self.waypoints.extend(range(178, 181))
-                    # self.waypoints.extend(range(80, 81))
-                    # self.waypoints.extend(range(83, 84))
-                    # self.waypoints.extend(range(406, 408))
+
+                    self.waypoints.extend(range(81, 82))
+                    self.waypoints.extend(range(165, 178))
+                    self.waypoints.extend(range(8, 9))
+
+
+                    self.waypoints.extend(range(2002, 2006))
+
+                    self.waypoints.extend(range(1, 2))
+                    self.waypoints.extend(range(150, 151))
+                    self.waypoints.extend(range(18, 19))
+                    self.waypoints.extend(range(13, 14))
+                    self.waypoints.extend(range(148, 149))
+                    self.waypoints.extend(range(91, 92))
+
+                    self.waypoints.extend(range(9000, 9001))
+                    self.waypoints.extend(range(92, 93))
+
+
+                    self.waypoints.extend(range(178, 181 ))
+                    self.waypoints.extend(range(80, 81))
+                    self.waypoints.extend(range(85, 86))
+                    self.waypoints.extend(range(83, 84))
+                    self.waypoints.extend(range(406, 424))
+                    self.waypoints.extend(range(502, 521))
+                    self.waypoints.extend(range(402, 405))
+                    self.waypoints.extend(range(341, 342))
+                    self.waypoints.extend(range(318, 331))
+                    self.waypoints.extend(range(65, 66))
+                    self.waypoints.extend(range(51, 52))
+                    self.waypoints.extend(range(258, 262))
+
 
                     if len(self.path):
                         self.path = np.array([])

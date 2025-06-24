@@ -601,8 +601,14 @@ class threadLaneDetection(ThreadWithStop):
 
                 if self.isOnHighway: 
                     margins = 30
+                    self.Kp = 0.11
+                    self.Kd = 0.19
+                    self.Ki = 0.01
                 else:
                     margins = 30
+                    self.Kp = 0.17
+                    self.Kd = 0.08
+                    self.Ki = 0.01
                 
                 frame_lines, original_frame = self.LANEFOL.sliding_window_search( thresh, frame_lines, margins )
 
