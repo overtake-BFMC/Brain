@@ -284,10 +284,12 @@ class threadLaneDetection(ThreadWithStop):
 
             self.isOnHighway = True
             self.warningSignalSender.send({"WarningName":"Highway Ahead", "WarningID": 6})
-        if boolDetections[4]:  #highwayExit
-            self.aproachingSign = True
+            #code by MS
+        if ( boolDetections[3] or boolDetections[4] ) and self.isOnHighway:  #highwayExit 
+            self.aproachingSign = True                                      #sta ako prepozna za redom par puta entry (prvi znak)
             self.aproachingSignID = 6
             #trafficComunicationID = 6 
+            desiredSpeed = 25
             self.isOnHighway = False
             self.warningSignalSender.send({"WarningName":"Highway Exit", "WarningID": 7})
         if boolDetections[9][0]: #pedestrian on road

@@ -111,6 +111,24 @@ class threadPathFollowing(ThreadWithStop):
         self.KFLocalization = kalmanFilterLocalization(dt = self.timeStep)
 
 
+        #code by MS
+        #white lines to be added to final run
+        # self.WhitelinePosition.append(( 1706.9, 205, np.deg2rad(90) )) #2
+        # self.WhitelinePosition.append(( 1646.8, 401.1, np.deg2rad(180) )) #3
+        # self.WhitelinePosition.append(( 1622.1, 932.7, np.deg2rad( 90) )) #4
+        # self.WhitelinePosition.append(( 1587.5, 1190.2, np.deg2rad( 270) )) #5
+        # self.WhitelinePosition.append(( 34.5, 1080.6, np.deg2rad( 270) )) #6
+        # self.WhitelinePosition.append(( 93.2, 951.1, np.deg2rad( 0) )) #7
+        # self.WhitelinePosition.append(( 475.6, 816.3, np.deg2rad( 2700) )) #8
+        # self.WhitelinePosition.append(( 339.4, 688.6, np.deg2rad( 180) )) #9
+        # self.WhitelinePosition.append(( 123.9, 688.6, np.deg2rad( 180) )) #10
+        # self.WhitelinePosition.append(( 71.9, 909.9, np.deg2rad( 90) )) #11
+        # self.WhitelinePosition.append(( 1499.6, 1039.4, np.deg2rad( 0) )) #12
+        # self.WhitelinePosition.append(( 1527.3, 451.7, np.deg2rad( 270) )) #13
+        # self.WhitelinePosition.append(( 1527.3, 294.2, np.deg2rad( 270) )) #14
+        # self.WhitelinePosition.append(( 1527.3, 143.5, np.deg2rad( 270) )) #15 NAPOMENA cilj je pre poslednje stop linije
+
+
 
         while self._running:
 
@@ -530,9 +548,11 @@ class threadPathFollowing(ThreadWithStop):
             if DataSenderCounter >= 12:
                 DataSenderCounter = 0
 
+                #code by MS
+                vehicleYawSendValue = ( vehicleYaw + 2 * np.pi ) % ( 2 * np.pi )  #realno pi = 6.283185307
                 ###DATA SENDIING
                 self.trafficCommInternalSender.send({"dataType": "devicePos", "vals": [vehicleX/1000, vehicleY/1000]})
-                self.trafficCommInternalSender.send({"dataType": "deviceRot", "vals": [np.rad2deg(vehicleYaw)]})
+                self.trafficCommInternalSender.send({"dataType": "deviceRot", "vals": [np.rad2deg(vehicleYawSendValue)]})
                 self.trafficCommInternalSender.send({"dataType": "deviceSpeed", "vals": [vehicleSpeed]})
 
 
@@ -579,6 +599,7 @@ class threadPathFollowing(ThreadWithStop):
                 self.vehicle.setStateSignal(stateSignalType.APROACHING_INTERSECTION, False)
                 self.startLaneDetectionSender.send("false")
 
+                
                 x, y, yaw = self.WhitelinePosition[whitelineCounter]
                 self.vehicle.setPosition(x, y, yaw)
                 # g1, g2, g3 = self.vehicle.getPosition()
