@@ -280,12 +280,19 @@ class threadLaneDetection(ThreadWithStop):
             self.aproachingSign = True
             self.aproachingSignID = 5
             #trafficComunicationID = 5 
+            if not timer[3][0]:
+                timer[3][0] = 1
+                timer[3][1] = time.perf_counter()
+                timer[3][2] = 6.0
+            elif not timer[3][0] and self.isOnHighway:
+                self.isOnHighway  = False
+
             desiredSpeed = 40
 
             self.isOnHighway = True
             self.warningSignalSender.send({"WarningName":"Highway Ahead", "WarningID": 6})
             #code by MS
-        if ( boolDetections[3] or boolDetections[4] ) and self.isOnHighway:  #highwayExit 
+        if boolDetections[4] and self.isOnHighway:  #highwayExit 
             self.aproachingSign = True                                      #sta ako prepozna za redom par puta entry (prvi znak)
             self.aproachingSignID = 6
             #trafficComunicationID = 6 
@@ -453,6 +460,13 @@ class threadLaneDetection(ThreadWithStop):
                 timer[2][2] = 0
                 self.LANEFOL.crosswalk_active = False
 
+        if timer[3][0]:
+            elapsed = time.perf_counter() - timer[3][1]
+            if elapsed >= timer[3][2]:
+                timer[3][0] = 0
+                timer[3][1] = 0
+                timer[3][2] = 0
+
         if not self.atSign and self.aproachingSign and self.distanceR < 25 and self.aproachingSignID is not None:
             #At sign flag should be while distanceR is less than 25 to not have duplicate sendings
             x, y, yaw = self.vehicleState.getPosition()
@@ -512,10 +526,11 @@ class threadLaneDetection(ThreadWithStop):
         bufferDetections[9] = [0] * 2
         bufferDetections[12] = [0] * 2
         #[isTimerOn, startTime, targetTime]
-        timer = [0] * 3
+        timer = [0] * 4
         timer[0] = [0.0] * 3
         timer[1] = [0.0] * 3
         timer[2] = [0.0] * 3
+        timer[3] = [0.0] * 3
 
         #distanceF = 99
 

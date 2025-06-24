@@ -82,6 +82,8 @@ class threadPathFollowing(ThreadWithStop):
         self.max_intersection_angle = False
 
 
+        self.isRampOrTunnel = False
+
         super(threadPathFollowing, self).__init__()
 
     def init_vehicleState(self):
@@ -555,6 +557,9 @@ class threadPathFollowing(ThreadWithStop):
                 self.trafficCommInternalSender.send({"dataType": "deviceRot", "vals": [np.rad2deg(vehicleYawSendValue)]})
                 self.trafficCommInternalSender.send({"dataType": "deviceSpeed", "vals": [vehicleSpeed]})
 
+            if self.isRampOrTunnel:
+                self.trafficCommInternalSender.send({"dataType": "historyData", "vals": [16, vehicleX/1000, vehicleY/1000]})
+                self.isRampOrTunnel = False
 
             self.resetLookAheadDistance()
 
