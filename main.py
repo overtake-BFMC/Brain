@@ -82,7 +82,6 @@ queueList = {
     "General": Queue(),
     "ShMemConfig": Queue(),
     "Config": Queue(),
-    "Video" : Queue(),
 }
 logger = logging.getLogger()
 #loggingQueue = Queue()
